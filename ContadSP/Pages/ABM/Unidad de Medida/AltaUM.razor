@@ -1,0 +1,48 @@
+﻿@page "/altaUM"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@inject IRepositorio<UnidadMedida> repositorioUnidadMedida
+@inject IJSRuntime JSRuntime
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3>Nueva Unidad de Medida</h3>
+                </div>
+                <div class="card-body">
+                    <EditForm Model="@unidadMedida" OnValidSubmit="HandleValidSubmit">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+
+                        <div class="form-group">
+                            <label for="unidad">Unidad de medida:</label>
+                            <InputText id="unidad" class="form-control form-control-sm" @bind-Value="unidadMedida.unidad" maxlength="30" required />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-sm boton-guardar">Guardar</button>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private UnidadMedida unidadMedida = new UnidadMedida();
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            await repositorioUnidadMedida.Agregar(unidadMedida);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La unidad de medida se guardó correctamente", "success");
+            unidadMedida = new UnidadMedida();
+        }
+        catch (Exception e)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Ocurrió un error al guardar la unidad de medida", "error");
+        }
+    }
+}

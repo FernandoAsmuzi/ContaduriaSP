@@ -1,0 +1,139 @@
+﻿@page "/altaArticulo"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@inject IRepositorio<Articulo> repositorioArticulo
+@inject IRepositorio<Categoria> repositorioCategoria
+@inject IJSRuntime JSRuntime
+@inject IWebHostEnvironment Environment
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3>Nuevo Artículo</h3>
+                </div>
+                <div class="card-body">
+                    <EditForm Model="@articulo" OnValidSubmit="HandleValidSubmit">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+
+                        @if (categorias == null)
+                        {
+                            <p>Cargando...</p>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <label for="categoria">Categoría:</label>
+                                <InputSelect id="categoria" class="form-control" @bind-Value="articulo.categoria_id" required>
+                                    <option value="">Selecciona una categoría</option>
+                                    @foreach (var categoria in categorias)
+                                    {
+                                        <option value="@categoria.id">@categoria.categoria</option>
+                                    }
+                                </InputSelect>
+                            </div>
+                        }
+
+                        <div class="form-group">
+                            <label for="descripcion">Descripción:</label>
+                            <InputText id="descripcion" class="form-control" @bind-Value="articulo.descripcion" maxlength="60" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="montoAprox">Monto Aproximado:</label>
+                            <InputNumber id="montoAprox" class="form-control" @bind-Value="articulo.monto_aprox" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fechaUltimoMonto">Fecha Último Monto:</label>
+                            <InputDate id="fechaUltimoMonto" class="form-control" @bind-Value="articulo.fecha_ultimo_monto" required />
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label for="foto">Foto:</label>
+                            <InputFile id="foto" class="form-control-file" OnChange="OnInputFileChange" />
+                        </div>
+
+                        <div class="boton-guardar">
+                            <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+                        </div>
+
+                    </EditForm>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private Articulo articulo = new Articulo();
+    private IEnumerable<Categoria> categorias = new List<Categoria>();
+    private IBrowserFile selectedFile;
+
+    protected override async Task OnInitializedAsync()
+    {
+        categorias = (await repositorioCategoria.ObtenerTodo()).ToList();
+    }
+
+    private async Task OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        if (file == null || file.Size == 0)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "No se seleccionó imagen", "error");
+            return;
+        }
+
+        // Guardar el archivo seleccionado en la variable
+        selectedFile = file;
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        if (selectedFile != null)
+        {
+            var path = Path.Combine(Environment.WebRootPath, "fotos1", selectedFile.Name);
+
+
+            // Verificar y crear el directorio si no existe
+            var directory = Path.GetDirectoryName(path);
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            // Guardar el archivo
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await selectedFile.OpenReadStream().CopyToAsync(stream);
+            }
+
+            if (File.Exists(path))
+            {
+                // Aquí es donde se guarda la ruta en la base de datos
+                articulo.foto = path;
+            }
+            else
+            {
+                await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Hubo un error al guardar la foto", "error");
+            }
+        }
+
+        try
+        {
+            // Aquí es donde se guardaría el artículo en la base de datos
+            await repositorioArticulo.Agregar(articulo);
+            articulo = new Articulo();
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El artículo se guardó correctamente", "success");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Hubo un error al guardar el artículo", "error");
+        }
+    }
+}

@@ -1,0 +1,94 @@
+﻿@page "/altaProveedor"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@inject IRepositorio<Proveedor> repositorioProveedor
+@inject IRepositorio<SitFiscal> repositorioSitFiscal
+@inject IJSRuntime JSRuntime
+
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3>Nuevo Proveedor</h3>
+                </div>
+                <div class="card-body">
+                    <EditForm Model="@proveedor" OnValidSubmit="HandleValidSubmit">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <InputText id="nombre" class="form-control" @bind-Value="proveedor.nombre" maxlength="60" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nombre">Nombre comercial:</label>
+                            <InputText id="nombre_comercial" class="form-control" @bind-Value="proveedor.nombre_comercial" maxlength="60" required />
+                        </div>
+                                                                       
+                        <div class="form-group">
+                            <label for="direccion">Dirección:</label>
+                            <InputText id="direccion" class="form-control" @bind-Value="proveedor.direccion" maxlength="60" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono:</label>
+                            <InputText id="telefono" class="form-control" @bind-Value="proveedor.telefono" maxlength="60" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <InputText id="email" class="form-control" @bind-Value="proveedor.email" maxlength="60" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sitFiscal_id">Situación fiscal:</label>
+                            <InputSelect id="sitFiscal" class="form-control" @bind-Value="proveedor.sit_fiscal_id" required>
+                                <option value="">Selecciona una situación fiscal</option>
+                                @foreach (var sitFis in sitFiscales)
+                                {
+                                    <option value="@sitFis.id">@sitFis.sit_fiscal</option>
+                                }
+                            </InputSelect>
+                        </div>
+
+                        <div class="boton-guardar">
+                            <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+                        </div>
+
+                    </EditForm>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private List<SitFiscal> sitFiscales = new List<SitFiscal>();
+    private Proveedor proveedor = new Proveedor();
+
+    protected override async Task OnInitializedAsync()
+    {
+        sitFiscales = (await repositorioSitFiscal.ObtenerTodo()).ToList();
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            // Aquí es donde se guarda el proveedor en la base de datos
+            await repositorioProveedor.Agregar(proveedor);
+            proveedor = new Proveedor();
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El proveedor se guardó correctamente", "success");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Hubo un error al guardar el proveedor", "error");
+        }
+    }
+}

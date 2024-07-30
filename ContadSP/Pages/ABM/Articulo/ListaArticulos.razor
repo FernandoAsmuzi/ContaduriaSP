@@ -1,0 +1,90 @@
+﻿@page "/listaArticulos"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@inject IRepositorio<Articulo> repositorioArticulo
+@inject IJSRuntime JSRuntime
+@using Radzen
+@using Radzen.Blazor
+@inject DialogService DialogService
+
+
+<div class="d-flex justify-content-center align-items-center">
+    <h1 class="mr-3">Lista de Artículos</h1>
+    <img src="/fotos1/logopodjud.png" />
+    <br />
+</div>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <RadzenGrid AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" Data="@articulos" TItem="Articulo">
+                <Columns>
+                    <RadzenGridColumn TItem="Articulo" Property="descripcion" Title="Descripción" />
+                    <RadzenGridColumn TItem="Articulo" Property="monto_aprox" Title="Monto Aproximado" />
+                    <RadzenGridColumn TItem="Articulo" Property="fecha_ultimo_monto" Title="Fecha Último Monto" />
+                    <RadzenGridColumn TItem="Articulo" Property="Categoria.categoria" Title="Categoría" />
+                    <RadzenGridColumn TItem="Articulo" Context="articulo">
+                        <Template Context="articulo">
+                            @{
+                                if (!string.IsNullOrEmpty(articulo.foto))
+                                {
+                                    var fileName = Path.GetFileName(articulo.foto);
+                                    <img src="@($"/fotos1/{fileName}")" alt="Foto del artículo" width="100" @onclick="@( () => ShowInlineDialog("/fotos1/" + fileName, articulo.descripcion))" />
+                                }
+                                else
+                                {
+                                    <p>No hay foto disponible</p>
+                                }
+                            }
+                        </Template>
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Articulo" Context="articulo">
+                        <Template Context="articulo">
+                            <NavLink class="btn btn-primary" href="@($"editarArticulo/{articulo.id}")">Editar</NavLink>
+                            <RadzenButton Text="Eliminar" Click="@(args => Eliminar(articulo.id))" ButtonStyle="Radzen.ButtonStyle.Danger" />
+                        </Template>
+                    </RadzenGridColumn>
+                </Columns>
+            </RadzenGrid>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private List<Articulo> articulos = new List<Articulo>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        articulos = (await repositorioArticulo.ObtenerArticulos()).ToList();
+    }
+
+    private async Task Eliminar(int id)
+    {
+        try
+        {
+            await repositorioArticulo.Eliminar(id);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El artículo se eliminó correctamente", "success");
+            articulos = (await repositorioArticulo.ObtenerTodo()).ToList();
+        }
+        catch (Exception)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Ocurrió un error al eliminar el artículo", "error");
+        }
+    }
+
+    async Task ShowInlineDialog(string foto, string desc)
+    {
+        var result = await DialogService.OpenAsync(desc, ds =>
+        @<RadzenStack Gap="1.5rem">
+            <RadzenStack AlignItems="AlignItems.Center" Class="rz-mx-auto rz-my-12">
+                <RadzenImage Path="@foto" Style="max-width:100%" AlternateText="community" />
+            </RadzenStack> 
+        </RadzenStack>);
+    }
+
+    // Boton para cerrar el dialog de la imagen, copiar dentro del RadzenStack
+    // <RadzenStack Orientation="Orientation.Horizontal">
+    //     <RadzenButton Text="Cerrar" Click="() => ds.Close(false)" ButtonStyle="ButtonStyle.Light" />
+    // </RadzenStack>
+}

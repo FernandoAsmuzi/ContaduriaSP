@@ -1,0 +1,57 @@
+﻿@page "/altaCategoria"
+@using ContadSP.Models  <!-- Importa los modelos -->
+@using ContadSP.Repositorios  <!-- Importa los repositorios -->
+@using Microsoft.JSInterop;
+@using Radzen
+@using Radzen.Blazor
+@using System.IO
+@using static System.Net.WebRequestMethods
+@inject IRepositorio<Categoria> repositorioCategoria
+@inject IJSRuntime JSRuntime
+
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                     <h3>Agregar Categoria</h3>
+                </div>
+                <div class="card-body">
+                    <EditForm Model="@categoria" OnValidSubmit="HandleValidSubmit">
+                         <DataAnnotationsValidator />  <!-- Validador para las anotaciones de datos del modelo -->
+                         <ValidationSummary />  <!-- Resumen de validación para mostrar errores -->
+                         <!-- Grupo de formulario para la entrada de la categoría -->
+                         <div class="form-group">
+                             <label for="categoria">Categoria:</label>
+                             <!-- Campo de entrada de texto para la categoría, vinculado al modelo de categoría -->
+                             <InputText id="categoria" class="form-control form-control-sm" @bind-Value="categoria.categoria" maxlength="40" required />
+                         </div>
+                         <!-- Botón para enviar el formulario -->
+                         <button type="submit" class="btn btn-primary btn-sm boton-guardar">Guardar</button>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private Categoria categoria = new Categoria();
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            await repositorioCategoria.Agregar(categoria);
+            categoria = new Categoria();
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La categoría se guardó correctamente", "success");
+        }
+        catch (Exception e)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Ocurrió un error al guardar la categoría", "error");
+        }
+        
+    }
+}

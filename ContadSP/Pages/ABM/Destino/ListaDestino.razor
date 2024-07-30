@@ -1,0 +1,53 @@
+﻿@page "/listaDestinos"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@inject IRepositorio<Destino> repositorioDestino
+@inject IJSRuntime JSRuntime
+@using Radzen.Blazor
+
+<div class="d-flex justify-content-center align-items-center">
+    <h1 class="mr-3">Listado de Destinos</h1>
+    <img src="/fotos1/logopodjud.png" />
+    <br />
+</div>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <RadzenGrid AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" Data="@destinos" TItem="Destino">
+                <Columns>
+                    <RadzenGridColumn TItem="Destino" Property="destino" Title="Destino" />
+                    <RadzenGridColumn TItem="Destino" Context="destino">
+                        <Template Context="destino">
+                            <NavLink class="btn btn-primary" href="@($"editarDestino/{destino.id}")">Editar</NavLink>
+                            <RadzenButton Text="Eliminar" Click="@(args => Eliminar(destino.id))" ButtonStyle="Radzen.ButtonStyle.Danger" />
+                        </Template>
+                    </RadzenGridColumn>
+                </Columns>
+            </RadzenGrid>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Destino> destinos = new List<Destino>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        destinos = (await repositorioDestino.ObtenerTodo()).ToList();
+    }
+
+    private async Task Eliminar(int id)
+    {
+        try
+        {
+            await repositorioDestino.Eliminar(id);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El destino se eliminó correctamente", "success");
+            destinos = (await repositorioDestino.ObtenerTodo()).ToList();
+        }
+        catch (Exception e)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Ocurrió un error al eliminar el destino", "error");
+        }
+    }
+}

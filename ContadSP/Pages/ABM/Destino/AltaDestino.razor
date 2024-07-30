@@ -1,0 +1,46 @@
+﻿@page "/altaDestino"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@inject IRepositorio<Destino> repositorioDestino
+@inject IJSRuntime JSRuntime
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3>Nuevo Destino</h3>
+                </div>
+                <div class="card-body">
+                    <EditForm Model="@destino" OnValidSubmit="HandleValidSubmit">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+                        <div class="form-group">
+                            <label for="destino">Destino:</label>
+                            <InputText id="destino" class="form-control form-control-sm" @bind-Value="destino.destino" maxlength="50" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm boton-guardar">Guardar</button>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private Destino destino = new Destino();
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            await repositorioDestino.Agregar(destino);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El destino se guardó correctamente", "success");
+            destino = new Destino();
+        }
+        catch (Exception e)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Ocurrió un error al guardar el destino", "error");
+        }
+    }
+}

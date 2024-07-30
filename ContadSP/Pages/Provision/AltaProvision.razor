@@ -1,0 +1,333 @@
+﻿@page "/altaProvision"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@using ContadSP.Controllers
+@using System.Text.Json
+
+@using Radzen
+@using Radzen.Blazor
+@inject DialogService DialogService
+@inject IRepositorio<Provision> repositorioProvision
+@inject IRepositorio<Destino> repositorioDestino
+@inject IRepositorio<Proceso> repositorioProceso
+@inject IRepositorio<UnidadMedida> repositorioUM
+@inject IRepositorio<TipoPedido> repositorioTipoPedido
+@inject IRepositorio<Articulo> repositorioArticulo
+@inject IRepositorio<DetalleProvision> repositorioDetalleProvision
+@inject IRepositorio<Usuario> repositorioUsuario
+@inject IRepositorio<Proveedor> repositorioProveedor
+@inject IJSRuntime JSRuntime
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="text-center">Realizar Pedido de Provisión</h3>
+                </div>
+                <div class="card-body">
+                    <EditForm Model="@provision" class="formProvision" OnValidSubmit="HandleValidSubmit">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="fecha">Fecha:</label>
+                                    <InputDate id="fecha" class="form-control" @bind-Value="provision.fecha_provision" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="destino">Destino:</label>
+                                    <select class="form-select" id="destino" @bind="provision.destino_id" required>
+                                        <option value="">Seleccione destino</option>
+                                        @foreach (var destino in destinos)
+                                        {
+                                            <option value="@destino.id">@destino.destino</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="tipoProvision">Tipo de Provisión:</label>
+                                <select class="form-select" id="tipoProvision" @bind="provision.tipo_pedido_id" required>
+                                    <option value="">Seleccione tipo de provision</option>
+                                    @foreach (var tipo in tiposPedido)
+                                    {
+                                        <option value="@tipo.id">@tipo.tipo</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descripcion">Descripción:</label>
+                            <InputTextArea id="descripcion" class="form-control" @bind-Value="provision.descripcion" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="usuario">Usuario:</label>
+                            @* <InputNumber id="usuario" class="form-control" @bind-Value="provision.usuario_id" required readonly/> *@
+                            <select class="form-select" id="tipoProvision" @bind="provision.usuario_id" required>
+                                <option value="">Seleccione usuario</option>
+                                @foreach (var usuario in usuarios)
+                                {
+                                    <option value="@usuario.id">@usuario.nombre_usuario</option>
+                                }
+                            </select>
+                        </div>
+                        <br />
+                        @if (listaArticulos.Count() == 0)
+                        {
+                            <p><em>No se agregó ningun artículo a la provisión</em></p>
+                        }
+                        else
+                        {
+                            <div style="overflow: auto;">
+                                @{
+                                    var index = 0;
+                                }
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Artículo</th>
+                                            <th>ID Art.</th>
+                                            <th>Monto aproximado</th>
+                                            <th>Monto letra</th>
+                                            <th>Cantidad</th>
+                                            <th>Unidad de medida</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var itemWithIndex in listaDetalleProvision.Select((item, i) => new { Item = item, Index = i }))
+                                        {
+                                            var item = itemWithIndex.Item;
+                                            
+                                            var currentIndex = itemWithIndex.Index;
+                                            <tr>
+                                                <td class="ancho-30">@listaArticulos[currentIndex].descripcion</td>
+                                                <td>@listaArticulos[currentIndex].id</td>
+                                                <td>@listaArticulos[currentIndex].monto_aprox</td>
+                                                <td class="ancho-40">@UpdateCantidadLetra(new ChangeEventArgs { Value = @listaArticulos[currentIndex].monto_aprox })</td>
+                                                <td class="ancho-5"><input style="width: 100%;" type="number" @bind-value="item.cantidad" required></td>
+
+                                                <td class="ancho-40">
+                                                    <select style="width: 100%;" class="form-select" @bind="item.unidad_id" required>
+                                                        <option value="">Seleccione unidad de medida</option>
+                                                        @foreach (var um in unidadesMedida)
+                                                        {
+                                                            <option value="@um.id">@um.unidad</option>
+                                                        }
+                                                    </select>
+                                                </td>
+                                                <td><button type="button" class="btn btn-danger" title="Eliminar artículo de la provisión" @onclick="() => EliminarArticulo(currentIndex)"><i class="oi oi-trash"></i></button></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        <br />
+                        
+                        <br/>
+                        <div class="btn-opciones">
+                            <button type="submit" class="btn btn-primary">Generar Provisión</button>
+                            <button type="button" class="btn btn-danger" style="margin-left: 5px;" @onclick="() => LimpiarProvision()">Cancelar</button>
+                        </div>
+                        <br />
+                    </EditForm>
+                </div>
+            
+            </div>
+            <br />
+            <br />
+            <div class="btn-opciones">
+                <div class="input-busqueda">
+                    <input type="text" class="form-control" placeholder="Buscar artículos" @bind-value="busqueda" />
+                </div>
+                <div class="boton-busqueda">
+                    <button type="button" class="btn btn-primary" @onclick="() => BuscarArticulos(busqueda)"><i class="oi oi-magnifying-glass"></i></button>
+                </div>
+                <div class="boton-ver">
+                    <button type="button" class="btn btn-primary" @onclick="() => VerArticulos()">Ver Todos</button>
+                </div>
+            </div>
+            <br />
+            <br />
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            @if (articulos == null)
+            {
+                <p><em>No se encontraron artículos</em></p>
+            }
+            else
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id de artículo</th>
+                            <th>Artículo</th>
+                            <th>Monto Aprox.</th>
+                            <th>Última Fecha de Monto</th>
+                            <th>Categoría</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var articulo in articulos.ToList())
+                        {
+                            <tr>
+                                <td>@articulo.id</td>
+                                <td>@articulo.descripcion</td>
+                                <td>@articulo.monto_aprox</td>
+                                <td>@articulo.fecha_ultimo_monto</td>
+                                <td>@(articulo.Categoria != null ? articulo.Categoria.categoria : "Sin categoría")</td>
+                                <td>
+                                    @if (ControlarRepetido(articulo))
+                                    {
+                                        <button class="btn btn-success" @onclick="() => AgregarArticulos(articulo)">Agregar</button>
+                                    }
+                                    else
+                                    {
+                                        <button class="btn btn-secondary" disabled>Agregado</button>
+                                    }
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+    private List<Articulo> articulos = new List<Articulo>(); // lista de articulos a buscar
+    private List<UnidadMedida> unidadesMedida = new List<UnidadMedida>();
+    private List<Destino> destinos = new List<Destino>();
+    private List<TipoPedido> tiposPedido = new List<TipoPedido>();
+    private List<Articulo> listaArticulos = new List<Articulo>(); // lista de articulos a agregar
+    private List<DetalleProvision> listaDetalleProvision = new List<DetalleProvision>(); // lista donde se va cargando el detalle
+    private List<Usuario> usuarios = new List<Usuario>();
+
+    private Provision provision = new Provision();
+    private DetalleProvision detalleProvision = new DetalleProvision();
+    private Proceso proceso = new Proceso();
+
+    private string busqueda = "";
+    private int tipoId;
+    private int procesoId;
+    private double sub;
+    private string? subLetra;
+
+    protected override async Task OnInitializedAsync()
+    {
+        unidadesMedida = (await repositorioUM.ObtenerTodo()).ToList();
+        destinos = (await repositorioDestino.ObtenerTodo()).ToList();
+        tiposPedido = (await repositorioTipoPedido.ObtenerTodo()).ToList();
+        usuarios = (await repositorioUsuario.ObtenerTodo()).ToList();
+    }
+
+    /* --PROCEDIMIENTO BUSQUEDA DE ARTICULOS POR NOMBRE-- */
+    private async Task BuscarArticulos(string search)
+    {
+        articulos = (await repositorioArticulo.Buscar(search)).ToList();
+    }
+
+    /* --PROCEDIMIENTO PARA VER TODOS LOS ARTICULOS-- */
+    private async Task VerArticulos()
+    {
+        articulos = (await repositorioArticulo.ObtenerArticulos()).ToList();
+    }
+
+    /* --FUNCION PARA CONVERTIR NUMERO A LETRAS-- */
+    // RECIBE CHANGEEVENT COMO PARAMETRO Y DEVUELVE UN STRING
+    private string UpdateCantidadLetra(ChangeEventArgs e) 
+    {                                                    
+        if (int.TryParse(e.Value.ToString(), out var num))
+            return ConversorNumeroLetra.NumeroALetras(num);
+        else
+            return "";
+    }
+
+    //--PROCEDIMIENTO PARA AGREGAR ARTICULO A LA LISTA DE ARTICULOS AGREGADOS--
+    private void AgregarArticulos(Articulo articulo) 
+    {
+        listaArticulos.Add(articulo);
+        detalleProvision = new DetalleProvision();
+        detalleProvision.articulo_id = articulo.id;
+        listaDetalleProvision.Add(detalleProvision);
+    }
+
+    //--PROCEDIMIENO PARA ELIMINAR ARTICULO DE LA LISTA DE ARTICULOS AGREGADOS--
+    private void EliminarArticulo(int index) 
+    {
+        listaArticulos.RemoveAt(index);
+        listaDetalleProvision.RemoveAt(index);
+    }
+
+    //--PROCEDIMIENTO PARA LIMPIAR EL FORMULARIO DE PROVISION Y LAS LISTAS--
+    private void LimpiarProvision() 
+    {
+        listaDetalleProvision.Clear();
+        listaArticulos.Clear();
+
+        detalleProvision = new DetalleProvision();
+        provision = new Provision();
+        proceso = new Proceso();
+    }
+
+    //--PROCEDIMIENTO PARA CONTROLAR QUE NO SE REPITA EL ARTICULO EN LA LISTA DE ARTICULOS AGREGADOS--
+    private bool ControlarRepetido(Articulo articulo)
+    {
+        var result = true;
+        foreach (var item in listaDetalleProvision)
+        {
+            if (item.articulo_id == articulo.id)
+            {
+                result = false;
+            }
+        }
+        return result;
+    }
+
+    private async Task HandleValidSubmit() //--PROCEDIMIENTO PARA AGREGAR PROVISION Y DETALLE PROVISION A LA BASE DE DATOS--
+    {
+        if (listaDetalleProvision.Count() != 0) //--CONTROLA SI LA LISTA DE DETALLE NO ESTA VACIA (SI EXISTEN ARTICULOS PARA LA PROVISION)--
+        {
+            provision.estado_id = 1;
+            await repositorioProvision.Agregar(provision);
+            var lastId = await repositorioProvision.ObtenerUltimaProvision(); //--OBTIENE EL ULTIMO ID DE PROVISION AGREGADO PARA DETALLE PROVISION--
+
+            foreach (var detalle in listaDetalleProvision) //--RECORRE LA LISTA DE DETALLE Y AGREGA EL DETALLE PROVISION A LA BASE DE DATOS--
+            {
+                 detalleProvision = new DetalleProvision();
+                 detalleProvision.cantidad = detalle.cantidad;
+                 detalleProvision.articulo_id = detalle.articulo_id;
+                 detalleProvision.provision_id = lastId;
+                 detalleProvision.unidad_id = detalle.unidad_id;
+
+                 await repositorioDetalleProvision.Agregar(detalleProvision);
+            }
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se guardó correctamente", "success");
+            LimpiarProvision();
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Debe agregar al menos un artículo a la provisión", "error");
+        }
+    }
+}

@@ -1,0 +1,66 @@
+﻿@page "/editarCategoria/{id}"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@inject IRepositorio<Categoria> repositorioCategoria
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3>Editar Categoria</h3>
+                </div>
+                <div class="card-body">
+                    @if (categoria == null)
+                    {
+                        <p><em>Cargando...</em></p>
+                    }
+                    else
+                    {
+                        <EditForm Model="@categoria" OnValidSubmit="HandleValidSubmit">
+                            <DataAnnotationsValidator />
+                            <ValidationSummary />
+
+                            <div class="form-group">
+                                <label for="categoria">Categoria:</label>
+                                <InputText id="categoria" class="form-control col-md-6" @bind-Value="categoria.categoria" maxlength="40" required />
+                            </div>
+                            <div class="botones-editar">
+                                <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+                                <a href="listaCategorias" class="btn btn-danger btn-sm">Cancelar</a>
+                            </div>
+                        </EditForm>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string id { get; set; }
+
+    private Categoria categoria = new Categoria();
+
+    protected override async Task OnInitializedAsync()
+    {
+        categoria = await repositorioCategoria.ObtenerPorId(int.Parse(id));
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            await repositorioCategoria.Actualizar(categoria);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La categoría se actualizó correctamente", "success");
+            NavigationManager.NavigateTo("/listaCategorias");
+        }
+        catch (Exception e)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Ocurrió un error al actualizar la categoría", "error");
+        }
+    }
+}

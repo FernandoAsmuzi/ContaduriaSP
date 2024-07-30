@@ -1,0 +1,126 @@
+﻿@page "/editarArticulo/{id}"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@using Microsoft.AspNetCore.Components.Forms
+@inject IRepositorio<Articulo> repositorioArticulos
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3>Editar Artículo</h3>
+                </div>
+                <div class="card-body">
+                    <EditForm Model="@articulo" OnValidSubmit="HandleValidSubmit">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+
+                        <div class="form-group">
+                            <label for="descripcion">Descripción:</label>
+                            <InputText id="descripcion" class="form-control" @bind-Value="articulo.descripcion" maxlength="60" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="monto_aprox">Monto Aproximado:</label>
+                            <InputNumber id="monto_aprox" class="form-control" @bind-Value="articulo.monto_aprox" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fecha_ultimo_monto">Fecha Último Monto:</label>
+                            <InputDate id="fecha_ultimo_monto" class="form-control" @bind-Value="articulo.fecha_ultimo_monto" requuired />
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            @if (!string.IsNullOrEmpty(articulo.foto))
+                            {
+                                <label>Foto actual: </label>
+                                var fileName = Path.GetFileName(articulo.foto);
+                                <img src="@($"/fotos1/{fileName}")" alt="Foto del artículo" width="100" />
+                                <br>
+                                <label for="foto">Cambiar foto:</label>
+                            }
+                            else
+                            {
+                                <p>No hay foto disponible</p>
+                                <label for="foto">Foto:</label>
+                            }
+                            <br>
+                            <InputFile id="foto" class="form-control-file" OnChange="OnInputFileChange" />
+                        </div>
+                        <div class="botones-editar">
+                            <button type="submit" class="btn btn-primary btn-sm">Guardar cambios</button>
+                            <a href="listaArticulos" class="btn btn-danger btn-sm">Cancelar</a>
+                        </div>
+
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string id { get; set; }
+
+    private Articulo articulo = new Articulo();
+    private IBrowserFile selectedFile;
+
+    protected override async Task OnInitializedAsync()
+    {
+        articulo = await repositorioArticulos.ObtenerPorId(int.Parse(id));
+    }
+
+    private async Task OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        if (file == null || file.Size == 0)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "No se seleccionó imagen", "error");
+            return;
+        }
+
+        // Guardar el archivo seleccionado en la variable
+        selectedFile = file;
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        if (selectedFile != null)
+        {
+            var path = Path.Combine("C:\\fotos1", selectedFile.Name);
+
+            // Verificar y crear el directorio si no existe
+            var directory = Path.GetDirectoryName(path);
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            // Guardar el archivo
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await selectedFile.OpenReadStream().CopyToAsync(stream);
+            }
+
+            if (File.Exists(path))
+            {
+                articulo.foto = path;
+            }
+        }
+
+        try
+        {
+            await repositorioArticulos.Actualizar(articulo);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El artículo se actualizó correctamente", "success");
+            NavigationManager.NavigateTo("/listaArticulos");
+        }
+        catch (Exception ex)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Ocurrió un error al actualizar el artículo", "error");
+        }
+    }
+}

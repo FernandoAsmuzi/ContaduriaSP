@@ -1,0 +1,53 @@
+﻿@page "/listaCategorias"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@inject IRepositorio<Categoria> repositorioCategoria
+@inject IJSRuntime JSRuntime
+@using Radzen.Blazor
+
+<div class="d-flex justify-content-center align-items-center">
+    <h1 class="mr-3">Listado de Categorías</h1>
+    <img src="/fotos1/logopodjud.png" />
+    <br />
+</div>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <RadzenGrid AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" Data="@categorias" TItem="Categoria">
+                <Columns>
+                    <RadzenGridColumn TItem="Categoria" Property="categoria" Title="Categoría" />
+                    <RadzenGridColumn TItem="Categoria" Context="categoria">
+                        <Template Context="categoria">
+                            <NavLink class="btn btn-primary" href="@($"editarCategoria/{categoria.id}")">Editar</NavLink>
+                            <RadzenButton Text="Eliminar" Click="@(args => Eliminar(categoria.id))" ButtonStyle="Radzen.ButtonStyle.Danger" />
+                        </Template>
+                    </RadzenGridColumn>
+                </Columns>
+            </RadzenGrid>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Categoria> categorias = new List<Categoria>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        categorias = (await repositorioCategoria.ObtenerTodo()).ToList();
+    }
+
+    private async Task Eliminar(int id)
+    {
+        try
+        {
+            await repositorioCategoria.Eliminar(id);
+            categorias = (await repositorioCategoria.ObtenerTodo()).ToList();
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La categoría se eliminó correctamente", "success");
+        }
+        catch (Exception e)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Ocurrió un error al eliminar la categoría", "error");
+        }
+    }
+}

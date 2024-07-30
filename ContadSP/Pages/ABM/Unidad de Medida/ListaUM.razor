@@ -1,0 +1,52 @@
+﻿@page "/listaUM"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@inject IRepositorio<UnidadMedida> repositorioUnidadMedida
+@inject IJSRuntime JSRuntime
+@using Radzen.Blazor
+
+<div class="d-flex justify-content-center align-items-center">
+    <h1 class="mr-3">Listado de Unidades de Medida</h1>
+    <img src="/fotos1/logopodjud.png" />
+    <br />
+</div>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <RadzenGrid AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" Data="@unidadesMedida" TItem="UnidadMedida">
+                <Columns>
+                    <RadzenGridColumn TItem="UnidadMedida" Property="unidad" Title="Unidades de medida" />
+                    <RadzenGridColumn TItem="UnidadMedida" Context="unidadMedida">
+                        <Template Context="unidadMedida">
+                            <NavLink class="btn btn-primary" href="@($"editarUM/{unidadMedida.id}")">Editar</NavLink>
+                            <RadzenButton Text="Eliminar" Click="@(args => Eliminar(unidadMedida.id))" ButtonStyle="Radzen.ButtonStyle.Danger" />
+                        </Template>
+                    </RadzenGridColumn>
+                </Columns>
+            </RadzenGrid>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<UnidadMedida> unidadesMedida = new List<UnidadMedida>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        unidadesMedida = (await repositorioUnidadMedida.ObtenerTodo()).ToList();
+    }
+
+    private async Task Eliminar(int id)
+    {
+        try
+        {
+            await repositorioUnidadMedida.Eliminar(id);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La unidad de medida se eliminó correctamente", "success");
+            unidadesMedida = (await repositorioUnidadMedida.ObtenerTodo()).ToList();
+        }
+        catch (Exception e)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Ocurrió un error al eliminar la unidad de medida", "error");
+        }
+    }
+}

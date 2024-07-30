@@ -1,0 +1,52 @@
+﻿@page "/listaSitFiscal"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@inject IRepositorio<SitFiscal> repositorioSitFiscal
+@inject IJSRuntime JSRuntime
+@using Radzen.Blazor
+
+<div class="d-flex justify-content-center align-items-center">
+    <h1 class="mr-3">Listado de Situaciones Fiscales</h1>
+    <br />
+</div>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <RadzenGrid AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" Data="@situacionesFiscales" TItem="SitFiscal">
+                <Columns>
+                    <RadzenGridColumn TItem="SitFiscal" Property="sit_fiscal" Title="Situación Fiscal" />
+                    <RadzenGridColumn TItem="SitFiscal" Context="sitFiscal">
+                        <Template Context="sitFiscal">
+                            <NavLink class="btn btn-primary" href="@($"editarSitFiscal/{sitFiscal.id}")">Editar</NavLink>
+                            <RadzenButton Text="Eliminar" Click="@(args => Eliminar(sitFiscal.id))" ButtonStyle="Radzen.ButtonStyle.Danger" />
+                        </Template>
+                    </RadzenGridColumn>
+                </Columns>
+            </RadzenGrid>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<SitFiscal> situacionesFiscales = new List<SitFiscal>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        situacionesFiscales = (await repositorioSitFiscal.ObtenerTodo()).ToList();
+    }
+
+    private async Task Eliminar(int id)
+    {
+        try
+        {
+            await repositorioSitFiscal.Eliminar(id);
+            situacionesFiscales = (await repositorioSitFiscal.ObtenerTodo()).ToList();
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La situación fiscal se eliminó correctamente", "success");
+        }
+        catch (Exception e)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Ocurrió un error al eliminar la situación fiscal", "error");
+        }
+    }
+}

@@ -1,0 +1,42 @@
+﻿@page "/GraficaPedidos"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@using Radzen.Blazor
+
+@inject IRepositorio<Provision> repositorioProvision
+@inject IRepositorio<Destino> repositorioDestino
+
+<RadzenChart Title="Pedidos por sector">
+    <RadzenColumnSeries Data="@pedidosPorDestino" CategoryProperty="Destino" ValueProperty="Total"></RadzenColumnSeries>
+</RadzenChart>
+
+@code {
+    private List<Provision> provision; // Almacenar los datos de los pedidos
+    private List<Destino> destinos; // Almacenar los datos de los destinos
+    private List<PedidoPorDestino> pedidosPorDestino; // Almacenar los datos de los pedidos por destino
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Obténer los datos de los pedidos y los destinos
+        provision = (await repositorioProvision.ObtenerTodo()).ToList();
+        destinos = (await repositorioDestino.ObtenerTodo()).ToList();
+
+        // Une los pedidos y los destinos para obtener el nombre del destino para cada pedido
+        pedidosPorDestino = provision
+     .GroupBy(provision => provision.destino_id)
+     .Select(grupo => new PedidoPorDestino
+         {
+             Destino = destinos.FirstOrDefault(destino => destino.id == grupo.Key)?.destino ?? "Desconocido",
+             Total = grupo.Count()
+
+         })
+     .ToList();
+    }
+
+    // clase para almacenar los datos de los pedidos por destino
+    private class PedidoPorDestino
+    {
+        public string Destino { get; set; }
+        public decimal Total { get; set; }
+    }
+}

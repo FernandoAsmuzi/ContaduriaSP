@@ -1,0 +1,57 @@
+﻿@page "/listaProveedores"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@inject IRepositorio<Proveedor> repositorioProveedor
+@inject IJSRuntime JSRuntime
+@using Radzen.Blazor
+
+<div class="d-flex justify-content-center align-items-center">
+    <h1 class="mr-3">Listado de Proveedores</h1>
+    <img src="/fotos1/logopodjud.png" />
+    <br />
+</div>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <RadzenGrid AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" Data="@proveedores" TItem="Proveedor">
+                <Columns>
+                    <RadzenGridColumn TItem="Proveedor" Property="nombre" Title="Nombre" />
+                    <RadzenGridColumn TItem="Proveedor" Property="nombre_comercial" Title="Razón Social" />
+                    <RadzenGridColumn TItem="Proveedor" Property="direccion" Title="Dirección" />
+                    <RadzenGridColumn TItem="Proveedor" Property="telefono" Title="Teléfono" />
+                    <RadzenGridColumn TItem="Proveedor" Property="email" Title="Email" />
+                    <RadzenGridColumn TItem="Proveedor" Context="proveedor">
+                        <Template Context="proveedor">
+                            <NavLink class="btn btn-primary" href="@($"editarProveedor/{proveedor.id}")">Editar</NavLink>
+                            <RadzenButton Text="Eliminar" Click="@(args => Eliminar(proveedor.id))" ButtonStyle="Radzen.ButtonStyle.Danger" />
+                        </Template>
+                    </RadzenGridColumn>
+                </Columns>
+            </RadzenGrid>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Proveedor> proveedores = new List<Proveedor>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        proveedores = (await repositorioProveedor.ObtenerTodo()).ToList();
+    }
+
+    private async Task Eliminar(int id)
+    {
+        try
+        {
+            await repositorioProveedor.Eliminar(id);
+            proveedores = (await repositorioProveedor.ObtenerTodo()).ToList();
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El proveedor se eliminó correctamente", "success");
+        }
+        catch (Exception e)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Ocurrió un error al eliminar el proveedor", "error");
+        }
+    }
+}

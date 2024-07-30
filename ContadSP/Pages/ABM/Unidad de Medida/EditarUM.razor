@@ -1,0 +1,67 @@
+﻿@page "/editarUM/{id}"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@inject IRepositorio<UnidadMedida> repositorioUnidadMedida
+@inject IJSRuntime JSRuntime
+@inject NavigationManager navigationManager
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3>Editar unidad de medida</h3>
+                </div>
+                <div class="card-body">
+                    @if (unidadMedida == null)
+                    {
+                        <p><em>Cargando...</em></p>
+                    }
+                    else
+                    {
+                        <EditForm Model="@unidadMedida" OnValidSubmit="HandleValidSubmit">
+                            <DataAnnotationsValidator />
+                            <ValidationSummary />
+
+                            <div class="form-group">
+                                <label for="unidadMedida">Unidad de medida:</label>
+                                <InputText id="unidadMedida" class="form-control col-md-6" @bind-Value="unidadMedida.unidad" maxlength="30" required />
+                            </div>
+
+                            <div class="botones-editar">
+                                <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+                                <a href="listaUM" class="btn btn-danger btn-sm">Cancelar</a>
+                            </div>
+                        </EditForm>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string id { get; set; }
+
+    private UnidadMedida unidadMedida = new UnidadMedida();
+
+    protected override async Task OnInitializedAsync()
+    {
+        unidadMedida = await repositorioUnidadMedida.ObtenerPorId(int.Parse(id));
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            await repositorioUnidadMedida.Actualizar(unidadMedida);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La unidad de medida se actualizó correctamente", "success");
+            navigationManager.NavigateTo("/listaUM");
+        }
+        catch (Exception e)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Ocurrió un error al actualizar la unidad de medida", "error");
+        }
+    }
+}

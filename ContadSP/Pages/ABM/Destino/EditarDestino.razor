@@ -1,0 +1,66 @@
+﻿@page "/editarDestino/{id}"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@inject IRepositorio<Destino> repositorioDestino
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3>Editar Destino</h3>
+                </div>
+                <div class="card-body">
+                    @if (destino == null)
+                    {
+                        <p><em>Cargando...</em></p>
+                    }
+                    else
+                    {
+                        <EditForm Model="@destino" OnValidSubmit="HandleValidSubmit">
+                            <DataAnnotationsValidator />
+                            <ValidationSummary />
+
+                            <div class="form-group">
+                                <label for="destino">Destino:</label>
+                                <InputText id="destino" class="form-control col-md-6" @bind-Value="destino.destino" maxlength="50" required />
+                            </div>
+                            <div class="botones-editar">
+                                <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+                                <a href="listaDestinos" class="btn btn-danger btn-sm">Cancelar</a>
+                            </div>
+                        </EditForm>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string id { get; set; }
+
+    private Destino destino = new Destino();
+
+    protected override async Task OnInitializedAsync()
+    {
+        destino = await repositorioDestino.ObtenerPorId(int.Parse(id));
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            await repositorioDestino.Actualizar(destino);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El destino se actualizó correctamente", "success");
+            NavigationManager.NavigateTo("/listaDestinos");
+        }
+        catch (Exception e)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Ocurrió un error al actualizar el destino", "error");
+        }
+    }
+}

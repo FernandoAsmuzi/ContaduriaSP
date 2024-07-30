@@ -1,0 +1,117 @@
+﻿namespace ContadSP.Pages.Otros
+{
+    public class Utiles
+    {
+            // foreach (var detalle in listaDetalleProvision) //--RECORRE LA LISTA DE DETALLE Y CALCULA EL TOTAL DE LA PROVISION--
+            // {
+            //     provision.total += detalle.subtotal;
+            // }
+
+            //provision.total_letra = UpdateCantidadLetra(new ChangeEventArgs { Value = provision.total });
+            //procesoId = ObtenerProceso(tipoId, provision.total);
+
+            // private async Task SeleccionarProveedores()
+    // {
+    //     proveedores = (await repositorioProveedor.ObtenerTodo()).ToList();
+
+    //     // Inicializa el diccionario de proveedores seleccionados
+    //     foreach (var proveedor in proveedores)
+    //     {
+    //         if (!proveedoresSeleccionados.ContainsKey(proveedor))
+    //         {
+    //             proveedoresSeleccionados[proveedor] = false;
+    //         }
+    //     }
+
+    //     var result = await DialogService.OpenAsync("Lista de proveedores", ds =>
+    //     @<RadzenStack Gap="1.5rem">
+    //         <div class="conteiner-fluid">
+    //             <div style="overflow: auto;">
+    //                 <table class="table table-striped table-responsive table-hover">
+    //                     <thead class="thead-dark">
+    //                         <tr>
+    //                             <th>Nombre</th>
+    //                             <th>Nombre comercial</th>
+    //                             <th>Dirección</th>
+    //                             <th>Teléfono</th>
+    //                             <th>Email</th>
+    //                             <th>Agregar</th>
+    //                         </tr>
+    //                     </thead>
+    //                     <tbody>
+    //                         @foreach (var p in proveedores)
+    //                     {
+    //                         <tr>
+    //                             <td>@p.nombre</td>
+    //                             <td>@p.nombre_comercial</td>
+    //                             <td>@p.direccion</td>
+    //                             <td>@p.telefono</td>
+    //                             <td>@p.email</td>
+    //                             <td><RadzenCheckBox @bind-Value=@proveedoresSeleccionados[p] @onchange="e => OnProveedorSeleccionado(e, p)" /></td>
+    //                         </tr>
+    //                     }
+    //                     </tbody>
+    //                 </table>
+    //             </div>
+    //         </div>
+    //     </RadzenStack>,
+    //     new DialogOptions() { Width = "auto", Height = "auto" });
+    // }
+
+    // Método para manejar el cambio de estado del checkbox
+    private void OnProveedorSeleccionado(ChangeEventArgs e, Proveedor proveedor)
+    {
+        proveedoresSeleccionados[proveedor] = (bool)e.Value;
+    }
+
+    
+    /* --FUNCION PARA CALCULAR SUBTOTAL-- */
+    // private void CalcularSubtotal(DetalleProvision dp, double monto, ChangeEventArgs e)
+    // {
+    //     if (int.TryParse(e.Value.ToString(), out var num))
+    //     {
+    //         dp.subtotal = monto * num;
+    //     }
+
+    //     dp.subtotal_letra = UpdateCantidadLetra(new ChangeEventArgs { Value = dp.subtotal }); // AL FINALIZAR EL CALCULO CONVIERTE EL SUBTOTAL EN LETRA
+    // }
+
+    private List<Proveedor> proveedores = new List<Proveedor>();
+    private Dictionary<Proveedor, bool> proveedoresSeleccionados = new Dictionary<Proveedor, bool>();
+
+    private int ObtenerProceso(int tipoId, double total)
+    {
+        var resul = 0;
+        foreach (var tipo in procesos) //--RECORRE LA LISTA DE TIPO MONTOS PARA CALCULAR EL CORRECTO--
+        {
+            if (tipo.tipo_pedido_id == tipoId)
+            {
+                if (tipo.monto_maximo == 0)
+                {
+                    if (total > tipo.monto_maximo)
+                    {
+                        resul = tipo.id;
+                    }
+                }
+                else
+                {
+                    if (total <= tipo.monto_maximo && total > tipo.monto_minimo)
+                    {
+                        resul = tipo.id;
+                    }
+                }
+            }
+        }
+        return resul;
+    }
+
+
+    }
+
+
+     // Serializar el objeto prov a JSON
+    string provJson = JsonSerializer.Serialize(prov);
+
+    // Mostrar el objeto serializado en la consola del navegador
+    await JSRuntime.InvokeVoidAsync("console.log", provJson);
+}

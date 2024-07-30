@@ -1,0 +1,242 @@
+﻿@page "/provision/{estado}"
+
+@using ContadSP.Repositorios
+@using ContadSP.Models
+@using System.Text.Json
+@using Radzen
+@using Radzen.Blazor
+@inject DialogService DialogService
+@inject IRepositorio<Pedido> repositorioPedido
+@inject IRepositorio<Provision> repositorioProvision
+@inject IRepositorio<ProcesoPedido> repositorioProcesoPedido
+@inject IRepositorio<DetalleProvision> repositorioDetalleProvision
+@inject IRepositorio<Proveedor> repositorioProveedor
+@inject IJSRuntime JSRuntime
+
+@implements IHandleAfterRender
+@inject NavigationManager NavigationManager
+
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    @if (estadoInt == 1)
+                    {
+                        <h3 class="text-center">Lista de Pedidos de Provisión (Pendientes de aprobación) </h3>
+                    }
+                    else
+                    {
+                        <h3 class="text-center">Lista de Pedidos de Provisión (Aprobados) </h3>
+                    }
+
+                </div>
+                <div class="card-body">
+
+                    @if (muestra == null)
+                    {
+                        <p><em>No se encontraron pedidos de provisión</em></p>
+                    }
+                    else
+                    {
+
+                        <div style="overflow: auto;">
+                            <table class="table table-striped table-responsive table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Fecha de provision</th>
+                                        <th>Descripción</th>
+                                        
+                                        <th>Destino</th>
+                                        <th>Usuario</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var provision in muestra)
+                                    {
+                                        <tr>
+                                            <td>@provision.id</td>
+                                            <td>@provision.fecha_provision</td>
+                                            <td>@provision.descripcion</td>
+                                            
+                                            <td>@provision.Destino.destino</td>
+                                            <td>@provision.Usuario.nombre_usuario</td>
+                                            <td>
+                                                <a class="btn btn-success mb-2" style="margin-right: 2%" title="Ver detalle" @onclick="() => VerDetalles(provision)"><span class="oi oi-eye" aria-hidden="true"></span></a>
+                                                
+                                                @if (estadoInt == 1)
+                                                {
+                                                    <a class="btn btn-success mb-2 ml-2" title="Aprobar provisión" @onclick="() => AprobarProvision(provision)"><span class="oi oi-check" aria-hidden="true"></span></a>
+                                                }
+                                                else if (estadoInt == 2)
+                                                {
+                                                    <a class="btn btn-success mb-2" title="Confirmar entrega" @onclick="() => ConfirmarEntrega(provision)"><span class="oi oi-check" aria-hidden="true"></span></a>
+                                                }
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public string Estado { get; set; }
+
+
+    private List<Provision> provisiones = new List<Provision>();
+    private List<Provision> muestra = new List<Provision>();
+    private List<Pedido> pedidos = new List<Pedido>();
+    private List<DetalleProvision> provisionDetalle = new List<DetalleProvision>();
+
+    private Pedido pedido = new Pedido();
+    private Provision provision = new Provision();
+    private ProcesoPedido procesoPedido = new ProcesoPedido();
+
+    private int previousEstado;
+    string añoActual = DateTime.Now.Year.ToString();
+    private int estadoInt;
+
+    private List<Proveedor> proveedores = new List<Proveedor>();
+    private Dictionary<Proveedor, bool> proveedoresSeleccionados = new Dictionary<Proveedor, bool>();
+
+    protected override async Task OnParametersSetAsync()
+    {
+       
+        provisiones = (await repositorioProvision.ObtenerProvisiones()).ToList();
+        //pedidos = (await repositorioPedido.ObtenerPedidos()).ToList();
+        pedidos = (await repositorioPedido.ObtenerPedidos()).ToList();
+
+        if (!int.TryParse(Estado, out estadoInt))
+        {
+            // Manejar el error de conversión si es necesario
+            estadoInt = 0; // Valor por defecto o manejar el error de otra manera
+        }
+
+        if (previousEstado != estadoInt)
+        {
+            previousEstado = estadoInt;
+            if (estadoInt == 1)
+            {
+                muestra = provisiones.Where(p => p.estado_id == 1).ToList();
+            }
+            else if (estadoInt == 2)
+            {
+                muestra = provisiones.Where(p => p.estado_id == 2).ToList();
+            }
+        }
+    }
+
+    private async Task AprobarProvision(Provision prov)
+    {
+        var estado = 2;
+        await CargarPoceso(prov);
+        await repositorioProvision.CambiarEstadoProvision(prov, estado);
+        await CargarPedido(procesoPedido, prov);
+        await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se aprobó correctamente", "success");
+        muestra = provisiones.Where(p => p.estado_id == 1).ToList();
+        StateHasChanged();
+    }
+
+    private async Task CargarPoceso(Provision prov)
+    {
+      
+        // procesoPedido.num_proceso = (await repositorioProcesoPedido.ObtenerUltimoProcesoNumero(prov.proceso_id)) + 1;
+        // procesoPedido.proceso_id = prov.proceso_id;
+        // procesoPedido.proceso_completo = prov.Proceso.sigla + "-" + añoActual;
+        // await repositorioProcesoPedido.Agregar(procesoPedido);
+        // procesoPedido.id = (await repositorioProcesoPedido.ObtenerUltimoProcesoPedidoId());
+
+    }
+
+    private async Task CargarPedido(ProcesoPedido proc, Provision prov)
+    {
+        // pedido.numero_acta = ((await repositorioPedido.ObtenerUltimoPedido()) + 1).ToString() + "-" + añoActual;
+        // pedido.proceso_pedido_id = proc.id;
+        // pedido.provision_id = prov.id;
+        // pedido.estado = false;
+        // await repositorioPedido.Agregar(pedido);
+    }
+
+    private void VerDetalles(Provision prov)
+    {
+        NavigationManager.NavigateTo($"/detallePedido/{prov.id}");
+    }
+
+    private async Task SeleccionarProveedores(Provision provision)
+    {
+        proveedores = (await repositorioProveedor.ObtenerTodo()).ToList();
+
+        // Inicializa el diccionario de proveedores seleccionados
+        foreach (var proveedor in proveedores)
+        {
+            if (!proveedoresSeleccionados.ContainsKey(proveedor))
+            {
+                proveedoresSeleccionados[proveedor] = false;
+            }
+        }
+
+        var result = await DialogService.OpenAsync("Lista de proveedores", ds =>
+        @<RadzenStack Gap="1.5rem">
+            <div class="conteiner-fluid">
+                <div style="overflow: auto;">
+                    <table class="table table-striped table-responsive table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Nombre comercial</th>
+                                <th>Dirección</th>
+                                <th>Teléfono</th>
+                                <th>Email</th>
+                                <th>Agregar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var p in proveedores)
+                        {
+                            <tr>
+                                <td>@p.nombre</td>
+                                <td>@p.nombre_comercial</td>
+                                <td>@p.direccion</td>
+                                <td>@p.telefono</td>
+                                <td>@p.email</td>
+                                <td><RadzenCheckBox @bind-Value=@proveedoresSeleccionados[p] @onchange="e => OnProveedorSeleccionado(e, p)" /></td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                    <div class="btn-opciones">
+                        <btn class="btn btn-success mb-2" title="Ver detalle" @onclick="() => AprobarProvision(provision)">Confirmar</btn>
+                    </div>
+                
+                </div>
+            </div>
+        </RadzenStack>,
+        new DialogOptions() { Width = "auto", Height = "auto" });
+    }
+
+    // Método para manejar el cambio de estado del checkbox
+    private void OnProveedorSeleccionado(ChangeEventArgs e, Proveedor proveedor)
+    {
+        proveedoresSeleccionados[proveedor] = (bool)e.Value;
+    }
+    
+
+    private async Task ConfirmarEntrega(Provision prov)
+    {
+        //await repositorioProvision.CambiarEstado(prov);
+    }
+
+}

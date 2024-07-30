@@ -1,0 +1,122 @@
+.navbar-toggler {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.top-row {
+    background-color: #f2f2f2; /* Gris tenue */
+    position: fixed; /* Hacer que el menú sea fijo */
+    top: 0; /* Mover el menú hacia arriba */
+    width: 100%; /* Asegurarse de que el menú ocupe todo el ancho */
+    z-index: 1000; /* Asegurarse de que el menú esté por encima de otros elementos */
+}
+
+
+.navbar-brand {
+    font-size: 1.1rem;
+}
+
+.oi {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.titulo {
+    color: white;
+    text-align: center;
+}
+
+    .titulo:hover {
+        color: #0071c1; /* Nuevo efecto hover para los títulos */
+    }
+
+.nav-item {
+    font-size: 0.9rem;
+    padding-bottom: 1rem; /* Aumentado el espacio entre elementos */
+}
+
+    .nav-item:first-of-type {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item ::deep a {
+        color: #000; /* Cambiado el color de las letras a negro */
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+        transition: background-color 0.3s ease, color 0.3s ease; /* Nueva transición */
+    }
+
+
+        .nav-item ::deep a.active {
+            background-color: rgba(255,255,255,0.25);
+            color: white;
+        }
+
+        .nav-item ::deep a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+@media (min-width: 641px) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .collapse {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+    }
+
+    nav-scrollable {
+        position: fixed; /* Make the menu fixed to the top */
+        top: 0; /* Position it at the top of the viewport */
+        left: 0; /* Position it at the left of the viewport */
+        width: 100%; /* Make it occupy the entire width */
+        z-index: 1000; /* Ensure it's above other elements */
+    }
+
+    .rz-panelmenuitem {
+        background-color: rgba(0,0,0,0.4);
+        color: #d7d7d7;
+    }
+
+        .rz-panelmenuitem:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .rz-panelmenuitem.rz-selected {
+            background-color: rgba(255,255,255,0.25);
+            color: white;
+        }
+}
+
+body {
+    /* ... otros estilos ... */
+    margin-top: 50px; /* Agrega un margen superior al body */
+}
+
+.RadzenMenu {
+    background-color: #f2f2f2; /* Gris tenue */
+    position: fixed; /* Hacer que el menú sea fijo */
+    top: 0; /* Mover el menú hacia arriba */
+    width: 100%; /* Asegurarse de que el menú ocupe todo el ancho */
+    z-index: 1000; /* Asegurarse de que el menú esté por encima de otros elementos */
+}
+
+
+.RadzenMenuItem:hover {
+    background-color: #007BFF; /* Azul al pasar el mouse por encima */
+}
+
+.estilomenu {
+    background-color: #0071c1 !important;
+}

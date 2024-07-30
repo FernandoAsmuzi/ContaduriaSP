@@ -1,0 +1,63 @@
+﻿@page "/editarSitFiscal/{Id}"
+@using ContadSP.Models
+@using ContadSP.Repositorios
+@inject IRepositorio<SitFiscal> repositorioSitFiscal
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+@using Microsoft.AspNetCore.Components
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3>Editar Situación Fiscal</h3>
+                </div>
+                <div class="card-body">
+                    <EditForm Model="@sitFiscal" OnValidSubmit="HandleValidSubmit">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+
+                        <div class="form-group">
+                            <label for="sit_fiscal">Situación Fiscal:</label>
+                            <InputText id="sit_fiscal" class="form-control" @bind-Value="sitFiscal.sit_fiscal" maxlength="60" required />
+                        </div>
+
+                        <div class="boton-guardar">
+                            <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+                        </div>
+
+                    </EditForm>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    private SitFiscal sitFiscal = new SitFiscal();
+
+    protected override async Task OnInitializedAsync()
+    {
+        sitFiscal = await repositorioSitFiscal.ObtenerPorId(int.Parse(Id));
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            await repositorioSitFiscal.Actualizar(sitFiscal);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La situación fiscal se actualizó correctamente", "success");
+            NavigationManager.NavigateTo("/listaSitFiscal");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Hubo un error al actualizar la situación fiscal", "error");
+        }
+    }
+}
