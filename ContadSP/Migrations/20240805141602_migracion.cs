@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ContadSP.Migrations
 {
     /// <inheritdoc />
-    public partial class creaciondeestado : Migration
+    public partial class migracion : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -220,7 +220,6 @@ namespace ContadSP.Migrations
                     total_aprox = table.Column<double>(type: "double", nullable: false),
                     total_letra = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    estado = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     destino_id = table.Column<int>(type: "int", nullable: false),
                     usuario_id = table.Column<int>(type: "int", nullable: false),
                     tipo_pedido_id = table.Column<int>(type: "int", nullable: false),

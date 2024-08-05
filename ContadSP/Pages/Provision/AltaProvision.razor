@@ -95,9 +95,11 @@
                                         <tr>
                                             <th>Artículo</th>
                                             <th>ID Art.</th>
-                                            <th>Monto aproximado</th>
+                                            <th>Monto aprox.</th>
                                             <th>Monto letra</th>
                                             <th>Cantidad</th>
+                                            <th>Subtotal aprox.</th>
+                                            <th>Subtotal letra</th>
                                             <th>Unidad de medida</th>
                                             <th>Acciones</th>
                                         </tr>
@@ -113,8 +115,9 @@
                                                 <td>@listaArticulos[currentIndex].id</td>
                                                 <td>@listaArticulos[currentIndex].monto_aprox</td>
                                                 <td class="ancho-40">@UpdateCantidadLetra(new ChangeEventArgs { Value = @listaArticulos[currentIndex].monto_aprox })</td>
-                                                <td class="ancho-5"><input style="width: 100%;" type="number" @bind-value="item.cantidad" required></td>
-
+                                                <td class="ancho-5"><input style="width: 100%;" type="number" @bind-value="item.cantidad" @oninput="e => CalcularSubtotal(item, listaArticulos[currentIndex].monto_aprox, e)" required></td>
+                                                <td>@item.subtotal_aprox</td>
+                                                <td>@item.subtotal_letra</td>
                                                 <td class="ancho-40">
                                                     <select style="width: 100%;" class="form-select" @bind="item.unidad_id" required>
                                                         <option value="">Seleccione unidad de medida</option>
@@ -304,11 +307,29 @@
         return result;
     }
 
+    /* --FUNCION PARA CALCULAR SUBTOTAL-- */
+    private void CalcularSubtotal(DetalleProvision dp, double monto, ChangeEventArgs e)
+    {
+         if (int.TryParse(e.Value.ToString(), out var num))
+         {
+             dp.subtotal_aprox = monto * num;
+         }
+
+         dp.subtotal_letra = UpdateCantidadLetra(new ChangeEventArgs { Value = dp.subtotal_aprox }); // AL FINALIZAR EL CALCULO CONVIERTE EL SUBTOTAL EN LETRA
+    }
+
     private async Task HandleValidSubmit() //--PROCEDIMIENTO PARA AGREGAR PROVISION Y DETALLE PROVISION A LA BASE DE DATOS--
     {
         if (listaDetalleProvision.Count() != 0) //--CONTROLA SI LA LISTA DE DETALLE NO ESTA VACIA (SI EXISTEN ARTICULOS PARA LA PROVISION)--
         {
+            
             provision.estado_id = 1;
+            //--RECORRE LA LISTA DE DETALLE Y CALCULA EL TOTAL DE LA PROVISION--
+            foreach (var detalle in listaDetalleProvision)
+            {
+                provision.total_aprox += detalle.subtotal_aprox;
+            }
+            provision.total_letra = UpdateCantidadLetra(new ChangeEventArgs { Value = provision.total_aprox }); //--CONVIERTE EL TOTAL DE LA PROVISION EN LETRA--
             await repositorioProvision.Agregar(provision);
             var lastId = await repositorioProvision.ObtenerUltimaProvision(); //--OBTIENE EL ULTIMO ID DE PROVISION AGREGADO PARA DETALLE PROVISION--
 
@@ -319,6 +340,8 @@
                  detalleProvision.articulo_id = detalle.articulo_id;
                  detalleProvision.provision_id = lastId;
                  detalleProvision.unidad_id = detalle.unidad_id;
+                 detalleProvision.subtotal_aprox = detalle.subtotal_aprox;
+                 detalleProvision.subtotal_letra = detalle.subtotal_letra;
 
                  await repositorioDetalleProvision.Agregar(detalleProvision);
             }

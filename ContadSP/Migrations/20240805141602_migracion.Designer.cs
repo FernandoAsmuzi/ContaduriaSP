@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContadSP.Migrations
 {
     [DbContext(typeof(ContadSPContext))]
-    [Migration("20240726130546_creacion de estado")]
-    partial class creaciondeestado
+    [Migration("20240805141602_migracion")]
+    partial class migracion
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -294,9 +294,6 @@ namespace ContadSP.Migrations
 
                     b.Property<int>("destino_id")
                         .HasColumnType("int");
-
-                    b.Property<bool>("estado")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("estado_id")
                         .HasColumnType("int");

@@ -292,9 +292,6 @@ namespace ContadSP.Migrations
                     b.Property<int>("destino_id")
                         .HasColumnType("int");
 
-                    b.Property<bool>("estado")
-                        .HasColumnType("tinyint(1)");
-
                     b.Property<int>("estado_id")
                         .HasColumnType("int");
 

@@ -26,9 +26,17 @@
                     {
                         <h3 class="text-center">Lista de Pedidos de Provisión (Pendientes de aprobación) </h3>
                     }
-                    else
+                    else if (estadoInt == 2)
                     {
                         <h3 class="text-center">Lista de Pedidos de Provisión (Aprobados) </h3>
+                    }
+                    else if (estadoInt == 3)
+                    {
+                        <h3 class="text-center">Lista de Pedidos de Provisión (Cancelados) </h3>
+                    }
+                    else if (estadoInt == 4)
+                    {
+                        <h3 class="text-center">Lista de Pedidos de Provisión (Finalizados) </h3>
                     }
 
                 </div>
@@ -70,6 +78,7 @@
                                                 @if (estadoInt == 1)
                                                 {
                                                     <a class="btn btn-success mb-2 ml-2" title="Aprobar provisión" @onclick="() => AprobarProvision(provision)"><span class="oi oi-check" aria-hidden="true"></span></a>
+                                               
                                                 }
                                                 else if (estadoInt == 2)
                                                 {
@@ -128,14 +137,17 @@
         if (previousEstado != estadoInt)
         {
             previousEstado = estadoInt;
-            if (estadoInt == 1)
-            {
-                muestra = provisiones.Where(p => p.estado_id == 1).ToList();
-            }
-            else if (estadoInt == 2)
-            {
-                muestra = provisiones.Where(p => p.estado_id == 2).ToList();
-            }
+
+            muestra = provisiones.Where(p => p.estado_id == estadoInt).ToList();
+
+            // if (estadoInt == 1)
+            // {
+            //     muestra = provisiones.Where(p => p.estado_id == 1).ToList();
+            // }
+            // else if (estadoInt == 2)
+            // {
+            //     muestra = provisiones.Where(p => p.estado_id == 2).ToList();
+            // }
         }
     }
 

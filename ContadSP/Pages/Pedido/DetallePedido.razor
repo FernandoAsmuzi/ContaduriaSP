@@ -57,17 +57,21 @@
                 <div class="row">
                     <div class="col">
                         <label><strong>Estado: </strong></label>
-                        @if (prov.estado_id == 2)
-                        {
-                            <label class="text-success"><strong> PROVISION APROBADA</strong></label>
-                        }
-                        else
+                        @if (prov.estado_id == 1)
                         {
                             <label class="text-warning"><strong>PROVISION PENDIENTE DE APROBACION</strong></label>
+                            
+                        }
+                        else if (prov.estado_id == 2)
+                        {
+                            <label class="text-success"><strong> PROVISION APROBADA</strong></label>
+                        }else if (prov.estado_id == 3)
+                        {
+                            <label class="text-danger"><strong> PROVISION CANCELADA</strong></label>
                         }
                     </div>
                 </div>
-                
+                <br>
 
                 <div style="overflow: auto;">
                     <table class="table table-striped table-responsive table-hover">
@@ -76,6 +80,8 @@
                                 <th>Artículo</th>
                                 <th>Cantidad</th>
                                 <th>Unidad</th>
+                                <th>Subtotal aprox.</th>
+                                <th>Subtotal letra</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -85,61 +91,76 @@
                                     <td>@p.Articulo.descripcion</td>
                                     <td>@p.cantidad</td>
                                     <td>@p.UnidadMedida.unidad</td>
+                                    <td>@p.subtotal_aprox</td>
+                                    <td>@p.subtotal_letra</td>
                                 </tr>
                             }
                         </tbody>
                     </table>
-                </div>
- 
-                @if (prov.estado_id == 2)
-                {
-                    <div style="overflow: auto;">
-                        <h4>Proveedores Seleccionados</h4>
-                        <table class="table table-striped table-responsive table-hover">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Comercio</th>
-                                    <th>Dirección</th>
-                                    <th>Teléfono</th>
-                                    <th>Email</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var d in proveedoresSeleccionados)
-                                {
-                                    if (d.Value)
-                                    {
-                                        <tr>
-                                            <td>@d.Key.nombre</td>
-                                            <td>@d.Key.nombre_comercial</td>
-                                            <td>@d.Key.direccion</td>
-                                            <td>@d.Key.telefono</td>
-                                            <td>@d.Key.email</td>
-                                        </tr>
-                                    }
-                                }
-                            </tbody>
-                        </table>
+                    <div class="row text-end">
+                        <div class="col">
+                            <label><strong>Total Aproximado:</strong></label>
+                            <label>@prov.total_aprox</label>
+                        </div>
                     </div>
+                    <div class="row text-end">
+                        <div class="col">
+                            <label><strong>Total aproximado letra:</strong></label>
+                            <label>@prov.total_letra</label>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                @if (prov.estado_id == 1)
+                {
+                    <div class="btn-opciones">
+                        <div class="boton-busqueda">
+                            <button type="button" class="btn btn-success" @onclick="() => AprobarProvision(prov)">Aprobar provisión</button>
+                            <button type="button" class="btn btn-danger" @onclick="() => CancelarProvision(prov)">Cancelar provisión</button>
+                        </div>
+                    </div>
+                }
+                else if (prov.estado_id == 2)
+                {
+                        <div style="overflow: auto;">
+                            <h4>Proveedores Seleccionados</h4>
+                            <table class="table table-striped table-responsive table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Comercio</th>
+                                        <th>Dirección</th>
+                                        <th>Teléfono</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var d in proveedoresSeleccionados)
+                                    {
+                                        if (d.Value)
+                                        {
+                                            <tr>
+                                                <td>@d.Key.nombre</td>
+                                                <td>@d.Key.nombre_comercial</td>
+                                                <td>@d.Key.direccion</td>
+                                                <td>@d.Key.telefono</td>
+                                                <td>@d.Key.email</td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                         <div class="btn-opciones">
                             <div class="boton-busqueda">
-                            <button type="button" class="btn btn-primary" @onclick="SeleccionarProveedores">Seleccionar proveedores</button>
+                                <button type="button" class="btn btn-primary" @onclick="SeleccionarProveedores">Seleccionar proveedores</button>
                             </div>
                             <div class="boton-ver">
                                 <button type="button" class="btn btn-success">Generar pedido</button>
                             </div>
                         </div>
-                    <br />
-                    <br />
-                }
-                else
-                {
-                    <div class="btn-opciones">
-                        <div class="boton-busqueda">
-                            <button type="button" class="btn btn-success" @onclick="() => AprobarProvision(prov)">Aprobar provisión</button>
-                        </div>
-                    </div>
+                        <br />
+                        <br />
                     <br />
                     <br />
                 }
@@ -238,19 +259,28 @@
 
     private async Task GenerarPedido()
     {
-        
+
     }
 
     private async Task AprobarProvision(Provision prov)
     {
         //await CargarPoceso(prov);
         ultimaProvExp = await repositorioProvisionExp.ObtenerUltimaProvisionExpId() + 1;
-        await repositorioProvision.CambiarEstado(prov);
+        await repositorioProvision.CambiarEstadoProvision(prov, 2);
         exp.provision_id = prov.id;
         exp.exp_num = "PROV-" + ultimaProvExp.ToString() + "-" + DateTime.Now.Year.ToString();
         await repositorioProvisionExp.Agregar(exp);
         //await CargarPedido(procesoPedido, prov);
         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se aprobó correctamente", "success");
+        //muestra = provisiones.Where(p => p.estado == false).ToList();
+        //StateHasChanged();
+    }
+
+    private async Task CancelarProvision(Provision prov)
+    {
+        int estado = 3;
+        await repositorioProvision.CambiarEstadoProvision(prov, estado);
+        await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se canceló correctamente", "success");
         //muestra = provisiones.Where(p => p.estado == false).ToList();
         //StateHasChanged();
     }
