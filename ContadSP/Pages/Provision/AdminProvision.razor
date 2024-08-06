@@ -160,6 +160,7 @@
         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se aprobó correctamente", "success");
         muestra = provisiones.Where(p => p.estado_id == 1).ToList();
         StateHasChanged();
+
     }
 
     private async Task CargarPoceso(Provision prov)

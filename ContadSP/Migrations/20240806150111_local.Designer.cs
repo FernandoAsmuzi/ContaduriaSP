@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContadSP.Migrations
 {
     [DbContext(typeof(ContadSPContext))]
-    [Migration("20240805141602_migracion")]
-    partial class migracion
+    [Migration("20240806150111_local")]
+    partial class local
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

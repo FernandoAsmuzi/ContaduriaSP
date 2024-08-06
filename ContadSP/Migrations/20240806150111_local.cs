@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ContadSP.Migrations
 {
     /// <inheritdoc />
-    public partial class migracion : Migration
+    public partial class local : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

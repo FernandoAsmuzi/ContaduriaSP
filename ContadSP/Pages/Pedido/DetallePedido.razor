@@ -10,6 +10,7 @@
 @inject IRepositorio<Provision> repositorioProvision
 @inject IRepositorio<Proveedor> repositorioProveedor
 @inject IRepositorio<ProvisionExp> repositorioProvisionExp
+@inject IRepositorio<Estado> repositorioEstado
 @inject DialogService DialogService
 @inject IJSRuntime JSRuntime
 
@@ -59,15 +60,15 @@
                         <label><strong>Estado: </strong></label>
                         @if (prov.estado_id == 1)
                         {
-                            <label class="text-warning"><strong>PROVISION PENDIENTE DE APROBACION</strong></label>
+                            <label class="text-warning"><strong>@estado.estado</strong></label>
                             
                         }
                         else if (prov.estado_id == 2)
                         {
-                            <label class="text-success"><strong> PROVISION APROBADA</strong></label>
+                            <label class="text-success"><strong>@estado.estado</strong></label>
                         }else if (prov.estado_id == 3)
                         {
-                            <label class="text-danger"><strong> PROVISION CANCELADA</strong></label>
+                            <label class="text-danger"><strong>@estado.estado</strong></label>
                         }
                     </div>
                 </div>
@@ -175,6 +176,8 @@
 
     private List<DetalleProvision> provisionDetalle = new List<DetalleProvision>();
     private Provision prov = new Provision();
+    private List<Estado> estados = new List<Estado>();
+    private Estado? estado = new Estado();
     private string? destino;
     private string? usuario;
     private string? tipo;
@@ -185,13 +188,20 @@
 
     protected override async Task OnInitializedAsync()
     {
-        
+
         prov = await repositorioProvision.ObtenerProvisionPorId(int.Parse(id));
         destino = prov.Destino.destino;
         usuario = prov.Usuario.nombre_usuario;
         tipo = prov.TipoPedido.tipo;
         provisionDetalle = (await repositorioDetalleProvision.ObtenerProvisionesId(int.Parse(id))).ToList();
+        CargarEstado();
+    }
 
+    private async Task CargarEstado()
+    {
+        estado = new Estado();
+        estados = (await repositorioEstado.ObtenerTodo()).ToList();
+        estado = estados.Where(e => e.id == prov.estado_id).FirstOrDefault();
     }
 
     private async Task SeleccionarProveedores()
@@ -273,7 +283,8 @@
         //await CargarPedido(procesoPedido, prov);
         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se aprobó correctamente", "success");
         //muestra = provisiones.Where(p => p.estado == false).ToList();
-        //StateHasChanged();
+        CargarEstado();
+        StateHasChanged();
     }
 
     private async Task CancelarProvision(Provision prov)
