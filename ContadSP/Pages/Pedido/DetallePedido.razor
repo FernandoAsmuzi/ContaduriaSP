@@ -13,6 +13,7 @@
 @inject IRepositorio<Estado> repositorioEstado
 @inject DialogService DialogService
 @inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
 
 <div class="container mt-4">
     
@@ -120,6 +121,8 @@
                             <button type="button" class="btn btn-danger" @onclick="() => CancelarProvision(prov)">Cancelar provisión</button>
                         </div>
                     </div>
+                    <br>
+                    <br>
                 }
                 else if (prov.estado_id == 2)
                 {
@@ -162,8 +165,6 @@
                         </div>
                         <br />
                         <br />
-                    <br />
-                    <br />
                 }
             </div>
         </div>
@@ -194,7 +195,7 @@
         usuario = prov.Usuario.nombre_usuario;
         tipo = prov.TipoPedido.tipo;
         provisionDetalle = (await repositorioDetalleProvision.ObtenerProvisionesId(int.Parse(id))).ToList();
-        CargarEstado();
+        await CargarEstado();
     }
 
     private async Task CargarEstado()
@@ -280,11 +281,8 @@
         exp.provision_id = prov.id;
         exp.exp_num = "PROV-" + ultimaProvExp.ToString() + "-" + DateTime.Now.Year.ToString();
         await repositorioProvisionExp.Agregar(exp);
-        //await CargarPedido(procesoPedido, prov);
         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se aprobó correctamente", "success");
-        //muestra = provisiones.Where(p => p.estado == false).ToList();
-        CargarEstado();
-        StateHasChanged();
+        NavigationManager.NavigateTo($"/provision/2");
     }
 
     private async Task CancelarProvision(Provision prov)
@@ -293,7 +291,7 @@
         await repositorioProvision.CambiarEstadoProvision(prov, estado);
         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se canceló correctamente", "success");
         //muestra = provisiones.Where(p => p.estado == false).ToList();
-        //StateHasChanged();
+        NavigationManager.NavigateTo($"/provision/3");
     }
     private void CargarProveedores(Dictionary<Proveedor, bool> proveedoresSeleccionados)
     {
