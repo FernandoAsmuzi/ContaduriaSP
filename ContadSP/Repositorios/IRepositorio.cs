@@ -28,7 +28,7 @@ namespace ContadSP.Repositorios
         
         Task<int> ObtenerUltimoProcesoNumero(int id);
         Task<int> ObtenerUltimoProcesoPedidoId();
-        Task<int> ObtenerUltimoPedido();
+        Task<Pedido> ObtenerUltimoPedido();
         Task<IEnumerable<DetalleProvision>> ObtenerProvisionesId(int id);
         Task<IEnumerable<T>> ObtenerTodoConRelaciones(params Expression<Func<T, object>>[] includes);
         Task<T> ObtenerRegistroId(int id, params Expression<Func<T, object>>[] includes);

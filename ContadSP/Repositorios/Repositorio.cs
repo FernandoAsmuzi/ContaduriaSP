@@ -152,11 +152,11 @@ public class Repositorio<T> : IRepositorio<T> where T : class
                     .Where(d => d.pedido_id == id)
                     .ToListAsync();
             }
-            public async Task<int> ObtenerUltimoPedido()
+            public async Task<Pedido> ObtenerUltimoPedido()
             {
                 var ultima = await _context.Pedido
                 .OrderByDescending(a => a.id)
-                .Select(a => a.id)
+                
                 .FirstOrDefaultAsync();
                 return ultima;
             }

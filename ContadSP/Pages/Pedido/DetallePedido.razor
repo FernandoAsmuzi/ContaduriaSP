@@ -11,6 +11,8 @@
 @inject IRepositorio<Proveedor> repositorioProveedor
 @inject IRepositorio<ProvisionExp> repositorioProvisionExp
 @inject IRepositorio<Estado> repositorioEstado
+@inject IRepositorio<Pedido> repositorioPedido
+@inject IRepositorio<PedidoProveedor> repositorioPedidoProveedor
 @inject DialogService DialogService
 @inject IJSRuntime JSRuntime
 @inject NavigationManager NavigationManager
@@ -160,7 +162,7 @@
                                 <button type="button" class="btn btn-primary" @onclick="SeleccionarProveedores">Seleccionar proveedores</button>
                             </div>
                             <div class="boton-ver">
-                                <button type="button" class="btn btn-success">Generar pedido</button>
+                                <button type="button" class="btn btn-success" @onclick="() => GenerarPedido(prov)">Generar pedido</button>
                             </div>
                         </div>
                         <br />
@@ -179,6 +181,8 @@
     private Provision prov = new Provision();
     private List<Estado> estados = new List<Estado>();
     private Estado? estado = new Estado();
+    private Pedido pedido = new Pedido();
+    private PedidoProveedor pedidoProveedor = new PedidoProveedor();
     private string? destino;
     private string? usuario;
     private string? tipo;
@@ -186,6 +190,7 @@
     private Dictionary<Proveedor, bool> proveedoresSeleccionados = new Dictionary<Proveedor, bool>();
     private ProvisionExp exp = new ProvisionExp();
     private int ultimaProvExp = 0;
+    private Pedido ultimoPedido = new Pedido();
 
     protected override async Task OnInitializedAsync()
     {
@@ -268,9 +273,35 @@
         proveedoresSeleccionados[proveedor] = (bool)e.Value;
     }
 
-    private async Task GenerarPedido()
+    private async Task GenerarPedido(Provision prov)
     {
+        ultimoPedido = await repositorioPedido.ObtenerUltimoPedido();
+        var anio = DateTime.Now.Year.ToString();
+        if(ultimoPedido.fecha_pedido.Year.ToString() != anio)
+        {
+            pedido.numero_acta = "ACT-" + "1" + "-" + anio;
+        }
+        else
+        {
+            pedido.numero_acta = "ACT-" + ultimoPedido.ToString() + "-" + anio;
+        }
+ 
+        pedido.estado = false;
+        pedido.provision_id = prov.id;
+        await repositorioPedido.Agregar(pedido);
 
+        foreach (var p in proveedoresSeleccionados)
+        {
+            pedidoProveedor = new PedidoProveedor();
+            if (p.Value)
+            {
+                pedidoProveedor.proveedor_id = p.Key.id;
+                pedidoProveedor.pedido_id = ultimoPedido;
+                await repositorioPedidoProveedor.Agregar(pedidoProveedor);
+            }
+        }
+        await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se aprobó correctamente", "success");
+        NavigationManager.NavigateTo($"/provision/2");
     }
 
     private async Task AprobarProvision(Provision prov)
@@ -288,7 +319,10 @@
     private async Task CancelarProvision(Provision prov)
     {
         int estado = 3;
+        ultimaProvExp = await repositorioProvisionExp.ObtenerUltimaProvisionExpId() + 1;
         await repositorioProvision.CambiarEstadoProvision(prov, estado);
+        exp.provision_id = prov.id;
+        exp.exp_num = "PROV-" + ultimaProvExp.ToString() + "-" + DateTime.Now.Year.ToString();
         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se canceló correctamente", "success");
         //muestra = provisiones.Where(p => p.estado == false).ToList();
         NavigationManager.NavigateTo($"/provision/3");
