@@ -88,21 +88,6 @@ public class Repositorio<T> : IRepositorio<T> where T : class
     
                 await _context.SaveChangesAsync();
             }
-            public async Task CambiarEstado(object entidad)
-            {
-                if (entidad is Pedido pedido)
-                {
-                    pedido.estado = !pedido.estado;
-                    _context.Pedido.Update(pedido);
-                }
-                else if (entidad is Provision provision)
-                {
-                    provision.estado_id = 2;
-                    _context.Provision.Update(provision);
-                }
-
-                await _context.SaveChangesAsync();
-            }
             public async Task<IEnumerable<DetalleProvision>> ObtenerProvisionesId(int id)
             {
                 return await _context.DetalleProvision
@@ -181,30 +166,7 @@ public class Repositorio<T> : IRepositorio<T> where T : class
                 return ultima;
             }
         // ---------------------------------------------------------
-        // INTENTOS PARA OBTENER CUALQUIER MODELO CON SUS RESPECTIVAS RELACIONE
-            public async Task<IEnumerable<T>> ObtenerTodoConRelaciones(params Expression<Func<T, object>>[] includes)
-            {
-                var query = _context.Set<T>().AsQueryable();
-
-                foreach (var include in includes)
-                {
-                    query = query.Include(include);
-                }
-
-                return await query.ToListAsync();
-            }
-            public async Task<T> ObtenerRegistroId(int id, params Expression<Func<T, object>>[] includes)
-            {
-                var query = _context.Set<T>().AsQueryable();
-
-                foreach (var include in includes)
-                {
-                    query = query.Include(include);
-                }
-
-                return await query.FirstOrDefaultAsync(x => EF.Property<int>(x, "id") == id);
-            }
-
+        
          // ---------------------------------------------------------
          //METODOS PARA PROVISION_EXP
             public async Task<IEnumerable<ProvisionExp>> ObtenerProvisionExp()
@@ -219,13 +181,11 @@ public class Repositorio<T> : IRepositorio<T> where T : class
                     .Include(p => p.Provision)
                     .FirstAsync(p => p.id == id);
     }
-            public async Task<int> ObtenerUltimaProvisionExpId()
+            public async Task<ProvisionExp> ObtenerUltimaProvisionExp()
             {
-                var ultima = await _context.ProvisionExp
+                return await _context.ProvisionExp
                     .OrderByDescending(a => a.id)
-                    .Select(a => a.id)
                     .FirstOrDefaultAsync();
-                return ultima;
             }
         // FIN METODOS ESPECIFICOS
 }

@@ -308,14 +308,22 @@
     }
 
     /* --FUNCION PARA CALCULAR SUBTOTAL-- */
-    private void CalcularSubtotal(DetalleProvision dp, double monto, ChangeEventArgs e)
+    private async Task CalcularSubtotal(DetalleProvision dp, double monto, ChangeEventArgs e)
     {
          if (int.TryParse(e.Value.ToString(), out var num))
          {
-             dp.subtotal_aprox = monto * num;
+            if (num < 0)
+            {
+                // Mostrar un mensaje de error o manejar el caso de cantidad negativa
+                dp.cantidad = 0; // O cualquier valor por defecto que consideres apropiado
+                await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "La cantidad no puede ser negativa", "error");
+            }
+            else
+            {
+                dp.subtotal_aprox = monto * num;
+                dp.subtotal_letra = UpdateCantidadLetra(new ChangeEventArgs { Value = dp.subtotal_aprox });
+            }
          }
-
-         dp.subtotal_letra = UpdateCantidadLetra(new ChangeEventArgs { Value = dp.subtotal_aprox }); // AL FINALIZAR EL CALCULO CONVIERTE EL SUBTOTAL EN LETRA
     }
 
     private async Task HandleValidSubmit() //--PROCEDIMIENTO PARA AGREGAR PROVISION Y DETALLE PROVISION A LA BASE DE DATOS--

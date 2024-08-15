@@ -24,18 +24,17 @@ namespace ContadSP.Repositorios
         Task<Models.Provision> ObtenerProvisionPorId(int id);
         Task<IEnumerable<Models.DetallePedido>> ObtenerDetallePedidoPorId(int id);
         Task<IEnumerable<Models.Provision>> ObtenerProvisiones();
-        Task CambiarEstado(object entidad);
+        
         
         Task<int> ObtenerUltimoProcesoNumero(int id);
         Task<int> ObtenerUltimoProcesoPedidoId();
         Task<Pedido> ObtenerUltimoPedido();
         Task<IEnumerable<DetalleProvision>> ObtenerProvisionesId(int id);
-        Task<IEnumerable<T>> ObtenerTodoConRelaciones(params Expression<Func<T, object>>[] includes);
-        Task<T> ObtenerRegistroId(int id, params Expression<Func<T, object>>[] includes);
+        
         
         Task<Models.ProvisionExp> ObtenerProvisionExpPorId(int id);
         Task<IEnumerable<Models.ProvisionExp>> ObtenerProvisionExp();
-        Task<int> ObtenerUltimaProvisionExpId();
+        Task<ProvisionExp> ObtenerUltimaProvisionExp();
         Task CambiarEstadoProvision(object entidad, int estado);
         // Fin metodos especificos
     }

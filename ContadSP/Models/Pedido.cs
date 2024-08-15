@@ -13,9 +13,10 @@ namespace ContadSP.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
-        public string? numero_acta { get; set; }
+        public string abreviatura { get; set; } = "ACT";
+        public int acta_num { get; set; }
+        public int anio { get; set; } = DateTime.Now.Year;
         public DateOnly fecha_pedido { get; set; }
-        public bool estado { get; set; }
         public List<DetallePedido> DetallePedido { get; set; }
         public List<PedidoProveedor> PedidoProveedor { get; set; }
 

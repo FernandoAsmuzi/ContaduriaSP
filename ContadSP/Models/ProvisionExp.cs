@@ -5,15 +5,14 @@ namespace ContadSP.Models
 {
     public class ProvisionExp
     {
-        public ProvisionExp()
-        {
-            fecha_provision_exp = DateOnly.FromDateTime(DateTime.Now);
-        }
+       
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
-        public string? exp_num { get; set; }
-        public DateOnly fecha_provision_exp { get; set; }
+        public int exp_num { get; set; }
+        public int anio { get; set; }
+
+        public string abreviatura { get; set; } = "EXP";
 
         [ForeignKey("provision_id")]
         public int provision_id { get; set; }

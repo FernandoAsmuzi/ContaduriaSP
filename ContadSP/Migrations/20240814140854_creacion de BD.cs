@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ContadSP.Migrations
 {
     /// <inheritdoc />
-    public partial class local : Migration
+    public partial class creaciondeBD : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -322,10 +322,11 @@ namespace ContadSP.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    numero_acta = table.Column<string>(type: "longtext", nullable: true)
+                    abreviatura = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    acta_num = table.Column<int>(type: "int", nullable: false),
+                    anio = table.Column<int>(type: "int", nullable: false),
                     fecha_pedido = table.Column<DateOnly>(type: "date", nullable: false),
-                    estado = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     provision_id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -346,9 +347,10 @@ namespace ContadSP.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    exp_num = table.Column<string>(type: "longtext", nullable: true)
+                    exp_num = table.Column<int>(type: "int", nullable: false),
+                    anio = table.Column<int>(type: "int", nullable: false),
+                    abreviatura = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    fecha_provision_exp = table.Column<DateOnly>(type: "date", nullable: false),
                     provision_id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

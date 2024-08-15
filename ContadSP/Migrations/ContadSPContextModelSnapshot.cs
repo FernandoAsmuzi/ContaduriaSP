@@ -159,14 +159,18 @@ namespace ContadSP.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<bool>("estado")
-                        .HasColumnType("tinyint(1)");
+                    b.Property<string>("abreviatura")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("acta_num")
+                        .HasColumnType("int");
+
+                    b.Property<int>("anio")
+                        .HasColumnType("int");
 
                     b.Property<DateOnly>("fecha_pedido")
                         .HasColumnType("date");
-
-                    b.Property<string>("numero_acta")
-                        .HasColumnType("longtext");
 
                     b.Property<int>("provision_id")
                         .HasColumnType("int");
@@ -329,11 +333,15 @@ namespace ContadSP.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("exp_num")
+                    b.Property<string>("abreviatura")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateOnly>("fecha_provision_exp")
-                        .HasColumnType("date");
+                    b.Property<int>("anio")
+                        .HasColumnType("int");
+
+                    b.Property<int>("exp_num")
+                        .HasColumnType("int");
 
                     b.Property<int>("provision_id")
                         .HasColumnType("int");

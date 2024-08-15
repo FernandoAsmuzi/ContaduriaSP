@@ -189,7 +189,8 @@
     private List<Proveedor> proveedores = new List<Proveedor>();
     private Dictionary<Proveedor, bool> proveedoresSeleccionados = new Dictionary<Proveedor, bool>();
     private ProvisionExp exp = new ProvisionExp();
-    private int ultimaProvExp = 0;
+    private ProvisionExp ultimaProvExp = new ProvisionExp();
+    private int anio = 0;
     private Pedido ultimoPedido = new Pedido();
 
     protected override async Task OnInitializedAsync()
@@ -279,14 +280,14 @@
         var anio = DateTime.Now.Year.ToString();
         if(ultimoPedido.fecha_pedido.Year.ToString() != anio)
         {
-            pedido.numero_acta = "ACT-" + "1" + "-" + anio;
+            //pedido.numero_acta = "ACT-" + "1" + "-" + anio;
         }
         else
         {
-            pedido.numero_acta = "ACT-" + ultimoPedido.ToString() + "-" + anio;
+            //pedido.numero_acta = "ACT-" + ultimoPedido.ToString() + "-" + anio;
         }
- 
-        pedido.estado = false;
+
+
         pedido.provision_id = prov.id;
         await repositorioPedido.Agregar(pedido);
 
@@ -296,7 +297,7 @@
             if (p.Value)
             {
                 pedidoProveedor.proveedor_id = p.Key.id;
-                pedidoProveedor.pedido_id = ultimoPedido;
+                pedidoProveedor.pedido_id = ultimoPedido.id;
                 await repositorioPedidoProveedor.Agregar(pedidoProveedor);
             }
         }
@@ -304,13 +305,35 @@
         NavigationManager.NavigateTo($"/provision/2");
     }
 
+    private bool CambiarAnio(ProvisionExp ultima){
+        anio = DateTime.Now.Year;
+        bool valor = false;
+        if(anio != ultima.anio)
+        {
+            return true;
+        }
+        return valor;
+    }
+
     private async Task AprobarProvision(Provision prov)
     {
         //await CargarPoceso(prov);
-        ultimaProvExp = await repositorioProvisionExp.ObtenerUltimaProvisionExpId() + 1;
+        ultimaProvExp = await repositorioProvisionExp.ObtenerUltimaProvisionExp();
         await repositorioProvision.CambiarEstadoProvision(prov, 2);
+
+        anio = DateTime.Now.Year;
+
+        if (CambiarAnio(ultimaProvExp))
+        {
+            exp.exp_num = 1;
+        }
+        else
+        {
+            exp.exp_num = ultimaProvExp.exp_num + 1;
+        }
+            
         exp.provision_id = prov.id;
-        exp.exp_num = "PROV-" + ultimaProvExp.ToString() + "-" + DateTime.Now.Year.ToString();
+        exp.anio = anio;
         await repositorioProvisionExp.Agregar(exp);
         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se aprobó correctamente", "success");
         NavigationManager.NavigateTo($"/provision/2");
@@ -319,10 +342,22 @@
     private async Task CancelarProvision(Provision prov)
     {
         int estado = 3;
-        ultimaProvExp = await repositorioProvisionExp.ObtenerUltimaProvisionExpId() + 1;
+        ultimaProvExp = await repositorioProvisionExp.ObtenerUltimaProvisionExp();
         await repositorioProvision.CambiarEstadoProvision(prov, estado);
+        anio = DateTime.Now.Year;
+
+        if (CambiarAnio(ultimaProvExp))
+        {
+            exp.exp_num = 1;
+        }
+        else
+        {
+            exp.exp_num = ultimaProvExp.exp_num + 1;
+        }
+
         exp.provision_id = prov.id;
-        exp.exp_num = "PROV-" + ultimaProvExp.ToString() + "-" + DateTime.Now.Year.ToString();
+        exp.anio = anio;
+        await repositorioProvisionExp.Agregar(exp);
         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se canceló correctamente", "success");
         //muestra = provisiones.Where(p => p.estado == false).ToList();
         NavigationManager.NavigateTo($"/provision/3");
