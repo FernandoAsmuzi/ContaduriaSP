@@ -183,9 +183,11 @@ public class Repositorio<T> : IRepositorio<T> where T : class
     }
             public async Task<ProvisionExp> ObtenerUltimaProvisionExp()
             {
-                return await _context.ProvisionExp
+                var ultima = await _context.ProvisionExp
                     .OrderByDescending(a => a.id)
+                    .Include(p => p.Provision)
                     .FirstOrDefaultAsync();
+                return ultima;
             }
         // FIN METODOS ESPECIFICOS
 }

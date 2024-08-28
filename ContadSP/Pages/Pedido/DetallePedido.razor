@@ -119,8 +119,8 @@
                 {
                     <div class="btn-opciones">
                         <div class="boton-busqueda">
-                            <button type="button" class="btn btn-success" @onclick="() => AprobarProvision(prov)">Aprobar provisión</button>
-                            <button type="button" class="btn btn-danger" @onclick="() => CancelarProvision(prov)">Cancelar provisión</button>
+                            <button type="button" class="btn btn-success" @onclick="() => ControlProvision(prov, 2)">Aprobar provisión</button>
+                            <button type="button" class="btn btn-danger" @onclick="() => ControlProvision(prov, 3)">Cancelar provisión</button>
                         </div>
                     </div>
                     <br>
@@ -189,7 +189,7 @@
     private List<Proveedor> proveedores = new List<Proveedor>();
     private Dictionary<Proveedor, bool> proveedoresSeleccionados = new Dictionary<Proveedor, bool>();
     private ProvisionExp exp = new ProvisionExp();
-    private ProvisionExp ultimaProvExp = new ProvisionExp();
+    private ProvisionExp? ultimaProvExp = new ProvisionExp();
     private int anio = 0;
     private Pedido ultimoPedido = new Pedido();
 
@@ -277,17 +277,18 @@
     private async Task GenerarPedido(Provision prov)
     {
         ultimoPedido = await repositorioPedido.ObtenerUltimoPedido();
-        var anio = DateTime.Now.Year.ToString();
-        if(ultimoPedido.fecha_pedido.Year.ToString() != anio)
+        var anio = DateTime.Now.Year;
+
+        if (CambiarAnio(ultimoPedido.anio))
         {
-            //pedido.numero_acta = "ACT-" + "1" + "-" + anio;
+            pedido.acta_num = 1;
         }
         else
         {
-            //pedido.numero_acta = "ACT-" + ultimoPedido.ToString() + "-" + anio;
+            pedido.acta_num = ultimoPedido.acta_num + 1;
         }
 
-
+        pedido.anio = anio;
         pedido.provision_id = prov.id;
         await repositorioPedido.Agregar(pedido);
 
@@ -302,69 +303,50 @@
             }
         }
         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se aprobó correctamente", "success");
-        NavigationManager.NavigateTo($"/provision/2");
+        NavigationManager.NavigateTo($"/");
     }
 
-    private bool CambiarAnio(ProvisionExp ultima){
+    // Funcion para reiniciar el N° expediente o N° actuacion cuando cambia el año
+    private bool CambiarAnio(int ultima){
         anio = DateTime.Now.Year;
         bool valor = false;
-        if(anio != ultima.anio)
+        if(anio != ultima)
         {
             return true;
         }
         return valor;
     }
 
-    private async Task AprobarProvision(Provision prov)
+    // Funcion que aprueba o cancela la provision
+    private async Task ControlProvision(Provision prov, int estado)
     {
-        //await CargarPoceso(prov);
         ultimaProvExp = await repositorioProvisionExp.ObtenerUltimaProvisionExp();
-        await repositorioProvision.CambiarEstadoProvision(prov, 2);
-
         anio = DateTime.Now.Year;
 
-        if (CambiarAnio(ultimaProvExp))
+        if(ultimaProvExp is null)
         {
             exp.exp_num = 1;
         }
         else
         {
-            exp.exp_num = ultimaProvExp.exp_num + 1;
+            if (CambiarAnio(ultimaProvExp.anio))
+            {
+                exp.exp_num = 1;
+            }
+            else
+            {
+                exp.exp_num = ultimaProvExp.exp_num + 1;
+            }
         }
             
         exp.provision_id = prov.id;
         exp.anio = anio;
         await repositorioProvisionExp.Agregar(exp);
-        await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se aprobó correctamente", "success");
-        NavigationManager.NavigateTo($"/provision/2");
-    }
 
-    private async Task CancelarProvision(Provision prov)
-    {
-        int estado = 3;
-        ultimaProvExp = await repositorioProvisionExp.ObtenerUltimaProvisionExp();
         await repositorioProvision.CambiarEstadoProvision(prov, estado);
-        anio = DateTime.Now.Year;
 
-        if (CambiarAnio(ultimaProvExp))
-        {
-            exp.exp_num = 1;
-        }
-        else
-        {
-            exp.exp_num = ultimaProvExp.exp_num + 1;
-        }
-
-        exp.provision_id = prov.id;
-        exp.anio = anio;
-        await repositorioProvisionExp.Agregar(exp);
-        await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se canceló correctamente", "success");
-        //muestra = provisiones.Where(p => p.estado == false).ToList();
-        NavigationManager.NavigateTo($"/provision/3");
+        await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se aprobó correctamente", "success");
+        NavigationManager.NavigateTo($"/");
     }
-    private void CargarProveedores(Dictionary<Proveedor, bool> proveedoresSeleccionados)
-    {
-        var proveedoresAgregados = proveedoresSeleccionados.Where(p => p.Value).Select(p => p.Key).ToList();
-        // Aquí se puede hacer algo con los proveedores seleccionados
-    }
+    
 }
