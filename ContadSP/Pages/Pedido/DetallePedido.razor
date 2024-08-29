@@ -3,8 +3,11 @@
 @using ContadSP.Repositorios
 @using ContadSP.Models
 @using System.Text.Json
+@using DinkToPdf
 @using Radzen
 @using Radzen.Blazor
+@using iTextSharp.text.pdf
+
 
 @inject IRepositorio<DetalleProvision> repositorioDetalleProvision
 @inject IRepositorio<Provision> repositorioProvision
@@ -164,6 +167,7 @@
                             <div class="boton-ver">
                                 <button type="button" class="btn btn-success" @onclick="() => GenerarPedido(prov)">Generar pedido</button>
                             </div>
+                            
                         </div>
                         <br />
                         <br />
@@ -276,16 +280,29 @@
 
     private async Task GenerarPedido(Provision prov)
     {
+        if (!proveedoresSeleccionados.Any(p => p.Value))
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "Advertencia", "Debe seleccionar al menos un proveedor.", "warning");
+            return;
+        }
+
         ultimoPedido = await repositorioPedido.ObtenerUltimoPedido();
         var anio = DateTime.Now.Year;
 
-        if (CambiarAnio(ultimoPedido.anio))
+        if (ultimoPedido is null)
         {
             pedido.acta_num = 1;
         }
         else
         {
-            pedido.acta_num = ultimoPedido.acta_num + 1;
+            if (CambiarAnio(ultimoPedido.anio))
+            {
+                pedido.acta_num = 1;
+            }
+            else
+            {
+                pedido.acta_num = ultimoPedido.acta_num + 1;
+            }
         }
 
         pedido.anio = anio;
@@ -302,8 +319,68 @@
                 await repositorioPedidoProveedor.Agregar(pedidoProveedor);
             }
         }
+
+        // Generar el PDF
+        var pdfBytes = GenerarPdf();
+
+        await DescargarPdf(pdfBytes);
+
         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se aprobó correctamente", "success");
         NavigationManager.NavigateTo($"/");
+    }
+
+    private byte[] GenerarPdf()
+    {
+        using (var ms = new MemoryStream())
+        {
+            var document = new iTextSharp.text.Document();
+            var writer = PdfWriter.GetInstance(document, ms);
+            document.Open();
+
+            // Agregar contenido al PDF
+            document.Add(new iTextSharp.text.Paragraph("Detalle de la provisión"));
+            document.Add(new iTextSharp.text.Paragraph($"ID: {prov.id}"));
+            document.Add(new iTextSharp.text.Paragraph($"Fecha provisión: {prov.fecha_provision}"));
+            document.Add(new iTextSharp.text.Paragraph($"Descripción: {prov.descripcion}"));
+            document.Add(new iTextSharp.text.Paragraph($"Destino: {destino}"));
+            document.Add(new iTextSharp.text.Paragraph($"Usuario solicitante: {usuario}"));
+            document.Add(new iTextSharp.text.Paragraph($"Tipo pedido: {tipo}"));
+            document.Add(new iTextSharp.text.Paragraph($"Estado: {estado.estado}"));
+
+            // Crear una tabla
+            var table = new iTextSharp.text.pdf.PdfPTable(5);
+            table.AddCell("Artículo");
+            table.AddCell("Cantidad");
+            table.AddCell("Unidad");
+            table.AddCell("Subtotal aprox.");
+            table.AddCell("Subtotal letra");
+
+            foreach (var p in provisionDetalle)
+            {
+                table.AddCell(p.Articulo.descripcion);
+                table.AddCell(p.cantidad.ToString());
+                table.AddCell(p.UnidadMedida.unidad);
+                table.AddCell(p.subtotal_aprox.ToString());
+                table.AddCell(p.subtotal_letra);
+            }
+
+            document.Add(table);
+
+            document.Add(new iTextSharp.text.Paragraph($"Total Aproximado: {prov.total_aprox}"));
+            document.Add(new iTextSharp.text.Paragraph($"Total aproximado letra: {prov.total_letra}"));
+
+            document.Close();
+            return ms.ToArray();
+        }
+    }
+
+    private async Task DescargarPdf(byte[] pdfBytes)
+    {
+        var base64 = Convert.ToBase64String(pdfBytes);
+        var fileName = "DetalleProvision.pdf";
+        var jsCode = $"var link = document.createElement('a'); link.href = 'data:application/pdf;base64,{base64}'; link.download = '{fileName}'; link.click();";
+        await JSRuntime.InvokeVoidAsync("eval", jsCode);
+        await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "se descargo el pdf", "success");
     }
 
     // Funcion para reiniciar el N° expediente o N° actuacion cuando cambia el año

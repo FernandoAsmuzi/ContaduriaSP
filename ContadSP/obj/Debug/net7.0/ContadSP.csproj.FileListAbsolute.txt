@@ -404,3 +404,6 @@ C:\Users\fasmuzi\Desktop\ContadSp\ContadSP\obj\Debug\net7.0\refint\ContadSP.dll
 C:\Users\fasmuzi\Desktop\ContadSp\ContadSP\obj\Debug\net7.0\ContadSP.pdb
 C:\Users\fasmuzi\Desktop\ContadSp\ContadSP\obj\Debug\net7.0\ContadSP.genruntimeconfig.cache
 C:\Users\fasmuzi\Desktop\ContadSp\ContadSP\obj\Debug\net7.0\ref\ContadSP.dll
+C:\Users\fasmuzi\Desktop\ContadSp\ContadSP\bin\Debug\net7.0\DinkToPdf.dll
+C:\Users\fasmuzi\Desktop\ContadSp\ContadSP\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+C:\Users\fasmuzi\Desktop\ContadSp\ContadSP\bin\Debug\net7.0\itextsharp.dll
