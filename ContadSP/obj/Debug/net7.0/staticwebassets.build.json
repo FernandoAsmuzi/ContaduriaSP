@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "S+6wBRvKj84GwJR2NbDMhT4fYbgRfUzkYc78wi98tCc=",
+  "Hash": "nc7beMFN8eU2tXFTzfA4jIcRF4+R9OL1kIoctDkL4l8=",
   "Source": "ContadSP",
   "BasePath": "_content/ContadSP",
   "Mode": "Default",
@@ -2029,6 +2029,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\fotos1\\Sin título-1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\icon\\logoPJ.png",
+      "SourceId": "ContadSP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
+      "BasePath": "_content/ContadSP",
+      "RelativePath": "icon/logoPJ.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icon\\logoPJ.png"
     },
     {
       "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\js\\funciones.js",

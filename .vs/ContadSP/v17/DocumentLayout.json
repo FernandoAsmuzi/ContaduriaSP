@@ -42,12 +42,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -56,7 +52,7 @@
               "RelativeDocumentMoniker": "ContadSP\\Pages\\Pedido\\DetallePedido.razor",
               "ToolTip": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Pedido\\DetallePedido.razor",
               "RelativeToolTip": "ContadSP\\Pages\\Pedido\\DetallePedido.razor",
-              "ViewState": "AgIAAHMBAAAAAAAAAAD4v0UBAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAE8BAAAAAAAAAAAIwGwBAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-08-28T12:43:52.44Z",
               "EditorCaption": ""
@@ -71,8 +67,7 @@
               "RelativeToolTip": "ContadSP\\Models\\Provision.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T13:07:32.21Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-28T13:07:32.21Z"
             },
             {
               "$type": "Document",
@@ -84,8 +79,7 @@
               "RelativeToolTip": "ContadSP\\Repositorios\\Repositorio.cs",
               "ViewState": "AgIAAI4AAAAAAAAAAAAQwLcAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T13:03:06.905Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-28T13:03:06.905Z"
             },
             {
               "$type": "Document",
@@ -97,8 +91,7 @@
               "RelativeToolTip": "ContadSP\\Models\\ProvisionExp.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T13:08:51.808Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-28T13:08:51.808Z"
             },
             {
               "$type": "Document",
@@ -110,8 +103,7 @@
               "RelativeToolTip": "ContadSP\\Pages\\Provision\\AltaProvision.razor",
               "ViewState": "AgIAAFABAAAAAAAAAIBJwGQBAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-28T12:59:09.182Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-28T12:59:09.182Z"
             },
             {
               "$type": "Document",
@@ -123,8 +115,7 @@
               "RelativeToolTip": "ContadSP\\Repositorios\\IRepositorio.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T13:03:06.195Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-28T13:03:06.195Z"
             },
             {
               "$type": "Document",
@@ -136,8 +127,7 @@
               "RelativeToolTip": "ContadSP\\Shared\\NavMenu.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-28T14:03:34.856Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-28T14:03:34.856Z"
             },
             {
               "$type": "Document",
@@ -149,8 +139,7 @@
               "RelativeToolTip": "ContadSP\\Models\\Pedido.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T13:29:50.217Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-28T13:29:50.217Z"
             }
           ]
         }

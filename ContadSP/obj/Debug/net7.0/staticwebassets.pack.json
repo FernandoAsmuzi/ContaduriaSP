@@ -89,6 +89,10 @@
       "PackagePath": "staticwebassets\\fotos1\\logopodjud.png"
     },
     {
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\icon\\logoPJ.png",
+      "PackagePath": "staticwebassets\\icon\\logoPJ.png"
+    },
+    {
       "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\js\\funciones.js",
       "PackagePath": "staticwebassets\\js\\funciones.js"
     },

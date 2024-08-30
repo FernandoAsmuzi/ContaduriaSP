@@ -337,8 +337,35 @@
             var writer = PdfWriter.GetInstance(document, ms);
             document.Open();
 
-            // Agregar contenido al PDF
-            document.Add(new iTextSharp.text.Paragraph("Detalle de la provisión"));
+            // Crear una tabla con dos celdas
+            var table = new iTextSharp.text.pdf.PdfPTable(2);
+            table.WidthPercentage = 100;
+            table.SetWidths(new float[] { 2, 2 }); // Ajustar el ancho de las columnas
+
+            // Agregar la imagen del logo a la primera celda
+            var logo = iTextSharp.text.Image.GetInstance("wwwroot/icon/logoPJ.png");
+            logo.ScaleToFit(200f, 200f); // Ajustar el tamaño de la imagen
+            var cellLogo = new iTextSharp.text.pdf.PdfPCell(logo)
+                {
+                    Border = iTextSharp.text.Rectangle.NO_BORDER,
+                    HorizontalAlignment = iTextSharp.text.Element.ALIGN_LEFT
+                };
+            table.AddCell(cellLogo);
+
+            var titulo = new iTextSharp.text.Paragraph($"PEDIDO DE PROVISION N° {prov.id}")
+                {
+                    Alignment = iTextSharp.text.Element.ALIGN_RIGHT
+                };
+            var cellTitulo = new iTextSharp.text.pdf.PdfPCell(titulo)
+                {
+                    Border = iTextSharp.text.Rectangle.NO_BORDER,
+                    HorizontalAlignment = iTextSharp.text.Element.ALIGN_RIGHT,
+                    VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE // Alinear verticalmente al centro
+                };
+            table.AddCell(cellTitulo);
+
+            // Agregar la tabla al documento
+            document.Add(table);
             document.Add(new iTextSharp.text.Paragraph($"ID: {prov.id}"));
             document.Add(new iTextSharp.text.Paragraph($"Fecha provisión: {prov.fecha_provision}"));
             document.Add(new iTextSharp.text.Paragraph($"Descripción: {prov.descripcion}"));
@@ -348,23 +375,23 @@
             document.Add(new iTextSharp.text.Paragraph($"Estado: {estado.estado}"));
 
             // Crear una tabla
-            var table = new iTextSharp.text.pdf.PdfPTable(5);
-            table.AddCell("Artículo");
-            table.AddCell("Cantidad");
-            table.AddCell("Unidad");
-            table.AddCell("Subtotal aprox.");
-            table.AddCell("Subtotal letra");
+            var detailtable = new iTextSharp.text.pdf.PdfPTable(5);
+            detailtable.AddCell("Artículo");
+            detailtable.AddCell("Cantidad");
+            detailtable.AddCell("Unidad");
+            detailtable.AddCell("Subtotal aprox.");
+            detailtable.AddCell("Subtotal letra");
 
             foreach (var p in provisionDetalle)
             {
-                table.AddCell(p.Articulo.descripcion);
-                table.AddCell(p.cantidad.ToString());
-                table.AddCell(p.UnidadMedida.unidad);
-                table.AddCell(p.subtotal_aprox.ToString());
-                table.AddCell(p.subtotal_letra);
+                detailtable.AddCell(p.Articulo.descripcion);
+                detailtable.AddCell(p.cantidad.ToString());
+                detailtable.AddCell(p.UnidadMedida.unidad);
+                detailtable.AddCell(p.subtotal_aprox.ToString());
+                detailtable.AddCell(p.subtotal_letra);
             }
 
-            document.Add(table);
+            document.Add(detailtable);
 
             document.Add(new iTextSharp.text.Paragraph($"Total Aproximado: {prov.total_aprox}"));
             document.Add(new iTextSharp.text.Paragraph($"Total aproximado letra: {prov.total_letra}"));
