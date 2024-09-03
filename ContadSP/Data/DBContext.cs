@@ -94,11 +94,15 @@ namespace ContadSP.Data
                 .HasOne(p => p.Provision)
                 .WithMany(pv => pv.Pedido)
                 .HasForeignKey(p => p.provision_id);
-            // Relacion de ProcesoPedido con Proceso
+            // Relacion de ProcesoPedido con Proceso y Pedido
             modelBuilder.Entity<ProcesoPedido>()
                 .HasOne(pp => pp.Proceso)
                 .WithMany(p => p.ProcesoPedido)
                 .HasForeignKey(pp => pp.proceso_id);
+            modelBuilder.Entity<ProcesoPedido>()
+                .HasOne(pp => pp.Pedido)
+                .WithMany(p => p.ProcesoPedido)
+                .HasForeignKey(pp => pp.pedido_id);
             // Relacion de PedidoProveedor con Proveedor y Provision
             modelBuilder.Entity<PedidoProveedor>()
                 .HasOne(pp => pp.Proveedor)

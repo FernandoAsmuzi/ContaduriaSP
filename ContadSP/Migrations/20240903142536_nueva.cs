@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ContadSP.Migrations
 {
     /// <inheritdoc />
-    public partial class migracioninicial : Migration
+    public partial class nueva : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -256,29 +256,6 @@ namespace ContadSP.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ProcesoPedido",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    num_proceso = table.Column<int>(type: "int", nullable: false),
-                    proceso_completo = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    proceso_id = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProcesoPedido", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_ProcesoPedido_Proceso_proceso_id",
-                        column: x => x.proceso_id,
-                        principalTable: "Proceso",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "DetalleProvision",
                 columns: table => new
                 {
@@ -427,6 +404,36 @@ namespace ContadSP.Migrations
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
+            migrationBuilder.CreateTable(
+                name: "ProcesoPedido",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    num_proceso = table.Column<int>(type: "int", nullable: false),
+                    proceso_completo = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    proceso_id = table.Column<int>(type: "int", nullable: false),
+                    pedido_id = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProcesoPedido", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_ProcesoPedido_Pedido_pedido_id",
+                        column: x => x.pedido_id,
+                        principalTable: "Pedido",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ProcesoPedido_Proceso_proceso_id",
+                        column: x => x.proceso_id,
+                        principalTable: "Proceso",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Articulo_categoria_id",
                 table: "Articulo",
@@ -481,6 +488,11 @@ namespace ContadSP.Migrations
                 name: "IX_Proceso_tipo_pedido_id",
                 table: "Proceso",
                 column: "tipo_pedido_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProcesoPedido_pedido_id",
+                table: "ProcesoPedido",
+                column: "pedido_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProcesoPedido_proceso_id",
@@ -543,10 +555,10 @@ namespace ContadSP.Migrations
                 name: "UnidadMedida");
 
             migrationBuilder.DropTable(
-                name: "Pedido");
+                name: "Proveedor");
 
             migrationBuilder.DropTable(
-                name: "Proveedor");
+                name: "Pedido");
 
             migrationBuilder.DropTable(
                 name: "Proceso");
@@ -555,10 +567,10 @@ namespace ContadSP.Migrations
                 name: "Categoria");
 
             migrationBuilder.DropTable(
-                name: "Provision");
+                name: "SitFiscal");
 
             migrationBuilder.DropTable(
-                name: "SitFiscal");
+                name: "Provision");
 
             migrationBuilder.DropTable(
                 name: "Destino");

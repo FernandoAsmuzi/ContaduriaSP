@@ -19,6 +19,7 @@ namespace ContadSP.Models
         public DateOnly fecha_pedido { get; set; }
         public List<DetallePedido> DetallePedido { get; set; }
         public List<PedidoProveedor> PedidoProveedor { get; set; }
+        public List<ProcesoPedido> ProcesoPedido { get; set; }
 
         [ForeignKey("provision_id")]
         public int provision_id { get; set; }

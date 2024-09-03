@@ -18,6 +18,7 @@ builder.Services.AddScoped<AuthenticationStateProvider, AutenticacionExtension>(
 builder.Services.AddAuthorizationCore();//inicio de sesion
 
 // Add services to the container.
+builder.Services.AddControllers();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<IRepositorio<Articulo>, Repositorio<Articulo>>();
@@ -57,7 +58,6 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
 
 // lectura del directorio de fotos
@@ -69,6 +69,7 @@ app.UseStaticFiles(new StaticFileOptions
 });
 
 app.UseRouting();
+
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");

@@ -14,5 +14,10 @@ namespace ContadSP.Models
         [ForeignKey("proceso_id")]
         public int proceso_id { get; set; }
         public Proceso Proceso { get; set; }
+
+        [ForeignKey("pedido_id")]
+        public int pedido_id { get; set; }
+        public Pedido Pedido { get; set; }
+
     }
 }

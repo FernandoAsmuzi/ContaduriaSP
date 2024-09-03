@@ -329,6 +329,7 @@
         var pdfBytes = GenerarPdf();
 
         await DescargarPdf(pdfBytes);
+        
 
         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El pedido se generó correctamente", "success");
         NavigationManager.NavigateTo($"/");
@@ -484,6 +485,8 @@
     }
 
     // Funcion para reiniciar el N° expediente o N° actuacion cuando cambia el año
+
+
     private bool CambiarAnio(int ultima){
         anio = DateTime.Now.Year;
         bool valor = false;

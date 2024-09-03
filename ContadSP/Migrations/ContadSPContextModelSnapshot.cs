@@ -240,6 +240,9 @@ namespace ContadSP.Migrations
                     b.Property<int>("num_proceso")
                         .HasColumnType("int");
 
+                    b.Property<int>("pedido_id")
+                        .HasColumnType("int");
+
                     b.Property<string>("proceso_completo")
                         .HasColumnType("longtext");
 
@@ -247,6 +250,8 @@ namespace ContadSP.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("id");
+
+                    b.HasIndex("pedido_id");
 
                     b.HasIndex("proceso_id");
 
@@ -526,11 +531,19 @@ namespace ContadSP.Migrations
 
             modelBuilder.Entity("ContadSP.Models.ProcesoPedido", b =>
                 {
+                    b.HasOne("ContadSP.Models.Pedido", "Pedido")
+                        .WithMany("ProcesoPedido")
+                        .HasForeignKey("pedido_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ContadSP.Models.Proceso", "Proceso")
                         .WithMany("ProcesoPedido")
                         .HasForeignKey("proceso_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Pedido");
 
                     b.Navigation("Proceso");
                 });
@@ -619,6 +632,8 @@ namespace ContadSP.Migrations
                     b.Navigation("DetallePedido");
 
                     b.Navigation("PedidoProveedor");
+
+                    b.Navigation("ProcesoPedido");
                 });
 
             modelBuilder.Entity("ContadSP.Models.Proceso", b =>
