@@ -147,13 +147,12 @@ public class Repositorio<T> : IRepositorio<T> where T : class
             }
         // ---------------------------------------------------------
         // METODOS PARA PROCESO
-            public async Task<int> ObtenerUltimoProcesoNumero(int id)
+            public async Task<ProcesoPedido> ObtenerUltimoProcesoNumero(int id)
             {
                 var ultima = await _context.ProcesoPedido
                 
                 .Where(a => a.proceso_id == id)
                 .OrderByDescending(a => a.num_proceso)
-                .Select(a => a.num_proceso)
                 .FirstOrDefaultAsync();
                 return ultima;
             }
@@ -189,7 +188,9 @@ public class Repositorio<T> : IRepositorio<T> where T : class
                     .FirstOrDefaultAsync();
                 return ultima;
             }
-        // FIN METODOS ESPECIFICOS
+    // FIN METODOS ESPECIFICOS
+    // ---------------------------------------------------------
+
 }
 
 public class RepositorioArticulo : Repositorio<Articulo>

@@ -26,7 +26,7 @@ namespace ContadSP.Repositorios
         Task<IEnumerable<Models.Provision>> ObtenerProvisiones();
         
         
-        Task<int> ObtenerUltimoProcesoNumero(int id);
+        Task<ProcesoPedido> ObtenerUltimoProcesoNumero(int id);
         Task<int> ObtenerUltimoProcesoPedidoId();
         Task<Pedido> ObtenerUltimoPedido();
         Task<IEnumerable<DetalleProvision>> ObtenerProvisionesId(int id);
@@ -36,6 +36,7 @@ namespace ContadSP.Repositorios
         Task<IEnumerable<Models.ProvisionExp>> ObtenerProvisionExp();
         Task<ProvisionExp> ObtenerUltimaProvisionExp();
         Task CambiarEstadoProvision(object entidad, int estado);
+        
         // Fin metodos especificos
     }
 }

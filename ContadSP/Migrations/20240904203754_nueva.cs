@@ -413,6 +413,7 @@ namespace ContadSP.Migrations
                     num_proceso = table.Column<int>(type: "int", nullable: false),
                     proceso_completo = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    anio = table.Column<int>(type: "int", nullable: false),
                     proceso_id = table.Column<int>(type: "int", nullable: false),
                     pedido_id = table.Column<int>(type: "int", nullable: false)
                 },

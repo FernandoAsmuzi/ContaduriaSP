@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContadSP.Migrations
 {
     [DbContext(typeof(ContadSPContext))]
-    [Migration("20240903142536_nueva")]
+    [Migration("20240904203754_nueva")]
     partial class nueva
     {
         /// <inheritdoc />
@@ -238,6 +238,9 @@ namespace ContadSP.Migrations
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("anio")
                         .HasColumnType("int");
 
                     b.Property<int>("num_proceso")

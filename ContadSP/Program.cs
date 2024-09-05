@@ -10,6 +10,7 @@ using Blazored.SessionStorage; //inicio de sesion
 using Microsoft.AspNetCore.Components.Authorization;//inicio de sesion
 using ContadSP.Extensiones;//inicio de sesion
 using Radzen;
+using ContadSP.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,7 +39,8 @@ builder.Services.AddScoped<IRepositorio<SitFiscal>, Repositorio<SitFiscal>>();
 builder.Services.AddScoped<IRepositorio<TipoPedido>, Repositorio<TipoPedido>>();
 builder.Services.AddScoped<IRepositorio<UnidadMedida>, Repositorio<UnidadMedida>>();
 builder.Services.AddScoped<IRepositorio<Usuario>, Repositorio<Usuario>>();
-
+builder.Services.AddScoped<PdfService>();
+builder.Services.AddScoped<MailService>();
 builder.Services.AddRadzenComponents();
 
 builder.Services.AddHttpClient(); 

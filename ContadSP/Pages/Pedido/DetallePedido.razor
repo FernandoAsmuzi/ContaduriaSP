@@ -9,7 +9,7 @@
 @using iTextSharp.text
 @using iTextSharp.text.pdf
 @using iTextSharp.text.pdf.draw
-
+@using ContadSP.Services
 
 @inject IRepositorio<DetalleProvision> repositorioDetalleProvision
 @inject IRepositorio<Provision> repositorioProvision
@@ -18,9 +18,12 @@
 @inject IRepositorio<Estado> repositorioEstado
 @inject IRepositorio<Pedido> repositorioPedido
 @inject IRepositorio<PedidoProveedor> repositorioPedidoProveedor
+@inject IRepositorio<Proceso> repositorioProceso;
+@inject IRepositorio<ProcesoPedido> repositorioProcesoPedido
 @inject DialogService DialogService
 @inject IJSRuntime JSRuntime
 @inject NavigationManager NavigationManager
+@inject PdfService PdfService
 
 <div class="container mt-4">
     
@@ -198,11 +201,13 @@
     private ProvisionExp? ultimaProvExp = new ProvisionExp();
     private int anio = 0;
     private Pedido ultimoPedido = new Pedido();
+    private List<Proceso> procesos = new List<Proceso>();
 
     protected override async Task OnInitializedAsync()
     {
 
         prov = await repositorioProvision.ObtenerProvisionPorId(int.Parse(id));
+        procesos = (await repositorioProceso.ObtenerTodo()).ToList();
         destino = prov.Destino.destino;
         usuario = prov.Usuario.nombre_usuario;
         tipo = prov.TipoPedido.tipo;
@@ -280,6 +285,57 @@
         proveedoresSeleccionados[proveedor] = (bool)e.Value;
     }
 
+    private Proceso ObtenerProceso(int tipoId, double total)
+    {
+        var resul = new Proceso();
+        foreach (var tipo in procesos) //--RECORRE LA LISTA DE TIPO MONTOS PARA CALCULAR EL CORRECTO--
+        {
+            if (tipo.tipo_pedido_id == tipoId)
+            {
+                if (tipo.monto_maximo == 0)
+                {
+                    if (total > tipo.monto_maximo)
+                    {
+                        resul = tipo;
+                    }
+                }
+                else
+                {
+                    if (total <= tipo.monto_maximo && total > tipo.monto_minimo)
+                    {
+                        resul = tipo;
+                    }
+                }
+            }
+        }
+        return resul;
+    }
+
+    private async Task CargarProceso(Pedido p, Proceso pro)
+    {
+        ProcesoPedido procesoPedido = new ProcesoPedido();
+
+        var ultimoProcesoPedido = await repositorioProcesoPedido.ObtenerUltimoProcesoNumero(pro.id);
+
+
+        if (ultimoProcesoPedido is null || CambiarAnio(ultimoProcesoPedido.anio))
+        {
+            
+            procesoPedido.num_proceso = 1;
+            procesoPedido.proceso_completo = pro.sigla.ToString() + "1-" + DateTime.Now.Year.ToString();
+    
+        }
+        else
+        {
+            procesoPedido.num_proceso = ultimoProcesoPedido.num_proceso + 1;
+            procesoPedido.proceso_completo = pro.sigla.ToString() + (ultimoProcesoPedido.num_proceso + 1).ToString() + "-" + DateTime.Now.Year.ToString();
+        }
+        procesoPedido.anio = DateTime.Now.Year;
+        procesoPedido.proceso_id = pro.id;
+        procesoPedido.pedido_id = p.id;
+        await repositorioProcesoPedido.Agregar(procesoPedido);
+    }
+
     private async Task GenerarPedido(Provision prov)
     {
         if (!proveedoresSeleccionados.Any(p => p.Value))
@@ -325,154 +381,19 @@
             }
         }
 
+        var proceso = ObtenerProceso(prov.tipo_pedido_id, prov.total_aprox);
+
+        await CargarProceso(ultimoPedido, proceso);
+
         // Generar el PDF
-        var pdfBytes = GenerarPdf();
+        //var pdfBytes = GenerarPdf();
+        var pdfBytes = PdfService.GenerarPdf(ultimoPedido, prov, provisionDetalle);
 
         await DescargarPdf(pdfBytes);
         
 
         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El pedido se generó correctamente", "success");
         NavigationManager.NavigateTo($"/");
-    }
-
-    private byte[] GenerarPdf()
-    {
-        using (var ms = new MemoryStream())
-        {
-            var document = new iTextSharp.text.Document();
-            var writer = PdfWriter.GetInstance(document, ms);
-            document.Open();
-
-            // Crear una tabla con dos celdas
-            var table = new iTextSharp.text.pdf.PdfPTable(2);
-            table.WidthPercentage = 100;
-            
-            table.SetWidths(new float[] { 2, 2 }); // Ajustar el ancho de las columnas
-
-            // Agregar la imagen del logo a la primera celda
-            var logo = iTextSharp.text.Image.GetInstance("wwwroot/icon/logoPJ.png");
-            logo.ScaleToFit(200f, 200f); // Ajustar el tamaño de la imagen
-            var cellLogo = new iTextSharp.text.pdf.PdfPCell(logo)
-                {
-             
-                    Border = iTextSharp.text.Rectangle.NO_BORDER,
-                    HorizontalAlignment = iTextSharp.text.Element.ALIGN_LEFT
-                };
-            table.AddCell(cellLogo);
-
-            var titulo = new iTextSharp.text.Paragraph($"PEDIDO DE PROVISION N° {ultimoPedido.id}")
-                {
-                    Alignment = iTextSharp.text.Element.ALIGN_RIGHT
-                };
-            var cellTitulo = new iTextSharp.text.pdf.PdfPCell(titulo)
-                {
-                    Border = iTextSharp.text.Rectangle.NO_BORDER,
-                    HorizontalAlignment = iTextSharp.text.Element.ALIGN_RIGHT,
-                    VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE // Alinear verticalmente al centro
-                };
-            table.AddCell(cellTitulo);
-
-            // Agregar la tabla al documento
-            document.Add(table);
-
-            var lugarFecha = new iTextSharp.text.Paragraph($"Lugar y Fecha: Poder Judicial San Pedro de Jujuy, {DateTime.Now.ToString("d 'de' MMMM 'de' yyyy")}")
-                {
-                    
-                    IndentationLeft = 20f
-                };
-            document.Add(lugarFecha);
-
-            var compraDestinada = new iTextSharp.text.Paragraph("Compra destinada a: Poder Judicial San Pedro de Jujuy")
-                {
-                   
-                    IndentationLeft = 20f
-                };
-            document.Add(compraDestinada);
-
-            var paraUtilizarEn = new iTextSharp.text.Paragraph($"Para utilizar en: {prov.Destino.destino}")
-                {
-                    
-                    IndentationLeft = 20f
-                };
-            document.Add(paraUtilizarEn);
-
-            var usuarioSolicitante = new iTextSharp.text.Paragraph($"Usuario solicitante: {prov.Usuario.nombre_usuario}")
-                {
-                   
-                    IndentationLeft = 20f
-                };
-            document.Add(usuarioSolicitante);
-
-            var descripcion = new iTextSharp.text.Paragraph($"Descripción: {prov.descripcion}")
-                {
-                  
-                    IndentationLeft = 20f
-                };
-            document.Add(descripcion);
-
-            LineSeparator line = new LineSeparator(1f, 100f, BaseColor.BLACK, Element.ALIGN_CENTER, -2);
-            document.Add(new Chunk(line));
-
-            // Crear una tabla
-            var detailtable = new iTextSharp.text.pdf.PdfPTable(4);
-            detailtable.WidthPercentage = 100;
-            detailtable.AddCell("Renglon");
-            detailtable.AddCell("Cantidad");
-            detailtable.AddCell("Unidad");
-            detailtable.AddCell("Artículo");
-            
-            int renglon = 1;
-            foreach (var p in provisionDetalle)
-            {
-                detailtable.AddCell(renglon.ToString());
-                detailtable.AddCell(p.cantidad.ToString());
-                detailtable.AddCell(p.UnidadMedida.unidad);
-                detailtable.AddCell(p.Articulo.descripcion);
-                renglon ++;
-            }
-
-            document.Add(detailtable);
-
-            document.Add(new iTextSharp.text.Paragraph($"Monto Aproximado: $ {prov.total_aprox}"));
-            document.Add(new iTextSharp.text.Paragraph($"Total aproximado letra: {prov.total_letra}"));
-
-            // Agregar espacios de firma
-            document.Add(new Paragraph("\n\n\n")); // Espacio antes de las firmas
-
-            // Crear una tabla para las firmas
-            var firmaTable = new PdfPTable(2);
-            firmaTable.WidthPercentage = 100;
-
-            // Celda para la firma del solicitante (izquierda)
-            var firmaSolicitanteCell = new PdfPCell();
-            firmaSolicitanteCell.Border = Rectangle.NO_BORDER;
-            firmaSolicitanteCell.HorizontalAlignment = Element.ALIGN_CENTER;
-            firmaSolicitanteCell.VerticalAlignment = Element.ALIGN_MIDDLE;
-            firmaSolicitanteCell.AddElement(new Paragraph("__________________________"));
-            firmaSolicitanteCell.AddElement(new Paragraph("Firma Solicitante", new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL)));
-           
-            // Celda para el visto bueno de contaduría (derecha)
-            var vistoBuenoCell = new PdfPCell();
-            vistoBuenoCell.Border = Rectangle.NO_BORDER;
-            vistoBuenoCell.HorizontalAlignment = Element.ALIGN_CENTER;
-            vistoBuenoCell.VerticalAlignment = Element.ALIGN_MIDDLE;
-            vistoBuenoCell.AddElement(new Paragraph("__________________________"));
-            vistoBuenoCell.AddElement(new Paragraph("V° B° Contaduría", new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL)));
-            
-
-            // Agregar las celdas a la tabla
-            firmaTable.AddCell(firmaSolicitanteCell);
-            firmaTable.AddCell(vistoBuenoCell);
-
-            // Agregar la tabla de firmas al documento
-            document.Add(firmaTable);
-
-
-
-
-            document.Close();
-            return ms.ToArray();
-        }
     }
 
     private async Task DescargarPdf(byte[] pdfBytes)

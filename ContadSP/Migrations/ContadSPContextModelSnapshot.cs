@@ -237,6 +237,9 @@ namespace ContadSP.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int>("anio")
+                        .HasColumnType("int");
+
                     b.Property<int>("num_proceso")
                         .HasColumnType("int");
 

@@ -10,6 +10,7 @@ namespace ContadSP.Models
         public int id { get; set; }
         public int num_proceso { get; set; }
         public string? proceso_completo { get; set; }
+        public int anio { get; set; }
 
         [ForeignKey("proceso_id")]
         public int proceso_id { get; set; }
