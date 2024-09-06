@@ -6,9 +6,6 @@
 @using DinkToPdf
 @using Radzen
 @using Radzen.Blazor
-@using iTextSharp.text
-@using iTextSharp.text.pdf
-@using iTextSharp.text.pdf.draw
 @using ContadSP.Services
 
 @inject IRepositorio<DetalleProvision> repositorioDetalleProvision
@@ -20,19 +17,34 @@
 @inject IRepositorio<PedidoProveedor> repositorioPedidoProveedor
 @inject IRepositorio<Proceso> repositorioProceso;
 @inject IRepositorio<ProcesoPedido> repositorioProcesoPedido
-@inject DialogService DialogService
 @inject IJSRuntime JSRuntime
+
+@inject DialogService DialogService
 @inject NavigationManager NavigationManager
 @inject PdfService PdfService
 
-<div class="container mt-4">
-    
+
+@*  ----CONTENEDORES---- *@
+<div class="container mt-4"> 
     <div class="row justify-content-center">
         <div class="col-md-12 border rounded">
             <div class="conteiner-fluid">
+                @*  ----CONTENEDORES---- *@
+
+                @* ----ENCABEZADO--- *@
                 <div>
-                    <h3 class="text-center">Detalle de la provisión</h3>
+                    @if (prov.estado_id >= 1 && prov.estado_id <= 3)
+                    {
+                        <h3 class="text-center">Detalle de la provisión</h3>
+                    }else
+                    {
+                        <h3 class="text-center">Detalle del pedido</h3>
+                    }
+                    
                 </div>
+                @* ----ENCABEZADO--- *@
+
+                @* ----DATOS DE LA PROVISION/PEDIDO--- *@
                 <div class="row">
                     <div class="col">
                         <label><strong>ID:</strong></label>
@@ -69,22 +81,13 @@
                 <div class="row">
                     <div class="col">
                         <label><strong>Estado: </strong></label>
-                        @if (prov.estado_id == 1)
-                        {
-                            <label class="text-warning"><strong>@estado.estado</strong></label>
-                            
-                        }
-                        else if (prov.estado_id == 2)
-                        {
-                            <label class="text-success"><strong>@estado.estado</strong></label>
-                        }else if (prov.estado_id == 3)
-                        {
-                            <label class="text-danger"><strong>@estado.estado</strong></label>
-                        }
+                        <label class="@GetEstadoCssClass(prov.estado_id)"><strong>@estado.estado</strong></label>
                     </div>
                 </div>
+                @* ----DATOS DE LA PROVISION/PEDIDO--- *@
                 <br>
 
+                @* ----ARTICULOS DE LA PROVISION/PEDIDO---- *@
                 <div style="overflow: auto;">
                     <table class="table table-striped table-responsive table-hover">
                         <thead class="thead-dark">
@@ -122,6 +125,8 @@
                         </div>
                     </div>
                 </div>
+                @* ----ARTICULOS DE LA PROVISION/PEDIDO---- *@
+
                 <br>
                 @if (prov.estado_id == 1)
                 {
@@ -136,10 +141,10 @@
                 }
                 else if (prov.estado_id == 2)
                 {
-                        <div style="overflow: auto;">
-                            <h4>Proveedores Seleccionados</h4>
-                            <table class="table table-striped table-responsive table-hover">
-                                <thead class="thead-dark">
+                     <div style="overflow: auto;">
+                         <h4>Proveedores Seleccionados</h4>
+                         <table class="table table-striped table-responsive table-hover">
+                              <thead class="thead-dark">
                                     <tr>
                                         <th>Nombre</th>
                                         <th>Comercio</th>
@@ -147,8 +152,8 @@
                                         <th>Teléfono</th>
                                         <th>Email</th>
                                     </tr>
-                                </thead>
-                                <tbody>
+                              </thead>
+                              <tbody>
                                     @foreach (var d in proveedoresSeleccionados)
                                     {
                                         if (d.Value)
@@ -162,21 +167,22 @@
                                             </tr>
                                         }
                                     }
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="btn-opciones">
-                            <div class="boton-busqueda">
-                                <button type="button" class="btn btn-primary" @onclick="SeleccionarProveedores">Seleccionar proveedores</button>
-                            </div>
-                            <div class="boton-ver">
-                                <button type="button" class="btn btn-success" @onclick="() => GenerarPedido(prov)">Generar pedido</button>
-                            </div>
+                              </tbody>
+                         </table>
+                     </div>
+                     <div class="btn-opciones">
+                         <div class="boton-busqueda">
+                              <button type="button" class="btn btn-primary" @onclick="SeleccionarProveedores">Seleccionar proveedores</button>
+                         </div>
+                         <div class="boton-ver">
+                              <button type="button" class="btn btn-success" @onclick="() => GenerarPedido(prov)">Generar pedido</button>
+                         </div>
                             
-                        </div>
-                        <br />
-                        <br />
+                     </div>
+                      <br />
+                      <br />
                 }
+                @*  ----CONTENEDORES---- *@
             </div>
         </div>
     </div>
@@ -187,32 +193,52 @@
     public string id { get; set; }
 
     private List<DetalleProvision> provisionDetalle = new List<DetalleProvision>();
-    private Provision prov = new Provision();
     private List<Estado> estados = new List<Estado>();
+    private List<Proveedor> proveedores = new List<Proveedor>();
+    private List<Proceso> procesos = new List<Proceso>();
+    private Dictionary<Proveedor, bool> proveedoresSeleccionados = new Dictionary<Proveedor, bool>();
+
+    private Provision prov = new Provision();
     private Estado? estado = new Estado();
     private Pedido pedido = new Pedido();
     private PedidoProveedor pedidoProveedor = new PedidoProveedor();
+    private ProvisionExp exp = new ProvisionExp();
+    private ProvisionExp? ultimaProvExp = new ProvisionExp();
+    private Pedido ultimoPedido = new Pedido();
+
     private string? destino;
     private string? usuario;
     private string? tipo;
-    private List<Proveedor> proveedores = new List<Proveedor>();
-    private Dictionary<Proveedor, bool> proveedoresSeleccionados = new Dictionary<Proveedor, bool>();
-    private ProvisionExp exp = new ProvisionExp();
-    private ProvisionExp? ultimaProvExp = new ProvisionExp();
     private int anio = 0;
-    private Pedido ultimoPedido = new Pedido();
-    private List<Proceso> procesos = new List<Proceso>();
-
+    
     protected override async Task OnInitializedAsync()
     {
-
         prov = await repositorioProvision.ObtenerProvisionPorId(int.Parse(id));
+        if(prov.estado_id == 4)
+        {
+            //pedido = await repositorioPedido.ObetnerPedidoPorId(prov.id);
+        }
         procesos = (await repositorioProceso.ObtenerTodo()).ToList();
         destino = prov.Destino.destino;
         usuario = prov.Usuario.nombre_usuario;
         tipo = prov.TipoPedido.tipo;
         provisionDetalle = (await repositorioDetalleProvision.ObtenerProvisionesId(int.Parse(id))).ToList();
         await CargarEstado();
+    }
+
+    private string GetEstadoCssClass(int estadoId)
+    {
+        var estadoCssMap = new Dictionary<int, string>
+        {
+        { 1, "text-warning" },
+        { 4, "text-warning" },
+        { 2, "text-success" },
+        { 5, "text-success" },
+        { 3, "text-danger" },
+        { 6, "text-danger" }
+        };
+
+        return estadoCssMap.TryGetValue(estadoId, out var cssClass) ? cssClass : "";
     }
 
     private async Task CargarEstado()

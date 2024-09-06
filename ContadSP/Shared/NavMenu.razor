@@ -1,5 +1,6 @@
 ﻿@using Radzen.Blazor
 
+
 <RadzenMenu class=" estilomenu">
     <ChildContent>
         <div style="display: flex; align-items: center;">
@@ -32,19 +33,28 @@
             <RadzenMenuItem Text="Alta de Proveedores" Path="altaProveedor" Icon="add_circle"></RadzenMenuItem>
             <RadzenMenuItem Text="Listado de Proveedores" Path="listaProveedores" Icon="list"></RadzenMenuItem>
         </RadzenMenuItem>
-        <RadzenMenuItem Text="Pedidos de Provision" Icon="input">
+
+        <RadzenMenuItem Text="Solicitud de Provision" Icon="input">
             <RadzenMenuItem Text="Solicitar Provisión" Path="altaProvision" Icon="add_circle"></RadzenMenuItem>
         </RadzenMenuItem>
 
 
-        <RadzenMenuItem Text="Compras" Icon="open_in_new">
+        <RadzenMenuItem Text="Pedidos" Icon="open_in_new">
             <RadzenMenuItem Text="Provisiones pendientes de aprobación" Path="provision/1" Icon="alarm"></RadzenMenuItem>
             <RadzenMenuItem Text="Provisiones aprobadas" Path="provision/2" Icon="check_circle"></RadzenMenuItem>
             <RadzenMenuItem Text="Provisiones canceladas" Path="provision/3" Icon="highlight_off"></RadzenMenuItem>
             <RadzenMenuItem Text="Pedidos en espera de entrega" Path="provision/4" Icon="done"></RadzenMenuItem>
-            <RadzenMenuItem Text="Reportes" Path="" Icon="list"></RadzenMenuItem>
+            
         </RadzenMenuItem>
 
+        <RadzenMenuItem Text="Compras" Icon="open_in_new">
+            <RadzenMenuItem Text="Carga de presupuestos" Path="/" Icon="alarm"></RadzenMenuItem>
+            <RadzenMenuItem Text="Confirmar compra" Path="/" Icon="check_circle"></RadzenMenuItem>
+            
+        </RadzenMenuItem>
 
+        <RadzenMenuItem Text="Reportes" Icon="open_in_new">
+            <RadzenMenuItem Text="Reportes" Path="" Icon="list"></RadzenMenuItem>
+        </RadzenMenuItem>
     </ChildContent>
 </RadzenMenu>
