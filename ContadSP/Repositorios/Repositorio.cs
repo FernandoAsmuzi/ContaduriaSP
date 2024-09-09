@@ -145,9 +145,24 @@ public class Repositorio<T> : IRepositorio<T> where T : class
                 .FirstOrDefaultAsync();
                 return ultima;
             }
-        // ---------------------------------------------------------
-        // METODOS PARA PROCESO
-            public async Task<ProcesoPedido> ObtenerUltimoProcesoNumero(int id)
+            public async Task<Pedido> ObteberPedidoPorProvisionId(int id)
+            {
+                return await _context.Pedido
+                    .Include(p => p.Provision)
+                    .FirstAsync(p => p.provision_id == id);
+            }
+
+            public async Task<IEnumerable<PedidoProveedor>> ObtenerPedidoProveedorPorPedidoId(int id)
+            {
+                return await _context.PedidoProveedor
+                    .Include(p => p.Pedido)
+                    .Include(p => p.Proveedor)
+                    .Where(p => p.pedido_id == id)
+                    .ToListAsync();
+            }
+    // ---------------------------------------------------------
+    // METODOS PARA PROCESO
+    public async Task<ProcesoPedido> ObtenerUltimoProcesoNumero(int id)
             {
                 var ultima = await _context.ProcesoPedido
                 

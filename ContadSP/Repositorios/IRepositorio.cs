@@ -30,8 +30,10 @@ namespace ContadSP.Repositorios
         Task<int> ObtenerUltimoProcesoPedidoId();
         Task<Pedido> ObtenerUltimoPedido();
         Task<IEnumerable<DetalleProvision>> ObtenerProvisionesId(int id);
-        
-        
+        Task<Pedido> ObteberPedidoPorProvisionId(int id);
+        Task<IEnumerable<PedidoProveedor>> ObtenerPedidoProveedorPorPedidoId(int id);
+
+
         Task<Models.ProvisionExp> ObtenerProvisionExpPorId(int id);
         Task<IEnumerable<Models.ProvisionExp>> ObtenerProvisionExp();
         Task<ProvisionExp> ObtenerUltimaProvisionExp();
