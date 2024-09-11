@@ -11,6 +11,7 @@ namespace ContadSP.Models
         public int cantidad { get; set; }
         public double subtotal_aprox { get; set; }
         public string? subtotal_letra { get; set; }
+        public List<PresupuestoPedido> PresupuestoPedido { get; set; }
 
         [ForeignKey("id_articulo")]
         public int articulo_id { get; set; }

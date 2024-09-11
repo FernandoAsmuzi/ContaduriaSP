@@ -16,13 +16,12 @@ namespace ContadSP.Repositorios
         // Metodos especificos
 
         // ARTICULOS
-            Task<List<Models.Articulo>> Buscar(string buscar);
-            Task<IEnumerable<Models.Articulo>> ObtenerArticulos();
+        Task<List<Models.Articulo>> Buscar(string buscar);
+        Task<IEnumerable<Models.Articulo>> ObtenerArticulos();
         Task<IEnumerable<Models.Pedido>> ObtenerPedidos();
         Task<Models.Pedido> ObetnerPedidoPorId(int id);
         Task<int> ObtenerUltimaProvision();
         Task<Models.Provision> ObtenerProvisionPorId(int id);
-        Task<IEnumerable<Models.DetallePedido>> ObtenerDetallePedidoPorId(int id);
         Task<IEnumerable<Models.Provision>> ObtenerProvisiones();
         
         

@@ -13,11 +13,11 @@ namespace ContadSP.Data
         public DbSet<Articulo> Articulo { get; set; }
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Destino> Destino { get; set; }
-        public DbSet<DetallePedido> DetallePedido { get; set; }
         public DbSet<DetalleProvision> DetalleProvision { get; set; }
         public DbSet<Estado> Estado { get; set; }
         public DbSet<Pedido> Pedido { get; set; }
         public DbSet<PedidoProveedor> PedidoProveedor { get; set; }
+        public DbSet<PresupuestoPedido> PresupuestoPedidos { get; set; }
         public DbSet<Proceso> Proceso { get; set; }
         public DbSet<ProcesoPedido> ProcesoPedido { get; set; }
         public DbSet<Proveedor> Proveedor { get; set; }
@@ -49,19 +49,6 @@ namespace ContadSP.Data
                 .HasOne(p => p.TipoPedido)
                 .WithMany(t => t.Provision)
                 .HasForeignKey(p => p.tipo_pedido_id);
-            // Relaciones de DetallePedido con Articulo, Pedido, UnidadMedida y Estado
-            modelBuilder.Entity<DetallePedido>()
-                .HasOne(d => d.Articulo)
-                .WithMany(a => a.DetallePedido)
-                .HasForeignKey(d => d.articulo_id);
-            modelBuilder.Entity<DetallePedido>()
-                .HasOne(d => d.Pedido)
-                .WithMany(p => p.DetallePedido)
-                .HasForeignKey(d => d.pedido_id);
-            modelBuilder.Entity<DetallePedido>()
-                .HasOne(d => d.UnidadMedida)
-                .WithMany(u => u.DetallePedido)
-                .HasForeignKey(d => d.unidad_id);
             modelBuilder.Entity<Provision>()
                 .HasOne(p => p.Estado)
                 .WithMany(e => e.Provision)
@@ -117,6 +104,16 @@ namespace ContadSP.Data
                 .HasOne(pe => pe.Provision)
                 .WithMany(p => p.ProvisionExp)
                 .HasForeignKey(pe => pe.provision_id);
+            // Relacion de PresupuestoPedido con DetalleProvision y Pedido
+            modelBuilder.Entity<PresupuestoPedido>()
+                .HasOne(pp => pp.DetalleProvision)
+                .WithMany(dp => dp.PresupuestoPedido)
+                .HasForeignKey(pp => pp.detalle_provision_id);
+            modelBuilder.Entity<PresupuestoPedido>()
+                .HasOne(pp => pp.Pedido)
+                .WithMany(p => p.PresupuestoPedido)
+                .HasForeignKey(pp => pp.pedido_id);
+
         }
     }
 }

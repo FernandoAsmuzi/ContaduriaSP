@@ -209,6 +209,13 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="btn-opciones">
+                        <div class="boton-ver">
+                            <button type="button" class="btn btn-success" @onclick="() => CargarPresupuesto(pedido)">Cargar presupuestos</button>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
                 }
                 @*  ----CONTENEDORES---- *@
             </div>
@@ -506,4 +513,9 @@
         NavigationManager.NavigateTo($"/");
     }
     
+    private void CargarPresupuesto(Pedido p)
+    {
+        NavigationManager.NavigateTo($"/altaPresupuesto/{p.id}");
+    }
+
 }

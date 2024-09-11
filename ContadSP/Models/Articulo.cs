@@ -17,8 +17,6 @@ namespace ContadSP.Models
         public double monto_aprox { get; set; }
         public DateOnly fecha_ultimo_monto { get; set; }
         public string? foto { get; set; }
-
-        public List<DetallePedido> DetallePedido { get; set; }
         public List<DetalleProvision> DetalleProvision { get; set; }
 
         [ForeignKey("categoria_id")]

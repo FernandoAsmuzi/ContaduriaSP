@@ -127,16 +127,7 @@ public class Repositorio<T> : IRepositorio<T> where T : class
                     .Include(p => p.Provision)
                     .ToListAsync();
             }
-            public async Task<IEnumerable<DetallePedido>> ObtenerDetallePedidoPorId(int id)
-            {
-                return await _context.DetallePedido
-                    .Include(d => d.Articulo)
-                    .Include(d => d.Articulo.Categoria)
-                    .Include(d => d.Pedido)
-                    .Include(d => d.UnidadMedida)
-                    .Where(d => d.pedido_id == id)
-                    .ToListAsync();
-            }
+            
             public async Task<Pedido> ObtenerUltimoPedido()
             {
                 var ultima = await _context.Pedido
@@ -225,13 +216,6 @@ public class RepositorioCategoria : Repositorio<Categoria>
 public class RepositorioDestino : Repositorio<Destino>
 {
     public RepositorioDestino(ContadSPContext context) : base(context)
-    {
-    }
-}
-
-public class RepositorioDetallePedido : Repositorio<DetallePedido>
-{
-    public RepositorioDetallePedido(ContadSPContext context) : base(context)
     {
     }
 }

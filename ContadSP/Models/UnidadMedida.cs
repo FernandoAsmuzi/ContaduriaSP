@@ -9,9 +9,6 @@ namespace ContadSP.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         public string? unidad { get; set; }
-
-        public List<DetallePedido> DetallePedido { get; set; }
-
         public List<DetalleProvision> DetalleProvision { get; set; }
     }
 }
