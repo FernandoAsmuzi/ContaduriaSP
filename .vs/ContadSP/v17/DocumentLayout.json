@@ -7,12 +7,32 @@
       "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\pages\\compras\\altapresupuesto.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\pages\\provision\\altaprovision.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\pages\\provision\\altaprovision.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\repositorios\\repositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\repositorios\\repositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\repositorios\\irepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\repositorios\\irepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\models\\procesopedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\models\\procesopedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\models\\proceso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\models\\proceso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\pages\\pedido\\detallepedido.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\pages\\pedido\\detallepedido.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Migrations\\20240911144637_nueva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ContadSP\\Migrations\\20240911144637_nueva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\migrations\\20240911144637_nueva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\migrations\\20240911144637_nueva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,8 +42,73 @@
       "DocumentGroups": [
         {
           "DockedHeight": 283,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProcesoPedido.cs",
+              "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Models\\ProcesoPedido.cs",
+              "RelativeDocumentMoniker": "ContadSP\\Models\\ProcesoPedido.cs",
+              "ToolTip": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Models\\ProcesoPedido.cs",
+              "RelativeToolTip": "ContadSP\\Models\\ProcesoPedido.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T15:12:07.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Proceso.cs",
+              "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Models\\Proceso.cs",
+              "RelativeDocumentMoniker": "ContadSP\\Models\\Proceso.cs",
+              "ToolTip": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Models\\Proceso.cs",
+              "RelativeToolTip": "ContadSP\\Models\\Proceso.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T15:12:07.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Repositorios\\IRepositorio.cs",
+              "RelativeDocumentMoniker": "ContadSP\\Repositorios\\IRepositorio.cs",
+              "ToolTip": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Repositorios\\IRepositorio.cs",
+              "RelativeToolTip": "ContadSP\\Repositorios\\IRepositorio.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA4wCgAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T15:03:28.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Repositorio.cs",
+              "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Repositorios\\Repositorio.cs",
+              "RelativeDocumentMoniker": "ContadSP\\Repositorios\\Repositorio.cs",
+              "ToolTip": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Repositorios\\Repositorio.cs",
+              "RelativeToolTip": "ContadSP\\Repositorios\\Repositorio.cs",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAqwNMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T14:28:02.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AltaProvision.razor",
+              "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Provision\\AltaProvision.razor",
+              "RelativeDocumentMoniker": "ContadSP\\Pages\\Provision\\AltaProvision.razor",
+              "ToolTip": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Provision\\AltaProvision.razor",
+              "RelativeToolTip": "ContadSP\\Pages\\Provision\\AltaProvision.razor",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAAAO8AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-12T14:27:40.68Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -32,27 +117,27 @@
               "RelativeDocumentMoniker": "ContadSP\\Pages\\Compras\\AltaPresupuesto.razor",
               "ToolTip": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Compras\\AltaPresupuesto.razor",
               "RelativeToolTip": "ContadSP\\Pages\\Compras\\AltaPresupuesto.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAABkAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-09-11T15:44:43.643Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "DetallePedido.razor",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Pedido\\DetallePedido.razor",
               "RelativeDocumentMoniker": "ContadSP\\Pages\\Pedido\\DetallePedido.razor",
               "ToolTip": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Pedido\\DetallePedido.razor",
               "RelativeToolTip": "ContadSP\\Pages\\Pedido\\DetallePedido.razor",
-              "ViewState": "AgIAAMIAAAAAAAAAAAAAANkAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAACIAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-09-11T15:41:13.828Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "20240911144637_nueva.cs",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Migrations\\20240911144637_nueva.cs",
               "RelativeDocumentMoniker": "ContadSP\\Migrations\\20240911144637_nueva.cs",
@@ -60,8 +145,7 @@
               "RelativeToolTip": "ContadSP\\Migrations\\20240911144637_nueva.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T14:46:37.854Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-11T14:46:37.854Z"
             }
           ]
         }

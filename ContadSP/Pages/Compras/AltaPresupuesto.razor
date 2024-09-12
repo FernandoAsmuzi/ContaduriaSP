@@ -1,11 +1,64 @@
 ﻿@page "/altaPresupuesto/{id}"
 
+@using ContadSP.Repositorios
+@using ContadSP.Models
+@inject IRepositorio<Pedido> repositorioPedido
+@inject IRepositorio<PedidoProveedor> repositorioPedidoProveedor
+@inject IRepositorio<Provision> repositorioProvision
+@inject IRepositorio<Proveedor> repositorioProveedor
+@inject IRepositorio<ProcesoPedido> repositorioProcesoPedido
+@inject IRepositorio<TipoPedido> repositorioTipoPedido
 
 <div class="container mt-4"> 
     <div class="row justify-content-center">
         <div class="col-md-12 border rounded">
             <div class="conteiner-fluid">
-                <h1>Alta Presupuesto</h1>
+                
+
+                <div>                    
+                    <h3 class="text-center">Detalle del pedido</h3>
+                </div>
+
+                @* ----DATOS DE LA PROVISION/PEDIDO--- *@
+                <div class="row">
+                    <div class="col">
+                        <label><strong>Tipo de pedido:</strong></label>
+                        <label>@tipoPedido.tipo - @(procesoPedido.Pedido != null ? procesoPedido.Proceso.proceso : "Pedido es null")</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label><strong>ID:</strong></label>
+                        <label>@pedido.id</label>
+                    </div>
+                    <div class="col">
+                        <label><strong>Fecha de pedido:</strong></label>
+                        <label>@pedido.fecha_pedido</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label><strong>N° acta:</strong></label>
+                        <label>@pedido.abreviatura-@pedido.acta_num-@pedido.anio</label>
+                    </div>
+                    <div class="col">
+                        <label><strong>Proceso:</strong></label>
+                        <label>@procesoPedido.proceso_completo</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label><strong>Destino:</strong></label>
+                        <label>@provision.Destino.destino</label>
+                    </div>
+                    <div class="col">
+                        <label><strong>Usuario solicitante:</strong></label>
+
+                        <label>@provision.Usuario.nombre_usuario</label>
+                    </div>
+                </div>                
+
+
             </div>
         </div>
     </div>
@@ -14,6 +67,21 @@
 
 
 @code {
-     [Parameter]
-     public string id { get; set; }
+    [Parameter]
+    public string id { get; set; }
+
+    private List<PedidoProveedor> pedidoProveedor = new List<PedidoProveedor>();
+    private Pedido pedido = new Pedido();
+    private Provision provision = new Provision();
+    private ProcesoPedido procesoPedido = new ProcesoPedido();
+    private TipoPedido tipoPedido = new TipoPedido();
+
+    protected override async Task OnInitializedAsync()
+    {
+        pedido = await repositorioPedido.ObtenerPorId(int.Parse(id));
+        provision = await repositorioProvision.ObtenerPorId(pedido.provision_id);
+        procesoPedido = await repositorioProcesoPedido.ObtenerProcesoPedidoPorPedidoId(pedido.id);
+        tipoPedido = await repositorioTipoPedido.ObtenerPorId(procesoPedido.Proceso.tipo_pedido_id);
+        pedidoProveedor = (await repositorioPedidoProveedor.ObtenerPedidoProveedorPorPedidoId(int.Parse(id))).ToList();
+    }
 }
