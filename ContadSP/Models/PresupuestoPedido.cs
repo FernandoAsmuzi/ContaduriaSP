@@ -15,6 +15,8 @@ namespace ContadSP.Models
         public int id { get; set; }
         public double precio_unitario { get; set; }
         public int cantidad { get; set; }
+        public double subtotal { get; set; }
+        public string? subtotal_letra { get; set; }
         public DateOnly fecha_presupuesto { get; set; }
 
         [ForeignKey("detalle_provision_id")]
@@ -24,6 +26,10 @@ namespace ContadSP.Models
         [ForeignKey("pedido_id")]
         public int pedido_id { get; set; }
         public Pedido Pedido { get; set; }
+
+        [ForeignKey("proveedor_id")]
+        public int proveedor_id { get; set; }
+        public Proveedor Proveedor { get; set; }
 
     }
 }

@@ -3,6 +3,7 @@ using System;
 using ContadSP.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContadSP.Migrations
 {
     [DbContext(typeof(ContadSPContext))]
-    partial class ContadSPContextModelSnapshot : ModelSnapshot
+    [Migration("20240913125523_nueva")]
+    partial class nueva
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,12 +200,6 @@ namespace ContadSP.Migrations
 
                     b.Property<int>("proveedor_id")
                         .HasColumnType("int");
-
-                    b.Property<double>("subtotal")
-                        .HasColumnType("double");
-
-                    b.Property<string>("subtotal_letra")
-                        .HasColumnType("longtext");
 
                     b.HasKey("id");
 

@@ -15,6 +15,7 @@ namespace ContadSP.Models
         public string? email { get; set; }
 
         public List<PedidoProveedor> PedidoProveedor { get; set; }
+        public List<PresupuestoPedido> PresupuestoPedido { get; set; }
 
         [ForeignKey("sit_fiscal_id")]
         public int sit_fiscal_id { get; set; }

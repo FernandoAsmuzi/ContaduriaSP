@@ -2,12 +2,16 @@
 
 @using ContadSP.Repositorios
 @using ContadSP.Models
+@using ContadSP.Controllers
+
 @inject IRepositorio<Pedido> repositorioPedido
 @inject IRepositorio<PedidoProveedor> repositorioPedidoProveedor
 @inject IRepositorio<Provision> repositorioProvision
 @inject IRepositorio<Proveedor> repositorioProveedor
 @inject IRepositorio<ProcesoPedido> repositorioProcesoPedido
 @inject IRepositorio<TipoPedido> repositorioTipoPedido
+@inject IRepositorio<DetalleProvision> repositorioProvisionDetalle
+@inject IJSRuntime JSRuntime
 
 <div class="container mt-4"> 
     <div class="row justify-content-center">
@@ -56,8 +60,113 @@
 
                         <label>@provision.Usuario.nombre_usuario</label>
                     </div>
-                </div>                
+                </div>
+                <div style="overflow: auto;">
+                    <table class="table table-striped table-responsive table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Artículo</th>
+                                <th>Cantidad</th>
+                                <th>Unidad</th>
+                                <th>Subtotal aprox.</th>
+                                <th>Subtotal letra</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var p in provisionDetalle)
+                            {
+                                <tr>
+                                    <td>@p.Articulo.descripcion</td>
+                                    <td>@p.cantidad</td>
+                                    <td>@p.UnidadMedida.unidad</td>
+                                    <td>@p.subtotal_aprox</td>
+                                    <td>@p.subtotal_letra</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="col-md-12 border rounded">
+            <div class="conteiner-fluid">
+                @if (pedidoProveedor.Count > 0)
+                {
+                    <div>
+                        <h3 class="text-center">Datos del proveedor</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label><strong>Proveedor:</strong></label>
+                            <label>@pedidoProveedor[currentProveedorIndex].Proveedor.nombre</label>
+                        </div>
+                        <div class="col">
+                            <label><strong>Comercio:</strong></label>
+                            <label>@pedidoProveedor[currentProveedorIndex].Proveedor.nombre_comercial</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label><strong>Dirección:</strong></label>
+                            <label>@pedidoProveedor[currentProveedorIndex].Proveedor.direccion</label>
+                        </div>
+                        <div class="col">
+                            <label><strong>Teléfono:</strong></label>
+                            <label>@pedidoProveedor[currentProveedorIndex].Proveedor.telefono</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label><strong>Email:</strong></label>
+                            <label>@pedidoProveedor[currentProveedorIndex].Proveedor.email</label>
+                        </div>
+                    </div>
 
+                    <div style="overflow: auto;">
+                        <table class="table table-striped table-responsive table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Artículo</th>
+                                    <th>Cantidad</th>
+                                    <th>Unidad</th>
+                                    <th>Precio unitario</th>
+                                    <th>Subtotal</th>
+                                    <th>Subtotal letra</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var p in provisionDetalle)
+                                {
+                                    <tr>
+                                        <td>@p.Articulo.descripcion</td>
+                                        <td>@p.cantidad</td>
+                                        <td>@p.UnidadMedida.unidad</td>
+                                        <td>
+                                            <input type="number" @bind-value="presupuestoPedido[currentProveedorIndex].precio_unitario" @oninput="e => CalcularSubtotal(p, presupuestoPedido[currentProveedorIndex], e)" required />
+                                        </td>
+                                        <td>@presupuestoPedido[currentProveedorIndex].subtotal</td>
+                                        <td>@presupuestoPedido[currentProveedorIndex].subtotal_letra</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row btn-opciones">
+                        <div class="col">
+                            <button class="btn btn-primary" @onclick="MostrarSiguienteProveedor">Siguiente Proveedor</button>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="row mt-4">
+                        <div class="col">
+                            <label>No hay proveedores disponibles.</label>
+                        </div>
+                    </div>
+                }
 
             </div>
         </div>
@@ -71,17 +180,63 @@
     public string id { get; set; }
 
     private List<PedidoProveedor> pedidoProveedor = new List<PedidoProveedor>();
+    private List<DetalleProvision> provisionDetalle = new List<DetalleProvision>();
+    private List<PresupuestoPedido> presupuestoPedido = new List<PresupuestoPedido>();
+
     private Pedido pedido = new Pedido();
     private Provision provision = new Provision();
     private ProcesoPedido procesoPedido = new ProcesoPedido();
     private TipoPedido tipoPedido = new TipoPedido();
 
+    private int currentProveedorIndex = 0;
+
     protected override async Task OnInitializedAsync()
     {
         pedido = await repositorioPedido.ObtenerPorId(int.Parse(id));
         provision = await repositorioProvision.ObtenerPorId(pedido.provision_id);
+        provisionDetalle = (await repositorioProvisionDetalle.ObtenerProvisionesId(provision.id)).ToList();
         procesoPedido = await repositorioProcesoPedido.ObtenerProcesoPedidoPorPedidoId(pedido.id);
         tipoPedido = await repositorioTipoPedido.ObtenerPorId(procesoPedido.Proceso.tipo_pedido_id);
         pedidoProveedor = (await repositorioPedidoProveedor.ObtenerPedidoProveedorPorPedidoId(int.Parse(id))).ToList();
+        presupuestoPedido = provisionDetalle.Select(p => new PresupuestoPedido()).ToList();
+        if (pedidoProveedor.Count > 0)
+        {
+            currentProveedorIndex = 0;
+        }
+    }
+    private void MostrarSiguienteProveedor()
+    {
+        if (pedidoProveedor.Count > 0)
+        {
+            currentProveedorIndex = (currentProveedorIndex + 1) % pedidoProveedor.Count;
+        }
+    }
+
+    private async Task CalcularSubtotal(DetalleProvision dp, PresupuestoPedido pp, ChangeEventArgs e)
+    {
+        if (double.TryParse(e.Value.ToString(), out var precioUnitario))
+        {
+            if (precioUnitario < 0)
+            {
+                await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "El precio unitario no puede ser negativo", "error");
+                return;
+            }
+            else
+            {
+                pp.subtotal = dp.cantidad * precioUnitario;
+                pp.subtotal_letra = UpdateCantidadLetra(new ChangeEventArgs { Value = pp.subtotal });
+            }
+        }
+    }
+
+    private string UpdateCantidadLetra(ChangeEventArgs e)
+    {
+        if (double.TryParse(e.Value.ToString(), out var num))
+        {
+            decimal decimalNum = (decimal)num;
+            return ConversorNumeroLetra.NumeroALetras(decimalNum);
+        }
+        else
+            return "";
     }
 }

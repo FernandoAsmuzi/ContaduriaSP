@@ -379,7 +379,8 @@ namespace ContadSP.Migrations
                     cantidad = table.Column<int>(type: "int", nullable: false),
                     fecha_presupuesto = table.Column<DateOnly>(type: "date", nullable: false),
                     detalle_provision_id = table.Column<int>(type: "int", nullable: false),
-                    pedido_id = table.Column<int>(type: "int", nullable: false)
+                    pedido_id = table.Column<int>(type: "int", nullable: false),
+                    proveedor_id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -394,6 +395,12 @@ namespace ContadSP.Migrations
                         name: "FK_PresupuestoPedidos_Pedido_pedido_id",
                         column: x => x.pedido_id,
                         principalTable: "Pedido",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PresupuestoPedidos_Proveedor_proveedor_id",
+                        column: x => x.proveedor_id,
+                        principalTable: "Proveedor",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -476,6 +483,11 @@ namespace ContadSP.Migrations
                 column: "pedido_id");
 
             migrationBuilder.CreateIndex(
+                name: "IX_PresupuestoPedidos_proveedor_id",
+                table: "PresupuestoPedidos",
+                column: "proveedor_id");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Proceso_tipo_pedido_id",
                 table: "Proceso",
                 column: "tipo_pedido_id");
@@ -537,10 +549,10 @@ namespace ContadSP.Migrations
                 name: "ProvisionExp");
 
             migrationBuilder.DropTable(
-                name: "Proveedor");
+                name: "DetalleProvision");
 
             migrationBuilder.DropTable(
-                name: "DetalleProvision");
+                name: "Proveedor");
 
             migrationBuilder.DropTable(
                 name: "Pedido");
@@ -549,13 +561,13 @@ namespace ContadSP.Migrations
                 name: "Proceso");
 
             migrationBuilder.DropTable(
-                name: "SitFiscal");
-
-            migrationBuilder.DropTable(
                 name: "Articulo");
 
             migrationBuilder.DropTable(
                 name: "UnidadMedida");
+
+            migrationBuilder.DropTable(
+                name: "SitFiscal");
 
             migrationBuilder.DropTable(
                 name: "Provision");

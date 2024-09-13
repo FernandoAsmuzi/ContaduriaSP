@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContadSP.Migrations
 {
     [DbContext(typeof(ContadSPContext))]
-    [Migration("20240911144637_nueva")]
-    partial class nueva
+    [Migration("20240913151527_campos agregados en presupuesto")]
+    partial class camposagregadosenpresupuesto
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -198,11 +198,22 @@ namespace ContadSP.Migrations
                     b.Property<double>("precio_unitario")
                         .HasColumnType("double");
 
+                    b.Property<int>("proveedor_id")
+                        .HasColumnType("int");
+
+                    b.Property<double>("subtotal_aprox")
+                        .HasColumnType("double");
+
+                    b.Property<string>("subtotal_letra")
+                        .HasColumnType("longtext");
+
                     b.HasKey("id");
 
                     b.HasIndex("detalle_provision_id");
 
                     b.HasIndex("pedido_id");
+
+                    b.HasIndex("proveedor_id");
 
                     b.ToTable("PresupuestoPedidos");
                 });
@@ -512,9 +523,17 @@ namespace ContadSP.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ContadSP.Models.Proveedor", "Proveedor")
+                        .WithMany("PresupuestoPedido")
+                        .HasForeignKey("proveedor_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("DetalleProvision");
 
                     b.Navigation("Pedido");
+
+                    b.Navigation("Proveedor");
                 });
 
             modelBuilder.Entity("ContadSP.Models.Proceso", b =>
@@ -646,6 +665,8 @@ namespace ContadSP.Migrations
             modelBuilder.Entity("ContadSP.Models.Proveedor", b =>
                 {
                     b.Navigation("PedidoProveedor");
+
+                    b.Navigation("PresupuestoPedido");
                 });
 
             modelBuilder.Entity("ContadSP.Models.Provision", b =>
