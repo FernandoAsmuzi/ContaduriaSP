@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContadSP.Migrations
 {
     [DbContext(typeof(ContadSPContext))]
-    [Migration("20240913151527_campos agregados en presupuesto")]
-    partial class camposagregadosenpresupuesto
+    [Migration("20240915225732_nueva")]
+    partial class nueva
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -201,7 +201,7 @@ namespace ContadSP.Migrations
                     b.Property<int>("proveedor_id")
                         .HasColumnType("int");
 
-                    b.Property<double>("subtotal_aprox")
+                    b.Property<double>("subtotal")
                         .HasColumnType("double");
 
                     b.Property<string>("subtotal_letra")

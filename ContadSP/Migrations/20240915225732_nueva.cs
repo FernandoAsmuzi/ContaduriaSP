@@ -377,6 +377,9 @@ namespace ContadSP.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     precio_unitario = table.Column<double>(type: "double", nullable: false),
                     cantidad = table.Column<int>(type: "int", nullable: false),
+                    subtotal = table.Column<double>(type: "double", nullable: false),
+                    subtotal_letra = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     fecha_presupuesto = table.Column<DateOnly>(type: "date", nullable: false),
                     detalle_provision_id = table.Column<int>(type: "int", nullable: false),
                     pedido_id = table.Column<int>(type: "int", nullable: false),
