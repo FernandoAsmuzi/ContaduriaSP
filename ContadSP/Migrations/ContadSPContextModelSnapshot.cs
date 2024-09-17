@@ -159,6 +159,9 @@ namespace ContadSP.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<bool>("carga")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<int>("pedido_id")
                         .HasColumnType("int");
 

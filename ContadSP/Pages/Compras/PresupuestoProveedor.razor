@@ -1,0 +1,146 @@
+﻿@page "/presupuesto/{id}/{prov}"
+@using ContadSP.Controllers
+@using ContadSP.Repositorios
+@using ContadSP.Models
+@using Radzen
+@using Radzen.Blazor
+
+@inject IRepositorio<Pedido> repositorioPedido
+@inject IRepositorio<Provision> repositorioProvision
+@inject IRepositorio<Proveedor> repositorioProveedor
+@inject IRepositorio<DetalleProvision> repositorioProvisionDetalle
+@inject IRepositorio<PresupuestoPedido> repositorioPresupuestoPedido
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12 border rounded">
+            <div class="conteiner-fluid">
+                
+                <div style="overflow: auto;">
+                    <h5>Datos del proveedor</h5>
+                    <div class="row">
+                        <div class="col">
+                            <label><strong>Proveedor:</strong></label>
+                            <label>@proveedor.nombre</label>
+                        </div>
+                        <div class="col">
+                            <label><strong>Comercio:</strong></label>
+                            <label>@proveedor.nombre_comercial</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label><strong>Dirección:</strong></label>
+                            <label>@proveedor.direccion</label>
+                        </div>
+                        <div class="col">
+                            <label><strong>Teléfono:</strong></label>
+                            <label>@proveedor.telefono</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label><strong>Email:</strong></label>
+                            <label>@proveedor.email</label>
+                        </div>
+                    </div>
+
+                    <table class="table table-striped table-responsive table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Artículo</th>
+                                <th>Cantidad</th>
+                                <th>Unidad</th>
+                                <th>Precio unitario</th>
+                                
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < provisionDetalle.Count; i++)
+                            {
+                                <tr>
+                                    <td>@provisionDetalle[i].Articulo.descripcion</td>
+                                    <td>@provisionDetalle[i].cantidad</td>
+                                    <td>@provisionDetalle[i].UnidadMedida.unidad</td>
+                                    <td>
+                                        <input type="number" bind-value="@presupuestosPedido[i].precio_unitario" required />
+                                    </td>
+                                    
+                                </tr>
+                            }
+                        </tbody>
+                        
+                    </table>
+
+                    <div class="btn-opciones">
+                        <button class="btn btn-primary" @onclick = "()=> ProcesarPresupuesto(provisionDetalle, presupuestosPedido)">Procesar Presupuesto</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string id { get; set; }
+    [Parameter]
+    public string prov { get; set; }
+
+    private List<DetalleProvision> provisionDetalle = new List<DetalleProvision>();
+    private List<PresupuestoPedido> presupuestosPedido = new List<PresupuestoPedido>();
+    private Proveedor proveedor = new Proveedor();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var pedido = await repositorioPedido.ObtenerPorId(int.Parse(id));
+        proveedor = await repositorioProveedor.ObtenerPorId(int.Parse(prov));
+        var provision = await repositorioProvision.ObtenerPorId(pedido.provision_id);
+        provisionDetalle = (await repositorioProvisionDetalle.ObtenerProvisionesId(provision.id)).ToList();
+
+        // Inicializar la lista de presupuestosPedido
+        foreach (var detalle in provisionDetalle)
+        {
+            presupuestosPedido.Add(new PresupuestoPedido
+                {
+                    cantidad = detalle.cantidad,
+                    detalle_provision_id = detalle.id,
+                    pedido_id = int.Parse(id),
+                    proveedor_id = int.Parse(prov)
+                });
+        }
+    }
+
+    private string UpdateCantidadLetra(double subtotal)
+    {
+        return ConversorNumeroLetra.NumeroALetras((int)subtotal);
+    }
+
+    
+
+    private async Task ProcesarPresupuesto(List<DetalleProvision> dp, List<PresupuestoPedido> pp)
+    {
+        if (presupuestosPedido.Any(pp => pp.precio_unitario <= 0))
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Todos los campos de precio unitario deben estar completos y ser mayores que cero", "error");
+            return;
+        }
+
+        foreach (var presupuesto in presupuestosPedido)
+        {
+            
+            await repositorioPresupuestoPedido.Agregar(presupuesto);
+        }
+
+        await repositorioPresupuestoPedido.CambiarCarga(int.Parse(prov), int.Parse(id));
+
+        await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El presupuesto ha sido procesado correctamente", "success");
+
+        var url = $"/altaPresupuesto/{id}";
+        NavigationManager.NavigateTo(url);
+    }
+}

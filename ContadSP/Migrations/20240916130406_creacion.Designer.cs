@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContadSP.Migrations
 {
     [DbContext(typeof(ContadSPContext))]
-    [Migration("20240915225732_nueva")]
-    partial class nueva
+    [Migration("20240916130406_creacion")]
+    partial class creacion
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -161,6 +161,9 @@ namespace ContadSP.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<bool>("carga")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("pedido_id")
                         .HasColumnType("int");

@@ -4,56 +4,49 @@
 <RadzenMenu class=" estilomenu">
     <ChildContent>
         <div style="display: flex; align-items: center;">
-            <img src="./assets/images/logopodjud.png" Style="height: 30px; width: 30px; margin-right: 10px;" />
+            <img src="./assets/images/logopodjud.png" Style="height: 30px; width: 30px; margin-right: 10px;" Path="/" />
             <RadzenMenuItem Text="Inicio" Path="/" Icon="home"></RadzenMenuItem>
-
         </div>
-        <RadzenMenuItem Text="ABM" Icon="description">
-            <RadzenMenuItem Text="Categorías" Icon="account_circle">
-                <RadzenMenuItem Text="Nueva Categoría" Path="altaCategoria" Icon="line_weight"></RadzenMenuItem>
-                <RadzenMenuItem Text="Listado de Categorías" Path="listaCategorias" Icon="attach_file"></RadzenMenuItem>
+        <RadzenMenuItem Text="ABM" Icon="menu">
+            <RadzenMenuItem Text="Categorías" Icon="category">
+                <RadzenMenuItem Text="Nueva Categoría" Path="altaCategoria" Icon="add_circle"></RadzenMenuItem>
+                <RadzenMenuItem Text="Listado de Categorías" Path="listaCategorias" Icon="list"></RadzenMenuItem>
             </RadzenMenuItem>
-
-
-            <RadzenMenuItem Text="Articulos" Icon="chrome_reader_mode">
+            <RadzenMenuItem Text="Articulos" Icon="emoji_objects">
                 <RadzenMenuItem Text="Alta de Artículos" Path="altaArticulo" Icon="add_circle"></RadzenMenuItem>
                 <RadzenMenuItem Text="Listado de Articulos" Path="listaArticulos" Icon="list"></RadzenMenuItem>
             </RadzenMenuItem>
-            <RadzenMenuItem Text="Unidades de Medida" Icon="3d_rotation">
+            <RadzenMenuItem Text="Unidades de Medida" Icon="square_foot">
                 <RadzenMenuItem Text="Alta de Unidades de Medida" Path="altaUM" Icon="add_circle"></RadzenMenuItem>
                 <RadzenMenuItem Text="Listado de Unidades de Medida" Path="listaUM" Icon="list"></RadzenMenuItem>
             </RadzenMenuItem>
-            <RadzenMenuItem Text="Destinos" Icon="account_circle">
+            <RadzenMenuItem Text="Destinos" Icon="location_on">
                 <RadzenMenuItem Text="Nuevo Destino" Path="altaDestino" Icon="add_circle"></RadzenMenuItem>
                 <RadzenMenuItem Text="Listado de Destinos" Path="listaDestinos" Icon="list"></RadzenMenuItem>
             </RadzenMenuItem>
+            <RadzenMenuItem Text="Proveedores" Icon="people">
+                <RadzenMenuItem Text="Alta de Proveedores" Path="altaProveedor" Icon="add_circle"></RadzenMenuItem>
+                <RadzenMenuItem Text="Listado de Proveedores" Path="listaProveedores" Icon="list"></RadzenMenuItem>
+            </RadzenMenuItem>
         </RadzenMenuItem>
-
-        <RadzenMenuItem Text="Proveedores" Icon="people">
-            <RadzenMenuItem Text="Alta de Proveedores" Path="altaProveedor" Icon="add_circle"></RadzenMenuItem>
-            <RadzenMenuItem Text="Listado de Proveedores" Path="listaProveedores" Icon="list"></RadzenMenuItem>
-        </RadzenMenuItem>
-
-        <RadzenMenuItem Text="Solicitud de Provision" Icon="description">
+       
+        <RadzenMenuItem Text="Provisiones" Icon="description">
             <RadzenMenuItem Text="Solicitar Provisión" Path="altaProvision" Icon="note_add"></RadzenMenuItem>
-        </RadzenMenuItem>
-
-
-        <RadzenMenuItem Text="Pedidos" Icon="open_in_new">
             <RadzenMenuItem Text="Provisiones pendientes de aprobación" Path="provision/1" Icon="alarm"></RadzenMenuItem>
             <RadzenMenuItem Text="Provisiones aprobadas" Path="provision/2" Icon="check_circle"></RadzenMenuItem>
             <RadzenMenuItem Text="Provisiones canceladas" Path="provision/3" Icon="highlight_off"></RadzenMenuItem>
-            <RadzenMenuItem Text="Pedidos en espera de entrega" Path="provision/4" Icon="done"></RadzenMenuItem>
-            
         </RadzenMenuItem>
 
-        <RadzenMenuItem Text="Compras" Icon="local_mall">
-            
-            <RadzenMenuItem Text="Confirmar compra" Path="/" Icon="order_approve"></RadzenMenuItem>
-            
+
+        <RadzenMenuItem Text="Pedidos" Icon="open_in_new">  
+            <RadzenMenuItem Text="Pedidos en espera de entrega" Path="provision/4" Icon="alarm"></RadzenMenuItem>
         </RadzenMenuItem>
 
-        <RadzenMenuItem Text="Reportes" Icon="open_in_new">
+        <RadzenMenuItem Text="Compras" Icon="local_mall">   
+            <RadzenMenuItem Text="Confirmar compra" Path="/" Icon="check_circle"></RadzenMenuItem>
+        </RadzenMenuItem>
+
+        <RadzenMenuItem Text="Reportes" Icon="insert_chart">
             <RadzenMenuItem Text="Reportes" Path="" Icon="list"></RadzenMenuItem>
         </RadzenMenuItem>
     </ChildContent>

@@ -39,7 +39,7 @@ namespace ContadSP.Repositorios
         Task CambiarEstadoProvision(object entidad, int estado);
 
         Task<ProcesoPedido> ObtenerProcesoPedidoPorPedidoId(int id);
-
+        Task CambiarCarga(int prov_id, int ped_id);
         // Fin metodos especificos
     }
 }

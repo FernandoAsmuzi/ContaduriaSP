@@ -1,0 +1,25 @@
+superintendencia autoriza provision pendiente
+
+boton especificacion tecnica en solicitar provision
+
+
+cancelar provision con justificacion
+aprobar ciertos articulos de provision o cantidades
+
+cambiar generar pedido por generar invitacion
+
+cambiar VB contaduria por VB - NRO por Cantidad - agregar especificacion - 
+
+
+invitaciones en pedidos en espera de entrega
+
+cargar presupuesto - precio unitario - marca/especificaciones (obligatorio)
+
+contable recibe los presupuestos
+el que pide preadjudica los presupuesto que quiere con justificacion 
+de ahi pasa a contable (adjudicacion) contable o superintendencia
+se realiza la compra
+
+generar numero de actuacion al hacer el pago
+compra directa => la actuacion se genera en el momento del pago
+concurso de precios o + => se genera en el momento del pedido

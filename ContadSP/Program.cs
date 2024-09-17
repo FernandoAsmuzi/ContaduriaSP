@@ -14,9 +14,27 @@ using ContadSP.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configurar Kestrel para escuchar en el puerto 5000 en cualquier interfaz de red
+//builder.WebHost.UseKestrel(options =>
+//{
+//    options.ListenAnyIP(5000);
+//});
+
 builder.Services.AddBlazoredSessionStorage();//inicio de sesion
 builder.Services.AddScoped<AuthenticationStateProvider, AutenticacionExtension>();//inicio de sesion
 builder.Services.AddAuthorizationCore();//inicio de sesion
+
+// Configurar CORS para permitir iframes desde cualquier origen
+//builder.Services.AddCors(options =>
+//{
+//    options.AddDefaultPolicy(builder =>
+//    {
+//        builder.AllowAnyOrigin()
+//               .AllowAnyMethod()
+//               .AllowAnyHeader()
+//               .WithExposedHeaders("Content-Disposition");
+//    });
+//});
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -43,13 +61,16 @@ builder.Services.AddScoped<PdfService>();
 builder.Services.AddScoped<MailService>();
 builder.Services.AddRadzenComponents();
 
-builder.Services.AddHttpClient(); 
+builder.Services.AddHttpClient();
 builder.Services.AddDbContext<ContadSPContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
     new MySqlServerVersion(new Version(8, 0, 36))
     ));
 
 var app = builder.Build();
+
+// Configurar el middleware de CORS
+app.UseCors();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -72,6 +93,12 @@ app.UseStaticFiles(new StaticFileOptions
 
 app.UseRouting();
 
+// Configurar CSP para permitir iframes desde el dominio específico
+//app.Use(async (context, next) =>
+//{
+//    context.Response.Headers.Add("Content-Security-Policy", "frame-ancestors 'self' http://10.15.2.174");
+//    await next();
+//});
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");

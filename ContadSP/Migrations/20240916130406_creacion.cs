@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ContadSP.Migrations
 {
     /// <inheritdoc />
-    public partial class nueva : Migration
+    public partial class creacion : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -348,6 +348,7 @@ namespace ContadSP.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    carga = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     proveedor_id = table.Column<int>(type: "int", nullable: false),
                     pedido_id = table.Column<int>(type: "int", nullable: false)
                 },

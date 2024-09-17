@@ -8,6 +8,7 @@ namespace ContadSP.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public bool carga { get; set; } = false;
 
         [ForeignKey("proveedor_id")]
         public int proveedor_id { get; set; }

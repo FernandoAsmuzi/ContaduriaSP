@@ -157,6 +157,18 @@ public class Repositorio<T> : IRepositorio<T> where T : class
             .Where(p => p.pedido_id == id)
             .ToListAsync();
     }
+    public async Task CambiarCarga(int prov_id, int ped_id)
+    {
+        var pedidoProveedor = await _context.PedidoProveedor
+            .FirstOrDefaultAsync(pp => pp.proveedor_id == prov_id && pp.pedido_id == ped_id);
+
+        if (pedidoProveedor != null)
+        {
+            pedidoProveedor.carga = true;
+            _context.PedidoProveedor.Update(pedidoProveedor);
+            await _context.SaveChangesAsync();
+        }
+    }
 
     // ---------------------------------------------------------
     // METODOS PARA PROCESO PEDIDO
