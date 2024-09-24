@@ -1,19 +1,18 @@
 ﻿using ContadSP.Models;
-using System.Linq.Expressions;
 
 namespace ContadSP.Repositorios
 {
     public interface IRepositorio<T> where T : class
     {
-        // Metodos generales
+        // Métodos generales
         Task<IEnumerable<T>> ObtenerTodo();
         Task<T> ObtenerPorId(int id);
         Task<T> Agregar(T entidad);
         Task<T> Actualizar(T entidad);
         Task<T> Eliminar(int id);
-        // Fin metodos generales
+        // Fin métodos generales
 
-        // Metodos especificos
+        // Métodos específicos
 
         // ARTICULOS
         Task<List<Models.Articulo>> Buscar(string buscar);
@@ -23,23 +22,22 @@ namespace ContadSP.Repositorios
         Task<int> ObtenerUltimaProvision();
         Task<Models.Provision> ObtenerProvisionPorId(int id);
         Task<IEnumerable<Models.Provision>> ObtenerProvisiones();
-        
-        
         Task<ProcesoPedido> ObtenerUltimoProcesoNumero(int id);
         Task<int> ObtenerUltimoProcesoPedidoId();
         Task<Pedido> ObtenerUltimoPedido();
         Task<IEnumerable<DetalleProvision>> ObtenerProvisionesId(int id);
         Task<Pedido> ObteberPedidoPorProvisionId(int id);
         Task<IEnumerable<PedidoProveedor>> ObtenerPedidoProveedorPorPedidoId(int id);
-
-
         Task<Models.ProvisionExp> ObtenerProvisionExpPorId(int id);
         Task<IEnumerable<Models.ProvisionExp>> ObtenerProvisionExp();
         Task<ProvisionExp> ObtenerUltimaProvisionExp();
         Task CambiarEstadoProvision(object entidad, int estado);
-
         Task<ProcesoPedido> ObtenerProcesoPedidoPorPedidoId(int id);
         Task CambiarCarga(int prov_id, int ped_id);
-        // Fin metodos especificos
+
+        // Métodos para EstadoArticulo
+        Task<IEnumerable<EstadoArticulo>> ObtenerEstadosArticulo();
+        Task<EstadoArticulo> ObtenerEstadoArticuloPorId(int id);
     }
 }
+

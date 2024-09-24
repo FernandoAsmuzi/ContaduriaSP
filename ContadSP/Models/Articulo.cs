@@ -22,6 +22,10 @@ namespace ContadSP.Models
         [ForeignKey("categoria_id")]
         public int categoria_id { get; set; }
         public Categoria Categoria { get; set; }
+        // Relación con EstadoArticulo
+        [ForeignKey("estado_articulo_id")]
+        public int? estado_articulo_id { get; set; }
+        public EstadoArticulo EstadoArticulo { get; set; }
 
     }
 }

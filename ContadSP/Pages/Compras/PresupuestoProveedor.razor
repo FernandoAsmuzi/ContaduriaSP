@@ -54,23 +54,25 @@
                                 <th>Cantidad</th>
                                 <th>Unidad</th>
                                 <th>Precio unitario</th>
-                                
-                                
+                                <th>Marca/Especif.</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @for (int i = 0; i < provisionDetalle.Count; i++)
+                            @foreach (var p in detalleAux)
                             {
                                 <tr>
-                                    <td>@provisionDetalle[i].Articulo.descripcion</td>
-                                    <td>@provisionDetalle[i].cantidad</td>
-                                    <td>@provisionDetalle[i].UnidadMedida.unidad</td>
+                                    <td>@p.Articulo.descripcion</td>
+                                    <td>@p.cantidad</td>
+                                    <td>@p.UnidadMedida.unidad</td>
+                                    <td><input type="number" class="form-control" @bind="precioUnitario" /></td>
+                                    <td><input type="text" class="form-control" @bind-value="@especificacion"/></td>
                                     <td>
-                                        <input type="number" bind-value="@presupuestosPedido[i].precio_unitario" required />
+                                        <button class="btn btn-primary" @onclick="() => agregarInstancia(p)">Agregar instancia</button>
                                     </td>
-                                    
                                 </tr>
                             }
+                            
                         </tbody>
                         
                     </table>
@@ -93,7 +95,12 @@
 
     private List<DetalleProvision> provisionDetalle = new List<DetalleProvision>();
     private List<PresupuestoPedido> presupuestosPedido = new List<PresupuestoPedido>();
+    private List<DetalleProvision> detalleAux = new List<DetalleProvision>();
+
     private Proveedor proveedor = new Proveedor();
+
+    private float precioUnitario = 0;
+    private string especificacion = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -101,18 +108,18 @@
         proveedor = await repositorioProveedor.ObtenerPorId(int.Parse(prov));
         var provision = await repositorioProvision.ObtenerPorId(pedido.provision_id);
         provisionDetalle = (await repositorioProvisionDetalle.ObtenerProvisionesId(provision.id)).ToList();
-
-        // Inicializar la lista de presupuestosPedido
-        foreach (var detalle in provisionDetalle)
-        {
-            presupuestosPedido.Add(new PresupuestoPedido
-                {
-                    cantidad = detalle.cantidad,
-                    detalle_provision_id = detalle.id,
-                    pedido_id = int.Parse(id),
-                    proveedor_id = int.Parse(prov)
-                });
-        }
+        detalleAux = provisionDetalle;
+        
+        // foreach (var detalle in provisionDetalle)
+        // {
+        //     presupuestosPedido.Add(new PresupuestoPedido
+        //         {
+        //             cantidad = detalle.cantidad,
+        //             detalle_provision_id = detalle.id,
+        //             pedido_id = int.Parse(id),
+        //             proveedor_id = int.Parse(prov)
+        //         });
+        // }
     }
 
     private string UpdateCantidadLetra(double subtotal)
@@ -120,7 +127,10 @@
         return ConversorNumeroLetra.NumeroALetras((int)subtotal);
     }
 
-    
+    private void agregarInstancia(DetalleProvision dp)
+    {
+        detalleAux.Add(dp);
+    }
 
     private async Task ProcesarPresupuesto(List<DetalleProvision> dp, List<PresupuestoPedido> pp)
     {

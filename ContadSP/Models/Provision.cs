@@ -9,12 +9,12 @@ namespace ContadSP.Models
         {
             fecha_provision = DateOnly.FromDateTime(DateTime.Now);
         }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         public DateOnly fecha_provision { get; set; }
         public string? descripcion { get; set; }
-        
         public double total_aprox { get; set; }
         public string? total_letra { get; set; }
         public List<DetalleProvision> DetalleProvision { get; set; }
@@ -37,5 +37,9 @@ namespace ContadSP.Models
         public int estado_id { get; set; }
         public Estado Estado { get; set; }
 
+        // Agrega estas propiedades
+        public bool? CancelarProvision { get; set; }
+        [Column(TypeName = "longtext")]
+        public string? ObservacionCancela { get; set; }
     }
 }

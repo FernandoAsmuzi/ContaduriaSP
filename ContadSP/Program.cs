@@ -56,6 +56,7 @@ builder.Services.AddScoped<IRepositorio<ProvisionExp>, Repositorio<ProvisionExp>
 builder.Services.AddScoped<IRepositorio<SitFiscal>, Repositorio<SitFiscal>>();
 builder.Services.AddScoped<IRepositorio<TipoPedido>, Repositorio<TipoPedido>>();
 builder.Services.AddScoped<IRepositorio<UnidadMedida>, Repositorio<UnidadMedida>>();
+builder.Services.AddScoped<IRepositorio<EstadoArticulo>, Repositorio<EstadoArticulo>>();
 builder.Services.AddScoped<IRepositorio<Usuario>, Repositorio<Usuario>>();
 builder.Services.AddScoped<PdfService>();
 builder.Services.AddScoped<MailService>();

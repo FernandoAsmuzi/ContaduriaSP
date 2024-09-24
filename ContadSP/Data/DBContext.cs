@@ -27,6 +27,7 @@ namespace ContadSP.Data
         public DbSet<TipoPedido> TipoPedido { get; set; }
         public DbSet<UnidadMedida> UnidadMedida { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<EstadoArticulo> EstadoArticulo { get; set; } // Añadir DbSet para EstadoArticulo
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,6 +37,13 @@ namespace ContadSP.Data
                 .HasOne(a => a.Categoria)
                 .WithMany(c => c.Articulo)
                 .HasForeignKey(a => a.categoria_id);
+
+            // Relación de Articulo con EstadoArticulo
+            modelBuilder.Entity<Articulo>()
+                .HasOne(a => a.EstadoArticulo)
+                .WithMany(e => e.Articulos)
+                .HasForeignKey(a => a.estado_articulo_id);
+
             // Relaciones de Provision con Destino, TipoPedido y Usuario
             modelBuilder.Entity<Provision>()
                 .HasOne(p => p.Destino)
@@ -117,7 +125,7 @@ namespace ContadSP.Data
                 .HasOne(pp => pp.Proveedor)
                 .WithMany(p => p.PresupuestoPedido)
                 .HasForeignKey(pp => pp.proveedor_id);
-
         }
     }
 }
+

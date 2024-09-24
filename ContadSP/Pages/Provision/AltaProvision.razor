@@ -102,6 +102,7 @@
                                             <th>Subtotal aprox.</th>
                                             <th>Subtotal letra</th>
                                             <th>Unidad de medida</th>
+                                            <th>Especificación</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
@@ -109,7 +110,7 @@
                                         @foreach (var itemWithIndex in listaDetalleProvision.Select((item, i) => new { Item = item, Index = i }))
                                         {
                                             var item = itemWithIndex.Item;
-                                            
+
                                             var currentIndex = itemWithIndex.Index;
                                             <tr>
                                                 <td class="ancho-30">@listaArticulos[currentIndex].descripcion</td>
@@ -128,6 +129,7 @@
                                                         }
                                                     </select>
                                                 </td>
+                                                <td class="ancho-40"><input style="width: 100%;" type="text" @bind="item.especificacion" ></td>
                                                 <td><button type="button" class="btn btn-danger" title="Eliminar artículo de la provisión" @onclick="() => EliminarArticulo(currentIndex)"><i class="oi oi-trash"></i></button></td>
                                             </tr>
                                         }
@@ -136,8 +138,8 @@
                             </div>
                         }
                         <br />
-                        
-                        <br/>
+
+                        <br />
                         <div class="btn-opciones">
                             <button type="submit" class="btn btn-primary">Generar Provisión</button>
                             <button type="button" class="btn btn-danger" style="margin-left: 5px;" @onclick="() => LimpiarProvision()">Cancelar</button>
@@ -145,7 +147,7 @@
                         <br />
                     </EditForm>
                 </div>
-            
+
             </div>
             <br />
             <br />
@@ -259,8 +261,8 @@
 
     /* --FUNCION PARA CONVERTIR NUMERO A LETRAS-- */
     // RECIBE CHANGEEVENT COMO PARAMETRO Y DEVUELVE UN STRING
-    private string UpdateCantidadLetra(ChangeEventArgs e) 
-    {                                                    
+    private string UpdateCantidadLetra(ChangeEventArgs e)
+    {
         if (int.TryParse(e.Value.ToString(), out var num))
             return ConversorNumeroLetra.NumeroALetras(num);
         else
@@ -268,7 +270,7 @@
     }
 
     //--PROCEDIMIENTO PARA AGREGAR ARTICULO A LA LISTA DE ARTICULOS AGREGADOS--
-    private void AgregarArticulos(Articulo articulo) 
+    private void AgregarArticulos(Articulo articulo)
     {
         listaArticulos.Add(articulo);
         detalleProvision = new DetalleProvision();
@@ -277,14 +279,14 @@
     }
 
     //--PROCEDIMIENO PARA ELIMINAR ARTICULO DE LA LISTA DE ARTICULOS AGREGADOS--
-    private void EliminarArticulo(int index) 
+    private void EliminarArticulo(int index)
     {
         listaArticulos.RemoveAt(index);
         listaDetalleProvision.RemoveAt(index);
     }
 
     //--PROCEDIMIENTO PARA LIMPIAR EL FORMULARIO DE PROVISION Y LAS LISTAS--
-    private void LimpiarProvision() 
+    private void LimpiarProvision()
     {
         listaDetalleProvision.Clear();
         listaArticulos.Clear();
@@ -344,7 +346,8 @@
     {
         if (listaDetalleProvision.Count() != 0) //--CONTROLA SI LA LISTA DE DETALLE NO ESTA VACIA (SI EXISTEN ARTICULOS PARA LA PROVISION)--
         {
-            if (await ValidarCantidad(listaDetalleProvision)){
+            if (await ValidarCantidad(listaDetalleProvision))
+            {
                 foreach (var detalle in listaDetalleProvision)
                 {
                     provision.total_aprox += detalle.subtotal_aprox;
@@ -364,6 +367,7 @@
                     detalleProvision.unidad_id = detalle.unidad_id;
                     detalleProvision.subtotal_aprox = detalle.subtotal_aprox;
                     detalleProvision.subtotal_letra = detalle.subtotal_letra;
+                    detalleProvision.especificacion = detalle.especificacion;
 
                     await repositorioDetalleProvision.Agregar(detalleProvision);
                 }

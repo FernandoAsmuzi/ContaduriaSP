@@ -1,40 +1,22 @@
-﻿namespace ContadSP.Pages.Otros
-{
-    
-
-    private int ObtenerProceso(int tipoId, double total)
-    {
-        var resul = 0;
-        foreach (var tipo in procesos) //--RECORRE LA LISTA DE TIPO MONTOS PARA CALCULAR EL CORRECTO--
-        {
-            if (tipo.tipo_pedido_id == tipoId)
-            {
-                if (tipo.monto_maximo == 0)
-                {
-                    if (total > tipo.monto_maximo)
-                    {
-                        resul = tipo.id;
-                    }
-                }
-                else
-                {
-                    if (total <= tipo.monto_maximo && total > tipo.monto_minimo)
-                    {
-                        resul = tipo.id;
-                    }
-                }
-            }
-        }
-        return resul;
-    }
-
-
-    }
-
-
-     // Serializar el objeto prov a JSON
-    string provJson = JsonSerializer.Serialize(prov);
-
-    // Mostrar el objeto serializado en la consola del navegador
-    await JSRuntime.InvokeVoidAsync("console.log", provJson);
-}
+﻿INSERT INTO TipoPedido (id, tipo) VALUES (1, "COMPRA/VENTA");
+INSERT INTO TipoPedido (id, tipo) VALUES (2, "CONTRATACIONES OBRAS PUBLICAS/PUBLICIDAD");
+INSERT INTO Proceso (id, proceso, monto_minimo, monto_maximo, sigla, tipo_pedido_id) VALUES (1, "LICITACIÓN PÚBLICA", 150000001, 0, "LIC-PUB-", 1);
+INSERT INTO Proceso (id, proceso, monto_minimo, monto_maximo, sigla, tipo_pedido_id) VALUES (2, "LICITACIÓN PÚBLICA", 500000001, 0, "LIC-PUB-", 2);
+INSERT INTO Proceso (id, proceso, monto_minimo, monto_maximo, sigla, tipo_pedido_id) VALUES (3, "LICITACIÓN PRIVADA", 100000001, 150000000, "LIC-PRI-", 1);
+INSERT INTO Proceso (id, proceso, monto_minimo, monto_maximo, sigla, tipo_pedido_id) VALUES (4, "LICITACIÓN PRIVADA", 300000001, 500000000, "LIC-PRI-", 2);
+INSERT INTO Proceso (id, proceso, monto_minimo, monto_maximo, sigla, tipo_pedido_id) VALUES (5, "CONCURSO DE PRECIOS", 30000001, 100000000, "CONC-PRE-", 1);
+INSERT INTO Proceso (id, proceso, monto_minimo, monto_maximo, sigla, tipo_pedido_id) VALUES (6, "CONCURSO DE PRECIOS", 100000001, 300000000, "CONC-PRE-", 2);
+INSERT INTO Proceso (id, proceso, monto_minimo, monto_maximo, sigla, tipo_pedido_id) VALUES (7, "CONTRATACIONES DIRECTAS", 0, 30000000, "CONT-DIR-", 1);
+INSERT INTO Proceso (id, proceso, monto_minimo, monto_maximo, sigla, tipo_pedido_id) VALUES (8, "CONTRATACIONES DIRECTAS", 0, 100000000, "CONT-DIR-", 2);
+INSERT INTO Usuario (id, nombre_usuario, email, password, rol) VALUES (1, "jbaiud", "email@email", "1234", "admin");
+INSERT INTO Usuario (id, nombre_usuario, email, password, rol) VALUES (2, "fasmuzi", "email@email", "1234", "admin");
+INSERT INTO SitFiscal (id, sit_fiscal) VALUES (1, "Resp. Inscripto");
+INSERT INTO Proveedor (id, nombre, nombre_comercial, direccion, telefono, email, sit_fiscal_id) VALUES (1, "Adrian Medina", "Systech", "Alberdi 420", "3888009900", "email@email", 1); INSERT INTO Proveedor (id, nombre, nombre_comercial, direccion, telefono, email, sit_fiscal_id) VALUES (2, "Juan Perez", "Insumos SA", "Sarmiento 350", "3888009911", "email1@email", 1); INSERT INTO Proveedor (id, nombre, nombre_comercial, direccion, telefono, email, sit_fiscal_id) VALUES (3, "Carlos Diaz", "Musimundo", "Rogelio Leach 789", "3888009922", "email2@email", 1);
+INSERT INTO Estado (id, estado) VALUES (1, "PROVISIÓN PENDIENTE DE APROBACIÓN");
+INSERT INTO Estado (id, estado) VALUES (2, "PROVISIÓN APROBADA");
+INSERT INTO Estado (id, estado) VALUES (3, "PROVISIÓN CANCELADA");
+INSERT INTO Estado (id, estado) VALUES (4, "PEDIDO EN PROCESO");
+INSERT INTO Estado (id, estado) VALUES (5, "PEDIDO ENVIADO");
+INSERT INTO Estado (id, estado) VALUES (6, "PEDIDO CANCELADO");
+INSERT INTO Estado (id, estado) VALUES (7, "COMPRA EN PROCESO");
+INSERT INTO Estado (id, estado) VALUES (8, "COMPRA REALIZADA")

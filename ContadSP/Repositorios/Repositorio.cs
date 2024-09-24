@@ -222,7 +222,17 @@ public class Repositorio<T> : IRepositorio<T> where T : class
             .FirstOrDefaultAsync();
         return ultima;
     }
-    
+    // Métodos para EstadoArticulo
+    public async Task<IEnumerable<EstadoArticulo>> ObtenerEstadosArticulo()
+    {
+        return await _context.EstadoArticulo.ToListAsync();
+    }
+
+    public async Task<EstadoArticulo> ObtenerEstadoArticuloPorId(int id)
+    {
+        return await _context.EstadoArticulo.FindAsync(id);
+    }
+
     // FIN METODOS ESPECIFICOS
     // ---------------------------------------------------------
 
