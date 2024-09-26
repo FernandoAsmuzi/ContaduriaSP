@@ -27,12 +27,12 @@
       "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Migrations\\20240924140546_campo especificacion en detalleProvision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ContadSP\\Migrations\\20240924140546_campo especificacion en detalleProvision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\pages\\provision\\altaprovision.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\pages\\provision\\altaprovision.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\migrations\\20240924140546_campo especificacion en detalleprovision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\migrations\\20240924140546_campo especificacion en detalleprovision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "ContadSP\\Pages\\Compras\\PresupuestoProveedor.razor",
               "ToolTip": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Compras\\PresupuestoProveedor.razor",
               "RelativeToolTip": "ContadSP\\Pages\\Compras\\PresupuestoProveedor.razor",
-              "ViewState": "AgIAADAAAAAAAAAAAAAcwIIAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAKsAAAB1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-09-24T15:23:44.41Z",
               "EditorCaption": ""
@@ -67,8 +67,7 @@
               "RelativeToolTip": "ContadSP\\Pages\\Compras\\AltaPresupuesto.razor",
               "ViewState": "AgIAAHIAAAAAAAAAAAAAAFQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-24T15:23:07.723Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T15:23:07.723Z"
             },
             {
               "$type": "Document",
@@ -80,8 +79,7 @@
               "RelativeToolTip": "ContadSP\\Pages\\Otros\\Utiles.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-09-24T14:25:15.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T14:25:15.934Z"
             },
             {
               "$type": "Document",
@@ -93,8 +91,7 @@
               "RelativeToolTip": "ContadSP\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-09-24T14:16:44.368Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T14:16:44.368Z"
             },
             {
               "$type": "Document",
@@ -106,12 +103,11 @@
               "RelativeToolTip": "ContadSP\\Program.cs",
               "ViewState": "AgIAAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T14:16:38.357Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T14:16:38.357Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "20240924140546_campo especificacion en detalleProvision.cs",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Migrations\\20240924140546_campo especificacion en detalleProvision.cs",
               "RelativeDocumentMoniker": "ContadSP\\Migrations\\20240924140546_campo especificacion en detalleProvision.cs",
@@ -119,8 +115,7 @@
               "RelativeToolTip": "ContadSP\\Migrations\\20240924140546_campo especificacion en detalleProvision.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T14:05:47.062Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T14:05:47.062Z"
             },
             {
               "$type": "Document",
@@ -132,12 +127,11 @@
               "RelativeToolTip": "ContadSP\\Pages\\Pedido\\DetallePedido.razor",
               "ViewState": "AgIAAEoBAAAAAAAAAAAAAIYAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-24T14:02:51.5Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T14:02:51.5Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "AltaProvision.razor",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Provision\\AltaProvision.razor",
               "RelativeDocumentMoniker": "ContadSP\\Pages\\Provision\\AltaProvision.razor",
@@ -145,8 +139,7 @@
               "RelativeToolTip": "ContadSP\\Pages\\Provision\\AltaProvision.razor",
               "ViewState": "AgIAAE4BAAAAAAAAAAAswHEBAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-12T14:27:40.68Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-12T14:27:40.68Z"
             }
           ]
         }
