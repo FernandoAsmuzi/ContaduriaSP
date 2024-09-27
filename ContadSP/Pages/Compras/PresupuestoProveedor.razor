@@ -4,6 +4,7 @@
 @using ContadSP.Models
 @using Radzen
 @using Radzen.Blazor
+@using System.ComponentModel.DataAnnotations
 
 @inject IRepositorio<Pedido> repositorioPedido
 @inject IRepositorio<Provision> repositorioProvision
@@ -60,39 +61,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @for (int i = 0; i < provisionDetalle.Count; i++)
+                            @foreach (var detalle in provisionDetalle)
                             {
+                                var index = provisionDetalle.IndexOf(detalle);
                                 <tr>
-                                    <td>@provisionDetalle[i].Articulo.descripcion</td>
-                                    <td>@provisionDetalle[i].cantidad</td>
-                                    <td>@provisionDetalle[i].UnidadMedida.unidad</td>
+                                    <td>@detalle.Articulo.descripcion</td>
+                                    <td>@detalle.cantidad</td>
+                                    <td>@detalle.UnidadMedida.unidad</td>
                                     <td>
-                                        <input type="number" @bind="presupuestosPedido[i].precio_unitario" />
+                                        <input type="number" @bind="presupuestosPedido[index].precio_unitario" />
                                     </td>
-                                    <td>@presupuestosPedido[i].subtotal</td>
-                                    <td>@presupuestosPedido[i].subtotal_letra</td>
+                                    <td>@presupuestosPedido[index].subtotal</td>
+                                    <td>@presupuestosPedido[index].subtotal_letra</td>
                                     <td>
-                                        @if (i == 0) <!-- Solo el primer artículo tiene el botón -->
+                                        @if (provisionDetalleDict[detalle]) 
                                         {
-                                            <button type="button" class="btn btn-success" @onclick="() => AgregarInstancia(provisionDetalle[i])">Agregar Instancia</button>
+                                            <button type="button" class="btn btn-success" @onclick="() => AgregarInstancia(detalle)">Agregar Instancia</button>
                                         }
-                                        <button type="button" class="btn btn-success" @onclick="() => CalcularSubtotal(provisionDetalle[i], presupuestosPedido[i])">Aprobar provisión</button>
-                                    </td>
-                                </tr>
-                            }
-                            @foreach (var instancia in instanciasAdicionales)
-                            {
-                                <tr>
-                                    <td>@instancia.Articulo.descripcion</td>
-                                    <td>@instancia.cantidad</td>
-                                    <td>@instancia.UnidadMedida.unidad</td>
-                                    <td>
-                                        <input type="number" @bind="instancia.Presupuesto.precio_unitario" />
-                                    </td>
-                                    <td>@instancia.Presupuesto.subtotal</td>
-                                    <td>@instancia.Presupuesto.subtotal_letra</td>
-                                    <td>
-                                        <button type="button" class="btn btn-success" @onclick="() => CalcularSubtotal(instancia, instancia.Presupuesto)">Aprobar provisión</button>
                                     </td>
                                 </tr>
                             }
@@ -108,34 +93,36 @@
 </div>
 
 @code {
-    [Parameter, EditorRequired]
+    [Parameter]
     public string id { get; set; }
-    [Parameter, EditorRequired]
+    [Parameter]
     public string prov { get; set; }
 
+    private Dictionary<DetalleProvision, bool> provisionDetalleDict = new Dictionary<DetalleProvision, bool>();
     private List<DetalleProvision> provisionDetalle = new List<DetalleProvision>();
     private List<PresupuestoPedido> presupuestosPedido = new List<PresupuestoPedido>();
-    private List<DetalleProvision> instanciasAdicionales = new List<DetalleProvision>();
     private Proveedor proveedor = new Proveedor();
-    
+    private Pedido pedido = new Pedido();
+    private Provision provision = new Provision();
 
     protected override async Task OnInitializedAsync()
     {
-        var pedido = await repositorioPedido.ObtenerPorId(int.Parse(id));
+        pedido = await repositorioPedido.ObtenerPorId(int.Parse(id));
         proveedor = await repositorioProveedor.ObtenerPorId(int.Parse(prov));
-        var provision = await repositorioProvision.ObtenerPorId(pedido.provision_id);
+        provision = await repositorioProvision.ObtenerPorId(pedido.provision_id);
         provisionDetalle = (await repositorioProvisionDetalle.ObtenerProvisionesId(provision.id)).ToList();
 
-        // Inicializar la lista de presupuestosPedido
+        // Inicializar el diccionario de provisionDetalle y la lista de presupuestosPedido
         foreach (var detalle in provisionDetalle)
         {
+            provisionDetalleDict.Add(detalle, true);
             presupuestosPedido.Add(new PresupuestoPedido
-            {
-                cantidad = detalle.cantidad,
-                detalle_provision_id = detalle.id,
-                pedido_id = int.Parse(id),
-                proveedor_id = int.Parse(prov)
-            });
+                {
+                    cantidad = detalle.cantidad,
+                    detalle_provision_id = detalle.id,
+                    pedido_id = int.Parse(id),
+                    proveedor_id = int.Parse(prov)
+                });
         }
     }
 
@@ -158,24 +145,35 @@
 
     private void AgregarInstancia(DetalleProvision dp)
     {
-        var nuevaInstancia = new DetalleProvision
-        {
-            Articulo = dp.Articulo,
-            cantidad = dp.cantidad,
-            UnidadMedida = dp.UnidadMedida,
-        };
-        instanciasAdicionales.Add(nuevaInstancia);
+            var nuevaInstancia = new DetalleProvision
+                {
+                    Articulo = dp.Articulo,
+                    cantidad = dp.cantidad,
+                    UnidadMedida = dp.UnidadMedida,
+                };
+            provisionDetalle.Add(nuevaInstancia);
+            presupuestosPedido.Add(new PresupuestoPedido
+                {
+                    cantidad = dp.cantidad,
+                    detalle_provision_id = nuevaInstancia.id,
+                    pedido_id = int.Parse(id),
+                    proveedor_id = int.Parse(prov)
+                });
+            provisionDetalleDict.Add(nuevaInstancia, false);
     }
 
     private async Task ProcesarPresupuesto()
     {
-        if (presupuestosPedido.Any(pp => pp.precio_unitario <= 0) || instanciasAdicionales.Any(instancia => instancia.precio_unitario <= 0))
+        if (presupuestosPedido.Any(pp => pp.precio_unitario <= 0))
         {
             await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Todos los campos de precio unitario deben estar completos y ser mayores que cero", "error");
             return;
         }
 
-        
+        foreach (var pp in presupuestosPedido)
+        {
+            await repositorioPresupuestoPedido.Agregar(pp);
+        }
 
         await repositorioPresupuestoPedido.CambiarCarga(int.Parse(prov), int.Parse(id));
 
