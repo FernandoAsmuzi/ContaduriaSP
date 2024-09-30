@@ -17,6 +17,7 @@ namespace ContadSP.Models
         public int cantidad { get; set; }
         public double subtotal { get; set; }
         public string? subtotal_letra { get; set; }
+        public string? especificacion { get; set; }
         public DateOnly fecha_presupuesto { get; set; }
 
         [ForeignKey("detalle_provision_id")]

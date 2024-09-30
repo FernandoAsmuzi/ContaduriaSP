@@ -57,6 +57,7 @@
                                 <th>Precio unitario</th>
                                 <th>Subtotal</th>
                                 <th>Subtotal letra</th>
+                                <th>Especificación</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -69,10 +70,11 @@
                                     <td>@detalle.cantidad</td>
                                     <td>@detalle.UnidadMedida.unidad</td>
                                     <td>
-                                        <input type="number" @bind="presupuestosPedido[index].precio_unitario" />
+                                        <input type="number" @bind-value="presupuestosPedido[index].precio_unitario" />
                                     </td>
                                     <td>@presupuestosPedido[index].subtotal</td>
                                     <td>@presupuestosPedido[index].subtotal_letra</td>
+                                    <td><input style="width: 100%;" type="text" @bind-value="presupuestosPedido[index].especificacion" /></td>
                                     <td>
                                         @if (provisionDetalleDict[detalle]) 
                                         {
@@ -128,7 +130,7 @@
 
     private string UpdateCantidadLetra(double subtotal)
     {
-        return ConversorNumeroLetra.NumeroALetras((int)subtotal);
+        return ConversorNumeroLetra.NumeroALetras((decimal)subtotal);
     }
 
     private void CalcularSubtotal(DetalleProvision dp, PresupuestoPedido pp)
@@ -145,21 +147,22 @@
 
     private void AgregarInstancia(DetalleProvision dp)
     {
-            var nuevaInstancia = new DetalleProvision
+        var nuevaInstancia = new DetalleProvision
                 {
+                    id = dp.id,
                     Articulo = dp.Articulo,
                     cantidad = dp.cantidad,
                     UnidadMedida = dp.UnidadMedida,
                 };
-            provisionDetalle.Add(nuevaInstancia);
-            presupuestosPedido.Add(new PresupuestoPedido
+        provisionDetalle.Add(nuevaInstancia);
+        presupuestosPedido.Add(new PresupuestoPedido
                 {
                     cantidad = dp.cantidad,
                     detalle_provision_id = nuevaInstancia.id,
                     pedido_id = int.Parse(id),
                     proveedor_id = int.Parse(prov)
                 });
-            provisionDetalleDict.Add(nuevaInstancia, false);
+        provisionDetalleDict.Add(nuevaInstancia, false);
     }
 
     private async Task ProcesarPresupuesto()
@@ -172,6 +175,8 @@
 
         foreach (var pp in presupuestosPedido)
         {
+            pp.subtotal = pp.precio_unitario * pp.cantidad;
+            pp.subtotal_letra = UpdateCantidadLetra(pp.subtotal);
             await repositorioPresupuestoPedido.Agregar(pp);
         }
 

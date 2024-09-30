@@ -1,17 +1,18 @@
 superintendencia autoriza provision pendiente
 
-boton especificacion tecnica en solicitar provision
+boton especificacion tecnica en solicitar provision (listo)
 
 
-cancelar provision con justificacion
-aprobar ciertos articulos de provision o cantidades
+cancelar provision con justificacion (listo)
 
-cambiar generar pedido por generar invitacion
+aprobar ciertos articulos de provision o cantidades (descartado)
 
-cambiar VB contaduria por VB - NRO por Cantidad - agregar especificacion - 
+cambiar generar pedido por generar invitacion (listo)
+
+cambiar VB contaduria por VB - NRO por Cantidad - agregar especificacion - (listo)
 
 
-invitaciones en pedidos en espera de entrega
+invitaciones en pedidos en espera de entrega (listo)
 
 cargar presupuesto - precio unitario - marca/especificaciones (obligatorio)
 

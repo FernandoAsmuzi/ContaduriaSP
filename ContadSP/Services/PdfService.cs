@@ -87,15 +87,17 @@ namespace ContadSP.Services
                 document.Add(new Chunk(line1));
 
                 // Crear una tabla
-                var detailtable = new PdfPTable(5);
+                var detailtable = new PdfPTable(6);
                 detailtable.WidthPercentage = 100;
-                detailtable.SetWidths(new float[] { 1, 1, 2, 1, 2 });
+                detailtable.SetWidths(new float[] { 1, 1, 2, 1, 2, 2 });
 
                 detailtable.AddCell(new PdfPCell(new Phrase("RENG.", smallFont)));
-                detailtable.AddCell(new PdfPCell(new Phrase("NRO.", smallFont)));
+                detailtable.AddCell(new PdfPCell(new Phrase("CANT.", smallFont)));
                 detailtable.AddCell(new PdfPCell(new Phrase("LETRA", smallFont)));
                 detailtable.AddCell(new PdfPCell(new Phrase("UNIDAD", smallFont)));
                 detailtable.AddCell(new PdfPCell(new Phrase("ARTICULO", smallFont)));
+                detailtable.AddCell(new PdfPCell(new Phrase("ESPECIF.", smallFont)));
+
 
                 int renglon = 1;
                 foreach (var p in provisionDetalle)
@@ -105,6 +107,7 @@ namespace ContadSP.Services
                     detailtable.AddCell(new PdfPCell(new Phrase(ConversorNumeroLetra.NumeroALetras(p.cantidad), smallFont)));
                     detailtable.AddCell(new PdfPCell(new Phrase(p.UnidadMedida.unidad, smallFont)));
                     detailtable.AddCell(new PdfPCell(new Phrase(p.Articulo.descripcion, smallFont)));
+                    detailtable.AddCell(new PdfPCell(new Phrase(p.especificacion, smallFont)));
                     renglon++;
                 }
 
@@ -135,7 +138,7 @@ namespace ContadSP.Services
                 vistoBuenoCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 vistoBuenoCell.VerticalAlignment = Element.ALIGN_MIDDLE;
                 vistoBuenoCell.AddElement(new Paragraph("__________________________"));
-                vistoBuenoCell.AddElement(new Paragraph("V° B° Contaduría", new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL)));
+                vistoBuenoCell.AddElement(new Paragraph("Visto Bueno", new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL)));
 
                 // Agregar las celdas a la tabla
                 firmaTable.AddCell(firmaSolicitanteCell);
