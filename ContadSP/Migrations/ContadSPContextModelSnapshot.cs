@@ -217,6 +217,9 @@ namespace ContadSP.Migrations
                     b.Property<int>("detalle_provision_id")
                         .HasColumnType("int");
 
+                    b.Property<string>("especificacion")
+                        .HasColumnType("longtext");
+
                     b.Property<DateOnly>("fecha_presupuesto")
                         .HasColumnType("date");
 

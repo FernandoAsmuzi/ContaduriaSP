@@ -16,24 +16,20 @@
 @implements IHandleAfterRender
 @inject NavigationManager NavigationManager
 
-
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-primary text-white">
-                  
-                    <h3 class="text-center">@titulo.estado</h3>
+                    <h3 class="text-center">@titulo?.estado ?? "Estado no disponible"</h3>
                 </div>
                 <div class="card-body">
-
                     @if (muestra == null)
                     {
                         <p><em>No se encontraron pedidos de provisión</em></p>
                     }
                     else
                     {
-
                         <div style="overflow: auto;">
                             <table class="table table-striped table-responsive table-hover">
                                 <thead class="thead-dark">
@@ -41,7 +37,6 @@
                                         <th>Id</th>
                                         <th>Fecha de provision</th>
                                         <th>Descripción</th>
-                                        
                                         <th>Destino</th>
                                         <th>Usuario</th>
                                         <th>Acciones</th>
@@ -54,19 +49,16 @@
                                             <td>@provision.id</td>
                                             <td>@provision.fecha_provision</td>
                                             <td>@provision.descripcion</td>
-                                            
                                             <td>@provision.Destino.destino</td>
                                             <td>@provision.Usuario.nombre_usuario</td>
                                             <td>
                                                 <a class="btn btn-success mb-2" style="margin-right: 2%" title="Ver detalle" @onclick="() => VerDetalles(provision)"><span class="oi oi-eye" aria-hidden="true"></span></a>
                                             </td>
-
                                         </tr>
                                     }
                                 </tbody>
                             </table>
                         </div>
-
                     }
                 </div>
             </div>
@@ -75,10 +67,8 @@
 </div>
 
 @code {
-
     [Parameter]
-    public string Estado { get; set; }
-
+    public string? Estado { get; set; }
 
     private List<Provision> provisiones = new List<Provision>();
     private List<Provision> muestra = new List<Provision>();
@@ -95,7 +85,6 @@
 
     protected override async Task OnParametersSetAsync()
     {
-
         provisiones = (await repositorioProvision.ObtenerProvisiones()).ToList();
         pedidos = (await repositorioPedido.ObtenerPedidos()).ToList();
         estados = (await repositorioEstado.ObtenerTodo()).ToList();
@@ -111,34 +100,27 @@
         if (previousEstado != estadoInt)
         {
             previousEstado = estadoInt;
-
             muestra = provisiones.Where(p => p.estado_id == estadoInt).ToList();
+        }
+        else
+        {
+            muestra = new List<Provision>(); // Inicializar muestra si no se cumple la condición
         }
     }
 
     private void CargarTitulo(int estado)
     {
-        
+        // Lógica sincrónica aquí
     }
 
-    private async Task CargarPoceso(Provision prov)
+    private void CargarPoceso(Provision prov)
     {
-      
-        // procesoPedido.num_proceso = (await repositorioProcesoPedido.ObtenerUltimoProcesoNumero(prov.proceso_id)) + 1;
-        // procesoPedido.proceso_id = prov.proceso_id;
-        // procesoPedido.proceso_completo = prov.Proceso.sigla + "-" + añoActual;
-        // await repositorioProcesoPedido.Agregar(procesoPedido);
-        // procesoPedido.id = (await repositorioProcesoPedido.ObtenerUltimoProcesoPedidoId());
-
+        // Lógica sincrónica aquí
     }
 
-    private async Task CargarPedido(ProcesoPedido proc, Provision prov)
+    private void CargarPedido(ProcesoPedido proc, Provision prov)
     {
-        // pedido.numero_acta = ((await repositorioPedido.ObtenerUltimoPedido()) + 1).ToString() + "-" + añoActual;
-        // pedido.proceso_pedido_id = proc.id;
-        // pedido.provision_id = prov.id;
-        // pedido.estado = false;
-        // await repositorioPedido.Agregar(pedido);
+        // Lógica sincrónica aquí
     }
 
     private void VerDetalles(Provision prov)
@@ -146,9 +128,8 @@
         NavigationManager.NavigateTo($"/detallePedido/{prov.id}");
     }
 
-    private async Task ConfirmarEntrega(Provision prov)
+    private void ConfirmarEntrega(Provision prov)
     {
-        //await repositorioProvision.CambiarEstado(prov);
+        // Lógica sincrónica aquí
     }
-
 }

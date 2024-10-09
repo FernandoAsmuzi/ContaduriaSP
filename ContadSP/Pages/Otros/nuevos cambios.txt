@@ -24,3 +24,13 @@ se realiza la compra
 generar numero de actuacion al hacer el pago
 compra directa => la actuacion se genera en el momento del pago
 concurso de precios o + => se genera en el momento del pedido
+
+modificar carga de presupuesto para que se calcule automaticamente el subtotal y subtotal letra
+
+impedir la carga sin especificacion de presupuesto
+
+impedir la confirmacion de presupuestos sin cargar por lo menos uno
+
+ver porque se desborda al eliminar una instancia de presupuesto
+
+mostrar proveedores en presupuestos cargados 

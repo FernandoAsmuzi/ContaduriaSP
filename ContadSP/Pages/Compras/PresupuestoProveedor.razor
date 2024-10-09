@@ -65,29 +65,45 @@
                             @foreach (var detalle in provisionDetalle)
                             {
                                 var index = provisionDetalle.IndexOf(detalle);
-                                <tr>
-                                    <td>@detalle.Articulo.descripcion</td>
-                                    <td>@detalle.cantidad</td>
-                                    <td>@detalle.UnidadMedida.unidad</td>
-                                    <td>
-                                        <input type="number" @bind-value="presupuestosPedido[index].precio_unitario" />
-                                    </td>
-                                    <td>@presupuestosPedido[index].subtotal</td>
-                                    <td>@presupuestosPedido[index].subtotal_letra</td>
-                                    <td><input style="width: 100%;" type="text" @bind-value="presupuestosPedido[index].especificacion" /></td>
-                                    <td>
-                                        @if (provisionDetalleDict[detalle]) 
-                                        {
-                                            <button type="button" class="btn btn-success" @onclick="() => AgregarInstancia(detalle)">Agregar Instancia</button>
-                                        }
-                                    </td>
-                                </tr>
+                                if (index < presupuestosPedido.Count)
+                                {
+                                    <tr>
+                                        <td>@detalle.Articulo.descripcion</td>
+                                        <td>@detalle.cantidad</td>
+                                        <td>@detalle.UnidadMedida.unidad</td>
+                                        <td>
+                                            <input type="number" @bind-value="presupuestosPedido[index].precio_unitario" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(detalle, presupuestosPedido[index])" />
+                                        </td>
+                                        <td>@presupuestosPedido[index].subtotal</td>
+                                        <td>@presupuestosPedido[index].subtotal_letra</td>
+                                        <td><input style="width: 100%;" type="text" @bind-value="presupuestosPedido[index].especificacion" /></td>
+                                        <td>
+                                            @if (provisionDetalleDict[detalle])
+                                            {
+                                                <button type="button" class="btn btn-success" @onclick="() => AgregarInstancia(detalle)"><i class="oi oi-plus"></i></button>
+                                            }
+                                            else
+                                            {
+                                                <button type="button" class="btn btn-danger" @onclick="() => EliminarInstancia(detalle)"><i class="oi oi-trash"></i></button>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="8">Error: índice fuera de rango</td>
+                                    </tr>
+                                }
                             }
                         </tbody>
                     </table>
-                    <div style="display:flex">
+                    <div class="btn-opciones" style="display:flex">
                         <button class="btn btn-primary" @onclick="ProcesarPresupuesto">Procesar Presupuesto</button>
+
                     </div>
+                    <br />
+                    <br />
                 </div>
             </div>
         </div>
@@ -95,9 +111,9 @@
 </div>
 
 @code {
-    [Parameter]
+    [Parameter, Required]
     public string id { get; set; }
-    [Parameter]
+    [Parameter, Required]
     public string prov { get; set; }
 
     private Dictionary<DetalleProvision, bool> provisionDetalleDict = new Dictionary<DetalleProvision, bool>();
@@ -109,12 +125,19 @@
 
     protected override async Task OnInitializedAsync()
     {
+        await CargarDatos();
+    }
+
+    private async Task CargarDatos()
+    {
         pedido = await repositorioPedido.ObtenerPorId(int.Parse(id));
         proveedor = await repositorioProveedor.ObtenerPorId(int.Parse(prov));
         provision = await repositorioProvision.ObtenerPorId(pedido.provision_id);
         provisionDetalle = (await repositorioProvisionDetalle.ObtenerProvisionesId(provision.id)).ToList();
 
         // Inicializar el diccionario de provisionDetalle y la lista de presupuestosPedido
+        provisionDetalleDict.Clear();
+        presupuestosPedido.Clear();
         foreach (var detalle in provisionDetalle)
         {
             provisionDetalleDict.Add(detalle, true);
@@ -148,21 +171,31 @@
     private void AgregarInstancia(DetalleProvision dp)
     {
         var nuevaInstancia = new DetalleProvision
-                {
-                    id = dp.id,
-                    Articulo = dp.Articulo,
-                    cantidad = dp.cantidad,
-                    UnidadMedida = dp.UnidadMedida,
-                };
+            {
+                id = dp.id,
+                Articulo = dp.Articulo,
+                cantidad = dp.cantidad,
+                UnidadMedida = dp.UnidadMedida,
+            };
         provisionDetalle.Add(nuevaInstancia);
         presupuestosPedido.Add(new PresupuestoPedido
-                {
-                    cantidad = dp.cantidad,
-                    detalle_provision_id = nuevaInstancia.id,
-                    pedido_id = int.Parse(id),
-                    proveedor_id = int.Parse(prov)
-                });
+            {
+                cantidad = dp.cantidad,
+                detalle_provision_id = nuevaInstancia.id,
+                pedido_id = int.Parse(id),
+                proveedor_id = int.Parse(prov)
+            });
         provisionDetalleDict.Add(nuevaInstancia, false);
+    }
+
+    private async Task EliminarInstancia(DetalleProvision dp)
+    {
+        provisionDetalle.Remove(dp);
+        presupuestosPedido.RemoveAll(pp => pp.detalle_provision_id == dp.id);
+        provisionDetalleDict.Remove(dp);
+
+        // Recargar las listas y el diccionario
+        await CargarDatos();
     }
 
     private async Task ProcesarPresupuesto()

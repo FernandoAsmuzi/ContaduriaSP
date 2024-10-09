@@ -9,147 +9,147 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ContadSP
 build_property.RootNamespace = ContadSP
-build_property.ProjectDir = C:\Users\fasmuzi\Desktop\ContadSp\ContadSP\
+build_property.ProjectDir = C:\Users\fasmuzi\Desktop\fernandoultimo\ContadSp-01-10-2024\ContadSp\ContadSP\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\fasmuzi\Desktop\ContadSp\ContadSP
+build_property.MSBuildProjectDirectory = C:\Users\fasmuzi\Desktop\fernandoultimo\ContadSp-01-10-2024\ContadSp\ContadSP
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/App.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/Articulo/AltaArticulo.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/Articulo/AltaArticulo.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXEFydGljdWxvXEFsdGFBcnRpY3Vsby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/Articulo/EditarArticulo.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/Articulo/EditarArticulo.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXEFydGljdWxvXEVkaXRhckFydGljdWxvLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/Articulo/ListaArticulos.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/Articulo/ListaArticulos.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXEFydGljdWxvXExpc3RhQXJ0aWN1bG9zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/Categoria/AltaCategoria.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/Categoria/AltaCategoria.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXENhdGVnb3JpYVxBbHRhQ2F0ZWdvcmlhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/Categoria/EditarCategoria.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/Categoria/EditarCategoria.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXENhdGVnb3JpYVxFZGl0YXJDYXRlZ29yaWEucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/Categoria/ListaCategoria.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/Categoria/ListaCategoria.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXENhdGVnb3JpYVxMaXN0YUNhdGVnb3JpYS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/Destino/AltaDestino.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/Destino/AltaDestino.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXERlc3Rpbm9cQWx0YURlc3Rpbm8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/Destino/EditarDestino.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/Destino/EditarDestino.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXERlc3Rpbm9cRWRpdGFyRGVzdGluby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/Destino/ListaDestino.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/Destino/ListaDestino.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXERlc3Rpbm9cTGlzdGFEZXN0aW5vLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/Proveedor/AltaProveedor.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/Proveedor/AltaProveedor.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXFByb3ZlZWRvclxBbHRhUHJvdmVlZG9yLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/Proveedor/EditarProveedor.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/Proveedor/EditarProveedor.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXFByb3ZlZWRvclxFZGl0YXJQcm92ZWVkb3IucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/Proveedor/ListaProveedor.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/Proveedor/ListaProveedor.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXFByb3ZlZWRvclxMaXN0YVByb3ZlZWRvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/SitFiscal/AltaSitFiscal.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/SitFiscal/AltaSitFiscal.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXFNpdEZpc2NhbFxBbHRhU2l0RmlzY2FsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/SitFiscal/EditarSitFiscal.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/SitFiscal/EditarSitFiscal.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXFNpdEZpc2NhbFxFZGl0YXJTaXRGaXNjYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/SitFiscal/ListarSitFiscal.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/SitFiscal/ListarSitFiscal.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXFNpdEZpc2NhbFxMaXN0YXJTaXRGaXNjYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/Unidad de Medida/AltaUM.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/Unidad de Medida/AltaUM.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXFVuaWRhZCBkZSBNZWRpZGFcQWx0YVVNLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/Unidad de Medida/EditarUM.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/Unidad de Medida/EditarUM.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXFVuaWRhZCBkZSBNZWRpZGFcRWRpdGFyVU0ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/ABM/Unidad de Medida/ListaUM.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/ABM/Unidad de Medida/ListaUM.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXFVuaWRhZCBkZSBNZWRpZGFcTGlzdGFVTS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Compras/AltaPresupuesto.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/Compras/AltaPresupuesto.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcHJhc1xBbHRhUHJlc3VwdWVzdG8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Compras/PresupuestoProveedor.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/Compras/PresupuestoProveedor.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcHJhc1xQcmVzdXB1ZXN0b1Byb3ZlZWRvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Dashboard/Charts.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/Dashboard/Charts.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkXENoYXJ0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Index.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Login/Login.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/Login/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Pedido/DetallePedido.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/Pedido/DetallePedido.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVkaWRvXERldGFsbGVQZWRpZG8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Provision/AdminProvision.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/Provision/AdminProvision.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvdmlzaW9uXEFkbWluUHJvdmlzaW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Provision/AltaProvision.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/Provision/AltaProvision.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvdmlzaW9uXEFsdGFQcm92aXNpb24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Shared/LoginLayout.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Shared/LoginLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Shared/SurveyPrompt.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/_Imports.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Shared/MainLayout.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-zyhxvtrsnz
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Shared/NavMenu.razor]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-8n0mm7hjxz
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Error.cshtml]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/_Host.cshtml]
+[C:/Users/fasmuzi/Desktop/fernandoultimo/ContadSp-01-10-2024/ContadSp/ContadSP/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

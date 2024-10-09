@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContadSP.Migrations
 {
     [DbContext(typeof(ContadSPContext))]
-    [Migration("20240924142356_nueva")]
-    partial class nueva
+    [Migration("20241001191956_inicial")]
+    partial class inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -219,6 +219,9 @@ namespace ContadSP.Migrations
 
                     b.Property<int>("detalle_provision_id")
                         .HasColumnType("int");
+
+                    b.Property<string>("especificacion")
+                        .HasColumnType("longtext");
 
                     b.Property<DateOnly>("fecha_presupuesto")
                         .HasColumnType("date");

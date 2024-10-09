@@ -12,6 +12,7 @@
 @inject IRepositorio<TipoPedido> repositorioTipoPedido
 @inject IRepositorio<DetalleProvision> repositorioProvisionDetalle
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
 
 <div class="container mt-4"> 
     <div class="row justify-content-center">
@@ -117,13 +118,13 @@
                                     <td>@p.Proveedor.direccion</td>
                                     <td>@p.Proveedor.telefono</td>
                                     <td>@p.Proveedor.email</td>
-                                    @if(p.carga)
+                                    @if(! p.carga)
                                     {
-
+                                        <td><button class="btn btn-primary" @onclick="()=>CargarPresupuesto(p)">Cargar presupuesto</button></td>
                                     }
                                     else
                                     {
-                                        <td><button class="btn btn-primary" @onclick="()=>CargarPresupuesto(p)">Cargar presupuesto</button></td>
+                                        <td><button class="btn btn-primary" disabled>Cargado</button></td>
                                     }
                                 </tr>
                             }
@@ -131,8 +132,11 @@
                     </table>
                 </div>
 
-             
-
+                <div class="btn-opciones">
+                    <button class="btn btn-success" @onclick="()=>ConfirmarPresupuesto()">Confirmar presupuesto</button>
+                </div>
+                <br />
+                <br />
             </div>
         </div>
     </div>
@@ -165,5 +169,12 @@
     {
         var url = $"/presupuesto/{id}/{pedidoProveedor.proveedor_id}";
         NavigationManager.NavigateTo(url);
+    }
+
+    private async Task ConfirmarPresupuesto()
+    {
+        await repositorioPedidoProveedor.CambiarEstadoProvision(provision, 5);
+        await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El presupuesto ha sido cargado correctamente", "success");
+        NavigationManager.NavigateTo("/");
     }
 }

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ContadSP.Migrations
 {
     /// <inheritdoc />
-    public partial class creacion : Migration
+    public partial class inicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -57,6 +57,21 @@ namespace ContadSP.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Estado", x => x.id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "EstadoArticulo",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    estado = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EstadoArticulo", x => x.id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -138,7 +153,8 @@ namespace ContadSP.Migrations
                     fecha_ultimo_monto = table.Column<DateOnly>(type: "date", nullable: false),
                     foto = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    categoria_id = table.Column<int>(type: "int", nullable: false)
+                    categoria_id = table.Column<int>(type: "int", nullable: false),
+                    estado_articulo_id = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -149,6 +165,11 @@ namespace ContadSP.Migrations
                         principalTable: "Categoria",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Articulo_EstadoArticulo_estado_articulo_id",
+                        column: x => x.estado_articulo_id,
+                        principalTable: "EstadoArticulo",
+                        principalColumn: "id");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -223,7 +244,10 @@ namespace ContadSP.Migrations
                     destino_id = table.Column<int>(type: "int", nullable: false),
                     usuario_id = table.Column<int>(type: "int", nullable: false),
                     tipo_pedido_id = table.Column<int>(type: "int", nullable: false),
-                    estado_id = table.Column<int>(type: "int", nullable: false)
+                    estado_id = table.Column<int>(type: "int", nullable: false),
+                    CancelarProvision = table.Column<bool>(type: "tinyint(1)", nullable: true),
+                    ObservacionCancela = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
@@ -265,9 +289,14 @@ namespace ContadSP.Migrations
                     subtotal_aprox = table.Column<double>(type: "double", nullable: false),
                     subtotal_letra = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    especificacion = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     articulo_id = table.Column<int>(type: "int", nullable: false),
                     unidad_id = table.Column<int>(type: "int", nullable: false),
-                    provision_id = table.Column<int>(type: "int", nullable: false)
+                    provision_id = table.Column<int>(type: "int", nullable: false),
+                    cancela_provision = table.Column<bool>(type: "tinyint(1)", nullable: true),
+                    observa_cancelacion = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
@@ -381,6 +410,8 @@ namespace ContadSP.Migrations
                     subtotal = table.Column<double>(type: "double", nullable: false),
                     subtotal_letra = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    especificacion = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     fecha_presupuesto = table.Column<DateOnly>(type: "date", nullable: false),
                     detalle_provision_id = table.Column<int>(type: "int", nullable: false),
                     pedido_id = table.Column<int>(type: "int", nullable: false),
@@ -445,6 +476,11 @@ namespace ContadSP.Migrations
                 name: "IX_Articulo_categoria_id",
                 table: "Articulo",
                 column: "categoria_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Articulo_estado_articulo_id",
+                table: "Articulo",
+                column: "estado_articulo_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DetalleProvision_articulo_id",
@@ -578,6 +614,9 @@ namespace ContadSP.Migrations
 
             migrationBuilder.DropTable(
                 name: "Categoria");
+
+            migrationBuilder.DropTable(
+                name: "EstadoArticulo");
 
             migrationBuilder.DropTable(
                 name: "Destino");
