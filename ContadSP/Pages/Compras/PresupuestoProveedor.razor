@@ -69,7 +69,9 @@
                                 {
                                     <tr>
                                         <td>@detalle.Articulo.descripcion</td>
-                                        <td>@detalle.cantidad</td>
+                                        <td>
+                                            <input type="number" @bind-value="presupuestosPedido[index].cantidad" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(detalle, presupuestosPedido[index])" />
+                                        </td>
                                         <td>@detalle.UnidadMedida.unidad</td>
                                         <td>
                                             <input type="number" @bind-value="presupuestosPedido[index].precio_unitario" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(detalle, presupuestosPedido[index])" />
@@ -164,7 +166,7 @@
             return;
         }
 
-        pp.subtotal = dp.cantidad * pp.precio_unitario;
+        pp.subtotal = pp.cantidad * pp.precio_unitario;
         pp.subtotal_letra = UpdateCantidadLetra(pp.subtotal);
     }
 
@@ -200,9 +202,9 @@
 
     private async Task ProcesarPresupuesto()
     {
-        if (presupuestosPedido.Any(pp => pp.precio_unitario <= 0))
+        if (presupuestosPedido.Any(pp => pp.precio_unitario < 0))
         {
-            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Todos los campos de precio unitario deben estar completos y ser mayores que cero", "error");
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Todos los campos de precio unitario deben ser mayores que cero", "error");
             return;
         }
 
