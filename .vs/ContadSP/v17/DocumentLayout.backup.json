@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\pages\\compras\\altapresupuesto.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\pages\\compras\\altapresupuesto.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\models\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\models\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\pages\\compras\\presupuestoproveedor.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\pages\\compras\\presupuestoproveedor.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\pages\\compras\\altapresupuesto.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\pages\\compras\\altapresupuesto.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -63,6 +67,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Proveedor.cs",
+              "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Models\\Proveedor.cs",
+              "RelativeDocumentMoniker": "ContadSP\\Models\\Proveedor.cs",
+              "ToolTip": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Models\\Proveedor.cs",
+              "RelativeToolTip": "ContadSP\\Models\\Proveedor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T15:45:14.529Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "AltaPresupuesto.razor",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Compras\\AltaPresupuesto.razor",
               "RelativeDocumentMoniker": "ContadSP\\Pages\\Compras\\AltaPresupuesto.razor",
@@ -70,8 +87,7 @@
               "RelativeToolTip": "ContadSP\\Pages\\Compras\\AltaPresupuesto.razor",
               "ViewState": "AgIAAI0AAAAAAAAAAAAAAKUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-24T15:23:07.723Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T15:23:07.723Z"
             },
             {
               "$type": "Document",
@@ -81,14 +97,13 @@
               "RelativeDocumentMoniker": "ContadSP\\Pages\\Compras\\PresupuestoProveedor.razor",
               "ToolTip": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Compras\\PresupuestoProveedor.razor",
               "RelativeToolTip": "ContadSP\\Pages\\Compras\\PresupuestoProveedor.razor",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAAAMwAAABBAAAAAAAAAA==",
+              "ViewState": "AgIAALoAAAAAAAAAAAAAAMwAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-01T19:27:56.476Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T19:27:56.476Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\appsettings.json",
               "RelativeDocumentMoniker": "ContadSP\\appsettings.json",
@@ -100,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "nuevos cambios.txt",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Otros\\nuevos cambios.txt",
               "RelativeDocumentMoniker": "ContadSP\\Pages\\Otros\\nuevos cambios.txt",
@@ -112,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "PdfService.cs",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Services\\PdfService.cs",
               "RelativeDocumentMoniker": "ContadSP\\Services\\PdfService.cs",
@@ -124,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Program.cs",
               "RelativeDocumentMoniker": "ContadSP\\Program.cs",
@@ -136,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AltaProvision.razor",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Provision\\AltaProvision.razor",
               "RelativeDocumentMoniker": "ContadSP\\Pages\\Provision\\AltaProvision.razor",
@@ -148,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "DetallePedido.razor",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Pedido\\DetallePedido.razor",
               "RelativeDocumentMoniker": "ContadSP\\Pages\\Pedido\\DetallePedido.razor",
@@ -160,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "AdminProvision.razor",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Provision\\AdminProvision.razor",
               "RelativeDocumentMoniker": "ContadSP\\Pages\\Provision\\AdminProvision.razor",
@@ -172,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "20241001191956_inicial.cs",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Migrations\\20241001191956_inicial.cs",
               "RelativeDocumentMoniker": "ContadSP\\Migrations\\20241001191956_inicial.cs",
@@ -184,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Shared\\NavMenu.razor",
               "RelativeDocumentMoniker": "ContadSP\\Shared\\NavMenu.razor",
@@ -196,7 +211,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "PresupuestoPedido.cs",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Models\\PresupuestoPedido.cs",
               "RelativeDocumentMoniker": "ContadSP\\Models\\PresupuestoPedido.cs",

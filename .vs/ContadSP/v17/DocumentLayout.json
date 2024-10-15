@@ -72,7 +72,7 @@
               "RelativeDocumentMoniker": "ContadSP\\Models\\Proveedor.cs",
               "ToolTip": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Models\\Proveedor.cs",
               "RelativeToolTip": "ContadSP\\Models\\Proveedor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-14T15:45:14.529Z",
               "EditorCaption": ""
@@ -87,8 +87,7 @@
               "RelativeToolTip": "ContadSP\\Pages\\Compras\\AltaPresupuesto.razor",
               "ViewState": "AgIAAI0AAAAAAAAAAAAAAKUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-24T15:23:07.723Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T15:23:07.723Z"
             },
             {
               "$type": "Document",
@@ -100,8 +99,7 @@
               "RelativeToolTip": "ContadSP\\Pages\\Compras\\PresupuestoProveedor.razor",
               "ViewState": "AgIAALoAAAAAAAAAAAAAAMwAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-01T19:27:56.476Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T19:27:56.476Z"
             },
             {
               "$type": "Document",

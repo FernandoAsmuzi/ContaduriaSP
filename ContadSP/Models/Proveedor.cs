@@ -13,6 +13,8 @@ namespace ContadSP.Models
         public string? direccion { get; set; }
         public string? telefono { get; set; }
         public string? email { get; set; }
+        public string? cuit { get; set; }
+        public string? ingresos_brutos { get; set; }
 
         public List<PedidoProveedor> PedidoProveedor { get; set; }
         public List<PresupuestoPedido> PresupuestoPedido { get; set; }
