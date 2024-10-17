@@ -118,9 +118,9 @@ namespace ContadSP.Data
                 .WithMany(dp => dp.PresupuestoPedido)
                 .HasForeignKey(pp => pp.detalle_provision_id);
             modelBuilder.Entity<PresupuestoPedido>()
-                .HasOne(pp => pp.Pedido)
+                .HasOne(pp => pp.PedidoProveedor)
                 .WithMany(p => p.PresupuestoPedido)
-                .HasForeignKey(pp => pp.pedido_id);
+                .HasForeignKey(pp => pp.pedido_proveedor_id);
             modelBuilder.Entity<PresupuestoPedido>()
                 .HasOne(pp => pp.Proveedor)
                 .WithMany(p => p.PresupuestoPedido)

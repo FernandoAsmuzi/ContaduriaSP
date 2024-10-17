@@ -28,12 +28,17 @@ namespace ContadSP.Repositorios
         Task<IEnumerable<DetalleProvision>> ObtenerProvisionesId(int id);
         Task<Pedido> ObteberPedidoPorProvisionId(int id);
         Task<IEnumerable<PedidoProveedor>> ObtenerPedidoProveedorPorPedidoId(int id);
+
+        Task<PedidoProveedor> ObtenerPedidoProveedorPorPedidoYProveedor(int id_pedido, int id_proveedor);
         Task<Models.ProvisionExp> ObtenerProvisionExpPorId(int id);
         Task<IEnumerable<Models.ProvisionExp>> ObtenerProvisionExp();
         Task<ProvisionExp> ObtenerUltimaProvisionExp();
         Task CambiarEstadoProvision(object entidad, int estado);
         Task<ProcesoPedido> ObtenerProcesoPedidoPorPedidoId(int id);
         Task CambiarCarga(int prov_id, int ped_id);
+
+        Task<IEnumerable<PresupuestoPedido>> ObtenerPresupuestoPedidoPorIdPedidoProveedor(int id);
+        
 
         // Métodos para EstadoArticulo
         Task<IEnumerable<EstadoArticulo>> ObtenerEstadosArticulo();

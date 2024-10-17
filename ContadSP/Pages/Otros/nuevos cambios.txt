@@ -1,20 +1,13 @@
 superintendencia autoriza provision pendiente
 
 boton especificacion tecnica en solicitar provision (listo)
-
-
 cancelar provision con justificacion (listo)
-
 aprobar ciertos articulos de provision o cantidades (descartado)
-
 cambiar generar pedido por generar invitacion (listo)
-
 cambiar VB contaduria por VB - NRO por Cantidad - agregar especificacion - (listo)
-
-
 invitaciones en pedidos en espera de entrega (listo)
 
-cargar presupuesto - precio unitario - marca/especificaciones (obligatorio)
+cargar presupuesto - precio unitario - marca/especificaciones (listo)
 
 contable recibe los presupuestos
 el que pide preadjudica los presupuesto que quiere con justificacion 
@@ -25,12 +18,9 @@ generar numero de actuacion al hacer el pago
 compra directa => la actuacion se genera en el momento del pago
 concurso de precios o + => se genera en el momento del pedido
 
-modificar carga de presupuesto para que se calcule automaticamente el subtotal y subtotal letra
-
+modificar carga de presupuesto para que se calcule automaticamente el subtotal y subtotal letra(listo)
 impedir la carga sin especificacion de presupuesto
-
 impedir la confirmacion de presupuestos sin cargar por lo menos uno
 
-ver porque se desborda al eliminar una instancia de presupuesto
-
-mostrar proveedores en presupuestos cargados 
+ver porque se desborda al eliminar una instancia de presupuesto(listo)
+mostrar proveedores en presupuestos cargados(listo) 

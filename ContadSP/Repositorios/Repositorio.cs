@@ -104,6 +104,7 @@ public class Repositorio<T> : IRepositorio<T> where T : class
             .ToListAsync();
     }
 
+
     // ---------------------------------------------------------
     // METODOS PARA ARTICULO
     public async Task<List<Articulo>> Buscar(string buscar)
@@ -170,6 +171,15 @@ public class Repositorio<T> : IRepositorio<T> where T : class
         }
     }
 
+    public async Task<PedidoProveedor> ObtenerPedidoProveedorPorPedidoYProveedor(int id_pedido, int id_proveedor)
+    {
+        var pp = await _context.PedidoProveedor
+            .Include(p => p.Pedido)
+            .Include(p => p.Proveedor)
+            .FirstOrDefaultAsync(p => p.pedido_id == id_pedido && p.proveedor_id == id_proveedor);
+        return pp;
+    }
+
     // ---------------------------------------------------------
     // METODOS PARA PROCESO PEDIDO
     public async Task<ProcesoPedido> ObtenerUltimoProcesoNumero(int id)
@@ -233,6 +243,17 @@ public class Repositorio<T> : IRepositorio<T> where T : class
         return await _context.EstadoArticulo.FindAsync(id);
     }
 
+
+
+    public async Task<IEnumerable<PresupuestoPedido>> ObtenerPresupuestoPedidoPorIdPedidoProveedor(int id)
+    {
+        return await _context.PresupuestoPedidos
+            .Include(p => p.PedidoProveedor)
+            .Include(p => p.DetalleProvision.Articulo)
+            .Include(p => p.DetalleProvision.UnidadMedida)
+            .Where(p => p.pedido_proveedor_id == id)
+            .ToListAsync();
+    }
     // FIN METODOS ESPECIFICOS
     // ---------------------------------------------------------
 

@@ -373,7 +373,8 @@
                 Aceptar
             </button>
         </div>
-    </RadzenStack>,
+    </RadzenStack>
+    ,
     new DialogOptions() { Width = "auto", Height = "auto" });
     }
 
@@ -384,10 +385,28 @@
 
     private Proceso ObtenerProceso(int tipoId, double total)
     {
-        return procesos.FirstOrDefault(tipo =>
-            tipo.tipo_pedido_id == tipoId &&
-            ((tipo.monto_maximo == 0 && total > tipo.monto_maximo) ||
-            (total <= tipo.monto_maximo && total > tipo.monto_minimo)));
+        var resul = new Proceso();
+        foreach (var tipo in procesos) //--RECORRE LA LISTA DE TIPO MONTOS PARA CALCULAR EL CORRECTO--
+        {
+            if (tipo.tipo_pedido_id == tipoId)
+            {
+                if (tipo.monto_maximo == 0)
+                {
+                    if (total > tipo.monto_maximo)
+                    {
+                        resul = tipo;
+                    }
+                }
+                else
+                {
+                    if (total <= tipo.monto_maximo && total > tipo.monto_minimo)
+                    {
+                        resul = tipo;
+                    }
+                }
+            }
+        }
+        return resul;
     }
 
     private async Task CargarProceso(Pedido p, Proceso pro)
@@ -449,7 +468,11 @@
         }
 
         var proceso = ObtenerProceso(prov.tipo_pedido_id, prov.total_aprox);
-        await CargarProceso(ultimoPedido, proceso);
+        if (proceso.id != 7 && proceso.id != 8)
+        {
+            await CargarProceso(ultimoPedido, proceso);
+        }
+       
 
         var pdfBytes = PdfService.GenerarPdf(ultimoPedido, prov, provisionDetalle);
         await DescargarPdf(pdfBytes);

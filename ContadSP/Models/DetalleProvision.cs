@@ -12,6 +12,7 @@ namespace ContadSP.Models
         public double subtotal_aprox { get; set; }
         public string? subtotal_letra { get; set; }
         public string? especificacion { get; set; }
+        public bool presupuestado { get; set; } = false;
         public List<PresupuestoPedido> PresupuestoPedido { get; set; }
 
         [ForeignKey("id_articulo")]
@@ -25,10 +26,5 @@ namespace ContadSP.Models
         [ForeignKey("id_provision")]
         public int provision_id { get; set; }
         public Provision Provision { get; set; }
-
-        //// Cancelar Provisión
-        public bool? cancela_provision { get; set; }
-        [Column(TypeName = "longtext")]
-        public string? observa_cancelacion { get; set; }
     }
 }

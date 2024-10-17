@@ -189,6 +189,10 @@ namespace ContadSP.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     email = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    cuit = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ingresos_brutos = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     sit_fiscal_id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -291,12 +295,10 @@ namespace ContadSP.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     especificacion = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    presupuestado = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     articulo_id = table.Column<int>(type: "int", nullable: false),
                     unidad_id = table.Column<int>(type: "int", nullable: false),
-                    provision_id = table.Column<int>(type: "int", nullable: false),
-                    cancela_provision = table.Column<bool>(type: "tinyint(1)", nullable: true),
-                    observa_cancelacion = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                    provision_id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -375,7 +377,7 @@ namespace ContadSP.Migrations
                 name: "PedidoProveedor",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     carga = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     proveedor_id = table.Column<int>(type: "int", nullable: false),
@@ -383,7 +385,7 @@ namespace ContadSP.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PedidoProveedor", x => x.Id);
+                    table.PrimaryKey("PK_PedidoProveedor", x => x.id);
                     table.ForeignKey(
                         name: "FK_PedidoProveedor_Pedido_pedido_id",
                         column: x => x.pedido_id,
@@ -392,48 +394,6 @@ namespace ContadSP.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_PedidoProveedor_Proveedor_proveedor_id",
-                        column: x => x.proveedor_id,
-                        principalTable: "Proveedor",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "PresupuestoPedidos",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    precio_unitario = table.Column<double>(type: "double", nullable: false),
-                    cantidad = table.Column<int>(type: "int", nullable: false),
-                    subtotal = table.Column<double>(type: "double", nullable: false),
-                    subtotal_letra = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    especificacion = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    fecha_presupuesto = table.Column<DateOnly>(type: "date", nullable: false),
-                    detalle_provision_id = table.Column<int>(type: "int", nullable: false),
-                    pedido_id = table.Column<int>(type: "int", nullable: false),
-                    proveedor_id = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PresupuestoPedidos", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_PresupuestoPedidos_DetalleProvision_detalle_provision_id",
-                        column: x => x.detalle_provision_id,
-                        principalTable: "DetalleProvision",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PresupuestoPedidos_Pedido_pedido_id",
-                        column: x => x.pedido_id,
-                        principalTable: "Pedido",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PresupuestoPedidos_Proveedor_proveedor_id",
                         column: x => x.proveedor_id,
                         principalTable: "Proveedor",
                         principalColumn: "id",
@@ -467,6 +427,48 @@ namespace ContadSP.Migrations
                         name: "FK_ProcesoPedido_Proceso_proceso_id",
                         column: x => x.proceso_id,
                         principalTable: "Proceso",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "PresupuestoPedidos",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    precio_unitario = table.Column<double>(type: "double", nullable: false),
+                    cantidad = table.Column<int>(type: "int", nullable: false),
+                    subtotal = table.Column<double>(type: "double", nullable: false),
+                    subtotal_letra = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    especificacion = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    fecha_presupuesto = table.Column<DateOnly>(type: "date", nullable: false),
+                    detalle_provision_id = table.Column<int>(type: "int", nullable: false),
+                    pedido_proveedor_id = table.Column<int>(type: "int", nullable: false),
+                    proveedor_id = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PresupuestoPedidos", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_PresupuestoPedidos_DetalleProvision_detalle_provision_id",
+                        column: x => x.detalle_provision_id,
+                        principalTable: "DetalleProvision",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PresupuestoPedidos_PedidoProveedor_pedido_proveedor_id",
+                        column: x => x.pedido_proveedor_id,
+                        principalTable: "PedidoProveedor",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PresupuestoPedidos_Proveedor_proveedor_id",
+                        column: x => x.proveedor_id,
+                        principalTable: "Proveedor",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -518,9 +520,9 @@ namespace ContadSP.Migrations
                 column: "detalle_provision_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PresupuestoPedidos_pedido_id",
+                name: "IX_PresupuestoPedidos_pedido_proveedor_id",
                 table: "PresupuestoPedidos",
-                column: "pedido_id");
+                column: "pedido_proveedor_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PresupuestoPedidos_proveedor_id",
@@ -577,9 +579,6 @@ namespace ContadSP.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "PedidoProveedor");
-
-            migrationBuilder.DropTable(
                 name: "PresupuestoPedidos");
 
             migrationBuilder.DropTable(
@@ -592,10 +591,7 @@ namespace ContadSP.Migrations
                 name: "DetalleProvision");
 
             migrationBuilder.DropTable(
-                name: "Proveedor");
-
-            migrationBuilder.DropTable(
-                name: "Pedido");
+                name: "PedidoProveedor");
 
             migrationBuilder.DropTable(
                 name: "Proceso");
@@ -607,16 +603,22 @@ namespace ContadSP.Migrations
                 name: "UnidadMedida");
 
             migrationBuilder.DropTable(
-                name: "SitFiscal");
+                name: "Pedido");
 
             migrationBuilder.DropTable(
-                name: "Provision");
+                name: "Proveedor");
 
             migrationBuilder.DropTable(
                 name: "Categoria");
 
             migrationBuilder.DropTable(
                 name: "EstadoArticulo");
+
+            migrationBuilder.DropTable(
+                name: "Provision");
+
+            migrationBuilder.DropTable(
+                name: "SitFiscal");
 
             migrationBuilder.DropTable(
                 name: "Destino");
