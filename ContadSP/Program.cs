@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Components.Authorization;//inicio de sesion
 using ContadSP.Extensiones;//inicio de sesion
 using Radzen;
 using ContadSP.Services;
+using Microsoft.AspNetCore.Http.Features; // Para configurar el tamaño máximo permitido para los archivos
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +36,12 @@ builder.Services.AddAuthorizationCore();//inicio de sesion
 //               .WithExposedHeaders("Content-Disposition");
 //    });
 //});
+
+// Configurar el tamaño máximo permitido para los archivos subidos
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 10 * 1024 * 1024; // 10 MB
+});
 
 // Add services to the container.
 builder.Services.AddControllers();

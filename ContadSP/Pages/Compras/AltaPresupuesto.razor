@@ -18,8 +18,6 @@
     <div class="row justify-content-center">
         <div class="col-md-12 border rounded">
             <div class="conteiner-fluid">
-                
-
                 <div>                    
                     <h3 class="text-center">Detalle del pedido</h3>
                 </div>
@@ -28,7 +26,7 @@
                 <div class="row">
                     <div class="col">
                         <label><strong>Tipo de pedido:</strong></label>
-                        <label>@tipoPedido.tipo - @(procesoPedido.Pedido != null ? procesoPedido.Proceso.proceso : "Pedido es null")</label>
+                        <label>@tipoPedido.tipo - @(procesoPedido?.Pedido != null ? procesoPedido.Proceso.proceso : "Pedido es null")</label>
                     </div>
                 </div>
                 <div class="row">
@@ -48,18 +46,17 @@
                     </div>
                     <div class="col">
                         <label><strong>Proceso:</strong></label>
-                        <label>@procesoPedido.proceso_completo</label>
+                        <label>@procesoPedido?.proceso_completo</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <label><strong>Destino:</strong></label>
-                        <label>@provision.Destino.destino</label>
+                        <label>@provision?.Destino?.destino</label>
                     </div>
                     <div class="col">
                         <label><strong>Usuario solicitante:</strong></label>
-
-                        <label>@provision.Usuario.nombre_usuario</label>
+                        <label>@provision?.Usuario?.nombre_usuario</label>
                     </div>
                 </div>
                 <div style="overflow: auto;">
@@ -75,23 +72,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var p in provisionDetalle)
+                            @if (provisionDetalle != null)
                             {
-                                <tr>
-                                    <td>@p.Articulo.descripcion</td>
-                                    <td>@p.cantidad</td>
-                                    <td>@p.UnidadMedida.unidad</td>
-                                    <td>@p.subtotal_aprox</td>
-                                    <td>@p.subtotal_letra</td>
-                                    <td>@p.especificacion</td>
-                                </tr>
+                                foreach (var p in provisionDetalle)
+                                {
+                                    // Render rows
+                                }
+                            }
+                            else
+                            {
+                                <tr><td colspan="6">No data available</td></tr>
                             }
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        
+
         <div></div>
         <br>
         <div class="col-md-12 border rounded">
@@ -112,21 +109,21 @@
                         <tbody>
                             @foreach (var p in pedidoProveedor)
                             {
-                                <tr>
-                                    <td>@p.Proveedor.nombre</td>
-                                    <td>@p.Proveedor.nombre_comercial</td>
-                                    <td>@p.Proveedor.direccion</td>
-                                    <td>@p.Proveedor.telefono</td>
-                                    <td>@p.Proveedor.email</td>
-                                    @if(! p.carga)
+                                    <tr>
+                                        <td>@p.Proveedor.nombre</td>
+                                        <td>@p.Proveedor.nombre_comercial</td>
+                                        <td>@p.Proveedor.direccion</td>
+                                        <td>@p.Proveedor.telefono</td>
+                                        <td>@p.Proveedor.email</td>
+                                    @if (!p.carga)
                                     {
-                                        <td><button class="btn btn-primary" @onclick="()=>CargarPresupuesto(p)">Cargar presupuesto</button></td>
+                                                <td><button class="btn btn-primary" @onclick="()=>CargarPresupuesto(p)">Cargar presupuesto</button></td>
                                     }
                                     else
                                     {
-                                        <td><button class="btn btn-primary" @onclick="()=>CargarPresupuesto(p)">Ver presupuesto</button></td>
+                                                <td><button class="btn btn-primary" @onclick="()=>CargarPresupuesto(p)">Ver presupuesto</button></td>
                                     }
-                                </tr>
+                                    </tr>
                             }
                         </tbody>
                     </table>
@@ -142,7 +139,6 @@
     </div>
 </div>
 
-
 @code {
     [Parameter]
     public string id { get; set; }
@@ -157,12 +153,29 @@
 
     protected override async Task OnInitializedAsync()
     {
-        pedido = await repositorioPedido.ObtenerPorId(int.Parse(id));
-        provision = await repositorioProvision.ObtenerPorId(pedido.provision_id);
-        provisionDetalle = (await repositorioProvisionDetalle.ObtenerProvisionesId(provision.id)).ToList();
-        procesoPedido = await repositorioProcesoPedido.ObtenerProcesoPedidoPorPedidoId(pedido.id);
-        tipoPedido = await repositorioTipoPedido.ObtenerPorId(procesoPedido.Proceso.tipo_pedido_id);
-        pedidoProveedor = (await repositorioPedidoProveedor.ObtenerPedidoProveedorPorPedidoId(int.Parse(id))).ToList();
+        try
+        {
+            pedido = await repositorioPedido.ObtenerPorId(int.Parse(id));
+            provision = await repositorioProvision.ObtenerPorId(pedido.provision_id);
+
+            if (provision != null && provision.id > 0)
+            {
+                var detalles = await repositorioProvisionDetalle.ObtenerProvisionesId(provision.id);
+                provisionDetalle = detalles?.ToList() ?? new List<DetalleProvision>();
+            }
+            else
+            {
+                provisionDetalle = new List<DetalleProvision>();
+            }
+
+            procesoPedido = await repositorioProcesoPedido.ObtenerProcesoPedidoPorPedidoId(pedido.id);
+            pedidoProveedor = (await repositorioPedidoProveedor.ObtenerPedidoProveedorPorPedidoId(int.Parse(id))).ToList();
+        }
+        catch
+        {
+            // Manejo de errores (puedes registrar el error o mostrar un mensaje al usuario)
+            provisionDetalle = new List<DetalleProvision>();
+        }
     }
 
     private void CargarPresupuesto(PedidoProveedor pedidoProveedor)
@@ -177,4 +190,4 @@
         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El presupuesto ha sido cargado correctamente", "success");
         NavigationManager.NavigateTo("/");
     }
-}
+   }

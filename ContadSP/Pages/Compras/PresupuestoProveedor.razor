@@ -5,6 +5,7 @@
 @using Radzen
 @using Radzen.Blazor
 @using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.Forms
 
 @inject IRepositorio<Pedido> repositorioPedido
 @inject IRepositorio<Provision> repositorioProvision
@@ -14,6 +15,7 @@
 @inject IRepositorio<PedidoProveedor> repositorioPedidoProveedor
 @inject IJSRuntime JSRuntime
 @inject NavigationManager NavigationManager
+@inject IWebHostEnvironment Environment
 
 <div class="container mt-4">
     <div class="row justify-content-center">
@@ -53,12 +55,11 @@
                 <div class="row">
                     <div class="col">
                         <label><strong>Destino:</strong></label>
-                        <label>@provision.Destino.destino</label>
+                        <label>@(provision?.Destino?.destino ?? "No disponible")</label>
                     </div>
                     <div class="col">
                         <label><strong>Usuario solicitante:</strong></label>
-
-                        <label>@provision.Usuario.nombre_usuario</label>
+                        <label>@(provision?.Usuario?.nombre_usuario ?? "No disponible")</label>
                     </div>
                 </div>
                 <br />
@@ -66,7 +67,6 @@
                     <h3 class="text-center">Detalle del proveedor</h3>
                 </div>
                 <div style="overflow: auto;">
-                    
                     <div class="row">
                         <div class="col">
                             <label><strong>Proveedor:</strong></label>
@@ -97,7 +97,6 @@
             </div>
         </div>
         <div>
-
         </div>
         <div class="col-md-12 border rounded">
             <div class="conteiner-fluid">
@@ -113,22 +112,20 @@
                                 <th>Subtotal</th>
                                 <th>Subtotal letra</th>
                                 <th>Especificación</th>
-                                
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var p in presupuestosPedido)
                             {
-                                    <tr>
-                                        <td>@p.DetalleProvision.Articulo.descripcion</td>
-                                        <td>@p.cantidad</td>
-                                        <td>@p.DetalleProvision.UnidadMedida.unidad</td>
-                                        <td>@p.precio_unitario</td>
-                                        <td>@p.subtotal</td>
-                                        <td>@p.subtotal_letra</td>
-                                        <td>@p.especificacion</td>
-                                        
-                                    </tr>
+                                <tr>
+                                    <td>@p.DetalleProvision.Articulo.descripcion</td>
+                                    <td>@p.cantidad</td>
+                                    <td>@p.DetalleProvision.UnidadMedida.unidad</td>
+                                    <td>@p.precio_unitario</td>
+                                    <td>@p.subtotal</td>
+                                    <td>@p.subtotal_letra</td>
+                                    <td>@p.especificacion</td>
+                                </tr>
                             }
                         </tbody>
                     </table>
@@ -154,7 +151,6 @@
                                 var index = provisionDetalle.IndexOf(detalle);
                                 if (index < presupuestosPedido.Count)
                                 {
-
                                     <tr>
                                         <td>@detalle.Articulo.descripcion</td>
                                         <td>
@@ -189,11 +185,10 @@
                         </tbody>
                     </table>
                     <div class="btn-opciones" style="display:flex">
-                        <button class="btn btn-primary" @onclick="ProcesarPresupuesto">Procesar Presupuesto</button>
-
+                        <InputFile OnChange="OnInputFileChange" accept=".pdf" />
+                        <button class="btn btn-success" @onclick="ProcesarPresupuesto">Procesar Presupuesto</button>
                     </div>
                 }
-
                 <br />
                 <br />
             </div>
@@ -201,12 +196,11 @@
     </div>
 </div>
 
-
 @code {
     [Parameter, Required]
-    public string id { get; set; }
+    public string id { get; set; } = string.Empty;
     [Parameter, Required]
-    public string prov { get; set; }
+    public string prov { get; set; } = string.Empty;
 
     private Dictionary<DetalleProvision, bool> provisionDetalleDict = new Dictionary<DetalleProvision, bool>();
     private List<DetalleProvision> provisionDetalle = new List<DetalleProvision>();
@@ -215,8 +209,9 @@
     private Proveedor proveedor = new Proveedor();
     private Pedido pedido = new Pedido();
     private Provision provision = new Provision();
+    private IBrowserFile? archivoSeleccionado;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
         await CargarDatos();
     }
@@ -224,11 +219,12 @@
     private async Task CargarDatos()
     {
         pedido = await repositorioPedido.ObtenerPorId(int.Parse(id));
+        var provId = pedido.provision_id;
         proveedor = await repositorioProveedor.ObtenerPorId(int.Parse(prov));
-        provision = await repositorioProvision.ObtenerPorId(pedido.provision_id);
+        provision = await repositorioProvision.ObtenerPorId(provId);
         provisionDetalle = (await repositorioProvisionDetalle.ObtenerProvisionesId(provision.id)).ToList();
         pedidoProveedor = (await repositorioPedidoProveedor.ObtenerPedidoProveedorPorPedidoYProveedor(pedido.id, proveedor.id));
-        // Inicializar el diccionario de provisionDetalle y la lista de presupuestosPedido
+
         provisionDetalleDict.Clear();
         presupuestosPedido.Clear();
 
@@ -242,14 +238,14 @@
             {
                 provisionDetalleDict.Add(detalle, true);
                 presupuestosPedido.Add(new PresupuestoPedido
-                    {
-                        cantidad = detalle.cantidad,
-                        detalle_provision_id = detalle.id,
-                        pedido_proveedor_id = pedidoProveedor.id,
-                        proveedor_id = int.Parse(prov)
-                    });
+                {
+                    cantidad = detalle.cantidad,
+                    detalle_provision_id = detalle.id,
+                    pedido_proveedor_id = pedidoProveedor.id,
+                    proveedor_id = int.Parse(prov)
+                });
             }
-        }  
+        }
     }
 
     private string UpdateCantidadLetra(double subtotal)
@@ -257,69 +253,104 @@
         return ConversorNumeroLetra.NumeroALetras((decimal)subtotal);
     }
 
-    private void CalcularSubtotal(DetalleProvision dp, PresupuestoPedido pp)
+    private async Task OnInputFileChange(InputFileChangeEventArgs e)
     {
-        if (pp.precio_unitario < 0)
+        archivoSeleccionado = e.File;
+        var maxAllowedSize = 10 * 1024 * 1024; // 10 MB
+
+        if (archivoSeleccionado.Size > maxAllowedSize)
         {
-            JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "El precio unitario no puede ser negativo", "error");
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "El archivo excede el límite de tamaño", "error");
             return;
         }
 
-        pp.subtotal = pp.cantidad * pp.precio_unitario;
-        pp.subtotal_letra = UpdateCantidadLetra(pp.subtotal);
+        var fechaActual = DateTime.Now.ToString("ddMMyyyy");
+        var carpetaDestino = Path.Combine("wwwroot", "documentacion", fechaActual);
+
+        if (!Directory.Exists(carpetaDestino))
+        {
+            Directory.CreateDirectory(carpetaDestino);
+        }
+
+        var nuevoNombreArchivo = $"{pedido.abreviatura}-{pedido.acta_num}-{fechaActual}-{pedidoProveedor.Proveedor.nombre_comercial}.pdf";
+        var rutaArchivo = Path.Combine(carpetaDestino, nuevoNombreArchivo);
+
+        using (var stream = archivoSeleccionado.OpenReadStream(maxAllowedSize))
+        using (var fileStream = new FileStream(rutaArchivo, FileMode.Create))
+        {
+            await stream.CopyToAsync(fileStream);
+        }
+
+        // Aquí puedes agregar lógica adicional después de que el archivo se haya subido correctamente.
+        // Por ejemplo, podrías actualizar el estado del componente o notificar al usuario.
+
+        //Console.WriteLine($"Archivo subido exitosamente: {archivoSeleccionado.Name}");
     }
 
-    private void AgregarInstancia(DetalleProvision dp)
+    private void CalcularSubtotal(DetalleProvision detalle, PresupuestoPedido presupuesto)
     {
-        var nuevaInstancia = new DetalleProvision
-            {
-                id = dp.id,
-                Articulo = dp.Articulo,
-                cantidad = dp.cantidad,
-                UnidadMedida = dp.UnidadMedida,
-            };
-        provisionDetalle.Add(nuevaInstancia);
+        presupuesto.subtotal = presupuesto.cantidad * presupuesto.precio_unitario;
+        presupuesto.subtotal_letra = UpdateCantidadLetra(presupuesto.subtotal);
+    }
+
+    private void AgregarInstancia(DetalleProvision detalle)
+    {
+        provisionDetalleDict[detalle] = false;
         presupuestosPedido.Add(new PresupuestoPedido
             {
-                cantidad = dp.cantidad,
-                detalle_provision_id = nuevaInstancia.id,
+                cantidad = detalle.cantidad,
+                detalle_provision_id = detalle.id,
                 pedido_proveedor_id = pedidoProveedor.id,
                 proveedor_id = int.Parse(prov)
             });
-        provisionDetalleDict.Add(nuevaInstancia, false);
     }
 
-    private async Task EliminarInstancia(DetalleProvision dp)
+    private void EliminarInstancia(DetalleProvision detalle)
     {
-        provisionDetalle.Remove(dp);
-        presupuestosPedido.RemoveAll(pp => pp.detalle_provision_id == dp.id);
-        provisionDetalleDict.Remove(dp);
-
-        // Recargar las listas y el diccionario
-        await CargarDatos();
+        provisionDetalleDict[detalle] = true;
+        var presupuesto = presupuestosPedido.FirstOrDefault(p => p.detalle_provision_id == detalle.id);
+        if (presupuesto != null)
+        {
+            presupuestosPedido.Remove(presupuesto);
+        }
     }
 
     private async Task ProcesarPresupuesto()
     {
-        if (presupuestosPedido.Any(pp => pp.precio_unitario < 0))
+        try
         {
-            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Todos los campos de precio unitario deben ser mayores que cero", "error");
-            return;
-        }
+            if (presupuestosPedido.Any(pp => pp.precio_unitario < 0))
+            {
+                await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Todos los campos de precio unitario deben ser mayores que cero", "error");
+                return;
+            }
 
-        foreach (var pp in presupuestosPedido)
+            foreach (var pp in presupuestosPedido)
+            {
+                pp.subtotal = pp.precio_unitario * pp.cantidad;
+                pp.subtotal_letra = UpdateCantidadLetra(pp.subtotal);
+                pp.pedido_proveedor_id = pedidoProveedor.id;
+                await repositorioPresupuestoPedido.Agregar(pp);
+            }
+
+            //await CargarDocumento();
+
+            await repositorioPresupuestoPedido.CambiarCarga(int.Parse(prov), int.Parse(id));
+
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El presupuesto ha sido procesado correctamente", "success");
+
+            var url = $"/altaPresupuesto/{id}";
+            NavigationManager.NavigateTo(url);
+        }
+        catch (Exception ex)
         {
-            pp.subtotal = pp.precio_unitario * pp.cantidad;
-            pp.subtotal_letra = UpdateCantidadLetra(pp.subtotal);
-            pp.pedido_proveedor_id = pedidoProveedor.id;
-            await repositorioPresupuestoPedido.Agregar(pp);
+            // Manejar errores
+            Console.WriteLine($"Error al procesar el presupuesto: {ex.Message}");
+            await JSRuntime.InvokeVoidAsync("alert", "Ocurrió un error al procesar el presupuesto.");
         }
-
-        await repositorioPresupuestoPedido.CambiarCarga(int.Parse(prov), int.Parse(id));
-
-        await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El presupuesto ha sido procesado correctamente", "success");
-
-        var url = $"/altaPresupuesto/{id}";
-        NavigationManager.NavigateTo(url);
     }
+
 }
+
+
+   

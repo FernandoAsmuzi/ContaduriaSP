@@ -1,0 +1,122 @@
+.navbar-toggler[b-8n0mm7hjxz] {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.top-row[b-8n0mm7hjxz] {
+    background-color: #f2f2f2; /* Gris tenue */
+    position: fixed; /* Hacer que el men� sea fijo */
+    top: 0; /* Mover el men� hacia arriba */
+    width: 100%; /* Asegurarse de que el men� ocupe todo el ancho */
+    z-index: 1000; /* Asegurarse de que el men� est� por encima de otros elementos */
+}
+
+
+.navbar-brand[b-8n0mm7hjxz] {
+    font-size: 1.1rem;
+}
+
+.oi[b-8n0mm7hjxz] {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.titulo[b-8n0mm7hjxz] {
+    color: white;
+    text-align: center;
+}
+
+    .titulo:hover[b-8n0mm7hjxz] {
+        color: #0071c1; /* Nuevo efecto hover para los t�tulos */
+    }
+
+.nav-item[b-8n0mm7hjxz] {
+    font-size: 0.9rem;
+    padding-bottom: 1rem; /* Aumentado el espacio entre elementos */
+}
+
+    .nav-item:first-of-type[b-8n0mm7hjxz] {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type[b-8n0mm7hjxz] {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item[b-8n0mm7hjxz]  a {
+        color: #000; /* Cambiado el color de las letras a negro */
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+        transition: background-color 0.3s ease, color 0.3s ease; /* Nueva transici�n */
+    }
+
+
+        .nav-item[b-8n0mm7hjxz]  a.active {
+            background-color: rgba(255,255,255,0.25);
+            color: white;
+        }
+
+        .nav-item[b-8n0mm7hjxz]  a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-8n0mm7hjxz] {
+        display: none;
+    }
+
+    .collapse[b-8n0mm7hjxz] {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+    }
+
+    nav-scrollable[b-8n0mm7hjxz] {
+        position: fixed; /* Make the menu fixed to the top */
+        top: 0; /* Position it at the top of the viewport */
+        left: 0; /* Position it at the left of the viewport */
+        width: 100%; /* Make it occupy the entire width */
+        z-index: 1000; /* Ensure it's above other elements */
+    }
+
+    .rz-panelmenuitem[b-8n0mm7hjxz] {
+        background-color: rgba(0,0,0,0.4);
+        color: #d7d7d7;
+    }
+
+        .rz-panelmenuitem:hover[b-8n0mm7hjxz] {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .rz-panelmenuitem.rz-selected[b-8n0mm7hjxz] {
+            background-color: rgba(255,255,255,0.25);
+            color: white;
+        }
+}
+
+body[b-8n0mm7hjxz] {
+    /* ... otros estilos ... */
+    margin-top: 50px; /* Agrega un margen superior al body */
+}
+
+.RadzenMenu[b-8n0mm7hjxz] {
+    background-color: #f2f2f2; /* Gris tenue */
+    position: fixed; /* Hacer que el men� sea fijo */
+    top: 0; /* Mover el men� hacia arriba */
+    width: 100%; /* Asegurarse de que el men� ocupe todo el ancho */
+    z-index: 1000; /* Asegurarse de que el men� est� por encima de otros elementos */
+}
+
+
+.RadzenMenuItem:hover[b-8n0mm7hjxz] {
+    background-color: #007BFF; /* Azul al pasar el mouse por encima */
+}
+
+.estilomenu[b-8n0mm7hjxz] {
+    background-color: #0071c1 !important;
+}

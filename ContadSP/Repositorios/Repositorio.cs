@@ -175,6 +175,8 @@ public class Repositorio<T> : IRepositorio<T> where T : class
     {
         var pp = await _context.PedidoProveedor
             .Include(p => p.Pedido)
+            .Include(p => p.Pedido.Provision)
+            .Include(p => p.Pedido.Provision.Destino)
             .Include(p => p.Proveedor)
             .FirstOrDefaultAsync(p => p.pedido_id == id_pedido && p.proveedor_id == id_proveedor);
         return pp;

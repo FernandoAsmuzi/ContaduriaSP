@@ -23,7 +23,7 @@ namespace ContadSP.Models
 
         [ForeignKey("destino_id")]
         public int destino_id { get; set; }
-        public Destino Destino { get; set; }
+        public Destino? Destino { get; set; }
 
         [ForeignKey("usuario_id")]
         public int usuario_id { get; set; }
