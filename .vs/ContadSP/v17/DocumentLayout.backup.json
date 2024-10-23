@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\wwwroot\\js\\funciones.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\wwwroot\\js\\funciones.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\pages\\compras\\presupuestoproveedor.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\pages\\compras\\presupuestoproveedor.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\pages\\pedido\\detallepedido.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|solutionrelative:contadsp\\pages\\pedido\\detallepedido.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F55B445-5E8F-4125-B00B-86ACC32AE812}|ContadSP\\ContadSP.csproj|c:\\users\\fasmuzi\\desktop\\contadsp\\contadsp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -17,25 +25,51 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 83,
+          "DockedHeight": 124,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "funciones.js",
+              "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\js\\funciones.js",
+              "RelativeDocumentMoniker": "ContadSP\\wwwroot\\js\\funciones.js",
+              "ToolTip": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\js\\funciones.js",
+              "RelativeToolTip": "ContadSP\\wwwroot\\js\\funciones.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-10-23T14:43:14.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DetallePedido.razor",
+              "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Pedido\\DetallePedido.razor",
+              "RelativeDocumentMoniker": "ContadSP\\Pages\\Pedido\\DetallePedido.razor",
+              "ToolTip": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Pedido\\DetallePedido.razor",
+              "RelativeToolTip": "ContadSP\\Pages\\Pedido\\DetallePedido.razor",
+              "ViewState": "AgIAALYBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-23T12:11:53.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "PresupuestoProveedor.razor",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Compras\\PresupuestoProveedor.razor",
               "RelativeDocumentMoniker": "ContadSP\\Pages\\Compras\\PresupuestoProveedor.razor",
               "ToolTip": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\Pages\\Compras\\PresupuestoProveedor.razor",
               "RelativeToolTip": "ContadSP\\Pages\\Compras\\PresupuestoProveedor.razor",
-              "ViewState": "AgIAANgAAAAAAAAAAAAAAE8BAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAsBAAAAAAAAAAAAAPAAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-22T12:23:56.522Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\appsettings.json",
               "RelativeDocumentMoniker": "ContadSP\\appsettings.json",
