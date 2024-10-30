@@ -96,8 +96,6 @@
                 </div>
             </div>
         </div>
-        <div>
-        </div>
         <div class="col-md-12 border rounded">
             <div class="conteiner-fluid">
                 @if (pedidoProveedor.carga)
@@ -293,26 +291,34 @@
         presupuesto.subtotal_letra = UpdateCantidadLetra(presupuesto.subtotal);
     }
 
-    private void AgregarInstancia(DetalleProvision detalle)
+    private void AgregarInstancia(DetalleProvision dp)
     {
-        provisionDetalleDict[detalle] = false;
+        var nuevaInstancia = new DetalleProvision
+            {
+                id = dp.id,
+                Articulo = dp.Articulo,
+                cantidad = dp.cantidad,
+                UnidadMedida = dp.UnidadMedida,
+            };
+        provisionDetalle.Add(nuevaInstancia);
         presupuestosPedido.Add(new PresupuestoPedido
             {
-                cantidad = detalle.cantidad,
-                detalle_provision_id = detalle.id,
+                cantidad = dp.cantidad,
+                detalle_provision_id = nuevaInstancia.id,
                 pedido_proveedor_id = pedidoProveedor.id,
                 proveedor_id = int.Parse(prov)
             });
+        provisionDetalleDict.Add(nuevaInstancia, false);
     }
 
-    private void EliminarInstancia(DetalleProvision detalle)
+    private async Task EliminarInstancia(DetalleProvision dp)
     {
-        provisionDetalleDict[detalle] = true;
-        var presupuesto = presupuestosPedido.FirstOrDefault(p => p.detalle_provision_id == detalle.id);
-        if (presupuesto != null)
-        {
-            presupuestosPedido.Remove(presupuesto);
-        }
+        provisionDetalle.Remove(dp);
+        presupuestosPedido.RemoveAll(pp => pp.detalle_provision_id == dp.id);
+        provisionDetalleDict.Remove(dp);
+
+        // Recargar las listas y el diccionario
+        await CargarDatos();
     }
 
     private async Task ProcesarPresupuesto()
@@ -330,6 +336,7 @@
                 pp.subtotal = pp.precio_unitario * pp.cantidad;
                 pp.subtotal_letra = UpdateCantidadLetra(pp.subtotal);
                 pp.pedido_proveedor_id = pedidoProveedor.id;
+                pp.pedido_id = pedido.id;
                 await repositorioPresupuestoPedido.Agregar(pp);
             }
 

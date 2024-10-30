@@ -32,5 +32,10 @@ namespace ContadSP.Models
         public int proveedor_id { get; set; }
         public Proveedor Proveedor { get; set; }
 
+        [ForeignKey("pedido_id")]
+        public int pedido_id { get; set; }
+        public Pedido Pedido { get; set; }
+
+
     }
 }

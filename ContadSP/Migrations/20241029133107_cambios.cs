@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ContadSP.Migrations
 {
     /// <inheritdoc />
-    public partial class inicial : Migration
+    public partial class cambios : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -448,7 +448,8 @@ namespace ContadSP.Migrations
                     fecha_presupuesto = table.Column<DateOnly>(type: "date", nullable: false),
                     detalle_provision_id = table.Column<int>(type: "int", nullable: false),
                     pedido_proveedor_id = table.Column<int>(type: "int", nullable: false),
-                    proveedor_id = table.Column<int>(type: "int", nullable: false)
+                    proveedor_id = table.Column<int>(type: "int", nullable: false),
+                    pedido_id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -463,6 +464,12 @@ namespace ContadSP.Migrations
                         name: "FK_PresupuestoPedidos_PedidoProveedor_pedido_proveedor_id",
                         column: x => x.pedido_proveedor_id,
                         principalTable: "PedidoProveedor",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PresupuestoPedidos_Pedido_pedido_id",
+                        column: x => x.pedido_id,
+                        principalTable: "Pedido",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -518,6 +525,11 @@ namespace ContadSP.Migrations
                 name: "IX_PresupuestoPedidos_detalle_provision_id",
                 table: "PresupuestoPedidos",
                 column: "detalle_provision_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PresupuestoPedidos_pedido_id",
+                table: "PresupuestoPedidos",
+                column: "pedido_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PresupuestoPedidos_pedido_proveedor_id",

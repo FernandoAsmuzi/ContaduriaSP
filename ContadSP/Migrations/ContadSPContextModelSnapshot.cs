@@ -220,6 +220,9 @@ namespace ContadSP.Migrations
                     b.Property<DateOnly>("fecha_presupuesto")
                         .HasColumnType("date");
 
+                    b.Property<int>("pedido_id")
+                        .HasColumnType("int");
+
                     b.Property<int>("pedido_proveedor_id")
                         .HasColumnType("int");
 
@@ -238,6 +241,8 @@ namespace ContadSP.Migrations
                     b.HasKey("id");
 
                     b.HasIndex("detalle_provision_id");
+
+                    b.HasIndex("pedido_id");
 
                     b.HasIndex("pedido_proveedor_id");
 
@@ -563,6 +568,12 @@ namespace ContadSP.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ContadSP.Models.Pedido", "Pedido")
+                        .WithMany("PresupuestoPedido")
+                        .HasForeignKey("pedido_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ContadSP.Models.PedidoProveedor", "PedidoProveedor")
                         .WithMany("PresupuestoPedido")
                         .HasForeignKey("pedido_proveedor_id")
@@ -576,6 +587,8 @@ namespace ContadSP.Migrations
                         .IsRequired();
 
                     b.Navigation("DetalleProvision");
+
+                    b.Navigation("Pedido");
 
                     b.Navigation("PedidoProveedor");
 
@@ -702,6 +715,8 @@ namespace ContadSP.Migrations
             modelBuilder.Entity("ContadSP.Models.Pedido", b =>
                 {
                     b.Navigation("PedidoProveedor");
+
+                    b.Navigation("PresupuestoPedido");
 
                     b.Navigation("ProcesoPedido");
                 });

@@ -186,8 +186,12 @@
 
     private async Task ConfirmarPresupuesto()
     {
-        await repositorioPedidoProveedor.CambiarEstadoProvision(provision, 5);
-        await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El presupuesto ha sido cargado correctamente", "success");
-        NavigationManager.NavigateTo("/");
+        var confirmed = await JSRuntime.InvokeAsync<bool>("showSweetAlertConfirm", "Confirmar Presupuesto", "¿Estás seguro de que deseas confirmar el presupuesto? Una vez realizada esta acción no se podrá volver a cargar presupuestos para el pedido", "warning");
+        if (confirmed)
+        {
+            await repositorioPedidoProveedor.CambiarEstadoProvision(provision, 5);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El presupuesto ha sido cargado correctamente", "success");
+            NavigationManager.NavigateTo("/");
+        }
     }
    }

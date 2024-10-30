@@ -256,6 +256,18 @@ public class Repositorio<T> : IRepositorio<T> where T : class
             .Where(p => p.pedido_proveedor_id == id)
             .ToListAsync();
     }
+
+    public async Task<IEnumerable<PresupuestoPedido>> ObtenerPresupuestoPedidoPorPedidoId(int id)
+    {
+        return await _context.PresupuestoPedidos
+            .Include(p => p.PedidoProveedor)
+            .Include(p => p.DetalleProvision.Articulo)
+            .Include(p => p.DetalleProvision.UnidadMedida)
+            .Include(p => p.Proveedor)
+            .Where(p => p.PedidoProveedor.pedido_id == id)
+            .OrderBy(p => p.proveedor_id)
+            .ToListAsync();
+    }
     // FIN METODOS ESPECIFICOS
     // ---------------------------------------------------------
 

@@ -38,7 +38,8 @@ namespace ContadSP.Repositorios
         Task CambiarCarga(int prov_id, int ped_id);
 
         Task<IEnumerable<PresupuestoPedido>> ObtenerPresupuestoPedidoPorIdPedidoProveedor(int id);
-        
+        Task<IEnumerable<PresupuestoPedido>> ObtenerPresupuestoPedidoPorPedidoId(int id);
+
 
         // Métodos para EstadoArticulo
         Task<IEnumerable<EstadoArticulo>> ObtenerEstadosArticulo();

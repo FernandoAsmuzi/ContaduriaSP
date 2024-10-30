@@ -9,39 +9,16 @@ function showSweetAlert(title, message, type) {
 
 
 function showSweetAlertConfirm(title, message, type) {
-    Swal.fire({
+    return Swal.fire({
         title: title,
         text: message,
         icon: type,
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
+        confirmButtonColor: "btn btn-success",
+        cancelButtonColor: "btn btn-danger",
+        confirmButtonText: "Confirmar"
     }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success"
-            });
-        }
+        return result.isConfirmed;
     });
 }
 
-Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!"
-}).then((result) => {
-    if (result.isConfirmed) {
-        Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
-            icon: "success"
-        });
-    }
-});
