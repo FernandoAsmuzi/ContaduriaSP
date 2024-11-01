@@ -98,6 +98,7 @@
         </div>
         <div class="col-md-12 border rounded">
             <div class="conteiner-fluid">
+           
                 @if (pedidoProveedor.carga)
                 {
                     <table class="table table-striped table-responsive table-hover">
@@ -130,58 +131,85 @@
                 }
                 else
                 {
-                    <table class="table table-striped table-responsive table-hover">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>Artículo</th>
-                                <th>Cantidad</th>
-                                <th>Unidad</th>
-                                <th>Precio unitario</th>
-                                <th>Subtotal</th>
-                                <th>Subtotal letra</th>
-                                <th>Especificación</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var detalle in provisionDetalle)
-                            {
-                                var index = provisionDetalle.IndexOf(detalle);
-                                if (index < presupuestosPedido.Count)
+                    <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                        <table class="table table-striped table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Artículo</th>
+                                    <th>Cantidad</th>
+                                    <th>Unidad</th>
+                                    <th>Precio unitario</th>
+                                    <th>Subtotal</th>
+                                    <th>Subtotal letra</th>
+                                    <th>Especificación</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var detalle in provisionDetalle)
                                 {
-                                    <tr>
-                                        <td>@detalle.Articulo.descripcion</td>
-                                        <td>
-                                            <input type="number" @bind-value="presupuestosPedido[index].cantidad" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(detalle, presupuestosPedido[index])" />
-                                        </td>
-                                        <td>@detalle.UnidadMedida.unidad</td>
-                                        <td>
-                                            <input type="number" @bind-value="presupuestosPedido[index].precio_unitario" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(detalle, presupuestosPedido[index])" />
-                                        </td>
-                                        <td>@presupuestosPedido[index].subtotal</td>
-                                        <td>@presupuestosPedido[index].subtotal_letra</td>
-                                        <td><input style="width: 100%;" type="text" @bind-value="presupuestosPedido[index].especificacion" /></td>
-                                        <td>
-                                            @if (provisionDetalleDict[detalle])
-                                            {
+                                    var index = provisionDetalle.IndexOf(detalle);
+                                    if (index < presupuestosPedido.Count)
+                                    {
+                                        <tr>
+                                            <td>@detalle.Articulo.descripcion</td>
+                                            <td>
+                                                <input type="number" @bind-value="presupuestosPedido[index].cantidad" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(detalle, presupuestosPedido[index])" />
+                                            </td>
+                                            <td>@detalle.UnidadMedida.unidad</td>
+                                            <td>
+                                                <input type="number" @bind-value="presupuestosPedido[index].precio_unitario" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(detalle, presupuestosPedido[index])" />
+                                            </td>
+                                            <td>@presupuestosPedido[index].subtotal</td>
+                                            <td>@presupuestosPedido[index].subtotal_letra</td>
+                                            <td><input style="width: 100%;" type="text" @bind-value="presupuestosPedido[index].especificacion" /></td>
+                                            <td>
+                                                @* @if (provisionDetalleDict[detalle])
+                                    { *@
                                                 <button type="button" class="btn btn-success" @onclick="() => AgregarInstancia(detalle)"><i class="oi oi-plus"></i></button>
-                                            }
-                                            else
-                                            {
-                                                <button type="button" class="btn btn-danger" @onclick="() => EliminarInstancia(detalle)"><i class="oi oi-trash"></i></button>
-                                            }
-                                        </td>
-                                    </tr>
+                                                @* } *@
+                                                @* else
+                                    {
+                                    <button type="button" class="btn btn-danger" @onclick="() => EliminarInstancia(detalle)"><i class="oi oi-trash"></i></button>
+                                    } *@
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        <tr>
+                                            <td colspan="8">Error: índice fuera de rango</td>
+                                        </tr>
+                                    }
                                 }
-                                else
+                                @foreach (var instancia in provisionInstancias)
                                 {
-                                    <tr>
-                                        <td colspan="8">Error: índice fuera de rango</td>
-                                    </tr>
+                                    var index = provisionInstancias.IndexOf(instancia);
+                                    
+                                    
+                                        <tr>
+                                            <td>@instancia.Articulo.descripcion</td>
+                                            <td>
+                                                <input type="number" @bind-value="presupuestoInstancias[index].cantidad" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(instancia, presupuestoInstancias[index])" />
+                                            </td>
+                                            <td>@instancia.UnidadMedida.unidad</td>
+                                            <td>
+                                                <input type="number" @bind-value="presupuestoInstancias[index].precio_unitario" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(instancia, presupuestoInstancias[index])" />
+                                            </td>
+                                            <td>@presupuestoInstancias[index].subtotal</td>
+                                            <td>@presupuestoInstancias[index].subtotal_letra</td>
+                                            <td><input style="width: 100%;" type="text" @bind-value="presupuestoInstancias[index].especificacion" /></td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger" @onclick="() => EliminarInstancia(instancia)"><i class="oi oi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    
+
                                 }
-                            }
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
+                    
                     <div class="btn-opciones" style="display:flex">
                         <InputFile OnChange="OnInputFileChange" accept=".pdf" />
                         <button class="btn btn-success" @onclick="ProcesarPresupuesto">Procesar Presupuesto</button>
@@ -203,11 +231,16 @@
     private Dictionary<DetalleProvision, bool> provisionDetalleDict = new Dictionary<DetalleProvision, bool>();
     private List<DetalleProvision> provisionDetalle = new List<DetalleProvision>();
     private List<PresupuestoPedido> presupuestosPedido = new List<PresupuestoPedido>();
+
+    private List<DetalleProvision> provisionInstancias = new List<DetalleProvision>();
+    private List<PresupuestoPedido> presupuestoInstancias = new List<PresupuestoPedido>();
+
     private PedidoProveedor pedidoProveedor = new PedidoProveedor();
     private Proveedor proveedor = new Proveedor();
     private Pedido pedido = new Pedido();
     private Provision provision = new Provision();
     private IBrowserFile? archivoSeleccionado;
+    private int instanciaIdCounter = 1;
 
     protected override async Task OnParametersSetAsync()
     {
@@ -279,10 +312,6 @@
             await stream.CopyToAsync(fileStream);
         }
 
-        // Aquí puedes agregar lógica adicional después de que el archivo se haya subido correctamente.
-        // Por ejemplo, podrías actualizar el estado del componente o notificar al usuario.
-
-        //Console.WriteLine($"Archivo subido exitosamente: {archivoSeleccionado.Name}");
     }
 
     private void CalcularSubtotal(DetalleProvision detalle, PresupuestoPedido presupuesto)
@@ -295,30 +324,39 @@
     {
         var nuevaInstancia = new DetalleProvision
             {
-                id = dp.id,
+                id = instanciaIdCounter++,
                 Articulo = dp.Articulo,
                 cantidad = dp.cantidad,
                 UnidadMedida = dp.UnidadMedida,
             };
-        provisionDetalle.Add(nuevaInstancia);
-        presupuestosPedido.Add(new PresupuestoPedido
+
+        provisionInstancias.Add(nuevaInstancia);
+        presupuestoInstancias.Add(new PresupuestoPedido
             {
                 cantidad = dp.cantidad,
                 detalle_provision_id = nuevaInstancia.id,
                 pedido_proveedor_id = pedidoProveedor.id,
                 proveedor_id = int.Parse(prov)
             });
-        provisionDetalleDict.Add(nuevaInstancia, false);
+        provisionDetalleDict[nuevaInstancia] = false;
+
+        StateHasChanged();
     }
 
-    private async Task EliminarInstancia(DetalleProvision dp)
+    private void EliminarInstancia(DetalleProvision dp)
     {
-        provisionDetalle.Remove(dp);
-        presupuestosPedido.RemoveAll(pp => pp.detalle_provision_id == dp.id);
-        provisionDetalleDict.Remove(dp);
-
-        // Recargar las listas y el diccionario
-        await CargarDatos();
+        var instancia = provisionInstancias.FirstOrDefault(i => i.id == dp.id);
+        if (instancia != null)
+        {
+            provisionInstancias.Remove(instancia);
+            var presupuesto = presupuestoInstancias.FirstOrDefault(p => p.detalle_provision_id == dp.id);
+            if (presupuesto != null)
+            {
+                presupuestoInstancias.Remove(presupuesto);
+            }
+            provisionDetalleDict.Remove(instancia);
+            StateHasChanged(); 
+        }
     }
 
     private async Task ProcesarPresupuesto()
@@ -340,7 +378,14 @@
                 await repositorioPresupuestoPedido.Agregar(pp);
             }
 
-            //await CargarDocumento();
+            foreach (var i in presupuestoInstancias)
+            {
+                i.subtotal = i.precio_unitario * i.cantidad;
+                i.subtotal_letra = UpdateCantidadLetra(i.subtotal);
+                i.pedido_proveedor_id = pedidoProveedor.id;
+                i.pedido_id = pedido.id;
+                await repositorioPresupuestoPedido.Agregar(i);
+            }
 
             await repositorioPresupuestoPedido.CambiarCarga(int.Parse(prov), int.Parse(id));
 
@@ -351,7 +396,6 @@
         }
         catch (Exception ex)
         {
-            // Manejar errores
             Console.WriteLine($"Error al procesar el presupuesto: {ex.Message}");
             await JSRuntime.InvokeVoidAsync("alert", "Ocurrió un error al procesar el presupuesto.");
         }
