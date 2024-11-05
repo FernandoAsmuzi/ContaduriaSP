@@ -272,11 +272,11 @@
                                     </tr>
                                         <tr>
                                             <th>Articulo</th>
-                                            <th>Proveedor</th>
                                             <th>Cantidad</th>
                                             <th>Precio unitario</th>
                                             <th>Precio total</th>
                                             <th>Subtotal letra</th>
+                                            <th>Especificación</th>
                                             <th>Seleccionar</th>
                                         </tr>
                                     
@@ -286,19 +286,22 @@
                                     {
                                         <tr>
                                             <td>@pp.DetalleProvision.Articulo.descripcion</td>
-                                            <td>@pp.Proveedor.nombre_comercial</td>
                                             <td>@pp.cantidad</td>
                                             <td>@pp.precio_unitario</td>
                                             <td>@pp.subtotal</td>
                                             <td>@pp.subtotal_letra</td>
-                                            <td>
-                                                <input type="checkbox" class="presupuesto-checkbox" data-id="@pp.DetalleProvision.id" />
+                                            <td>@pp.especificacion</td>
+                                            <td class="align-content-center text-center">
+                                                <input type="checkbox" class="presupuesto-checkbox" data-id="@pp.DetalleProvision.id" @onchange="e => OnProductoSeleccionado(e, pp)" checked="@IsProductoSeleccionado(pp)" />
                                             </td>
                                         </tr>
                                     }
                                 }
                             </tbody>
                         </table>
+                        <div class="btn-opciones pb-4">
+                            <button class="btn btn-success" @onclick="() => ConfirmarPresupuesto()">Confirmar presupuesto</button>
+                        </div>
                     </div>
                     
                 }
@@ -320,6 +323,9 @@
     private List<PedidoProveedor> pedidoProveedorList = new List<PedidoProveedor>();
     private List<PresupuestoPedido> presupuestoPedidos = new List<PresupuestoPedido>();
     private Dictionary<Proveedor, bool> proveedoresSeleccionados = new Dictionary<Proveedor, bool>();
+
+    //diccionario articulos para el select
+    private Dictionary<int, int?> productosSeleccionados = new Dictionary<int, int?>();
 
     private Provision prov = new Provision();
     private Estado? estado = new Estado();
@@ -354,6 +360,65 @@
         tipo = prov.TipoPedido.tipo;
         provisionDetalle = (await repositorioDetalleProvision.ObtenerProvisionesId(int.Parse(id))).ToList();
         await CargarEstado();
+    }
+
+ 
+    // Método para manejar la selección de productos
+    private void OnProductoSeleccionado(ChangeEventArgs e, PresupuestoPedido pp)
+    {
+        if ((bool)e.Value)
+        {
+            // Si se selecciona, actualiza el diccionario con el nuevo producto seleccionado
+            if (productosSeleccionados.TryGetValue(pp.DetalleProvision.Articulo.id, out var selectedId) && selectedId != pp.DetalleProvision.id)
+            {
+                // Encuentra el producto previamente seleccionado y desmarcalo
+                var productoAnterior = presupuestoPedidos.FirstOrDefault(p => p.DetalleProvision.id == selectedId);
+                if (productoAnterior != null)
+                {
+                    productosSeleccionados[pp.DetalleProvision.Articulo.id] = pp.DetalleProvision.id;
+                }
+            }
+            else
+            {
+                productosSeleccionados[pp.DetalleProvision.Articulo.id] = pp.DetalleProvision.id;
+            }
+        }
+        else
+        {
+            // Si se deselecciona, elimina el producto del diccionario
+            productosSeleccionados[pp.DetalleProvision.Articulo.id] = null;
+        }
+    }
+
+    // Método para verificar si un producto está seleccionado
+    private bool IsProductoSeleccionado(PresupuestoPedido pp)
+    {
+        return productosSeleccionados.TryGetValue(pp.DetalleProvision.Articulo.id, out var selectedId) && selectedId == pp.DetalleProvision.id;
+    }
+
+    private async Task ConfirmarPresupuesto()
+    {
+        var productosConfirmados = new List<PresupuestoPedido>();
+
+        
+
+        foreach (var id in productosSeleccionados.Values)
+        {
+            if (id.HasValue)
+            {
+                var producto = presupuestoPedidos.FirstOrDefault(p => p.DetalleProvision.id == id.Value);
+                if (producto != null)
+                {
+                    productosConfirmados.Add(producto);
+                }
+            }
+        }
+
+        await repositorioProvision.CambiarEstadoProvision(prov, 7);
+
+        // Aquí puedes manejar la lista de productos confirmados, por ejemplo, enviarla a un servicio o mostrarla en la UI
+        // Ejemplo: Enviar a un servicio
+        // await repositorioPresupuestoPedido.ConfirmarPresupuesto(productosConfirmados);
     }
 
     private string GetEstadoCssClass(int estadoId)
@@ -430,13 +495,6 @@
     ,
     new DialogOptions() { Width = "auto", Height = "auto" });
     }
-
-
-
-
-
-
-
 
 
 

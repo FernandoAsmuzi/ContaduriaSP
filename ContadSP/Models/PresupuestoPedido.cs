@@ -20,6 +20,8 @@ namespace ContadSP.Models
         public string? especificacion { get; set; }
         public DateOnly fecha_presupuesto { get; set; }
 
+        public List<Compra> Compra { get; set; }
+
         [ForeignKey("detalle_provision_id")]
         public int detalle_provision_id { get; set; }
         public DetalleProvision DetalleProvision { get; set; }

@@ -245,8 +245,6 @@ public class Repositorio<T> : IRepositorio<T> where T : class
         return await _context.EstadoArticulo.FindAsync(id);
     }
 
-
-
     public async Task<IEnumerable<PresupuestoPedido>> ObtenerPresupuestoPedidoPorIdPedidoProveedor(int id)
     {
         return await _context.PresupuestoPedidos
@@ -287,6 +285,13 @@ public class RepositorioCategoria : Repositorio<Categoria>
     }
 }
 
+public class RepositiorioCompra : Repositorio<Compra>
+{
+    public RepositiorioCompra(ContadSPContext context) : base(context)
+    {
+    }
+}
+
 public class RepositorioDestino : Repositorio<Destino>
 {
     public RepositorioDestino(ContadSPContext context) : base(context)
@@ -297,6 +302,13 @@ public class RepositorioDestino : Repositorio<Destino>
 public class RepositorioDetalleProvision : Repositorio<DetalleProvision>
 {
     public RepositorioDetalleProvision(ContadSPContext context) : base(context)
+    {
+    }
+}
+
+public class RepositorioEstado : Repositorio<Estado>
+{
+    public RepositorioEstado(ContadSPContext context) : base(context)
     {
     }
 }
@@ -314,6 +326,14 @@ public class RepositorioPedidoProveedor : Repositorio<PedidoProveedor>
     {
     }
 }
+
+public class RepositorioPresupuestoPedido : Repositorio<PresupuestoPedido>
+{
+    public RepositorioPresupuestoPedido(ContadSPContext context) : base(context)
+    {
+    }
+}
+
 public class RepositorioProceso : Repositorio<Proceso>
 {
     public RepositorioProceso(ContadSPContext context) : base(context)
@@ -338,6 +358,13 @@ public class RepositorioProveedor : Repositorio<Proveedor>
 public class RepositorioProvision : Repositorio<Provision>
 {
     public RepositorioProvision(ContadSPContext context) : base(context)
+    {
+    }
+}
+
+public class RepositorioProvisionExp : Repositorio<ProvisionExp>
+{
+    public RepositorioProvisionExp(ContadSPContext context) : base(context)
     {
     }
 }
