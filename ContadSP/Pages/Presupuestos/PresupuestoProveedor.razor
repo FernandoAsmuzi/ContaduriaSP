@@ -375,6 +375,7 @@
                 pp.subtotal_letra = UpdateCantidadLetra(pp.subtotal);
                 pp.pedido_proveedor_id = pedidoProveedor.id;
                 pp.pedido_id = pedido.id;
+                pp.seleccion = true;
                 await repositorioPresupuestoPedido.Agregar(pp);
             }
 
@@ -384,6 +385,7 @@
                 i.subtotal_letra = UpdateCantidadLetra(i.subtotal);
                 i.pedido_proveedor_id = pedidoProveedor.id;
                 i.pedido_id = pedido.id;
+                i.seleccion = true;
                 await repositorioPresupuestoPedido.Agregar(i);
             }
 

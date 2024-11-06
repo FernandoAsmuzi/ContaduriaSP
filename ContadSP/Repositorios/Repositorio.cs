@@ -67,6 +67,7 @@ public class Repositorio<T> : IRepositorio<T> where T : class
             .Include(p => p.Destino)
             .Include(p => p.Usuario)
             .Include(p => p.TipoPedido)
+            .Include(p => p.Estado)
             .FirstAsync(p => p.id == id);
     }
     public async Task<IEnumerable<Provision>> ObtenerProvisiones()
@@ -74,6 +75,7 @@ public class Repositorio<T> : IRepositorio<T> where T : class
         return await _context.Provision
             .Include(p => p.Destino)
             .Include(p => p.Usuario)
+            .Include(p => p.TipoPedido)
             .ToListAsync();
     }
 

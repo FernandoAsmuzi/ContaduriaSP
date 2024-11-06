@@ -94,12 +94,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUJNXFVuaWRhZCBkZSBNZWRpZGFcTGlzdGFVTS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Compras/AltaPresupuesto.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcHJhc1xBbHRhUHJlc3VwdWVzdG8ucmF6b3I=
+[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Compras/AdminCompra.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcHJhc1xBZG1pbkNvbXByYS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Compras/PresupuestoProveedor.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcHJhc1xQcmVzdXB1ZXN0b1Byb3ZlZWRvci5yYXpvcg==
+[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Compras/DetalleCompra.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcHJhc1xEZXRhbGxlQ29tcHJhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Dashboard/Charts.razor]
@@ -116,6 +116,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Pedido/DetallePedido.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVkaWRvXERldGFsbGVQZWRpZG8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Presupuestos/AltaPresupuesto.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJlc3VwdWVzdG9zXEFsdGFQcmVzdXB1ZXN0by5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Presupuestos/PresupuestoProveedor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJlc3VwdWVzdG9zXFByZXN1cHVlc3RvUHJvdmVlZG9yLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/fasmuzi/Desktop/ContadSp/ContadSP/Pages/Provision/AdminProvision.razor]

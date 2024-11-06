@@ -108,28 +108,16 @@
         }
     }
 
-    private void CargarTitulo(int estado)
-    {
-        // Lógica sincrónica aquí
-    }
-
-    private void CargarPoceso(Provision prov)
-    {
-        // Lógica sincrónica aquí
-    }
-
-    private void CargarPedido(ProcesoPedido proc, Provision prov)
-    {
-        // Lógica sincrónica aquí
-    }
-
     private void VerDetalles(Provision prov)
     {
-        NavigationManager.NavigateTo($"/detallePedido/{prov.id}");
-    }
-
-    private void ConfirmarEntrega(Provision prov)
-    {
-        // Lógica sincrónica aquí
+        if(prov.estado_id == 7)
+        {
+            NavigationManager.NavigateTo($"/compra/{prov.id}");
+        }
+        else
+        {
+            NavigationManager.NavigateTo($"/detallePedido/{prov.id}");
+        }
+       
     }
 }

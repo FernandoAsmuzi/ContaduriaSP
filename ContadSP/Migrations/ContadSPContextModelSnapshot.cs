@@ -66,6 +66,31 @@ namespace ContadSP.Migrations
                     b.ToTable("Categoria");
                 });
 
+            modelBuilder.Entity("ContadSP.Models.Compra", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateOnly>("fecha_compra")
+                        .HasColumnType("date");
+
+                    b.Property<DateOnly>("fecha_pre_compra")
+                        .HasColumnType("date");
+
+                    b.Property<bool>("finalizado")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int>("presupuesto_pedido_id")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("presupuesto_pedido_id");
+
+                    b.ToTable("Compra");
+                });
+
             modelBuilder.Entity("ContadSP.Models.Destino", b =>
                 {
                     b.Property<int>("id")
@@ -231,6 +256,9 @@ namespace ContadSP.Migrations
 
                     b.Property<int>("proveedor_id")
                         .HasColumnType("int");
+
+                    b.Property<bool>("seleccion")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<double>("subtotal")
                         .HasColumnType("double");
@@ -503,6 +531,17 @@ namespace ContadSP.Migrations
                     b.Navigation("EstadoArticulo");
                 });
 
+            modelBuilder.Entity("ContadSP.Models.Compra", b =>
+                {
+                    b.HasOne("ContadSP.Models.PresupuestoPedido", "PresupuestoPedido")
+                        .WithMany("Compra")
+                        .HasForeignKey("presupuesto_pedido_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PresupuestoPedido");
+                });
+
             modelBuilder.Entity("ContadSP.Models.DetalleProvision", b =>
                 {
                     b.HasOne("ContadSP.Models.Articulo", "Articulo")
@@ -724,6 +763,11 @@ namespace ContadSP.Migrations
             modelBuilder.Entity("ContadSP.Models.PedidoProveedor", b =>
                 {
                     b.Navigation("PresupuestoPedido");
+                });
+
+            modelBuilder.Entity("ContadSP.Models.PresupuestoPedido", b =>
+                {
+                    b.Navigation("Compra");
                 });
 
             modelBuilder.Entity("ContadSP.Models.Proceso", b =>

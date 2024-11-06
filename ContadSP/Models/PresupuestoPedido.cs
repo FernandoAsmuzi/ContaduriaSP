@@ -19,7 +19,7 @@ namespace ContadSP.Models
         public string? subtotal_letra { get; set; }
         public string? especificacion { get; set; }
         public DateOnly fecha_presupuesto { get; set; }
-
+        public bool seleccion { get; set; } = false;
         public List<Compra> Compra { get; set; }
 
         [ForeignKey("detalle_provision_id")]

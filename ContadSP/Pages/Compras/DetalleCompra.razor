@@ -1,0 +1,25 @@
+﻿@page "/detalleCompra/{id:int}"
+
+@using ContadSP.Repositorios
+@using ContadSP.Models
+@using System.Text.Json
+@using Radzen
+@using Radzen.Blazor
+
+@inject IRepositorio<Provision> repositorioProvision
+@inject IRepositorio<Pedido> repositorioPedido
+@inject IRepositorio<Estado> repositorioEstado
+
+
+
+                
+
+
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    
+}
+
