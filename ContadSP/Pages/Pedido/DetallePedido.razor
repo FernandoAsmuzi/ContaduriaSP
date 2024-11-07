@@ -17,6 +17,7 @@
 @inject IRepositorio<PedidoProveedor> repositorioPedidoProveedor
 @inject IRepositorio<Proceso> repositorioProceso;
 @inject IRepositorio<ProcesoPedido> repositorioProcesoPedido
+@inject IRepositorio<PresupuestoPedido> repositorioPresupuestoPedido
 @inject IJSRuntime JSRuntime
 
 @inject DialogService DialogService
@@ -292,7 +293,7 @@
                                             <td>@pp.subtotal_letra</td>
                                             <td>@pp.especificacion</td>
                                             <td class="align-content-center text-center">
-                                                <input type="checkbox" class="presupuesto-checkbox" data-id="@pp.DetalleProvision.id" @onchange="e => OnProductoSeleccionado(e, pp)" checked="@IsProductoSeleccionado(pp)" />
+                                                <input type="checkbox" class="presupuesto-checkbox" @onchange="e => OnProductoSeleccionado(e, pp.id)" checked="@IsProductoSeleccionado(pp.id)" />
                                             </td>
                                         </tr>
                                     }
@@ -325,7 +326,7 @@
     private Dictionary<Proveedor, bool> proveedoresSeleccionados = new Dictionary<Proveedor, bool>();
 
     //diccionario articulos para el select
-    private Dictionary<int, int?> productosSeleccionados = new Dictionary<int, int?>();
+    private Dictionary<int, bool> productosSeleccionados = new Dictionary<int, bool>();
 
     private Provision prov = new Provision();
     private Estado? estado = new Estado();
@@ -343,7 +344,7 @@
     protected override async Task OnInitializedAsync()
     {
         prov = await repositorioProvision.ObtenerProvisionPorId(int.Parse(id));
-        
+
         if (prov.estado_id == 4)
         {   
             pedido = await repositorioPedido.ObteberPedidoPorProvisionId(prov.id);
@@ -362,63 +363,45 @@
         await CargarEstado();
     }
 
- 
+
     // Método para manejar la selección de productos
-    private void OnProductoSeleccionado(ChangeEventArgs e, PresupuestoPedido pp)
+    private void OnProductoSeleccionado(ChangeEventArgs e, int presupuestoPedidoId)
     {
         if ((bool)e.Value)
         {
-            // Si se selecciona, actualiza el diccionario con el nuevo producto seleccionado
-            if (productosSeleccionados.TryGetValue(pp.DetalleProvision.Articulo.id, out var selectedId) && selectedId != pp.DetalleProvision.id)
-            {
-                // Encuentra el producto previamente seleccionado y desmarcalo
-                var productoAnterior = presupuestoPedidos.FirstOrDefault(p => p.DetalleProvision.id == selectedId);
-                if (productoAnterior != null)
-                {
-                    productosSeleccionados[pp.DetalleProvision.Articulo.id] = pp.DetalleProvision.id;
-                }
-            }
-            else
-            {
-                productosSeleccionados[pp.DetalleProvision.Articulo.id] = pp.DetalleProvision.id;
-            }
+            // Si se selecciona, agrega el producto al diccionario
+            productosSeleccionados[presupuestoPedidoId] = true;
         }
         else
         {
             // Si se deselecciona, elimina el producto del diccionario
-            productosSeleccionados[pp.DetalleProvision.Articulo.id] = null;
+            productosSeleccionados.Remove(presupuestoPedidoId);
         }
     }
 
     // Método para verificar si un producto está seleccionado
-    private bool IsProductoSeleccionado(PresupuestoPedido pp)
+    private bool IsProductoSeleccionado(int presupuestoPedidoId)
     {
-        return productosSeleccionados.TryGetValue(pp.DetalleProvision.Articulo.id, out var selectedId) && selectedId == pp.DetalleProvision.id;
+        return productosSeleccionados.ContainsKey(presupuestoPedidoId);
     }
 
     private async Task ConfirmarPresupuesto()
     {
         var productosConfirmados = new List<PresupuestoPedido>();
 
-        
-
-        foreach (var id in productosSeleccionados.Values)
+        foreach (var id in productosSeleccionados.Keys)
         {
-            if (id.HasValue)
+            var producto = presupuestoPedidos.FirstOrDefault(p => p.id == id);
+            if (producto != null)
             {
-                var producto = presupuestoPedidos.FirstOrDefault(p => p.DetalleProvision.id == id.Value);
-                if (producto != null)
-                {
-                    productosConfirmados.Add(producto);
-                }
+                productosConfirmados.Add(producto);
+                await repositorioPresupuestoPedido.CambiarEstadoPresupuesto(producto.id);
             }
         }
 
         await repositorioProvision.CambiarEstadoProvision(prov, 7);
-
-        // Aquí puedes manejar la lista de productos confirmados, por ejemplo, enviarla a un servicio o mostrarla en la UI
-        // Ejemplo: Enviar a un servicio
-        // await repositorioPresupuestoPedido.ConfirmarPresupuesto(productosConfirmados);
+        await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El presupuesto se cargó correctamente", "success");
+        NavigationManager.NavigateTo("/");
     }
 
     private string GetEstadoCssClass(int estadoId)

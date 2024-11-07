@@ -16,7 +16,8 @@ function showSweetAlertConfirm(title, message, type) {
         showCancelButton: true,
         confirmButtonColor: "btn btn-success",
         cancelButtonColor: "btn btn-danger",
-        confirmButtonText: "Confirmar"
+        confirmButtonText: "Confirmar",
+        cancelButtonText: "Cancelar"
     }).then((result) => {
         return result.isConfirmed;
     });

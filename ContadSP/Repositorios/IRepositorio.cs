@@ -34,6 +34,7 @@ namespace ContadSP.Repositorios
         Task<IEnumerable<Models.ProvisionExp>> ObtenerProvisionExp();
         Task<ProvisionExp> ObtenerUltimaProvisionExp();
         Task CambiarEstadoProvision(object entidad, int estado);
+        Task CambiarEstadoPresupuesto(int id);
         Task<ProcesoPedido> ObtenerProcesoPedidoPorPedidoId(int id);
         Task CambiarCarga(int prov_id, int ped_id);
 

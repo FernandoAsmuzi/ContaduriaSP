@@ -268,6 +268,19 @@ public class Repositorio<T> : IRepositorio<T> where T : class
             .OrderBy(p => p.proveedor_id)
             .ToListAsync();
     }
+
+    public async Task CambiarEstadoPresupuesto(int id)
+    {
+        var presupuestoPedido = await _context.PresupuestoPedidos
+            .FirstOrDefaultAsync(pp => pp.id == id);
+
+        if (presupuestoPedido != null)
+        {
+            presupuestoPedido.seleccion = true;
+            _context.PresupuestoPedidos.Update(presupuestoPedido);
+            await _context.SaveChangesAsync();
+        }
+    }
     // FIN METODOS ESPECIFICOS
     // ---------------------------------------------------------
 
