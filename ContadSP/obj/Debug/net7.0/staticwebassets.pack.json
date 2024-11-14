@@ -1,155 +1,155 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ContadSP.bundle.scp.css",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ContadSP.bundle.scp.css",
       "PackagePath": "staticwebassets\\ContadSP.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\Uploads\\Guía de supervivencia para estudiantes de ingeniería.pdf",
-      "PackagePath": "staticwebassets\\Uploads\\Guía de supervivencia para estudiantes de ingeniería.pdf"
-    },
-    {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\Uploads\\Pedido_3.pdf",
-      "PackagePath": "staticwebassets\\Uploads\\Pedido_3.pdf"
-    },
-    {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\assets\\images\\logopodjud.png",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\assets\\images\\logopodjud.png",
       "PackagePath": "staticwebassets\\assets\\images\\logopodjud.png"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "PackagePath": "staticwebassets\\css\\open-iconic"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "PackagePath": "staticwebassets\\css\\open-iconic"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\README.md",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\README.md",
       "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\01112024\\ACT-1-01112024-Insumos SA.pdf",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\01112024\\ACT-1-01112024-Insumos SA.pdf",
       "PackagePath": "staticwebassets\\documentacion\\01112024\\ACT-1-01112024-Insumos SA.pdf"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\01112024\\ACT-1-01112024-Musimundo.pdf",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\01112024\\ACT-1-01112024-Musimundo.pdf",
       "PackagePath": "staticwebassets\\documentacion\\01112024\\ACT-1-01112024-Musimundo.pdf"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\07112024\\ACT-3-07112024-Insumos SA.pdf",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\07112024\\ACT-3-07112024-Insumos SA.pdf",
       "PackagePath": "staticwebassets\\documentacion\\07112024\\ACT-3-07112024-Insumos SA.pdf"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\07112024\\ACT-3-07112024-Systech.pdf",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\07112024\\ACT-3-07112024-Systech.pdf",
       "PackagePath": "staticwebassets\\documentacion\\07112024\\ACT-3-07112024-Systech.pdf"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\21102024\\ACT-4-21102024-Insumos SA.pdf",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\21102024\\ACT-4-21102024-Insumos SA.pdf",
       "PackagePath": "staticwebassets\\documentacion\\21102024\\ACT-4-21102024-Insumos SA.pdf"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\22102024\\ACT-4-22102024-Musimundo.pdf",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\22102024\\ACT-4-22102024-Musimundo.pdf",
       "PackagePath": "staticwebassets\\documentacion\\22102024\\ACT-4-22102024-Musimundo.pdf"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\29102024\\ACT-1-29102024-Insumos SA.pdf",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\29102024\\ACT-1-29102024-Insumos SA.pdf",
       "PackagePath": "staticwebassets\\documentacion\\29102024\\ACT-1-29102024-Insumos SA.pdf"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\29102024\\ACT-1-29102024-Musimundo.pdf",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\29102024\\ACT-1-29102024-Musimundo.pdf",
       "PackagePath": "staticwebassets\\documentacion\\29102024\\ACT-1-29102024-Musimundo.pdf"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\30102024\\ACT-3-30102024-Musimundo.pdf",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\30102024\\ACT-3-30102024-Musimundo.pdf",
       "PackagePath": "staticwebassets\\documentacion\\30102024\\ACT-3-30102024-Musimundo.pdf"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\pedidos\\12-11-2024\\Pedido_2.pdf",
+      "PackagePath": "staticwebassets\\documentacion\\pedidos\\12-11-2024\\Pedido_2.pdf"
+    },
+    {
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\pedidos\\2024-11-12\\Pedido_1.pdf",
+      "PackagePath": "staticwebassets\\documentacion\\pedidos\\2024-11-12\\Pedido_1.pdf"
+    },
+    {
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\155115344_10219593000277487_3140255217350723048_n.jpg",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\155115344_10219593000277487_3140255217350723048_n.jpg",
       "PackagePath": "staticwebassets\\fotos1\\155115344_10219593000277487_3140255217350723048_n.jpg"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\157128015_723551921645495_7832340406353028866_n.jpg",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\157128015_723551921645495_7832340406353028866_n.jpg",
       "PackagePath": "staticwebassets\\fotos1\\157128015_723551921645495_7832340406353028866_n.jpg"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\Captura de pantalla 2024-04-20 135335.png",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\Captura de pantalla 2024-04-20 135335.png",
       "PackagePath": "staticwebassets\\fotos1\\Captura de pantalla 2024-04-20 135335.png"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\GIIErsSWkAAgnaJ.jpg",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\GIIErsSWkAAgnaJ.jpg",
       "PackagePath": "staticwebassets\\fotos1\\GIIErsSWkAAgnaJ.jpg"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\Sin título-1.jpg",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\Sin título-1.jpg",
       "PackagePath": "staticwebassets\\fotos1\\Sin título-1.jpg"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\dgik07z-3d73d9b2-0800-4566-a2a1-3e2d73ab1964.jpg",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\dgik07z-3d73d9b2-0800-4566-a2a1-3e2d73ab1964.jpg",
       "PackagePath": "staticwebassets\\fotos1\\dgik07z-3d73d9b2-0800-4566-a2a1-3e2d73ab1964.jpg"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\escritorio.jpg",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\escritorio.jpg",
       "PackagePath": "staticwebassets\\fotos1\\escritorio.jpg"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\logopodjud.png",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\logopodjud.png",
       "PackagePath": "staticwebassets\\fotos1\\logopodjud.png"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\monitor.jpg",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\monitor.jpg",
       "PackagePath": "staticwebassets\\fotos1\\monitor.jpg"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\resma.png",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\resma.png",
       "PackagePath": "staticwebassets\\fotos1\\resma.png"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\icon\\logoPJ.png",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\icon\\logoPJ.png",
       "PackagePath": "staticwebassets\\icon\\logoPJ.png"
     },
     {
-      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\js\\funciones.js",
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\js\\funciones.js",
       "PackagePath": "staticwebassets\\js\\funciones.js"
     },
     {

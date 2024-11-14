@@ -15,7 +15,9 @@
 @inject IRepositorio<PedidoProveedor> repositorioPedidoProveedor
 @inject IRepositorio<Proceso> repositorioProceso;
 @inject IRepositorio<ProcesoPedido> repositorioProcesoPedido
+@inject IRepositorio<Compra> repositorioCompra
 @inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
 
 <div class="container mt-4">
     <div class="row justify-content-center">
@@ -168,6 +170,9 @@
                     </table>
                 </div>
 
+                <div class="btn-opciones pb-3">
+                    <button class="btn btn-success" @onclick="()=>ConfirmarCompra()">Confirmar compra</button>
+                </div>
 
             </div>
         </div>
@@ -179,7 +184,7 @@
     public int Id { get; set; }
 
     private List<DetalleProvision> provisionDetalle = new List<DetalleProvision>();
-    
+
     private List<Proveedor> proveedores = new List<Proveedor>();
     private List<Proceso> procesos = new List<Proceso>();
     private List<PedidoProveedor> pedidoProveedorList = new List<PedidoProveedor>();
@@ -208,12 +213,12 @@
     {
         prov = await repositorioProvision.ObtenerProvisionPorId(Id);
 
-       
+
         pedido = await repositorioPedido.ObteberPedidoPorProvisionId(prov.id);
         presupuestoPedidos = (await repositorioPedidoProveedor.ObtenerPresupuestoPedidoPorPedidoId(pedido.id)).Where(pp => pp.seleccion == true).ToList(); ;
-        
+
         procesos = (await repositorioProceso.ObtenerTodo()).ToList();
-        
+
         provisionDetalle = (await repositorioDetalleProvision.ObtenerProvisionesId(Id)).ToList();
 
         destino = prov.Destino.destino;
@@ -244,6 +249,20 @@
         estado = new Estado();
         estados = (await repositorioEstado.ObtenerTodo()).ToList();
         estado = estados.FirstOrDefault(e => e.id == prov.estado_id);
+    }
+
+    private async Task ConfirmarCompra()
+    {
+        var confirmed = await JSRuntime.InvokeAsync<bool>("showSweetAlertConfirm", "Confirmar Compra", "¿Estás seguro de que deseas confirmar la compra? Una vez realizada esta acción no se podrá modificar", "warning");
+        if (confirmed)
+        {
+            var compra = new Compra();
+            compra.pedido_id = pedido.id;
+            await repositorioCompra.Agregar(compra);
+            await repositorioPedidoProveedor.CambiarEstadoProvision(prov, 8);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La compra se cargó correctamente", "success");
+            NavigationManager.NavigateTo("/");
+        }
     }
 
 

@@ -104,7 +104,16 @@ namespace ContadSP.Services
                 {
                     detailtable.AddCell(new PdfPCell(new Phrase(renglon.ToString(), smallFont)));
                     detailtable.AddCell(new PdfPCell(new Phrase(p.cantidad.ToString(), smallFont)));
-                    detailtable.AddCell(new PdfPCell(new Phrase(ConversorNumeroLetra.NumeroALetras(p.cantidad), smallFont)));
+                    
+                    //Aqui se corta la cadena para sacar la parte de PESOS 00 /100 que trae el conversor
+                    var letra = ConversorNumeroLetra.NumeroALetras(p.cantidad);
+                    if(letra.Length > 12)
+                    {
+                        letra = letra.Substring(0, letra.Length - 13);
+                    }
+                    //
+
+                    detailtable.AddCell(new PdfPCell(new Phrase(letra, smallFont)));
                     detailtable.AddCell(new PdfPCell(new Phrase(p.UnidadMedida.unidad, smallFont)));
                     detailtable.AddCell(new PdfPCell(new Phrase(p.Articulo.descripcion, smallFont)));
                     detailtable.AddCell(new PdfPCell(new Phrase(p.especificacion, smallFont)));

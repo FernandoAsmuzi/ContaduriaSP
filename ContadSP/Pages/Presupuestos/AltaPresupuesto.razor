@@ -76,7 +76,14 @@
                             {
                                 foreach (var p in provisionDetalle)
                                 {
-                                    // Render rows
+                                    <tr>
+                                        <td>@p.Articulo.descripcion</td>
+                                        <td>@p.cantidad</td>
+                                        <td>@p.UnidadMedida.unidad</td>
+                                        <td>@p.subtotal_aprox</td>
+                                        <td>@p.subtotal_letra</td>
+                                        <td>@p.especificacion</td>
+                                    </tr>
                                 }
                             }
                             else
@@ -115,14 +122,14 @@
                                         <td>@p.Proveedor.direccion</td>
                                         <td>@p.Proveedor.telefono</td>
                                         <td>@p.Proveedor.email</td>
-                                    @if (!p.carga)
-                                    {
-                                                <td><button class="btn btn-primary" @onclick="()=>CargarPresupuesto(p)">Cargar presupuesto</button></td>
-                                    }
-                                    else
-                                    {
-                                                <td><button class="btn btn-primary" @onclick="()=>CargarPresupuesto(p)">Ver presupuesto</button></td>
-                                    }
+                                        @if (!p.carga)
+                                        {
+                                                    <td><button class="btn btn-primary" @onclick="()=>CargarPresupuesto(p)">Cargar presupuesto</button></td>
+                                        }
+                                        else
+                                        {
+                                                    <td><button class="btn btn-primary" @onclick="()=>CargarPresupuesto(p)">Ver presupuesto</button></td>
+                                        }
                                     </tr>
                             }
                         </tbody>

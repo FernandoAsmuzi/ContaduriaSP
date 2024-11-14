@@ -295,8 +295,8 @@
             return;
         }
 
-        var fechaActual = DateTime.Now.ToString("ddMMyyyy");
-        var carpetaDestino = Path.Combine("wwwroot", "documentacion", fechaActual);
+        var fechaActual = DateTime.Now.ToString("dd-MM-yyyy");
+        var carpetaDestino = Path.Combine("wwwroot", "documentacion", "presupuestos", fechaActual);
 
         if (!Directory.Exists(carpetaDestino))
         {

@@ -33,23 +33,15 @@
                 @*  ----CONTENEDORES---- *@
 
                 @* ----ENCABEZADO--- *@
-                <div>
-                    @if (prov.estado_id >= 1 && prov.estado_id <= 3)
-                    {
-                        <h3 class="text-center">Detalle de la provisión</h3>
-                    }
-                    else
-                    {
-                        <h3 class="text-center">Detalle del pedido</h3>
-                    }
-
+                <div class="pt-3">
+                     <h3 class="text-center">Detalle de la provisión</h3>
                 </div>
                 @* ----ENCABEZADO--- *@
 
                 @* ----DATOS DE LA PROVISION/PEDIDO--- *@
                 <div class="row">
                     <div class="col">
-                        <label><strong>ID:</strong></label>
+                        <label><strong>ID Provisión:</strong></label>
                         <label>@prov.id</label>
                     </div>
                     <div class="col">
@@ -85,6 +77,31 @@
                         <label class="@GetEstadoCssClass(prov.estado_id)"><strong>@estado.estado</strong></label>
                     </div>
                 </div>
+                @if (prov.estado_id > 3)
+                {
+                    <div class="pt-3">
+                        <h3 class="text-center">Detalle del pedido</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label><strong>ID Pedido:</strong></label>
+                            <label>@pedido.id</label>
+                        </div>
+                        <div class="col">
+                            <label><strong>Fecha pedido:</strong></label>
+                            <label>@pedido.fecha_pedido</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label><strong>N° acta:</strong></label>
+                            <label>@pedido.abreviatura-@pedido.acta_num-@pedido.anio</label>
+                        </div>
+                    </div>
+                    
+                    
+                }
+                
                 @* ----DATOS DE LA PROVISION/PEDIDO---*@
                 <br>
                 @* ----CANCELAR PROVISION---- *@
@@ -120,13 +137,11 @@
                         }
                     }
                 }
-
-
-
                 @* ----CANCELAR PROVISION---- *@
 
+
                 @* ----ARTICULOS DE LA PROVISION/PEDIDO---- *@
-                <div style="overflow: auto;">
+                <div style="overflow: auto;" class="pt-3">
                     <table class="table table-striped table-responsive table-hover">
                         <thead class="thead-dark">
                             <tr>
@@ -173,7 +188,6 @@
                     <div class="btn-opciones">
                         <div class="boton-busqueda">
                             <button type="button" class="btn btn-success" @onclick="() => ControlProvision(prov, 2)">Aprobar provisión</button>
-                            @* <button type="button" class="btn btn-danger" @onclick="() => ControlProvision(prov, 3)">Cancelar provisión</button> *@
                         </div>
                     </div>
                     <br>
@@ -210,17 +224,14 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="btn-opciones">
+                    <div class="btn-opciones pb-3">
                         <div class="boton-busqueda">
                             <button type="button" class="btn btn-primary" @onclick="SeleccionarProveedores">Seleccionar proveedores</button>
                         </div>
                         <div class="boton-ver">
                             <button type="button" class="btn btn-success" @onclick="() => GenerarPedido(prov)">Generar invitación</button>
                         </div>
-
                     </div>
-                    <br />
-                    <br />
                 }
                 else if (prov.estado_id == 4)
                 {
@@ -353,7 +364,7 @@
         if (prov.estado_id == 5)
         {
             pedido = await repositorioPedido.ObteberPedidoPorProvisionId(prov.id);
-            presupuestoPedidos = (await repositorioPedidoProveedor.ObtenerPresupuestoPedidoPorPedidoId(pedido.id)).ToList();
+            presupuestoPedidos = (await repositorioPresupuestoPedido.ObtenerPresupuestoPedidoPorPedidoId(pedido.id)).ToList();
         }
         procesos = (await repositorioProceso.ObtenerTodo()).ToList();
         destino = prov.Destino.destino;
@@ -413,7 +424,10 @@
             { 2, "text-success" },
             { 5, "text-success" },
             { 3, "text-danger" },
-            { 6, "text-danger" }
+            { 6, "text-danger" },
+            { 7, "text-warning" },
+            { 8, "text-success" },
+            { 9, "text-success" }
                 };
 
         return estadoCssMap.TryGetValue(estadoId, out var cssClass) ? cssClass : "";
@@ -576,8 +590,17 @@
             await CargarProceso(ultimoPedido, proceso);
         }
        
-
         var pdfBytes = PdfService.GenerarPdf(ultimoPedido, prov, provisionDetalle);
+
+        var folderPath = Path.Combine("wwwroot", "documentacion", "pedidos", DateTime.Now.ToString("dd-MM-yyyy"));
+        if (!Directory.Exists(folderPath))
+        {
+            Directory.CreateDirectory(folderPath);
+        }
+
+        var filePath = Path.Combine(folderPath, $"Pedido_{ultimoPedido.id}.pdf");
+        await File.WriteAllBytesAsync(filePath, pdfBytes);
+
         await DescargarPdf(pdfBytes);
 
         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El pedido se generó correctamente", "success");

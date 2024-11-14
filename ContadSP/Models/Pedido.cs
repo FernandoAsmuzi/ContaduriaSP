@@ -20,7 +20,7 @@ namespace ContadSP.Models
         public List<PedidoProveedor> PedidoProveedor { get; set; }
         public List<ProcesoPedido> ProcesoPedido { get; set; }
         public List<PresupuestoPedido> PresupuestoPedido { get; set; }
-
+        public List<Compra> Compra { get; set; }
 
         [ForeignKey("provision_id")]
         public int provision_id { get; set; }

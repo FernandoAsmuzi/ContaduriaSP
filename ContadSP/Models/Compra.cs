@@ -17,8 +17,8 @@ namespace ContadSP.Models
         public DateOnly fecha_compra { get; set; }
         public bool finalizado { get; set; } = false;
 
-        [ForeignKey("presupuesto_pedido_id")]
-        public int presupuesto_pedido_id { get; set; }
-        public PresupuestoPedido PresupuestoPedido { get; set; }
+        [ForeignKey("pedido_id")]
+        public int pedido_id { get; set; }
+        public Pedido Pedido { get; set; }
     }
 }

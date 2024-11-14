@@ -12,6 +12,7 @@ namespace ContadSP.Data
 
         public DbSet<Articulo> Articulo { get; set; }
         public DbSet<Categoria> Categoria { get; set; }
+        public DbSet<Compra> Compra { get; set; }
         public DbSet<Destino> Destino { get; set; }
         public DbSet<DetalleProvision> DetalleProvision { get; set; }
         public DbSet<Estado> Estado { get; set; }
@@ -131,9 +132,9 @@ namespace ContadSP.Data
                 .HasForeignKey(pp => pp.pedido_id);
             //Relacion de Compra con PresupuestoPedido
             modelBuilder.Entity<Compra>()
-                .HasOne(c => c.PresupuestoPedido)
+                .HasOne(c => c.Pedido)
                 .WithMany(pp => pp.Compra)
-                .HasForeignKey(c => c.presupuesto_pedido_id);
+                .HasForeignKey(c => c.pedido_id);
         }
     }
 }

@@ -114,6 +114,10 @@
         {
             NavigationManager.NavigateTo($"/compra/{prov.id}");
         }
+        else if(prov.estado_id == 8)
+        {
+            NavigationManager.NavigateTo($"/detalleCompra/{prov.id}");
+        }
         else
         {
             NavigationManager.NavigateTo($"/detallePedido/{prov.id}");

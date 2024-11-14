@@ -81,12 +81,12 @@ namespace ContadSP.Migrations
                     b.Property<bool>("finalizado")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int>("presupuesto_pedido_id")
+                    b.Property<int>("pedido_id")
                         .HasColumnType("int");
 
                     b.HasKey("id");
 
-                    b.HasIndex("presupuesto_pedido_id");
+                    b.HasIndex("pedido_id");
 
                     b.ToTable("Compra");
                 });
@@ -533,13 +533,13 @@ namespace ContadSP.Migrations
 
             modelBuilder.Entity("ContadSP.Models.Compra", b =>
                 {
-                    b.HasOne("ContadSP.Models.PresupuestoPedido", "PresupuestoPedido")
+                    b.HasOne("ContadSP.Models.Pedido", "Pedido")
                         .WithMany("Compra")
-                        .HasForeignKey("presupuesto_pedido_id")
+                        .HasForeignKey("pedido_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("PresupuestoPedido");
+                    b.Navigation("Pedido");
                 });
 
             modelBuilder.Entity("ContadSP.Models.DetalleProvision", b =>
@@ -753,6 +753,8 @@ namespace ContadSP.Migrations
 
             modelBuilder.Entity("ContadSP.Models.Pedido", b =>
                 {
+                    b.Navigation("Compra");
+
                     b.Navigation("PedidoProveedor");
 
                     b.Navigation("PresupuestoPedido");
@@ -763,11 +765,6 @@ namespace ContadSP.Migrations
             modelBuilder.Entity("ContadSP.Models.PedidoProveedor", b =>
                 {
                     b.Navigation("PresupuestoPedido");
-                });
-
-            modelBuilder.Entity("ContadSP.Models.PresupuestoPedido", b =>
-                {
-                    b.Navigation("Compra");
                 });
 
             modelBuilder.Entity("ContadSP.Models.Proceso", b =>

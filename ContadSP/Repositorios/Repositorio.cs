@@ -281,6 +281,14 @@ public class Repositorio<T> : IRepositorio<T> where T : class
             await _context.SaveChangesAsync();
         }
     }
+
+    public async Task<Compra> ObtenerCompraPorIdPedido(int id)
+    {
+        var ultima = await _context.Compra
+            .Include(p => p.Pedido)
+            .FirstOrDefaultAsync(c => c.pedido_id == id);
+        return ultima;
+    }
     // FIN METODOS ESPECIFICOS
     // ---------------------------------------------------------
 
