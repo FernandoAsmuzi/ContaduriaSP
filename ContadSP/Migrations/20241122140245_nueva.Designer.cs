@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContadSP.Migrations
 {
     [DbContext(typeof(ContadSPContext))]
-    [Migration("20241111133842_cambios en foranea de compra")]
-    partial class cambiosenforaneadecompra
+    [Migration("20241122140245_nueva")]
+    partial class nueva
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -87,6 +87,10 @@ namespace ContadSP.Migrations
                     b.Property<int>("pedido_id")
                         .HasColumnType("int");
 
+                    b.Property<string>("remito")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.HasKey("id");
 
                     b.HasIndex("pedido_id");
@@ -120,6 +124,9 @@ namespace ContadSP.Migrations
                     b.Property<int>("cantidad")
                         .HasColumnType("int");
 
+                    b.Property<int>("cantidad_aprobada")
+                        .HasColumnType("int");
+
                     b.Property<string>("especificacion")
                         .HasColumnType("longtext");
 
@@ -128,6 +135,12 @@ namespace ContadSP.Migrations
 
                     b.Property<int>("provision_id")
                         .HasColumnType("int");
+
+                    b.Property<double>("subtotal_aprobado")
+                        .HasColumnType("double");
+
+                    b.Property<string>("subtotal_aprobado_letra")
+                        .HasColumnType("longtext");
 
                     b.Property<double>("subtotal_aprox")
                         .HasColumnType("double");

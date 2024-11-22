@@ -258,6 +258,7 @@
         {
             var compra = new Compra();
             compra.pedido_id = pedido.id;
+            compra.remito = "";
             await repositorioCompra.Agregar(compra);
             await repositorioPedidoProveedor.CambiarEstadoProvision(prov, 8);
             await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La compra se cargó correctamente", "success");

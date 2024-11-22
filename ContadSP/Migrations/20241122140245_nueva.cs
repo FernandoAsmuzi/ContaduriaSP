@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ContadSP.Migrations
 {
     /// <inheritdoc />
-    public partial class nuevabd : Migration
+    public partial class nueva : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -296,6 +296,10 @@ namespace ContadSP.Migrations
                     especificacion = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     presupuestado = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    cantidad_aprobada = table.Column<int>(type: "int", nullable: false),
+                    subtotal_aprobado = table.Column<double>(type: "double", nullable: false),
+                    subtotal_aprobado_letra = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     articulo_id = table.Column<int>(type: "int", nullable: false),
                     unidad_id = table.Column<int>(type: "int", nullable: false),
                     provision_id = table.Column<int>(type: "int", nullable: false)
@@ -368,6 +372,31 @@ namespace ContadSP.Migrations
                         name: "FK_ProvisionExp_Provision_provision_id",
                         column: x => x.provision_id,
                         principalTable: "Provision",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Compra",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    fecha_pre_compra = table.Column<DateOnly>(type: "date", nullable: false),
+                    fecha_compra = table.Column<DateOnly>(type: "date", nullable: false),
+                    finalizado = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    remito = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    pedido_id = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Compra", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Compra_Pedido_pedido_id",
+                        column: x => x.pedido_id,
+                        principalTable: "Pedido",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -482,29 +511,6 @@ namespace ContadSP.Migrations
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
-            migrationBuilder.CreateTable(
-                name: "Compra",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    fecha_pre_compra = table.Column<DateOnly>(type: "date", nullable: false),
-                    fecha_compra = table.Column<DateOnly>(type: "date", nullable: false),
-                    finalizado = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    presupuesto_pedido_id = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Compra", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Compra_PresupuestoPedidos_presupuesto_pedido_id",
-                        column: x => x.presupuesto_pedido_id,
-                        principalTable: "PresupuestoPedidos",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
             migrationBuilder.CreateIndex(
                 name: "IX_Articulo_categoria_id",
                 table: "Articulo",
@@ -516,9 +522,9 @@ namespace ContadSP.Migrations
                 column: "estado_articulo_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Compra_presupuesto_pedido_id",
+                name: "IX_Compra_pedido_id",
                 table: "Compra",
-                column: "presupuesto_pedido_id");
+                column: "pedido_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DetalleProvision_articulo_id",
@@ -623,22 +629,22 @@ namespace ContadSP.Migrations
                 name: "Compra");
 
             migrationBuilder.DropTable(
+                name: "PresupuestoPedidos");
+
+            migrationBuilder.DropTable(
                 name: "ProcesoPedido");
 
             migrationBuilder.DropTable(
                 name: "ProvisionExp");
 
             migrationBuilder.DropTable(
-                name: "PresupuestoPedidos");
-
-            migrationBuilder.DropTable(
-                name: "Proceso");
-
-            migrationBuilder.DropTable(
                 name: "DetalleProvision");
 
             migrationBuilder.DropTable(
                 name: "PedidoProveedor");
+
+            migrationBuilder.DropTable(
+                name: "Proceso");
 
             migrationBuilder.DropTable(
                 name: "Articulo");

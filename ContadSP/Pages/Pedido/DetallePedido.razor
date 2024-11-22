@@ -1,5 +1,6 @@
 ﻿@page "/detallePedido/{id}"
 
+@using ContadSP.Controllers
 @using ContadSP.Repositorios
 @using ContadSP.Models
 @using System.Text.Json
@@ -146,10 +147,27 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>Artículo</th>
-                                <th>Cantidad</th>
+                                <th>Precio unitario</th>
                                 <th>Unidad</th>
-                                <th>Subtotal aprox.</th>
-                                <th>Subtotal letra</th>
+                                @if (prov.estado_id == 1)
+                                {
+                                    <th>Cantidad solicitada</th>
+                                    <th>Subtotal aprox.</th>
+                                    <th>Subtotal letra</th>
+
+                                    <th>Cantidad aprobada</th>
+                                    <th>Subtotal aprox</th>
+                                    <th>Subtotal letra</th>
+                                }
+                                else
+                                {
+                                    <th>Cantidad</th> 
+                                    <th>Subtotal aprox</th>
+                                    <th>Subtotal letra</th>
+                                }
+
+                               
+                                
                                 <th>Especificación</th>
                             </tr>
                         </thead>
@@ -158,10 +176,29 @@
                             {
                                 <tr>
                                     <td>@p.Articulo.descripcion</td>
-                                    <td>@p.cantidad</td>
+                                    <td>@p.Articulo.monto_aprox</td>
                                     <td>@p.UnidadMedida.unidad</td>
-                                    <td>@p.subtotal_aprox</td>
-                                    <td>@p.subtotal_letra</td>
+
+                                    @if (prov.estado_id == 1)
+                                    {
+                                        <td>@p.cantidad</td>
+                                        <td>@p.subtotal_aprox</td>
+                                        <td>@p.subtotal_letra</td>
+
+                                        <td>
+                                            <input type="number" class="form-control" @bind="p.cantidad_aprobada" @oninput="e => CalcularSubtotal(p, p.Articulo.monto_aprox, e)"/>
+                                        </td>
+                                        <td>@p.subtotal_aprobado</td>
+                                        <td>@p.subtotal_aprobado_letra</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@p.cantidad_aprobada</td>
+                                        <td>@p.subtotal_aprobado</td>
+                                        <td>@p.subtotal_aprobado_letra</td>
+                                    }
+                                   
+                                   
                                     <td>@p.especificacion</td>
                                 </tr>
                             }
@@ -440,6 +477,31 @@
         estado = estados.FirstOrDefault(e => e.id == prov.estado_id);
     }
 
+    private string UpdateCantidadLetra(ChangeEventArgs e)
+    {
+        if (int.TryParse(e.Value.ToString(), out var num))
+            return ConversorNumeroLetra.NumeroALetras(num);
+        else
+            return "";
+    }
+
+    private async Task CalcularSubtotal(DetalleProvision dp, double monto, ChangeEventArgs e)
+    {
+        if (int.TryParse(e.Value.ToString(), out var num))
+        {
+            if (num < 0)
+            {
+                await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "La cantidad no puede ser negativa", "error");
+                return;
+            }
+            else
+            {
+                dp.subtotal_aprobado = monto * num;
+                dp.subtotal_aprobado_letra = UpdateCantidadLetra(new ChangeEventArgs { Value = dp.subtotal_aprobado });
+            }
+        }
+    }
+
     private async Task SeleccionarProveedores()
     {
         proveedores = (await repositorioProveedor.ObtenerTodo()).ToList();
@@ -589,7 +651,7 @@
         {
             await CargarProceso(ultimoPedido, proceso);
         }
-       
+
         var pdfBytes = PdfService.GenerarPdf(ultimoPedido, prov, provisionDetalle);
 
         var folderPath = Path.Combine("wwwroot", "documentacion", "pedidos", DateTime.Now.ToString("dd-MM-yyyy"));
@@ -634,6 +696,22 @@
         else
         {
             exp.exp_num = ultimaProvExp.exp_num + 1;
+        }
+
+        if (estado == 2)
+        {
+            double totalProvision = 0;
+            string totalProvisionLetra = "";
+            foreach (var detalle in provisionDetalle)
+            {
+                detalle.cantidad_aprobada = detalle.cantidad_aprobada;
+                totalProvision += detalle.subtotal_aprobado;
+                await repositorioDetalleProvision.Actualizar(detalle);
+            }
+            totalProvisionLetra = UpdateCantidadLetra(new ChangeEventArgs { Value = totalProvision });
+            prov.total_aprox = totalProvision;
+            prov.total_letra = totalProvisionLetra;
+            await repositorioProvision.Actualizar(prov); 
         }
 
         exp.provision_id = prov.id;
