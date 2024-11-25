@@ -85,7 +85,6 @@ namespace ContadSP.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("remito")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("id");
@@ -257,6 +256,9 @@ namespace ContadSP.Migrations
 
                     b.Property<DateOnly>("fecha_presupuesto")
                         .HasColumnType("date");
+
+                    b.Property<string>("justificacion")
+                        .HasColumnType("longtext");
 
                     b.Property<int>("pedido_id")
                         .HasColumnType("int");

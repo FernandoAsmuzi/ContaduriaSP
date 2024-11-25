@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContadSP.Migrations
 {
     [DbContext(typeof(ContadSPContext))]
-    [Migration("20241122140245_nueva")]
+    [Migration("20241125134443_nueva")]
     partial class nueva
     {
         /// <inheritdoc />
@@ -88,7 +88,6 @@ namespace ContadSP.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("remito")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("id");
@@ -260,6 +259,9 @@ namespace ContadSP.Migrations
 
                     b.Property<DateOnly>("fecha_presupuesto")
                         .HasColumnType("date");
+
+                    b.Property<string>("justificacion")
+                        .HasColumnType("longtext");
 
                     b.Property<int>("pedido_id")
                         .HasColumnType("int");

@@ -138,34 +138,35 @@
                     <table class="table table-striped table-responsive table-hover">
 
                         <tbody>
-                            @foreach (var grupo in presupuestoPedidos.Where(pp => pp.Proveedor != null).GroupBy(pp => pp.proveedor_id))
-                            {
-                                <tr>
-                                    <td colspan="7"><strong>Proveedor: @grupo.First().Proveedor.nombre_comercial</strong></td>
-                                </tr>
+                            
+                                
                                 <tr>
                                     <th>Articulo</th>
                                     <th>Cantidad</th>
+                                    <th>Proveedor</th>
                                     <th>Precio unitario</th>
                                     <th>Precio total</th>
                                     <th>Subtotal letra</th>
                                     <th>Especificación</th>
+                                    <th>Justificación</th>
                                 </tr>
 
 
 
-                                @foreach (var pp in grupo)
+                                @foreach (var pp in presupuestoPedidos)
                                 {
                                     <tr>
                                         <td>@pp.DetalleProvision.Articulo.descripcion</td>
                                         <td>@pp.cantidad</td>
+                                        <td>@pp.Proveedor.nombre_comercial</td>
                                         <td>@pp.precio_unitario</td>
                                         <td>@pp.subtotal</td>
                                         <td>@pp.subtotal_letra</td>
                                         <td>@pp.especificacion</td>
+                                        <td>@pp.justificacion</td>
                                     </tr>
                                 }
-                            }
+                            
                         </tbody>
                     </table>
                 </div>

@@ -16,7 +16,7 @@ namespace ContadSP.Models
         public DateOnly fecha_pre_compra { get; set; }
         public DateOnly fecha_compra { get; set; }
         public bool finalizado { get; set; } = false;
-        public string remito { get; set; }
+        public string? remito { get; set; }
 
         [ForeignKey("pedido_id")]
         public int pedido_id { get; set; }

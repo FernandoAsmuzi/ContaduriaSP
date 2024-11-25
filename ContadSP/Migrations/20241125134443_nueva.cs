@@ -386,7 +386,7 @@ namespace ContadSP.Migrations
                     fecha_pre_compra = table.Column<DateOnly>(type: "date", nullable: false),
                     fecha_compra = table.Column<DateOnly>(type: "date", nullable: false),
                     finalizado = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    remito = table.Column<string>(type: "longtext", nullable: false)
+                    remito = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     pedido_id = table.Column<int>(type: "int", nullable: false)
                 },
@@ -476,6 +476,8 @@ namespace ContadSP.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     fecha_presupuesto = table.Column<DateOnly>(type: "date", nullable: false),
                     seleccion = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    justificacion = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     detalle_provision_id = table.Column<int>(type: "int", nullable: false),
                     pedido_proveedor_id = table.Column<int>(type: "int", nullable: false),
                     proveedor_id = table.Column<int>(type: "int", nullable: false),
