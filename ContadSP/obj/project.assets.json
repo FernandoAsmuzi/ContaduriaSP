@@ -5984,11 +5984,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\ContadSP.csproj",
+      "projectUniqueName": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\ContadSP.csproj",
       "projectName": "ContadSP",
-      "projectPath": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\ContadSP.csproj",
+      "projectPath": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\ContadSP.csproj",
       "packagesPath": "C:\\Users\\fasmuzi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\obj\\",
+      "outputPath": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\fasmuzi\\AppData\\Roaming\\NuGet\\NuGet.Config",

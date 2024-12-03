@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "T6Jghj2e/Ab3lbNjzFxj/WnZihhT0kw4CDCpCOiQdz4=",
+  "Hash": "rG1UYQtEeevJ63P8n2t3+/ERzheyGLfgZLUUhoUMCX0=",
   "Source": "ContadSP",
   "BasePath": "_content/ContadSP",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "ContadSP\\wwwroot",
       "Source": "ContadSP",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "Pattern": "**"
     }
@@ -1594,10 +1594,10 @@
       "OriginalItemSpec": "C:\\Users\\fasmuzi\\.nuget\\packages\\radzen.blazor\\4.29.8\\staticwebassets\\Radzen.Blazor.js"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\obj\\Debug\\net7.0\\scopedcss\\bundle\\ContadSP.styles.css",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\obj\\Debug\\net7.0\\scopedcss\\bundle\\ContadSP.styles.css",
       "SourceId": "ContadSP",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "ContadSP.styles.css",
       "AssetKind": "All",
@@ -1610,13 +1610,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\obj\\Debug\\net7.0\\scopedcss\\bundle\\ContadSP.styles.css"
+      "OriginalItemSpec": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\obj\\Debug\\net7.0\\scopedcss\\bundle\\ContadSP.styles.css"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ContadSP.bundle.scp.css",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ContadSP.bundle.scp.css",
       "SourceId": "ContadSP",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "ContadSP.bundle.scp.css",
       "AssetKind": "All",
@@ -1629,13 +1629,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ContadSP.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ContadSP.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\assets\\images\\logopodjud.png",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\assets\\images\\logopodjud.png",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "assets/images/logopodjud.png",
       "AssetKind": "All",
@@ -1651,10 +1651,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\logopodjud.png"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -1670,10 +1670,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -1689,10 +1689,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -1708,10 +1708,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -1727,10 +1727,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -1746,10 +1746,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -1765,10 +1765,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -1784,10 +1784,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -1803,10 +1803,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -1822,10 +1822,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -1841,10 +1841,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -1860,10 +1860,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\css\\site.css",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -1879,10 +1879,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\01112024\\ACT-1-01112024-Insumos SA.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\01112024\\ACT-1-01112024-Insumos SA.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "documentacion/01112024/ACT-1-01112024-Insumos SA.pdf",
       "AssetKind": "All",
@@ -1898,10 +1898,10 @@
       "OriginalItemSpec": "wwwroot\\documentacion\\01112024\\ACT-1-01112024-Insumos SA.pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\01112024\\ACT-1-01112024-Musimundo.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\01112024\\ACT-1-01112024-Musimundo.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "documentacion/01112024/ACT-1-01112024-Musimundo.pdf",
       "AssetKind": "All",
@@ -1917,10 +1917,10 @@
       "OriginalItemSpec": "wwwroot\\documentacion\\01112024\\ACT-1-01112024-Musimundo.pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\07112024\\ACT-3-07112024-Insumos SA.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\07112024\\ACT-3-07112024-Insumos SA.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "documentacion/07112024/ACT-3-07112024-Insumos SA.pdf",
       "AssetKind": "All",
@@ -1936,10 +1936,10 @@
       "OriginalItemSpec": "wwwroot\\documentacion\\07112024\\ACT-3-07112024-Insumos SA.pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\07112024\\ACT-3-07112024-Systech.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\07112024\\ACT-3-07112024-Systech.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "documentacion/07112024/ACT-3-07112024-Systech.pdf",
       "AssetKind": "All",
@@ -1955,10 +1955,10 @@
       "OriginalItemSpec": "wwwroot\\documentacion\\07112024\\ACT-3-07112024-Systech.pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\21102024\\ACT-4-21102024-Insumos SA.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\21102024\\ACT-4-21102024-Insumos SA.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "documentacion/21102024/ACT-4-21102024-Insumos SA.pdf",
       "AssetKind": "All",
@@ -1974,10 +1974,10 @@
       "OriginalItemSpec": "wwwroot\\documentacion\\21102024\\ACT-4-21102024-Insumos SA.pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\22102024\\ACT-4-22102024-Musimundo.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\22102024\\ACT-4-22102024-Musimundo.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "documentacion/22102024/ACT-4-22102024-Musimundo.pdf",
       "AssetKind": "All",
@@ -1993,10 +1993,10 @@
       "OriginalItemSpec": "wwwroot\\documentacion\\22102024\\ACT-4-22102024-Musimundo.pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\29102024\\ACT-1-29102024-Insumos SA.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\29102024\\ACT-1-29102024-Insumos SA.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "documentacion/29102024/ACT-1-29102024-Insumos SA.pdf",
       "AssetKind": "All",
@@ -2012,10 +2012,10 @@
       "OriginalItemSpec": "wwwroot\\documentacion\\29102024\\ACT-1-29102024-Insumos SA.pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\29102024\\ACT-1-29102024-Musimundo.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\29102024\\ACT-1-29102024-Musimundo.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "documentacion/29102024/ACT-1-29102024-Musimundo.pdf",
       "AssetKind": "All",
@@ -2031,10 +2031,10 @@
       "OriginalItemSpec": "wwwroot\\documentacion\\29102024\\ACT-1-29102024-Musimundo.pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\30102024\\ACT-3-30102024-Musimundo.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\30102024\\ACT-3-30102024-Musimundo.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "documentacion/30102024/ACT-3-30102024-Musimundo.pdf",
       "AssetKind": "All",
@@ -2050,10 +2050,10 @@
       "OriginalItemSpec": "wwwroot\\documentacion\\30102024\\ACT-3-30102024-Musimundo.pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\pedidos\\12-11-2024\\Pedido_2.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\pedidos\\12-11-2024\\Pedido_2.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "documentacion/pedidos/12-11-2024/Pedido_2.pdf",
       "AssetKind": "All",
@@ -2069,10 +2069,10 @@
       "OriginalItemSpec": "wwwroot\\documentacion\\pedidos\\12-11-2024\\Pedido_2.pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\pedidos\\2024-11-12\\Pedido_1.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\pedidos\\2024-11-12\\Pedido_1.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "documentacion/pedidos/2024-11-12/Pedido_1.pdf",
       "AssetKind": "All",
@@ -2088,10 +2088,10 @@
       "OriginalItemSpec": "wwwroot\\documentacion\\pedidos\\2024-11-12\\Pedido_1.pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\pedidos\\22-11-2024\\Pedido_1.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\pedidos\\22-11-2024\\Pedido_1.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "documentacion/pedidos/22-11-2024/Pedido_1.pdf",
       "AssetKind": "All",
@@ -2107,10 +2107,48 @@
       "OriginalItemSpec": "wwwroot\\documentacion\\pedidos\\22-11-2024\\Pedido_1.pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\documentacion\\presupuestos\\12-11-2024\\ACT-2-12-11-2024-Systech.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\pedidos\\25-11-2024\\Pedido_1.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
+      "BasePath": "_content/ContadSP",
+      "RelativePath": "documentacion/pedidos/25-11-2024/Pedido_1.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\documentacion\\pedidos\\25-11-2024\\Pedido_1.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\pedidos\\25-11-2024\\Pedido_2.pdf",
+      "SourceId": "ContadSP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
+      "BasePath": "_content/ContadSP",
+      "RelativePath": "documentacion/pedidos/25-11-2024/Pedido_2.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\documentacion\\pedidos\\25-11-2024\\Pedido_2.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\documentacion\\presupuestos\\12-11-2024\\ACT-2-12-11-2024-Systech.pdf",
+      "SourceId": "ContadSP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "documentacion/presupuestos/12-11-2024/ACT-2-12-11-2024-Systech.pdf",
       "AssetKind": "All",
@@ -2126,10 +2164,10 @@
       "OriginalItemSpec": "wwwroot\\documentacion\\presupuestos\\12-11-2024\\ACT-2-12-11-2024-Systech.pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\favicon.png",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -2145,10 +2183,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\155115344_10219593000277487_3140255217350723048_n.jpg",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\155115344_10219593000277487_3140255217350723048_n.jpg",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "fotos1/155115344_10219593000277487_3140255217350723048_n.jpg",
       "AssetKind": "All",
@@ -2164,10 +2202,10 @@
       "OriginalItemSpec": "wwwroot\\fotos1\\155115344_10219593000277487_3140255217350723048_n.jpg"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\157128015_723551921645495_7832340406353028866_n.jpg",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\157128015_723551921645495_7832340406353028866_n.jpg",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "fotos1/157128015_723551921645495_7832340406353028866_n.jpg",
       "AssetKind": "All",
@@ -2183,10 +2221,10 @@
       "OriginalItemSpec": "wwwroot\\fotos1\\157128015_723551921645495_7832340406353028866_n.jpg"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\Captura de pantalla 2024-04-20 135335.png",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\Captura de pantalla 2024-04-20 135335.png",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "fotos1/Captura de pantalla 2024-04-20 135335.png",
       "AssetKind": "All",
@@ -2202,10 +2240,10 @@
       "OriginalItemSpec": "wwwroot\\fotos1\\Captura de pantalla 2024-04-20 135335.png"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\dgik07z-3d73d9b2-0800-4566-a2a1-3e2d73ab1964.jpg",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\dgik07z-3d73d9b2-0800-4566-a2a1-3e2d73ab1964.jpg",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "fotos1/dgik07z-3d73d9b2-0800-4566-a2a1-3e2d73ab1964.jpg",
       "AssetKind": "All",
@@ -2221,10 +2259,10 @@
       "OriginalItemSpec": "wwwroot\\fotos1\\dgik07z-3d73d9b2-0800-4566-a2a1-3e2d73ab1964.jpg"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\escritorio.jpg",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\escritorio.jpg",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "fotos1/escritorio.jpg",
       "AssetKind": "All",
@@ -2240,10 +2278,10 @@
       "OriginalItemSpec": "wwwroot\\fotos1\\escritorio.jpg"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\GIIErsSWkAAgnaJ.jpg",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\GIIErsSWkAAgnaJ.jpg",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "fotos1/GIIErsSWkAAgnaJ.jpg",
       "AssetKind": "All",
@@ -2259,10 +2297,10 @@
       "OriginalItemSpec": "wwwroot\\fotos1\\GIIErsSWkAAgnaJ.jpg"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\logopodjud.png",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\logopodjud.png",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "fotos1/logopodjud.png",
       "AssetKind": "All",
@@ -2278,10 +2316,10 @@
       "OriginalItemSpec": "wwwroot\\fotos1\\logopodjud.png"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\monitor.jpg",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\monitor.jpg",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "fotos1/monitor.jpg",
       "AssetKind": "All",
@@ -2297,10 +2335,10 @@
       "OriginalItemSpec": "wwwroot\\fotos1\\monitor.jpg"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\resma.png",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\resma.png",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "fotos1/resma.png",
       "AssetKind": "All",
@@ -2316,10 +2354,10 @@
       "OriginalItemSpec": "wwwroot\\fotos1\\resma.png"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\fotos1\\Sin título-1.jpg",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\fotos1\\Sin título-1.jpg",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "fotos1/Sin título-1.jpg",
       "AssetKind": "All",
@@ -2335,10 +2373,10 @@
       "OriginalItemSpec": "wwwroot\\fotos1\\Sin título-1.jpg"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\icon\\logoPJ.png",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\icon\\logoPJ.png",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "icon/logoPJ.png",
       "AssetKind": "All",
@@ -2354,10 +2392,10 @@
       "OriginalItemSpec": "wwwroot\\icon\\logoPJ.png"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\js\\funciones.js",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\js\\funciones.js",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSp\\ContadSP\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContadSp\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
       "RelativePath": "js/funciones.js",
       "AssetKind": "All",
