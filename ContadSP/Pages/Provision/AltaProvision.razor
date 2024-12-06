@@ -115,7 +115,8 @@
                                             <tr>
                                                 <td class="ancho-30">@listaArticulos[currentIndex].descripcion</td>
                                                 <td>@listaArticulos[currentIndex].id</td>
-                                                <td>@listaArticulos[currentIndex].monto_aprox</td>
+                                                @* <td>@listaArticulos[currentIndex].monto_aprox</td> *@
+                                                <td class="ancho-25"><input style="width: 100%;" type="number" @bind-value="listaArticulos[currentIndex].monto_aprox" ></td>
                                                 <td class="ancho-40">@UpdateCantidadLetra(new ChangeEventArgs { Value = @listaArticulos[currentIndex].monto_aprox })</td>
                                                 <td class="ancho-5"><input style="width: 100%;" type="number" @bind-value="item.cantidad" @oninput="e => CalcularSubtotal(item, listaArticulos[currentIndex].monto_aprox, e)" required></td>
                                                 <td>@item.subtotal_aprox</td>

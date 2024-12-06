@@ -14,7 +14,7 @@ namespace ContadSP.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         public double precio_unitario { get; set; }
-        public int cantidad { get; set; }
+        public double cantidad { get; set; }
         public double subtotal { get; set; }
         public string? subtotal_letra { get; set; }
         public string? especificacion { get; set; }

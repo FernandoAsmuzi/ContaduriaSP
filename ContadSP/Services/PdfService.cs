@@ -106,7 +106,7 @@ namespace ContadSP.Services
                     detailtable.AddCell(new PdfPCell(new Phrase(p.cantidad.ToString(), smallFont)));
                     
                     //Aqui se corta la cadena para sacar la parte de PESOS 00 /100 que trae el conversor
-                    var letra = ConversorNumeroLetra.NumeroALetras(p.cantidad);
+                    var letra = ConversorNumeroLetra.NumeroALetras((decimal)p.cantidad);
                     if(letra.Length > 12)
                     {
                         letra = letra.Substring(0, letra.Length - 13);
