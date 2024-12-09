@@ -111,7 +111,9 @@ public class Repositorio<T> : IRepositorio<T> where T : class
     // METODOS PARA ARTICULO
     public async Task<List<Articulo>> Buscar(string buscar)
     {
-        var resultados = await _context.Articulo.Where(a => a.descripcion.Contains(buscar)).ToListAsync();
+        var resultados = await _context.Articulo
+            .Include(a => a.Categoria)
+            .Where(a => a.descripcion.Contains(buscar)).ToListAsync();
         return resultados;
     }
     public async Task<IEnumerable<Articulo>> ObtenerArticulos()

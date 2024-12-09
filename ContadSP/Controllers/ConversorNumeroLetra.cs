@@ -10,24 +10,26 @@ namespace ContadSP.Controllers
 
             var entero = Convert.ToInt64(Math.Truncate(numberAsString));
             var decimales = Convert.ToInt32(Math.Round((numberAsString - entero) * 100, 2));
+
             if (decimales > 0)
             {
-                //dec = " PESOS CON " + decimales.ToString() + "/100";
-                dec = $" PESOS {decimales:0,0} /100";
+               
+                dec = $" PESOS CON {decimales:00}/100";
             }
-            //Código agregado por mí
             else
             {
-                //dec = " PESOS CON " + decimales.ToString() + "/100";
-                dec = $" PESOS {decimales:0,0} /100";
+                
+                dec = " PESOS CON 00/100";
             }
             var res = NumeroALetras(Convert.ToDouble(entero)) + dec;
             return res;
         }
+
         [SuppressMessage("ReSharper", "CompareOfFloatsByEqualityOperator")]
         private static string NumeroALetras(double value)
         {
-            string num2Text; value = Math.Truncate(value);
+            string num2Text;
+            value = Math.Truncate(value);
             if (value == 0) num2Text = "CERO";
             else if (value == 1) num2Text = "UNO";
             else if (value == 2) num2Text = "DOS";
