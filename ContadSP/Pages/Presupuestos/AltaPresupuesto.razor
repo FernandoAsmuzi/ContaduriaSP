@@ -11,6 +11,7 @@
 @inject IRepositorio<ProcesoPedido> repositorioProcesoPedido
 @inject IRepositorio<TipoPedido> repositorioTipoPedido
 @inject IRepositorio<DetalleProvision> repositorioProvisionDetalle
+@inject IRepositorio<PresupuestoPedido> repositorioPresupuestoPedido
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JSRuntime
 
@@ -110,7 +111,7 @@
                                 <th>Dirección</th>
                                 <th>Teléfono</th>
                                 <th>Email</th>
-                                <th>Carga</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -128,7 +129,11 @@
                                         }
                                         else
                                         {
-                                                    <td><button class="btn btn-primary" @onclick="()=>CargarPresupuesto(p)">Ver presupuesto</button></td>
+                                                    <td>
+                                                        <button class="btn btn-primary" @onclick="()=>CargarPresupuesto(p)">Ver presupuesto</button>
+                                                        <button type="button" class="btn btn-danger" title="Vaciar datos del presupuesto" @onclick="() => VaciarPresupuesto(p)"><i class="oi oi-trash"></i></button>
+                                                    </td>
+                                        
                                         }
                                     </tr>
                             }
@@ -201,4 +206,16 @@
             NavigationManager.NavigateTo("/");
         }
     }
-   }
+
+    private async Task VaciarPresupuesto(PedidoProveedor pp)
+    {
+        var confirmed = await JSRuntime.InvokeAsync<bool>("showSweetAlertConfirm", "Vaciar Presupuesto", "¿Estás seguro de que deseas vaciar el presupuesto? Una vez realizada esta acción se perderán los datos cargados", "warning");
+        if (confirmed)
+        {
+            await repositorioPresupuestoPedido.CambiarActivo(pp.id);
+            await repositorioPedidoProveedor.CambiarCarga(pp.proveedor_id, pp.pedido_id);
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El presupuesto ha sido vaciado correctamente", "success");
+            //NavigationManager.NavigateTo("/");
+        }
+    }
+}

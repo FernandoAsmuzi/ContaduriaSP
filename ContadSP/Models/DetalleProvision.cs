@@ -12,7 +12,6 @@ namespace ContadSP.Models
         public double subtotal_aprox { get; set; }
         public string? subtotal_letra { get; set; }
         public string? especificacion { get; set; }
-        public bool presupuestado { get; set; } = false;
         public double cantidad_aprobada { get; set; }
         public double subtotal_aprobado { get; set; }
         public string? subtotal_aprobado_letra { get; set; }

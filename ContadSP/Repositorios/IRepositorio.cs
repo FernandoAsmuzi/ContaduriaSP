@@ -41,6 +41,9 @@ namespace ContadSP.Repositorios
         Task<IEnumerable<PresupuestoPedido>> ObtenerPresupuestoPedidoPorIdPedidoProveedor(int id);
         Task<IEnumerable<PresupuestoPedido>> ObtenerPresupuestoPedidoPorPedidoId(int id);
 
+        Task CambiarActivo(int id);
+
+        Task<IEnumerable<PresupuestoPedido>> ObtenerActivos(int id);
 
         // Métodos para EstadoArticulo
         Task<IEnumerable<EstadoArticulo>> ObtenerEstadosArticulo();

@@ -169,7 +169,7 @@ public class Repositorio<T> : IRepositorio<T> where T : class
 
         if (pedidoProveedor != null)
         {
-            pedidoProveedor.carga = true;
+            pedidoProveedor.carga = !pedidoProveedor.carga;
             _context.PedidoProveedor.Update(pedidoProveedor);
             await _context.SaveChangesAsync();
         }
@@ -291,7 +291,35 @@ public class Repositorio<T> : IRepositorio<T> where T : class
             .FirstOrDefaultAsync(c => c.pedido_id == id);
         return ultima;
     }
+
+    //metodo para presupuesto pedido
+    public async Task CambiarActivo(int pp)
+    {
+        var presupuestoPedidos = await _context.PresupuestoPedidos
+            .Where(p => p.pedido_proveedor_id == pp)
+            .ToListAsync();
+
+        foreach (var presupuestoPedido in presupuestoPedidos)
+        {
+            presupuestoPedido.activo = false;
+            _context.PresupuestoPedidos.Update(presupuestoPedido);
+        }
+
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task<IEnumerable<PresupuestoPedido>> ObtenerActivos(int id)
+    {
+        return await _context.PresupuestoPedidos
+            .Include(p => p.PedidoProveedor)
+            .Include(p => p.DetalleProvision.Articulo)
+            .Include(p => p.DetalleProvision.UnidadMedida)
+            .Where(p => p.pedido_proveedor_id == id && p.activo)
+            .ToListAsync();
+    }
+
     // FIN METODOS ESPECIFICOS
+
     // ---------------------------------------------------------
 
 }

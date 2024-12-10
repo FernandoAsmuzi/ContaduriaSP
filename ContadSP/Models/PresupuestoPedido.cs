@@ -13,6 +13,7 @@ namespace ContadSP.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
+        public bool activo { get; set; } = true;
         public double precio_unitario { get; set; }
         public double cantidad { get; set; }
         public double subtotal { get; set; }

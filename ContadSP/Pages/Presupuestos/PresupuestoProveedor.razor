@@ -398,8 +398,7 @@
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error al procesar el presupuesto: {ex.Message}");
-            await JSRuntime.InvokeVoidAsync("alert", "Ocurrió un error al procesar el presupuesto.");
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "No se pudo cargar el presupuesto", "error");
         }
     }
 

@@ -407,7 +407,7 @@
         if (prov.estado_id == 5)
         {
             pedido = await repositorioPedido.ObteberPedidoPorProvisionId(prov.id);
-            presupuestoPedidos = (await repositorioPresupuestoPedido.ObtenerPresupuestoPedidoPorPedidoId(pedido.id)).ToList();
+            presupuestoPedidos = (await repositorioPresupuestoPedido.ObtenerActivos(pedido.id)).ToList();
         }
         procesos = (await repositorioProceso.ObtenerTodo()).ToList();
         destino = prov.Destino.destino;
