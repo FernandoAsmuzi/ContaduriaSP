@@ -5,7 +5,7 @@
 namespace ContadSP.Migrations
 {
     /// <inheritdoc />
-    public partial class prueba : Migration
+    public partial class otra : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

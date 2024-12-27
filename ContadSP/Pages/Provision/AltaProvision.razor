@@ -116,7 +116,7 @@
                                                 <td class="ancho-30">@listaArticulos[currentIndex].descripcion</td>
                                                 <td>@listaArticulos[currentIndex].id</td>
                                                 @* <td>@listaArticulos[currentIndex].monto_aprox</td> *@
-                                                <td class="ancho-25"><input style="width: 100%;" type="number" @bind-value="listaArticulos[currentIndex].monto_aprox" ></td>
+                                                <td class="ancho-25"><input style="width: 100%;" type="number" step="0.01" @bind-value="listaArticulos[currentIndex].monto_aprox" @oninput="e => CalcularSubtotal(item, item.cantidad, e)" required></td>
                                                 <td class="ancho-40">@UpdateCantidadLetra(new ChangeEventArgs { Value = @listaArticulos[currentIndex].monto_aprox })</td>
                                                 <td class="ancho-5"><input style="width: 100%;" type="number" step="0.01" @bind-value="item.cantidad" @oninput="e => CalcularSubtotal(item, listaArticulos[currentIndex].monto_aprox, e)" required></td>
                                                 <td>@item.subtotal_aprox</td>
@@ -330,12 +330,14 @@
             {
                 dp.subtotal_aprox = Math.Round(monto * num, 3);
                 dp.subtotal_letra = UpdateCantidadLetra(new ChangeEventArgs { Value = dp.subtotal_aprox });
+               
             }
         }
     }
 
     private async Task<bool> ValidarCantidad(List<DetalleProvision> dp)
     {
+        var i = 0;
         foreach (var detalle in listaDetalleProvision)
         {
             if (detalle.cantidad <= 0)
@@ -343,6 +345,12 @@
                 await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "La cantidad no puede ser negativa o cero", "error");
                 return false;
             }
+            if (detalle.subtotal_aprox <= 0)
+            {
+                await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", $"El artículo {listaArticulos[i].descripcion} debe tener precio aproximado", "error");
+                return false;
+            }
+            i++;
         }
         return true;
     }
@@ -382,7 +390,7 @@
             }
             else
             {
-                listaDetalleProvision.Clear();
+                //listaDetalleProvision.Clear();
             }
 
         }

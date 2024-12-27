@@ -289,14 +289,13 @@ namespace ContadSP.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    cantidad = table.Column<int>(type: "int", nullable: false),
+                    cantidad = table.Column<double>(type: "double", nullable: false),
                     subtotal_aprox = table.Column<double>(type: "double", nullable: false),
                     subtotal_letra = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     especificacion = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    presupuestado = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    cantidad_aprobada = table.Column<int>(type: "int", nullable: false),
+                    cantidad_aprobada = table.Column<double>(type: "double", nullable: false),
                     subtotal_aprobado = table.Column<double>(type: "double", nullable: false),
                     subtotal_aprobado_letra = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -467,8 +466,9 @@ namespace ContadSP.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    activo = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     precio_unitario = table.Column<double>(type: "double", nullable: false),
-                    cantidad = table.Column<int>(type: "int", nullable: false),
+                    cantidad = table.Column<double>(type: "double", nullable: false),
                     subtotal = table.Column<double>(type: "double", nullable: false),
                     subtotal_letra = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),

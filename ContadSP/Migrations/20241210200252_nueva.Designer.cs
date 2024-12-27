@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContadSP.Migrations
 {
     [DbContext(typeof(ContadSPContext))]
-    [Migration("20241125134443_nueva")]
+    [Migration("20241210200252_nueva")]
     partial class nueva
     {
         /// <inheritdoc />
@@ -120,17 +120,14 @@ namespace ContadSP.Migrations
                     b.Property<int>("articulo_id")
                         .HasColumnType("int");
 
-                    b.Property<int>("cantidad")
-                        .HasColumnType("int");
+                    b.Property<double>("cantidad")
+                        .HasColumnType("double");
 
-                    b.Property<int>("cantidad_aprobada")
-                        .HasColumnType("int");
+                    b.Property<double>("cantidad_aprobada")
+                        .HasColumnType("double");
 
                     b.Property<string>("especificacion")
                         .HasColumnType("longtext");
-
-                    b.Property<bool>("presupuestado")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("provision_id")
                         .HasColumnType("int");
@@ -248,8 +245,11 @@ namespace ContadSP.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("cantidad")
-                        .HasColumnType("int");
+                    b.Property<bool>("activo")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<double>("cantidad")
+                        .HasColumnType("double");
 
                     b.Property<int>("detalle_provision_id")
                         .HasColumnType("int");
