@@ -49,6 +49,7 @@ namespace ContadSP.Repositorios
         Task<IEnumerable<EstadoArticulo>> ObtenerEstadosArticulo();
         Task<EstadoArticulo> ObtenerEstadoArticuloPorId(int id);
         Task<Compra> ObtenerCompraPorIdPedido(int id);
+
     }
 }
 

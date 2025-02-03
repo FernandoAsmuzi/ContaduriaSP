@@ -171,7 +171,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
 
-            @if (articulos == null || !articulos.Any())
+            @if (articulosPaginados == null || !articulosPaginados.Any())
             {
                <p>No se encontraron artículos</p>
             }
@@ -189,7 +189,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var articulo in articulos.ToList())
+                        @foreach (var articulo in articulosPaginados)
                         {
                             <tr>
                                 <td>@articulo.id</td>
@@ -212,6 +212,11 @@
                         }
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-primary" @onclick="PaginaAnterior" disabled="@(paginaActual == 1)">Anterior</button>
+                    <span>Página @paginaActual de @totalPaginas</span>
+                    <button class="btn btn-primary" @onclick="PaginaSiguiente" disabled="@(paginaActual == totalPaginas)">Siguiente</button>
+                </div>
             }
         </div>
     </div>
@@ -227,6 +232,11 @@
     private List<Articulo> listaArticulos = new List<Articulo>(); // lista de articulos a agregar
     private List<DetalleProvision> listaDetalleProvision = new List<DetalleProvision>(); // lista donde se va cargando el detalle
     private List<Usuario> usuarios = new List<Usuario>();
+
+    private List<Articulo> articulosPaginados = new List<Articulo>();
+    private int paginaActual = 1;
+    private int tamanioPagina = 10;
+    private int totalPaginas;
 
     private Provision provision = new Provision();
     private DetalleProvision detalleProvision = new DetalleProvision();
@@ -257,19 +267,45 @@
         {
             articulos.Clear(); // Limpia la lista si no hay texto de búsqueda
         }
+        CargarPagina();
     }
 
     /* --PROCEDIMIENTO PARA VER TODOS LOS ARTICULOS-- */
     private async Task VerArticulos()
     {
         articulos = (await repositorioArticulo.ObtenerArticulos()).ToList();
+        CargarPagina();
+    }
+
+    private void CargarPagina()
+    {
+        articulosPaginados = articulos.Skip((paginaActual - 1) * tamanioPagina).Take(tamanioPagina).ToList();
+        totalPaginas = (int)Math.Ceiling(articulos.Count / (double)tamanioPagina);
+    }
+
+    private void PaginaAnterior()
+    {
+        if (paginaActual > 1)
+        {
+            paginaActual--;
+            CargarPagina();
+        }
+    }
+
+    private void PaginaSiguiente()
+    {
+        if (paginaActual < totalPaginas)
+        {
+            paginaActual++;
+            CargarPagina();
+        }
     }
 
     /* --FUNCION PARA CONVERTIR NUMERO A LETRAS-- */
     // RECIBE CHANGEEVENT COMO PARAMETRO Y DEVUELVE UN STRING
     private string UpdateCantidadLetra(ChangeEventArgs e)
     {
-        if (int.TryParse(e.Value.ToString(), out var num))
+        if (decimal.TryParse(e.Value.ToString(), out var num))
             return ConversorNumeroLetra.NumeroALetras(num);
         else
             return "";
@@ -330,7 +366,7 @@
             {
                 dp.subtotal_aprox = Math.Round(monto * num, 3);
                 dp.subtotal_letra = UpdateCantidadLetra(new ChangeEventArgs { Value = dp.subtotal_aprox });
-               
+
             }
         }
     }
@@ -353,6 +389,15 @@
             i++;
         }
         return true;
+    }
+
+    private async Task ModificarArticulo(DetalleProvision detalle)
+    {
+        var articulo = new Articulo();
+        articulo.id = detalle.articulo_id;
+        articulo.monto_aprox = detalle.subtotal_aprox / detalle.cantidad;
+        articulo.fecha_ultimo_monto = DateOnly.FromDateTime(DateTime.Now);
+        await repositorioArticulo.Actualizar(articulo);
     }
 
 
@@ -384,6 +429,9 @@
                     detalleProvision.especificacion = detalle.especificacion;
 
                     await repositorioDetalleProvision.Agregar(detalleProvision);
+
+                    //await ModificarArticulo(detalle);
+                    
                 }
                 await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se guardó correctamente", "success");
                 LimpiarProvision();

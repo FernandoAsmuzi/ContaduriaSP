@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ContadSP.Controllers
 {
@@ -6,6 +7,7 @@ namespace ContadSP.Controllers
     {
         public static string NumeroALetras(this decimal numberAsString)
         {
+
             string dec;
 
             var entero = Convert.ToInt64(Math.Truncate(numberAsString));
