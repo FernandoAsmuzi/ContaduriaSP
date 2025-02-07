@@ -190,11 +190,11 @@
                                         <tr>
                                             <td>@instancia.Articulo.descripcion</td>
                                             <td>
-                                                <input type="number" @bind-value="presupuestoInstancias[index].cantidad" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(instancia, presupuestoInstancias[index])" />
+                                            <input type="number" @bind-value="presupuestoInstancias[index].cantidad" step="0.01" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(instancia, presupuestoInstancias[index])" />
                                             </td>
                                             <td>@instancia.UnidadMedida.unidad</td>
                                             <td>
-                                                <input type="number" @bind-value="presupuestoInstancias[index].precio_unitario" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(instancia, presupuestoInstancias[index])" />
+                                            <input type="number" @bind-value="presupuestoInstancias[index].precio_unitario" step="0.01" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(instancia, presupuestoInstancias[index])" />
                                             </td>
                                             <td>@presupuestoInstancias[index].subtotal</td>
                                             <td>@presupuestoInstancias[index].subtotal_letra</td>
