@@ -17,13 +17,13 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <RadzenGrid AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" Data="@articulos" TItem="Articulo">
+            <RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" AllowAlternatingRows="false" AllowPaging="true" PageSize="10" AllowSorting="true" Data="@articulos" TItem="Articulo">
                 <Columns>
-                    <RadzenGridColumn TItem="Articulo" Property="descripcion" Title="Descripción" />
-                    <RadzenGridColumn TItem="Articulo" Property="monto_aprox" Title="Monto Aproximado" />
-                    <RadzenGridColumn TItem="Articulo" Property="fecha_ultimo_monto" Title="Fecha Último Monto" />
-                    <RadzenGridColumn TItem="Articulo" Property="Categoria.categoria" Title="Categoría" />
-                    <RadzenGridColumn TItem="Articulo" Context="articulo">
+                    <RadzenDataGridColumn TItem="Articulo" Property="descripcion" Title="Descripción" />
+                    <RadzenDataGridColumn TItem="Articulo" Property="monto_aprox" Title="Monto Aproximado" />
+                    <RadzenDataGridColumn TItem="Articulo" Property="fecha_ultimo_monto" Title="Fecha Último Monto" />
+                    <RadzenDataGridColumn TItem="Articulo" Property="Categoria.categoria" Title="Categoría" />
+                    <RadzenDataGridColumn TItem="Articulo" Context="articulo">
                         <Template Context="articulo">
                             @{
                                 if (!string.IsNullOrEmpty(articulo.foto))
@@ -37,15 +37,15 @@
                                 }
                             }
                         </Template>
-                    </RadzenGridColumn>
-                    <RadzenGridColumn TItem="Articulo" Context="articulo">
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="Articulo" Context="articulo">
                         <Template Context="articulo">
                             <NavLink class="btn btn-primary" href="@($"editarArticulo/{articulo.id}")">Editar</NavLink>
                             <RadzenButton Text="Eliminar" Click="@(args => Eliminar(articulo.id))" ButtonStyle="Radzen.ButtonStyle.Danger" />
                         </Template>
-                    </RadzenGridColumn>
+                    </RadzenDataGridColumn>
                 </Columns>
-            </RadzenGrid>
+            </RadzenDataGrid>
         </div>
     </div>
 </div>

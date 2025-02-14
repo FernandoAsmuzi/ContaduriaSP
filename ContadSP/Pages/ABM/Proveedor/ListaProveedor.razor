@@ -14,23 +14,23 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <RadzenGrid AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" Data="@proveedores" TItem="Proveedor">
+            <RadzenDataGrid AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" Data="@proveedores" TItem="Proveedor">
                 <Columns>
-                    <RadzenGridColumn TItem="Proveedor" Property="nombre" Title="Nombre" />
-                    <RadzenGridColumn TItem="Proveedor" Property="nombre_comercial" Title="Razón Social" />
-                    <RadzenGridColumn TItem="Proveedor" Property="cuit" Title="CUIT" />
-                    <RadzenGridColumn TItem="Proveedor" Property="ingresos_brutos" Title="Ingresos Brutos" />
-                    <RadzenGridColumn TItem="Proveedor" Property="direccion" Title="Dirección" />
-                    <RadzenGridColumn TItem="Proveedor" Property="telefono" Title="Teléfono" />
-                    <RadzenGridColumn TItem="Proveedor" Property="email" Title="Email" />
-                    <RadzenGridColumn TItem="Proveedor" Context="proveedor">
+                    <RadzenDataGridColumn TItem="Proveedor" Property="nombre" Title="Nombre" />
+                    <RadzenDataGridColumn TItem="Proveedor" Property="nombre_comercial" Title="Razón Social" />
+                    <RadzenDataGridColumn TItem="Proveedor" Property="cuit" Title="CUIT" />
+                    <RadzenDataGridColumn TItem="Proveedor" Property="ingresos_brutos" Title="Ingresos Brutos" />
+                    <RadzenDataGridColumn TItem="Proveedor" Property="direccion" Title="Dirección" />
+                    <RadzenDataGridColumn TItem="Proveedor" Property="telefono" Title="Teléfono" />
+                    <RadzenDataGridColumn TItem="Proveedor" Property="email" Title="Email" />
+                    <RadzenDataGridColumn TItem="Proveedor" Context="proveedor">
                         <Template Context="proveedor">
                             <NavLink class="btn btn-primary" href="@($"editarProveedor/{proveedor.id}")">Editar</NavLink>
                             <RadzenButton Text="Eliminar" Click="@(args => Eliminar(proveedor.id))" ButtonStyle="Radzen.ButtonStyle.Danger" />
                         </Template>
-                    </RadzenGridColumn>
+                    </RadzenDataGridColumn>
                 </Columns>
-            </RadzenGrid>
+            </RadzenDataGrid>
         </div>
     </div>
 </div>

@@ -13,17 +13,17 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <RadzenGrid AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" Data="@situacionesFiscales" TItem="SitFiscal">
+            <RadzenDataGrid AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" Data="@situacionesFiscales" TItem="SitFiscal">
                 <Columns>
-                    <RadzenGridColumn TItem="SitFiscal" Property="sit_fiscal" Title="Situación Fiscal" />
-                    <RadzenGridColumn TItem="SitFiscal" Context="sitFiscal">
+                    <RadzenDataGridColumn TItem="SitFiscal" Property="sit_fiscal" Title="Situación Fiscal" />
+                    <RadzenDataGridColumn TItem="SitFiscal" Context="sitFiscal">
                         <Template Context="sitFiscal">
                             <NavLink class="btn btn-primary" href="@($"editarSitFiscal/{sitFiscal.id}")">Editar</NavLink>
                             <RadzenButton Text="Eliminar" Click="@(args => Eliminar(sitFiscal.id))" ButtonStyle="Radzen.ButtonStyle.Danger" />
                         </Template>
-                    </RadzenGridColumn>
+                    </RadzenDataGridColumn>
                 </Columns>
-            </RadzenGrid>
+            </RadzenDataGrid>
         </div>
     </div>
 </div>

@@ -131,7 +131,15 @@
                                                     </select>
                                                 </td>
                                                 <td class="ancho-40"><input style="width: 100%;" type="text" @bind="item.especificacion" ></td>
-                                                <td><button type="button" class="btn btn-danger" title="Eliminar artículo de la provisión" @onclick="() => EliminarArticulo(currentIndex)"><i class="oi oi-trash"></i></button></td>
+                                                
+                                                    <td>
+                                                        <div class="acciones">
+                                                            <button type="button" class="btn btn-danger" title="Eliminar artículo de la provisión" @onclick="() => EliminarArticulo(currentIndex)"><i class="oi oi-trash"></i></button>
+                                                            <button type="button" class="btn btn-secondary" title="Subir archivo" @onclick="() => EliminarArticulo(currentIndex)"><i class="oi oi-data-transfer-upload"></i></button>
+                                                        </div> 
+                                                        
+                                                    </td>
+                                                
                                             </tr>
                                         }
                                     </tbody>

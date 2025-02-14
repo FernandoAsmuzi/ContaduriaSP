@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ContadSP.bundle.scp.css",
-      "PackagePath": "staticwebassets\\ContadSP.bundle.scp.css"
+      "PackagePath": "staticwebassets\\ContadSP.3eampigc0h.bundle.scp.css"
     },
     {
       "Id": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\assets\\images\\logopodjud.png",
@@ -137,6 +137,10 @@
       "PackagePath": "staticwebassets\\documentacion\\presupuestos\\12-11-2024\\ACT-2-12-11-2024-Systech.pdf"
     },
     {
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\presupuestos\\14-02-2025\\ACT-1-14-02-2025-A LA CIMA SA.pdf",
+      "PackagePath": "staticwebassets\\documentacion\\presupuestos\\14-02-2025\\ACT-1-14-02-2025-A LA CIMA SA.pdf"
+    },
+    {
       "Id": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
@@ -187,6 +191,10 @@
     {
       "Id": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\js\\funciones.js",
       "PackagePath": "staticwebassets\\js\\funciones.js"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.ContadSP.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.ContadSP.Microsoft.AspNetCore.StaticWebAssets.props",

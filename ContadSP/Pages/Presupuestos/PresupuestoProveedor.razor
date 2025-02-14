@@ -2,6 +2,7 @@
 @using ContadSP.Controllers
 @using ContadSP.Repositorios
 @using ContadSP.Models
+@using ContadSP.Services
 @using Radzen
 @using Radzen.Blazor
 @using System.ComponentModel.DataAnnotations
@@ -284,34 +285,52 @@
         return ConversorNumeroLetra.NumeroALetras((decimal)subtotal);
     }
 
+    // private async Task OnInputFileChange(InputFileChangeEventArgs e)
+    // {
+    //     archivoSeleccionado = e.File;
+    //     var maxAllowedSize = 10 * 1024 * 1024; // 10 MB
+
+    //     if (archivoSeleccionado.Size > maxAllowedSize)
+    //     {
+    //         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "El archivo excede el límite de tamaño", "error");
+    //         return;
+    //     }
+
+    //     var fechaActual = DateTime.Now.ToString("dd-MM-yyyy");
+    //     var carpetaDestino = Path.Combine("wwwroot", "documentacion", "presupuestos", fechaActual);
+
+    //     if (!Directory.Exists(carpetaDestino))
+    //     {
+    //         Directory.CreateDirectory(carpetaDestino);
+    //     }
+
+    //     var nuevoNombreArchivo = $"{pedido.abreviatura}-{pedido.acta_num}-{fechaActual}-{pedidoProveedor.Proveedor.nombre_comercial}.pdf";
+    //     var rutaArchivo = Path.Combine(carpetaDestino, nuevoNombreArchivo);
+
+    //     using (var stream = archivoSeleccionado.OpenReadStream(maxAllowedSize))
+    //     using (var fileStream = new FileStream(rutaArchivo, FileMode.Create))
+    //     {
+    //         await stream.CopyToAsync(fileStream);
+    //     }
+
+    // }
+
     private async Task OnInputFileChange(InputFileChangeEventArgs e)
     {
         archivoSeleccionado = e.File;
-        var maxAllowedSize = 10 * 1024 * 1024; // 10 MB
 
-        if (archivoSeleccionado.Size > maxAllowedSize)
+        var rutaArchivo = await Utiles.CargarArchivoPdfAsync(
+            archivoSeleccionado,
+            pedido.abreviatura,
+            pedido.acta_num.ToString(),
+            pedidoProveedor.Proveedor.nombre_comercial,
+            JSRuntime
+        );
+
+        if (rutaArchivo != null)
         {
-            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "El archivo excede el límite de tamaño", "error");
-            return;
+            // Aquí puedes manejar la ruta del archivo cargado si es necesario
         }
-
-        var fechaActual = DateTime.Now.ToString("dd-MM-yyyy");
-        var carpetaDestino = Path.Combine("wwwroot", "documentacion", "presupuestos", fechaActual);
-
-        if (!Directory.Exists(carpetaDestino))
-        {
-            Directory.CreateDirectory(carpetaDestino);
-        }
-
-        var nuevoNombreArchivo = $"{pedido.abreviatura}-{pedido.acta_num}-{fechaActual}-{pedidoProveedor.Proveedor.nombre_comercial}.pdf";
-        var rutaArchivo = Path.Combine(carpetaDestino, nuevoNombreArchivo);
-
-        using (var stream = archivoSeleccionado.OpenReadStream(maxAllowedSize))
-        using (var fileStream = new FileStream(rutaArchivo, FileMode.Create))
-        {
-            await stream.CopyToAsync(fileStream);
-        }
-
     }
 
     private void CalcularSubtotal(DetalleProvision detalle, PresupuestoPedido presupuesto)

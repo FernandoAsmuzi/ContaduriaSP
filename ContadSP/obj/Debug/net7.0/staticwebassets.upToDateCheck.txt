@@ -1,0 +1,47 @@
+wwwroot\assets\images\logopodjud.png
+wwwroot\css\bootstrap\bootstrap.min.css
+wwwroot\css\bootstrap\bootstrap.min.css.map
+wwwroot\css\open-iconic\font\css\open-iconic-bootstrap.min.css
+wwwroot\css\open-iconic\font\fonts\open-iconic.eot
+wwwroot\css\open-iconic\font\fonts\open-iconic.otf
+wwwroot\css\open-iconic\font\fonts\open-iconic.svg
+wwwroot\css\open-iconic\font\fonts\open-iconic.ttf
+wwwroot\css\open-iconic\font\fonts\open-iconic.woff
+wwwroot\css\open-iconic\FONT-LICENSE
+wwwroot\css\open-iconic\ICON-LICENSE
+wwwroot\css\open-iconic\README.md
+wwwroot\css\site.css
+wwwroot\documentacion\01112024\ACT-1-01112024-Insumos SA.pdf
+wwwroot\documentacion\01112024\ACT-1-01112024-Musimundo.pdf
+wwwroot\documentacion\07112024\ACT-3-07112024-Insumos SA.pdf
+wwwroot\documentacion\07112024\ACT-3-07112024-Systech.pdf
+wwwroot\documentacion\21102024\ACT-4-21102024-Insumos SA.pdf
+wwwroot\documentacion\22102024\ACT-4-22102024-Musimundo.pdf
+wwwroot\documentacion\29102024\ACT-1-29102024-Insumos SA.pdf
+wwwroot\documentacion\29102024\ACT-1-29102024-Musimundo.pdf
+wwwroot\documentacion\30102024\ACT-3-30102024-Musimundo.pdf
+wwwroot\documentacion\pedidos\03-02-2025\Pedido_8.pdf
+wwwroot\documentacion\pedidos\03-02-2025\Pedido_9.pdf
+wwwroot\documentacion\pedidos\07-02-2025\Pedido_11.pdf
+wwwroot\documentacion\pedidos\09-12-2024\Pedido_1.pdf
+wwwroot\documentacion\pedidos\12-11-2024\Pedido_2.pdf
+wwwroot\documentacion\pedidos\2024-11-12\Pedido_1.pdf
+wwwroot\documentacion\pedidos\22-11-2024\Pedido_1.pdf
+wwwroot\documentacion\pedidos\25-11-2024\Pedido_1.pdf
+wwwroot\documentacion\pedidos\25-11-2024\Pedido_2.pdf
+wwwroot\documentacion\pedidos\27-12-2024\Pedido_7.pdf
+wwwroot\documentacion\presupuestos\12-11-2024\ACT-2-12-11-2024-Systech.pdf
+wwwroot\documentacion\presupuestos\14-02-2025\ACT-1-14-02-2025-A LA CIMA SA.pdf
+wwwroot\favicon.png
+wwwroot\fotos1\155115344_10219593000277487_3140255217350723048_n.jpg
+wwwroot\fotos1\157128015_723551921645495_7832340406353028866_n.jpg
+wwwroot\fotos1\Captura de pantalla 2024-04-20 135335.png
+wwwroot\fotos1\dgik07z-3d73d9b2-0800-4566-a2a1-3e2d73ab1964.jpg
+wwwroot\fotos1\escritorio.jpg
+wwwroot\fotos1\GIIErsSWkAAgnaJ.jpg
+wwwroot\fotos1\logopodjud.png
+wwwroot\fotos1\monitor.jpg
+wwwroot\fotos1\resma.png
+wwwroot\fotos1\Sin título-1.jpg
+wwwroot\icon\logoPJ.png
+wwwroot\js\funciones.js
