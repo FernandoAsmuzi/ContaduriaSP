@@ -160,13 +160,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-sHn\u002BeAWKZN\u002BHUKg2G9s8iiSl5CWBjoN3S7xdScZGSMA="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"7480"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022sHn\u002BeAWKZN\u002BHUKg2G9s8iiSl5CWBjoN3S7xdScZGSMA=\u0022"},{"Name":"Last-Modified","Value":"Fri, 14 Feb 2025 15:32:55 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"7480"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022sHn\u002BeAWKZN\u002BHUKg2G9s8iiSl5CWBjoN3S7xdScZGSMA=\u0022"},{"Name":"Last-Modified","Value":"Fri, 14 Feb 2025 15:39:53 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ContadSP/css/site.s5owo77pje.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"s5owo77pje"},{"Name":"integrity","Value":"sha256-sHn\u002BeAWKZN\u002BHUKg2G9s8iiSl5CWBjoN3S7xdScZGSMA="},{"Name":"label","Value":"_content/ContadSP/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7480"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022sHn\u002BeAWKZN\u002BHUKg2G9s8iiSl5CWBjoN3S7xdScZGSMA=\u0022"},{"Name":"Last-Modified","Value":"Fri, 14 Feb 2025 15:32:55 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7480"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022sHn\u002BeAWKZN\u002BHUKg2G9s8iiSl5CWBjoN3S7xdScZGSMA=\u0022"},{"Name":"Last-Modified","Value":"Fri, 14 Feb 2025 15:39:53 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ContadSP/documentacion/01112024/ACT-1-01112024-Insumos SA.kxf8o22lu5.pdf">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\01112024\ACT-1-01112024-Insumos SA.pdf'))</AssetFile>

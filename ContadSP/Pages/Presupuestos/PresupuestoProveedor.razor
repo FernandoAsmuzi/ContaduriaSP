@@ -285,45 +285,18 @@
         return ConversorNumeroLetra.NumeroALetras((decimal)subtotal);
     }
 
-    // private async Task OnInputFileChange(InputFileChangeEventArgs e)
-    // {
-    //     archivoSeleccionado = e.File;
-    //     var maxAllowedSize = 10 * 1024 * 1024; // 10 MB
-
-    //     if (archivoSeleccionado.Size > maxAllowedSize)
-    //     {
-    //         await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "El archivo excede el límite de tamaño", "error");
-    //         return;
-    //     }
-
-    //     var fechaActual = DateTime.Now.ToString("dd-MM-yyyy");
-    //     var carpetaDestino = Path.Combine("wwwroot", "documentacion", "presupuestos", fechaActual);
-
-    //     if (!Directory.Exists(carpetaDestino))
-    //     {
-    //         Directory.CreateDirectory(carpetaDestino);
-    //     }
-
-    //     var nuevoNombreArchivo = $"{pedido.abreviatura}-{pedido.acta_num}-{fechaActual}-{pedidoProveedor.Proveedor.nombre_comercial}.pdf";
-    //     var rutaArchivo = Path.Combine(carpetaDestino, nuevoNombreArchivo);
-
-    //     using (var stream = archivoSeleccionado.OpenReadStream(maxAllowedSize))
-    //     using (var fileStream = new FileStream(rutaArchivo, FileMode.Create))
-    //     {
-    //         await stream.CopyToAsync(fileStream);
-    //     }
-
-    // }
-
     private async Task OnInputFileChange(InputFileChangeEventArgs e)
     {
         archivoSeleccionado = e.File;
 
+        var fechaActual = DateTime.Now.ToString("dd-MM-yyyy");
+        var carpetaDestino = Path.Combine("wwwroot", "documentacion", "PROV - ", prov, "Presupuesto", fechaActual);
+        var nombreArchivo = $"{pedido.abreviatura}-{pedido.acta_num}-{fechaActual}-{pedidoProveedor.Proveedor.nombre_comercial}.pdf";
+
         var rutaArchivo = await Utiles.CargarArchivoPdfAsync(
             archivoSeleccionado,
-            pedido.abreviatura,
-            pedido.acta_num.ToString(),
-            pedidoProveedor.Proveedor.nombre_comercial,
+            carpetaDestino,
+            nombreArchivo,
             JSRuntime
         );
 

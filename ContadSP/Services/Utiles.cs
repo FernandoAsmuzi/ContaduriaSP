@@ -5,7 +5,7 @@ namespace ContadSP.Services
 {
     public class Utiles
     {
-        public static async Task<string> CargarArchivoPdfAsync(IBrowserFile archivo, string abreviatura, string actaNum, string nombreComercial, IJSRuntime jsRuntime)
+        public static async Task<string> CargarArchivoPdfAsync(IBrowserFile archivo, string carpetaDestino, string nombreArchivo, IJSRuntime jsRuntime)
         {
             var maxAllowedSize = 10 * 1024 * 1024; // 10 MB
 
@@ -15,16 +15,12 @@ namespace ContadSP.Services
                 return null;
             }
 
-            var fechaActual = DateTime.Now.ToString("dd-MM-yyyy");
-            var carpetaDestino = Path.Combine("wwwroot", "documentacion", "presupuestos", fechaActual);
-
             if (!Directory.Exists(carpetaDestino))
             {
                 Directory.CreateDirectory(carpetaDestino);
             }
 
-            var nuevoNombreArchivo = $"{abreviatura}-{actaNum}-{fechaActual}-{nombreComercial}.pdf";
-            var rutaArchivo = Path.Combine(carpetaDestino, nuevoNombreArchivo);
+            var rutaArchivo = Path.Combine(carpetaDestino, nombreArchivo);
 
             using (var stream = archivo.OpenReadStream(maxAllowedSize))
             using (var fileStream = new FileStream(rutaArchivo, FileMode.Create))

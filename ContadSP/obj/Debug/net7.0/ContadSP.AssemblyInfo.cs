@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ContadSP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d8d301723bcd916be6302b658a1761030d66c76")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+233c18dceba968ae30dfe7b864d420ebca34a9a6")]
 [assembly: System.Reflection.AssemblyProductAttribute("ContadSP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ContadSP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
