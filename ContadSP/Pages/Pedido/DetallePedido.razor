@@ -204,18 +204,38 @@
                             }
                         </tbody>
                     </table>
-                    <div class="row text-end">
-                        <div class="col">
-                            <label><strong>Total Aproximado:</strong></label>
-                            <label>@prov.total_aprox</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-end"><strong>Total aproximado solicitado:</strong></td>
+                                        <td class="text-end">@prov.total_aprox</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-end"><strong>Total aproximado solicitado letra:</strong></td>
+                                        <td class="text-end">@prov.total_letra</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-end"><strong>Total aproximado aprobado:</strong></td>
+                                        <td class="text-end">@aprobado</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-end"><strong>Total aproximado aprobado letra:</strong></td>
+                                        <td class="text-end">@aprobadoLetra</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <div class="row text-end">
-                        <div class="col">
-                            <label><strong>Total aproximado letra:</strong></label>
-                            <label>@prov.total_letra</label>
-                        </div>
-                    </div>
+                    
+                    
                 </div>
                 @* ----ARTICULOS DE LA PROVISION/PEDIDO---- *@
 
@@ -394,6 +414,8 @@
     private string? usuario;
     private string? tipo;
     private int anio = 0;
+    private double aprobado = 0;
+    private string aprobadoLetra = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -485,7 +507,7 @@
 
     private string UpdateCantidadLetra(ChangeEventArgs e)
     {
-        if (int.TryParse(e.Value.ToString(), out var num))
+        if (decimal.TryParse(e.Value.ToString(), out var num))
             return ConversorNumeroLetra.NumeroALetras(num);
         else
             return "";
@@ -502,8 +524,12 @@
             }
             else
             {
-                dp.subtotal_aprobado = monto * num;
+                dp.subtotal_aprobado = Math.Round(monto * num, 3);
                 dp.subtotal_aprobado_letra = UpdateCantidadLetra(new ChangeEventArgs { Value = dp.subtotal_aprobado });
+
+                // Actualizar el total aprobado y el total aprobado en letras
+                aprobado = provisionDetalle.Sum(p => p.subtotal_aprobado);
+                aprobadoLetra = UpdateCantidadLetra(new ChangeEventArgs { Value = aprobado });
             }
         }
     }

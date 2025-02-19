@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RLDVX/fog3p4OGHdziWutFvmgrg+ml7X7dxMZYJ1dcQ=",
+  "Hash": "JTo2LkRRO2enalmlZZ9YhLr7cNaGBOXn8FDJctq7fr0=",
   "Source": "ContadSP",
   "BasePath": "_content/ContadSP",
   "Mode": "Default",
@@ -1781,12 +1781,12 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\01112024\\ACT-1-01112024-Insumos SA.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\20\\articulos\\System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/01112024/ACT-1-01112024-Insumos SA#[.{fingerprint}]?.pdf",
+      "RelativePath": "documentacion/provisiones/20/articulos/System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile]#[.{fingerprint}]?.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1795,229 +1795,19 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "kxf8o22lu5",
-      "Integrity": "qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU=",
+      "Fingerprint": "vgkloy5s8q",
+      "Integrity": "34rKAF0roGkAoxtFVSk/hQqaDweExNxHa+74H99eBGk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\01112024\\ACT-1-01112024-Insumos SA.pdf"
+      "OriginalItemSpec": "wwwroot\\documentacion\\provisiones\\20\\articulos\\System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\01112024\\ACT-1-01112024-Musimundo.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\21\\articulos\\1.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/01112024/ACT-1-01112024-Musimundo#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "e94ew29z8g",
-      "Integrity": "7jrqo63++XnJDBgs5zoz9hWcq4j86ZbB2m7DLM/+Bek=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\01112024\\ACT-1-01112024-Musimundo.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\07112024\\ACT-3-07112024-Insumos SA.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/07112024/ACT-3-07112024-Insumos SA#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "xqj1j3wrw6",
-      "Integrity": "x0Y9Ieh86fvuKFiUWg48t1TW1rvg+K4wBenxkYlblyQ=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\07112024\\ACT-3-07112024-Insumos SA.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\07112024\\ACT-3-07112024-Systech.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/07112024/ACT-3-07112024-Systech#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "z5ykbzaoej",
-      "Integrity": "9+DDpMSDZVpS+T2cofYTyFWSVdsTrDo79h/+sx6lsJw=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\07112024\\ACT-3-07112024-Systech.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\21102024\\ACT-4-21102024-Insumos SA.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/21102024/ACT-4-21102024-Insumos SA#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "br6ckd3d7e",
-      "Integrity": "NwX51mfYrBRpTkt/3whY7sx4IJFg1+McPL/cER2ghyE=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\21102024\\ACT-4-21102024-Insumos SA.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\22102024\\ACT-4-22102024-Musimundo.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/22102024/ACT-4-22102024-Musimundo#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "p13mzzf665",
-      "Integrity": "7Zc2PyLc8Xofu49G0PQNGeUxWDQxD23CcGKKGPKbvX8=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\22102024\\ACT-4-22102024-Musimundo.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\29102024\\ACT-1-29102024-Insumos SA.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/29102024/ACT-1-29102024-Insumos SA#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "e94ew29z8g",
-      "Integrity": "7jrqo63++XnJDBgs5zoz9hWcq4j86ZbB2m7DLM/+Bek=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\29102024\\ACT-1-29102024-Insumos SA.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\29102024\\ACT-1-29102024-Musimundo.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/29102024/ACT-1-29102024-Musimundo#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "kxf8o22lu5",
-      "Integrity": "qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\29102024\\ACT-1-29102024-Musimundo.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\30102024\\ACT-3-30102024-Musimundo.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/30102024/ACT-3-30102024-Musimundo#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "kxf8o22lu5",
-      "Integrity": "qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\30102024\\ACT-3-30102024-Musimundo.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\03-02-2025\\Pedido_8.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/pedidos/03-02-2025/Pedido_8#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "ixbmrplt5z",
-      "Integrity": "GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\pedidos\\03-02-2025\\Pedido_8.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\03-02-2025\\Pedido_9.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/pedidos/03-02-2025/Pedido_9#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "tjjm0a77wv",
-      "Integrity": "eaTTFPG7nLokyvnl7NexAZSqr6IPZLOZh5Z+atNBbYs=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\pedidos\\03-02-2025\\Pedido_9.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\07-02-2025\\Pedido_11.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/pedidos/07-02-2025/Pedido_11#[.{fingerprint}]?.pdf",
+      "RelativePath": "documentacion/provisiones/21/articulos/1#[.{fingerprint}]?.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2030,15 +1820,15 @@
       "Integrity": "jn4LMWnhnRYGlnt1No5Vx2dMjXVZrI39TrR29PYZfDY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\pedidos\\07-02-2025\\Pedido_11.pdf"
+      "OriginalItemSpec": "wwwroot\\documentacion\\provisiones\\21\\articulos\\1.pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\09-12-2024\\Pedido_1.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\21\\articulos\\61.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/pedidos/09-12-2024/Pedido_1#[.{fingerprint}]?.pdf",
+      "RelativePath": "documentacion/provisiones/21/articulos/61#[.{fingerprint}]?.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2047,19 +1837,19 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "lhm61z7tpy",
-      "Integrity": "p4vF0Yku9qiu07E41d2TQoZSGDQ04pdSA3ZUjnIq8ng=",
+      "Fingerprint": "0poxk8o9hq",
+      "Integrity": "RG+wOShsu7NtIV+l93HDQL58g5l9Oo6wBNCIhfs06I0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\pedidos\\09-12-2024\\Pedido_1.pdf"
+      "OriginalItemSpec": "wwwroot\\documentacion\\provisiones\\21\\articulos\\61.pdf"
     },
     {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\12-11-2024\\Pedido_2.pdf",
+      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\21\\articulos\\74.pdf",
       "SourceId": "ContadSP",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
       "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/pedidos/12-11-2024/Pedido_2#[.{fingerprint}]?.pdf",
+      "RelativePath": "documentacion/provisiones/21/articulos/74#[.{fingerprint}]?.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2068,158 +1858,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "t5l8ewzxgs",
-      "Integrity": "3ySJxsv9aha0h8QsSNgBxzFQp6UHC3I1FTWNaW/O6qU=",
+      "Fingerprint": "g6d6dunc83",
+      "Integrity": "OF16k6kb54x+2vJ5+uLC3vt08awMrNrcNRTySdAhzIk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\pedidos\\12-11-2024\\Pedido_2.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\2024-11-12\\Pedido_1.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/pedidos/2024-11-12/Pedido_1#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "m9g3rslyf0",
-      "Integrity": "5s+Pc4vHccPA9Lr1kncqyd6mbLu/SB19SnfhRFJwaac=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\pedidos\\2024-11-12\\Pedido_1.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\22-11-2024\\Pedido_1.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/pedidos/22-11-2024/Pedido_1#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "rxa4gth6c5",
-      "Integrity": "obvoVyrTJXDbG6KmV1YAGjDaP9SbkyJqZcbjmJaocgE=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\pedidos\\22-11-2024\\Pedido_1.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\25-11-2024\\Pedido_1.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/pedidos/25-11-2024/Pedido_1#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "wtfu9wfo0z",
-      "Integrity": "XDu7YEARbx2mwdOMqQ0EQ5iz0A1i+WWFzDALXTAquq8=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\pedidos\\25-11-2024\\Pedido_1.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\25-11-2024\\Pedido_2.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/pedidos/25-11-2024/Pedido_2#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "z4qrdgsp72",
-      "Integrity": "EyoUK25e3AlCNfvAFPnBJ4Gf4i+MPt+kIyOHazFhB2Y=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\pedidos\\25-11-2024\\Pedido_2.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\27-12-2024\\Pedido_7.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/pedidos/27-12-2024/Pedido_7#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "4dwzouff9c",
-      "Integrity": "aHHv/hkMAEK9AVrKtsBH5GRIjIFn3hdilfqxbkW68Zc=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\pedidos\\27-12-2024\\Pedido_7.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\presupuestos\\12-11-2024\\ACT-2-12-11-2024-Systech.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/presupuestos/12-11-2024/ACT-2-12-11-2024-Systech#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "m9g3rslyf0",
-      "Integrity": "5s+Pc4vHccPA9Lr1kncqyd6mbLu/SB19SnfhRFJwaac=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\presupuestos\\12-11-2024\\ACT-2-12-11-2024-Systech.pdf"
-    },
-    {
-      "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\presupuestos\\14-02-2025\\ACT-1-14-02-2025-A LA CIMA SA.pdf",
-      "SourceId": "ContadSP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\",
-      "BasePath": "_content/ContadSP",
-      "RelativePath": "documentacion/presupuestos/14-02-2025/ACT-1-14-02-2025-A LA CIMA SA#[.{fingerprint}]?.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "ixbmrplt5z",
-      "Integrity": "GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\documentacion\\presupuestos\\14-02-2025\\ACT-1-14-02-2025-A LA CIMA SA.pdf"
+      "OriginalItemSpec": "wwwroot\\documentacion\\provisiones\\21\\articulos\\74.pdf"
     },
     {
       "Identity": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\favicon.png",
@@ -7855,8 +7498,8 @@
       ]
     },
     {
-      "Route": "documentacion/01112024/ACT-1-01112024-Insumos SA.kxf8o22lu5.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\01112024\\ACT-1-01112024-Insumos SA.pdf",
+      "Route": "documentacion/provisiones/20/articulos/System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf",
+      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\20\\articulos\\System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7865,7 +7508,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "992709"
+          "Value": "102974"
         },
         {
           "Name": "Content-Type",
@@ -7873,56 +7516,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU=\""
+          "Value": "\"34rKAF0roGkAoxtFVSk/hQqaDweExNxHa+74H99eBGk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "kxf8o22lu5"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/01112024/ACT-1-01112024-Insumos SA.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/01112024/ACT-1-01112024-Insumos SA.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\01112024\\ACT-1-01112024-Insumos SA.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992709"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
+          "Value": "Wed, 19 Feb 2025 12:52:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7932,13 +7530,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU="
+          "Value": "sha256-34rKAF0roGkAoxtFVSk/hQqaDweExNxHa+74H99eBGk="
         }
       ]
     },
     {
-      "Route": "documentacion/01112024/ACT-1-01112024-Musimundo.e94ew29z8g.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\01112024\\ACT-1-01112024-Musimundo.pdf",
+      "Route": "documentacion/provisiones/20/articulos/System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].vgkloy5s8q.pdf",
+      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\20\\articulos\\System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7947,7 +7545,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "992784"
+          "Value": "102974"
         },
         {
           "Name": "Content-Type",
@@ -7955,11 +7553,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7jrqo63++XnJDBgs5zoz9hWcq4j86ZbB2m7DLM/+Bek=\""
+          "Value": "\"34rKAF0roGkAoxtFVSk/hQqaDweExNxHa+74H99eBGk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
+          "Value": "Wed, 19 Feb 2025 12:52:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7969,796 +7567,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "e94ew29z8g"
+          "Value": "vgkloy5s8q"
         },
         {
           "Name": "label",
-          "Value": "documentacion/01112024/ACT-1-01112024-Musimundo.pdf"
+          "Value": "documentacion/provisiones/20/articulos/System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-7jrqo63++XnJDBgs5zoz9hWcq4j86ZbB2m7DLM/+Bek="
+          "Value": "sha256-34rKAF0roGkAoxtFVSk/hQqaDweExNxHa+74H99eBGk="
         }
       ]
     },
     {
-      "Route": "documentacion/01112024/ACT-1-01112024-Musimundo.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\01112024\\ACT-1-01112024-Musimundo.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992784"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"7jrqo63++XnJDBgs5zoz9hWcq4j86ZbB2m7DLM/+Bek=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-7jrqo63++XnJDBgs5zoz9hWcq4j86ZbB2m7DLM/+Bek="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/07112024/ACT-3-07112024-Insumos SA.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\07112024\\ACT-3-07112024-Insumos SA.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "422465"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"x0Y9Ieh86fvuKFiUWg48t1TW1rvg+K4wBenxkYlblyQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-x0Y9Ieh86fvuKFiUWg48t1TW1rvg+K4wBenxkYlblyQ="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/07112024/ACT-3-07112024-Insumos SA.xqj1j3wrw6.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\07112024\\ACT-3-07112024-Insumos SA.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "422465"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"x0Y9Ieh86fvuKFiUWg48t1TW1rvg+K4wBenxkYlblyQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "xqj1j3wrw6"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/07112024/ACT-3-07112024-Insumos SA.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-x0Y9Ieh86fvuKFiUWg48t1TW1rvg+K4wBenxkYlblyQ="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/07112024/ACT-3-07112024-Systech.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\07112024\\ACT-3-07112024-Systech.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992869"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"9+DDpMSDZVpS+T2cofYTyFWSVdsTrDo79h/+sx6lsJw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-9+DDpMSDZVpS+T2cofYTyFWSVdsTrDo79h/+sx6lsJw="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/07112024/ACT-3-07112024-Systech.z5ykbzaoej.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\07112024\\ACT-3-07112024-Systech.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992869"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"9+DDpMSDZVpS+T2cofYTyFWSVdsTrDo79h/+sx6lsJw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "z5ykbzaoej"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/07112024/ACT-3-07112024-Systech.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-9+DDpMSDZVpS+T2cofYTyFWSVdsTrDo79h/+sx6lsJw="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/21102024/ACT-4-21102024-Insumos SA.br6ckd3d7e.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\21102024\\ACT-4-21102024-Insumos SA.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "105794"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"NwX51mfYrBRpTkt/3whY7sx4IJFg1+McPL/cER2ghyE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "br6ckd3d7e"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/21102024/ACT-4-21102024-Insumos SA.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-NwX51mfYrBRpTkt/3whY7sx4IJFg1+McPL/cER2ghyE="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/21102024/ACT-4-21102024-Insumos SA.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\21102024\\ACT-4-21102024-Insumos SA.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "105794"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"NwX51mfYrBRpTkt/3whY7sx4IJFg1+McPL/cER2ghyE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-NwX51mfYrBRpTkt/3whY7sx4IJFg1+McPL/cER2ghyE="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/22102024/ACT-4-22102024-Musimundo.p13mzzf665.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\22102024\\ACT-4-22102024-Musimundo.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992765"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"7Zc2PyLc8Xofu49G0PQNGeUxWDQxD23CcGKKGPKbvX8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "p13mzzf665"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/22102024/ACT-4-22102024-Musimundo.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-7Zc2PyLc8Xofu49G0PQNGeUxWDQxD23CcGKKGPKbvX8="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/22102024/ACT-4-22102024-Musimundo.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\22102024\\ACT-4-22102024-Musimundo.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992765"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"7Zc2PyLc8Xofu49G0PQNGeUxWDQxD23CcGKKGPKbvX8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-7Zc2PyLc8Xofu49G0PQNGeUxWDQxD23CcGKKGPKbvX8="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/29102024/ACT-1-29102024-Insumos SA.e94ew29z8g.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\29102024\\ACT-1-29102024-Insumos SA.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992784"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"7jrqo63++XnJDBgs5zoz9hWcq4j86ZbB2m7DLM/+Bek=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "e94ew29z8g"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/29102024/ACT-1-29102024-Insumos SA.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-7jrqo63++XnJDBgs5zoz9hWcq4j86ZbB2m7DLM/+Bek="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/29102024/ACT-1-29102024-Insumos SA.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\29102024\\ACT-1-29102024-Insumos SA.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992784"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"7jrqo63++XnJDBgs5zoz9hWcq4j86ZbB2m7DLM/+Bek=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-7jrqo63++XnJDBgs5zoz9hWcq4j86ZbB2m7DLM/+Bek="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/29102024/ACT-1-29102024-Musimundo.kxf8o22lu5.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\29102024\\ACT-1-29102024-Musimundo.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992709"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "kxf8o22lu5"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/29102024/ACT-1-29102024-Musimundo.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/29102024/ACT-1-29102024-Musimundo.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\29102024\\ACT-1-29102024-Musimundo.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992709"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/30102024/ACT-3-30102024-Musimundo.kxf8o22lu5.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\30102024\\ACT-3-30102024-Musimundo.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992709"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "kxf8o22lu5"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/30102024/ACT-3-30102024-Musimundo.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/30102024/ACT-3-30102024-Musimundo.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\30102024\\ACT-3-30102024-Musimundo.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992709"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/pedidos/03-02-2025/Pedido_8.ixbmrplt5z.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\03-02-2025\\Pedido_8.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992786"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 03 Feb 2025 11:00:27 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ixbmrplt5z"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/pedidos/03-02-2025/Pedido_8.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/pedidos/03-02-2025/Pedido_8.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\03-02-2025\\Pedido_8.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992786"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 03 Feb 2025 11:00:27 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/pedidos/03-02-2025/Pedido_9.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\03-02-2025\\Pedido_9.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992689"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"eaTTFPG7nLokyvnl7NexAZSqr6IPZLOZh5Z+atNBbYs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 03 Feb 2025 15:31:33 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-eaTTFPG7nLokyvnl7NexAZSqr6IPZLOZh5Z+atNBbYs="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/pedidos/03-02-2025/Pedido_9.tjjm0a77wv.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\03-02-2025\\Pedido_9.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992689"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"eaTTFPG7nLokyvnl7NexAZSqr6IPZLOZh5Z+atNBbYs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 03 Feb 2025 15:31:33 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "tjjm0a77wv"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/pedidos/03-02-2025/Pedido_9.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-eaTTFPG7nLokyvnl7NexAZSqr6IPZLOZh5Z+atNBbYs="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/pedidos/07-02-2025/Pedido_11.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\07-02-2025\\Pedido_11.pdf",
+      "Route": "documentacion/provisiones/21/articulos/1.pdf",
+      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\21\\articulos\\1.pdf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8779,7 +7602,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Feb 2025 13:10:46 GMT"
+          "Value": "Wed, 19 Feb 2025 13:08:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8794,8 +7617,8 @@
       ]
     },
     {
-      "Route": "documentacion/pedidos/07-02-2025/Pedido_11.ucwvharww2.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\07-02-2025\\Pedido_11.pdf",
+      "Route": "documentacion/provisiones/21/articulos/1.ucwvharww2.pdf",
+      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\21\\articulos\\1.pdf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8816,7 +7639,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Feb 2025 13:10:46 GMT"
+          "Value": "Wed, 19 Feb 2025 13:08:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8830,7 +7653,7 @@
         },
         {
           "Name": "label",
-          "Value": "documentacion/pedidos/07-02-2025/Pedido_11.pdf"
+          "Value": "documentacion/provisiones/21/articulos/1.pdf"
         },
         {
           "Name": "integrity",
@@ -8839,8 +7662,8 @@
       ]
     },
     {
-      "Route": "documentacion/pedidos/09-12-2024/Pedido_1.lhm61z7tpy.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\09-12-2024\\Pedido_1.pdf",
+      "Route": "documentacion/provisiones/21/articulos/61.0poxk8o9hq.pdf",
+      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\21\\articulos\\61.pdf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8849,7 +7672,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "992751"
+          "Value": "102978"
         },
         {
           "Name": "Content-Type",
@@ -8857,11 +7680,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"p4vF0Yku9qiu07E41d2TQoZSGDQ04pdSA3ZUjnIq8ng=\""
+          "Value": "\"RG+wOShsu7NtIV+l93HDQL58g5l9Oo6wBNCIhfs06I0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
+          "Value": "Wed, 19 Feb 2025 13:08:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8871,21 +7694,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "lhm61z7tpy"
+          "Value": "0poxk8o9hq"
         },
         {
           "Name": "label",
-          "Value": "documentacion/pedidos/09-12-2024/Pedido_1.pdf"
+          "Value": "documentacion/provisiones/21/articulos/61.pdf"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-p4vF0Yku9qiu07E41d2TQoZSGDQ04pdSA3ZUjnIq8ng="
+          "Value": "sha256-RG+wOShsu7NtIV+l93HDQL58g5l9Oo6wBNCIhfs06I0="
         }
       ]
     },
     {
-      "Route": "documentacion/pedidos/09-12-2024/Pedido_1.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\09-12-2024\\Pedido_1.pdf",
+      "Route": "documentacion/provisiones/21/articulos/61.pdf",
+      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\21\\articulos\\61.pdf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8894,7 +7717,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "992751"
+          "Value": "102978"
         },
         {
           "Name": "Content-Type",
@@ -8902,11 +7725,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"p4vF0Yku9qiu07E41d2TQoZSGDQ04pdSA3ZUjnIq8ng=\""
+          "Value": "\"RG+wOShsu7NtIV+l93HDQL58g5l9Oo6wBNCIhfs06I0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
+          "Value": "Wed, 19 Feb 2025 13:08:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8916,13 +7739,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-p4vF0Yku9qiu07E41d2TQoZSGDQ04pdSA3ZUjnIq8ng="
+          "Value": "sha256-RG+wOShsu7NtIV+l93HDQL58g5l9Oo6wBNCIhfs06I0="
         }
       ]
     },
     {
-      "Route": "documentacion/pedidos/12-11-2024/Pedido_2.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\12-11-2024\\Pedido_2.pdf",
+      "Route": "documentacion/provisiones/21/articulos/74.g6d6dunc83.pdf",
+      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\21\\articulos\\74.pdf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8931,7 +7754,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "992696"
+          "Value": "20795"
         },
         {
           "Name": "Content-Type",
@@ -8939,48 +7762,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"3ySJxsv9aha0h8QsSNgBxzFQp6UHC3I1FTWNaW/O6qU=\""
+          "Value": "\"OF16k6kb54x+2vJ5+uLC3vt08awMrNrcNRTySdAhzIk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-3ySJxsv9aha0h8QsSNgBxzFQp6UHC3I1FTWNaW/O6qU="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/pedidos/12-11-2024/Pedido_2.t5l8ewzxgs.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\12-11-2024\\Pedido_2.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992696"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"3ySJxsv9aha0h8QsSNgBxzFQp6UHC3I1FTWNaW/O6qU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
+          "Value": "Wed, 19 Feb 2025 13:08:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8990,21 +7776,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "t5l8ewzxgs"
+          "Value": "g6d6dunc83"
         },
         {
           "Name": "label",
-          "Value": "documentacion/pedidos/12-11-2024/Pedido_2.pdf"
+          "Value": "documentacion/provisiones/21/articulos/74.pdf"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-3ySJxsv9aha0h8QsSNgBxzFQp6UHC3I1FTWNaW/O6qU="
+          "Value": "sha256-OF16k6kb54x+2vJ5+uLC3vt08awMrNrcNRTySdAhzIk="
         }
       ]
     },
     {
-      "Route": "documentacion/pedidos/2024-11-12/Pedido_1.m9g3rslyf0.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\2024-11-12\\Pedido_1.pdf",
+      "Route": "documentacion/provisiones/21/articulos/74.pdf",
+      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\21\\articulos\\74.pdf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -9013,7 +7799,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "992713"
+          "Value": "20795"
         },
         {
           "Name": "Content-Type",
@@ -9021,56 +7807,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"5s+Pc4vHccPA9Lr1kncqyd6mbLu/SB19SnfhRFJwaac=\""
+          "Value": "\"OF16k6kb54x+2vJ5+uLC3vt08awMrNrcNRTySdAhzIk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "m9g3rslyf0"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/pedidos/2024-11-12/Pedido_1.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-5s+Pc4vHccPA9Lr1kncqyd6mbLu/SB19SnfhRFJwaac="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/pedidos/2024-11-12/Pedido_1.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\2024-11-12\\Pedido_1.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992713"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"5s+Pc4vHccPA9Lr1kncqyd6mbLu/SB19SnfhRFJwaac=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
+          "Value": "Wed, 19 Feb 2025 13:08:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9080,499 +7821,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-5s+Pc4vHccPA9Lr1kncqyd6mbLu/SB19SnfhRFJwaac="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/pedidos/22-11-2024/Pedido_1.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\22-11-2024\\Pedido_1.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992780"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"obvoVyrTJXDbG6KmV1YAGjDaP9SbkyJqZcbjmJaocgE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-obvoVyrTJXDbG6KmV1YAGjDaP9SbkyJqZcbjmJaocgE="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/pedidos/22-11-2024/Pedido_1.rxa4gth6c5.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\22-11-2024\\Pedido_1.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992780"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"obvoVyrTJXDbG6KmV1YAGjDaP9SbkyJqZcbjmJaocgE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "rxa4gth6c5"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/pedidos/22-11-2024/Pedido_1.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-obvoVyrTJXDbG6KmV1YAGjDaP9SbkyJqZcbjmJaocgE="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/pedidos/25-11-2024/Pedido_1.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\25-11-2024\\Pedido_1.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992769"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XDu7YEARbx2mwdOMqQ0EQ5iz0A1i+WWFzDALXTAquq8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-XDu7YEARbx2mwdOMqQ0EQ5iz0A1i+WWFzDALXTAquq8="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/pedidos/25-11-2024/Pedido_1.wtfu9wfo0z.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\25-11-2024\\Pedido_1.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992769"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XDu7YEARbx2mwdOMqQ0EQ5iz0A1i+WWFzDALXTAquq8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "wtfu9wfo0z"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/pedidos/25-11-2024/Pedido_1.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-XDu7YEARbx2mwdOMqQ0EQ5iz0A1i+WWFzDALXTAquq8="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/pedidos/25-11-2024/Pedido_2.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\25-11-2024\\Pedido_2.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992762"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"EyoUK25e3AlCNfvAFPnBJ4Gf4i+MPt+kIyOHazFhB2Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-EyoUK25e3AlCNfvAFPnBJ4Gf4i+MPt+kIyOHazFhB2Y="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/pedidos/25-11-2024/Pedido_2.z4qrdgsp72.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\25-11-2024\\Pedido_2.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992762"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"EyoUK25e3AlCNfvAFPnBJ4Gf4i+MPt+kIyOHazFhB2Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "z4qrdgsp72"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/pedidos/25-11-2024/Pedido_2.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-EyoUK25e3AlCNfvAFPnBJ4Gf4i+MPt+kIyOHazFhB2Y="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/pedidos/27-12-2024/Pedido_7.4dwzouff9c.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\27-12-2024\\Pedido_7.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992868"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"aHHv/hkMAEK9AVrKtsBH5GRIjIFn3hdilfqxbkW68Zc=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 27 Dec 2024 15:10:52 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "4dwzouff9c"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/pedidos/27-12-2024/Pedido_7.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-aHHv/hkMAEK9AVrKtsBH5GRIjIFn3hdilfqxbkW68Zc="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/pedidos/27-12-2024/Pedido_7.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\pedidos\\27-12-2024\\Pedido_7.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992868"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"aHHv/hkMAEK9AVrKtsBH5GRIjIFn3hdilfqxbkW68Zc=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 27 Dec 2024 15:10:52 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-aHHv/hkMAEK9AVrKtsBH5GRIjIFn3hdilfqxbkW68Zc="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/presupuestos/12-11-2024/ACT-2-12-11-2024-Systech.m9g3rslyf0.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\presupuestos\\12-11-2024\\ACT-2-12-11-2024-Systech.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992713"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"5s+Pc4vHccPA9Lr1kncqyd6mbLu/SB19SnfhRFJwaac=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "m9g3rslyf0"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/presupuestos/12-11-2024/ACT-2-12-11-2024-Systech.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-5s+Pc4vHccPA9Lr1kncqyd6mbLu/SB19SnfhRFJwaac="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/presupuestos/12-11-2024/ACT-2-12-11-2024-Systech.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\presupuestos\\12-11-2024\\ACT-2-12-11-2024-Systech.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992713"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"5s+Pc4vHccPA9Lr1kncqyd6mbLu/SB19SnfhRFJwaac=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Dec 2024 15:13:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-5s+Pc4vHccPA9Lr1kncqyd6mbLu/SB19SnfhRFJwaac="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/presupuestos/14-02-2025/ACT-1-14-02-2025-A LA CIMA SA.ixbmrplt5z.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\presupuestos\\14-02-2025\\ACT-1-14-02-2025-A LA CIMA SA.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992786"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 14 Feb 2025 13:07:49 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ixbmrplt5z"
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/presupuestos/14-02-2025/ACT-1-14-02-2025-A LA CIMA SA.pdf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/presupuestos/14-02-2025/ACT-1-14-02-2025-A LA CIMA SA.pdf",
-      "AssetFile": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\presupuestos\\14-02-2025\\ACT-1-14-02-2025-A LA CIMA SA.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992786"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 14 Feb 2025 13:07:49 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds="
+          "Value": "sha256-OF16k6kb54x+2vJ5+uLC3vt08awMrNrcNRTySdAhzIk="
         }
       ]
     },

@@ -4,6 +4,7 @@
 @using ContadSP.Controllers
 @using System.Text.Json
 
+@using ContadSP.Services
 @using Radzen
 @using Radzen.Blazor
 @inject DialogService DialogService
@@ -131,15 +132,16 @@
                                                     </select>
                                                 </td>
                                                 <td class="ancho-40"><input style="width: 100%;" type="text" @bind="item.especificacion" ></td>
-                                                
-                                                    <td>
-                                                        <div class="acciones">
-                                                            <button type="button" class="btn btn-danger" title="Eliminar artículo de la provisión" @onclick="() => EliminarArticulo(currentIndex)"><i class="oi oi-trash"></i></button>
-                                                            <button type="button" class="btn btn-secondary" title="Subir archivo" @onclick="() => EliminarArticulo(currentIndex)"><i class="oi oi-data-transfer-upload"></i></button>
-                                                        </div> 
-                                                        
-                                                    </td>
-                                                
+
+                                                <td>
+                                                    <div class="acciones">
+                                                        <button type="button" class="btn btn-danger" title="Eliminar artículo de la provisión" @onclick="() => EliminarArticulo(currentIndex)"><i class="oi oi-trash"></i></button>
+                                                        @*  <button type="button" class="btn btn-secondary" title="Subir archivo" @onclick="() => EliminarArticulo(currentIndex)"><i class="oi oi-data-transfer-upload"></i></button> *@
+                                                        <InputFile OnChange="@(e => OnInputFileChange(e, @listaArticulos[currentIndex].id))" accept=".pdf" />
+                                                    </div> 
+
+                                                </td>
+
                                             </tr>
                                         }
                                     </tbody>
@@ -181,7 +183,7 @@
 
             @if (articulosPaginados == null || !articulosPaginados.Any())
             {
-               <p>No se encontraron artículos</p>
+                <p>No se encontraron artículos</p>
             }
             else
             {
@@ -256,6 +258,8 @@
     private double sub;
     private string? subLetra;
 
+    private Dictionary<int, IBrowserFile> archivosProvisionales = new Dictionary<int, IBrowserFile>();
+
     protected override async Task OnInitializedAsync()
     {
         unidadesMedida = (await repositorioUM.ObtenerTodo()).ToList();
@@ -277,6 +281,7 @@
         }
         CargarPagina();
     }
+
 
     /* --PROCEDIMIENTO PARA VER TODOS LOS ARTICULOS-- */
     private async Task VerArticulos()
@@ -307,6 +312,14 @@
             paginaActual++;
             CargarPagina();
         }
+    }
+
+    private async Task OnInputFileChange(InputFileChangeEventArgs e, int index)
+    {
+        var archivo = e.File;
+        archivosProvisionales[index] = archivo;
+
+        await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "Archivo cargado", "success");
     }
 
     /* --FUNCION PARA CONVERTIR NUMERO A LETRAS-- */
@@ -438,7 +451,14 @@
 
                     await repositorioDetalleProvision.Agregar(detalleProvision);
 
-                    //await ModificarArticulo(detalle);
+                    if (archivosProvisionales.TryGetValue(detalle.articulo_id, out var archivo))
+                    {
+                        var fechaActual = DateTime.Now.ToString("dd-MM-yyyy");
+                        var carpetaDestino = Path.Combine("wwwroot", "documentacion", "provisiones",  provision.id.ToString(), "articulos" );
+                        var nombreArchivo = $"{detalle.articulo_id}.pdf";
+
+                        await Utiles.CargarArchivoPdfAsync(archivo, carpetaDestino, nombreArchivo, JSRuntime);
+                    }
                     
                 }
                 await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La provisión se guardó correctamente", "success");

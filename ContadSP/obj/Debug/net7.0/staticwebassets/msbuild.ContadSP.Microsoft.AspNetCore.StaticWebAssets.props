@@ -252,210 +252,30 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\01112024\ACT-1-01112024-Insumos SA.pdf'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\provisiones\20\articulos\System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf'))">
       <SourceType>Package</SourceType>
       <SourceId>ContadSP</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/01112024/ACT-1-01112024-Insumos SA.pdf</RelativePath>
+      <RelativePath>documentacion/provisiones/20/articulos/System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>kxf8o22lu5</Fingerprint>
-      <Integrity>qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU=</Integrity>
+      <Fingerprint>vgkloy5s8q</Fingerprint>
+      <Integrity>34rKAF0roGkAoxtFVSk/hQqaDweExNxHa+74H99eBGk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\01112024\ACT-1-01112024-Insumos SA.pdf'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\provisiones\20\articulos\System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\01112024\ACT-1-01112024-Musimundo.pdf'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\provisiones\21\articulos\1.pdf'))">
       <SourceType>Package</SourceType>
       <SourceId>ContadSP</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/01112024/ACT-1-01112024-Musimundo.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>e94ew29z8g</Fingerprint>
-      <Integrity>7jrqo63++XnJDBgs5zoz9hWcq4j86ZbB2m7DLM/+Bek=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\01112024\ACT-1-01112024-Musimundo.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\07112024\ACT-3-07112024-Insumos SA.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/07112024/ACT-3-07112024-Insumos SA.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>xqj1j3wrw6</Fingerprint>
-      <Integrity>x0Y9Ieh86fvuKFiUWg48t1TW1rvg+K4wBenxkYlblyQ=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\07112024\ACT-3-07112024-Insumos SA.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\07112024\ACT-3-07112024-Systech.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/07112024/ACT-3-07112024-Systech.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>z5ykbzaoej</Fingerprint>
-      <Integrity>9+DDpMSDZVpS+T2cofYTyFWSVdsTrDo79h/+sx6lsJw=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\07112024\ACT-3-07112024-Systech.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\21102024\ACT-4-21102024-Insumos SA.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/21102024/ACT-4-21102024-Insumos SA.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>br6ckd3d7e</Fingerprint>
-      <Integrity>NwX51mfYrBRpTkt/3whY7sx4IJFg1+McPL/cER2ghyE=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\21102024\ACT-4-21102024-Insumos SA.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\22102024\ACT-4-22102024-Musimundo.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/22102024/ACT-4-22102024-Musimundo.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>p13mzzf665</Fingerprint>
-      <Integrity>7Zc2PyLc8Xofu49G0PQNGeUxWDQxD23CcGKKGPKbvX8=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\22102024\ACT-4-22102024-Musimundo.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\29102024\ACT-1-29102024-Insumos SA.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/29102024/ACT-1-29102024-Insumos SA.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>e94ew29z8g</Fingerprint>
-      <Integrity>7jrqo63++XnJDBgs5zoz9hWcq4j86ZbB2m7DLM/+Bek=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\29102024\ACT-1-29102024-Insumos SA.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\29102024\ACT-1-29102024-Musimundo.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/29102024/ACT-1-29102024-Musimundo.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>kxf8o22lu5</Fingerprint>
-      <Integrity>qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\29102024\ACT-1-29102024-Musimundo.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\30102024\ACT-3-30102024-Musimundo.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/30102024/ACT-3-30102024-Musimundo.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>kxf8o22lu5</Fingerprint>
-      <Integrity>qMItAW7SVlsAI/fuGb5y5UYyq7mbNIYJ2K3Q3f6/UPU=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\30102024\ACT-3-30102024-Musimundo.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\03-02-2025\Pedido_8.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/pedidos/03-02-2025/Pedido_8.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ixbmrplt5z</Fingerprint>
-      <Integrity>GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\03-02-2025\Pedido_8.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\03-02-2025\Pedido_9.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/pedidos/03-02-2025/Pedido_9.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>tjjm0a77wv</Fingerprint>
-      <Integrity>eaTTFPG7nLokyvnl7NexAZSqr6IPZLOZh5Z+atNBbYs=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\03-02-2025\Pedido_9.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\07-02-2025\Pedido_11.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/pedidos/07-02-2025/Pedido_11.pdf</RelativePath>
+      <RelativePath>documentacion/provisiones/21/articulos/1.pdf</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -466,169 +286,43 @@
       <Integrity>jn4LMWnhnRYGlnt1No5Vx2dMjXVZrI39TrR29PYZfDY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\07-02-2025\Pedido_11.pdf'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\provisiones\21\articulos\1.pdf'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\09-12-2024\Pedido_1.pdf'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\provisiones\21\articulos\61.pdf'))">
       <SourceType>Package</SourceType>
       <SourceId>ContadSP</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/pedidos/09-12-2024/Pedido_1.pdf</RelativePath>
+      <RelativePath>documentacion/provisiones/21/articulos/61.pdf</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>lhm61z7tpy</Fingerprint>
-      <Integrity>p4vF0Yku9qiu07E41d2TQoZSGDQ04pdSA3ZUjnIq8ng=</Integrity>
+      <Fingerprint>0poxk8o9hq</Fingerprint>
+      <Integrity>RG+wOShsu7NtIV+l93HDQL58g5l9Oo6wBNCIhfs06I0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\09-12-2024\Pedido_1.pdf'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\provisiones\21\articulos\61.pdf'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\12-11-2024\Pedido_2.pdf'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\provisiones\21\articulos\74.pdf'))">
       <SourceType>Package</SourceType>
       <SourceId>ContadSP</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/pedidos/12-11-2024/Pedido_2.pdf</RelativePath>
+      <RelativePath>documentacion/provisiones/21/articulos/74.pdf</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>t5l8ewzxgs</Fingerprint>
-      <Integrity>3ySJxsv9aha0h8QsSNgBxzFQp6UHC3I1FTWNaW/O6qU=</Integrity>
+      <Fingerprint>g6d6dunc83</Fingerprint>
+      <Integrity>OF16k6kb54x+2vJ5+uLC3vt08awMrNrcNRTySdAhzIk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\12-11-2024\Pedido_2.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\2024-11-12\Pedido_1.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/pedidos/2024-11-12/Pedido_1.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>m9g3rslyf0</Fingerprint>
-      <Integrity>5s+Pc4vHccPA9Lr1kncqyd6mbLu/SB19SnfhRFJwaac=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\2024-11-12\Pedido_1.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\22-11-2024\Pedido_1.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/pedidos/22-11-2024/Pedido_1.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>rxa4gth6c5</Fingerprint>
-      <Integrity>obvoVyrTJXDbG6KmV1YAGjDaP9SbkyJqZcbjmJaocgE=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\22-11-2024\Pedido_1.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\25-11-2024\Pedido_1.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/pedidos/25-11-2024/Pedido_1.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>wtfu9wfo0z</Fingerprint>
-      <Integrity>XDu7YEARbx2mwdOMqQ0EQ5iz0A1i+WWFzDALXTAquq8=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\25-11-2024\Pedido_1.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\25-11-2024\Pedido_2.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/pedidos/25-11-2024/Pedido_2.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>z4qrdgsp72</Fingerprint>
-      <Integrity>EyoUK25e3AlCNfvAFPnBJ4Gf4i+MPt+kIyOHazFhB2Y=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\25-11-2024\Pedido_2.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\27-12-2024\Pedido_7.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/pedidos/27-12-2024/Pedido_7.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>4dwzouff9c</Fingerprint>
-      <Integrity>aHHv/hkMAEK9AVrKtsBH5GRIjIFn3hdilfqxbkW68Zc=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\pedidos\27-12-2024\Pedido_7.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\presupuestos\12-11-2024\ACT-2-12-11-2024-Systech.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/presupuestos/12-11-2024/ACT-2-12-11-2024-Systech.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>m9g3rslyf0</Fingerprint>
-      <Integrity>5s+Pc4vHccPA9Lr1kncqyd6mbLu/SB19SnfhRFJwaac=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\presupuestos\12-11-2024\ACT-2-12-11-2024-Systech.pdf'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\presupuestos\14-02-2025\ACT-1-14-02-2025-A LA CIMA SA.pdf'))">
-      <SourceType>Package</SourceType>
-      <SourceId>ContadSP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ContadSP</BasePath>
-      <RelativePath>documentacion/presupuestos/14-02-2025/ACT-1-14-02-2025-A LA CIMA SA.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ixbmrplt5z</Fingerprint>
-      <Integrity>GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\presupuestos\14-02-2025\ACT-1-14-02-2025-A LA CIMA SA.pdf'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\documentacion\provisiones\21\articulos\74.pdf'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.png'))">
       <SourceType>Package</SourceType>
