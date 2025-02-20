@@ -57,6 +57,14 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\4\\Presupuesto\\20-02-2025\\ACT-4-20-02-2025-A LA CIMA SA.pdf",
+      "PackagePath": "staticwebassets\\documentacion\\4\\Presupuesto\\20-02-2025\\ACT-4-20-02-2025-A LA CIMA SA.pdf"
+    },
+    {
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\14\\Remito\\20-02-2025\\ACT-2-20-02-2025-REMITO.pdf",
+      "PackagePath": "staticwebassets\\documentacion\\provisiones\\14\\Remito\\20-02-2025\\ACT-2-20-02-2025-REMITO.pdf"
+    },
+    {
       "Id": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\20\\articulos\\System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf",
       "PackagePath": "staticwebassets\\documentacion\\provisiones\\20\\articulos\\System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf"
     },
@@ -71,6 +79,22 @@
     {
       "Id": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\21\\articulos\\74.pdf",
       "PackagePath": "staticwebassets\\documentacion\\provisiones\\21\\articulos\\74.pdf"
+    },
+    {
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\22\\articulos\\10.pdf",
+      "PackagePath": "staticwebassets\\documentacion\\provisiones\\22\\articulos\\10.pdf"
+    },
+    {
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\22\\articulos\\106.pdf",
+      "PackagePath": "staticwebassets\\documentacion\\provisiones\\22\\articulos\\106.pdf"
+    },
+    {
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\22\\articulos\\28.pdf",
+      "PackagePath": "staticwebassets\\documentacion\\provisiones\\22\\articulos\\28.pdf"
+    },
+    {
+      "Id": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\documentacion\\provisiones\\22\\articulos\\66.pdf",
+      "PackagePath": "staticwebassets\\documentacion\\provisiones\\22\\articulos\\66.pdf"
     },
     {
       "Id": "C:\\Users\\fasmuzi\\Desktop\\ContaduriaSP\\ContadSP\\wwwroot\\favicon.png",

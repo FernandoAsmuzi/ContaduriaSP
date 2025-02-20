@@ -11,10 +11,16 @@ wwwroot\css\open-iconic\FONT-LICENSE
 wwwroot\css\open-iconic\ICON-LICENSE
 wwwroot\css\open-iconic\README.md
 wwwroot\css\site.css
+wwwroot\documentacion\4\Presupuesto\20-02-2025\ACT-4-20-02-2025-A LA CIMA SA.pdf
+wwwroot\documentacion\provisiones\14\Remito\20-02-2025\ACT-2-20-02-2025-REMITO.pdf
 wwwroot\documentacion\provisiones\20\articulos\System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf
 wwwroot\documentacion\provisiones\21\articulos\1.pdf
 wwwroot\documentacion\provisiones\21\articulos\61.pdf
 wwwroot\documentacion\provisiones\21\articulos\74.pdf
+wwwroot\documentacion\provisiones\22\articulos\10.pdf
+wwwroot\documentacion\provisiones\22\articulos\106.pdf
+wwwroot\documentacion\provisiones\22\articulos\28.pdf
+wwwroot\documentacion\provisiones\22\articulos\66.pdf
 wwwroot\favicon.png
 wwwroot\fotos1\155115344_10219593000277487_3140255217350723048_n.jpg
 wwwroot\fotos1\157128015_723551921645495_7832340406353028866_n.jpg

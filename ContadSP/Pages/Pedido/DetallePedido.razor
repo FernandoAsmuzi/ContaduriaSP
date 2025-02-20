@@ -35,7 +35,7 @@
 
                 @* ----ENCABEZADO--- *@
                 <div class="pt-3">
-                     <h3 class="text-center">Detalle de la provisión</h3>
+                    <h3 class="text-center">Detalle de la provisión</h3>
                 </div>
                 @* ----ENCABEZADO--- *@
 
@@ -99,10 +99,10 @@
                             <label>@pedido.abreviatura-@pedido.acta_num-@pedido.anio</label>
                         </div>
                     </div>
-                    
-                    
+
+
                 }
-                
+
                 @* ----DATOS DE LA PROVISION/PEDIDO---*@
                 <br>
                 @* ----CANCELAR PROVISION---- *@
@@ -127,7 +127,7 @@
                             </div>
                         </div>
                         <br/>
-                        
+
                         @if (prov.estado_id == 1)
                         {
                             <div class="row">
@@ -166,8 +166,8 @@
                                     <th>Subtotal letra</th>
                                 }
 
-                               
-                                
+
+
                                 <th>Especificación</th>
                             </tr>
                         </thead>
@@ -197,42 +197,64 @@
                                         <td>@p.subtotal_aprobado</td>
                                         <td>@p.subtotal_aprobado_letra</td>
                                     }
-                                   
-                                   
+
+
                                     <td>@p.especificacion</td>
                                 </tr>
                             }
                         </tbody>
                     </table>
                     <div class="row">
-                        <div class="col-md-6">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td class="text-end"><strong>Total aproximado solicitado:</strong></td>
-                                        <td class="text-end">@prov.total_aprox</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-end"><strong>Total aproximado solicitado letra:</strong></td>
-                                        <td class="text-end">@prov.total_letra</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-md-6">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td class="text-end"><strong>Total aproximado aprobado:</strong></td>
-                                        <td class="text-end">@aprobado</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-end"><strong>Total aproximado aprobado letra:</strong></td>
-                                        <td class="text-end">@aprobadoLetra</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        @if (prov.estado_id == 1)
+                        {
+                            <div class="col-md-6">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-end"><strong>Total solicitado:</strong></td>
+                                            <td class="text-end">@prov.total_aprox</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-end"><strong>Total solicitado letra:</strong></td>
+                                            <td class="text-end">@prov.total_letra</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-end"><strong>Total aprobado:</strong></td>
+                                            <td class="text-end">@aprobado</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-end"><strong>Total aprobado letra:</strong></td>
+                                            <td class="text-end">@aprobadoLetra</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-md-6">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-end"><strong>Total aprobado:</strong></td>
+                                            <td class="text-end">@prov.total_aprox</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-end"><strong>Total aprobado letra:</strong></td>
+                                            <td class="text-end">@prov.total_letra</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+
+                        
                     </div>
                     
                     

@@ -16,6 +16,7 @@ namespace ContadSP.Data
         public DbSet<Destino> Destino { get; set; }
         public DbSet<DetalleProvision> DetalleProvision { get; set; }
         public DbSet<Estado> Estado { get; set; }
+        public DbSet<Pago> Pago { get; set; }
         public DbSet<Pedido> Pedido { get; set; }
         public DbSet<PedidoProveedor> PedidoProveedor { get; set; }
         public DbSet<PresupuestoPedido> PresupuestoPedidos { get; set; }
@@ -135,6 +136,11 @@ namespace ContadSP.Data
                 .HasOne(c => c.Pedido)
                 .WithMany(pp => pp.Compra)
                 .HasForeignKey(c => c.pedido_id);
+            // Relacion de Pago con Compra
+            modelBuilder.Entity<Pago>()
+                .HasOne(p => p.Compra)
+                .WithMany(c => c.Pago)
+                .HasForeignKey(p => p.compra_id);
         }
     }
 }

@@ -18,6 +18,8 @@ namespace ContadSP.Models
         public bool finalizado { get; set; } = false;
         public string? remito { get; set; }
 
+        public List<Pago> Pago { get; set; }
+
         [ForeignKey("pedido_id")]
         public int pedido_id { get; set; }
         public Pedido Pedido { get; set; }

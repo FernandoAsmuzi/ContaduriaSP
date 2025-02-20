@@ -366,6 +366,13 @@ public class RepositorioEstado : Repositorio<Estado>
     }
 }
 
+public class RepositorioPago : Repositorio<RepositorioPago>
+{
+    public RepositorioPago(ContadSPContext context) : base(context)
+    {
+    }
+}
+
 public class RepositorioPedido : Repositorio<Pedido>
 {
     public RepositorioPedido(ContadSPContext context) : base(context)

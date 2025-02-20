@@ -3,6 +3,7 @@
 @using ContadSP.Repositorios
 @using ContadSP.Models
 @using System.Text.Json
+@using ContadSP.Services
 @using Radzen
 @using Radzen.Blazor
 
@@ -155,7 +156,11 @@
                         </table>
                         
                     </div>
+                <div class="btn-opciones pb-3">
+                    
+                    <InputFile OnChange="OnInputFileChange" accept=".pdf" />
 
+                </div>
                 <div class="btn-opciones pb-3">
                     <button class="btn btn-success" @onclick="()=>ConfirmarEntrega()">Confirmar entrega</button>
                 </div>
@@ -197,6 +202,8 @@
     private string? tipo;
     private int anio = 0;
 
+    private IBrowserFile? archivoSeleccionado;
+
     protected override async Task OnInitializedAsync()
     {
         prov = await repositorioProvision.ObtenerProvisionPorId(Id);
@@ -228,6 +235,27 @@
                 };
 
         return estadoCssMap.TryGetValue(estadoId, out var cssClass) ? cssClass : "";
+    }
+
+    private async Task OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        archivoSeleccionado = e.File;
+
+        var fechaActual = DateTime.Now.ToString("dd-MM-yyyy");
+        var carpetaDestino = Path.Combine("wwwroot", "documentacion", "provisiones", prov.id.ToString(), "compra", fechaActual);
+        var nombreArchivo = $"{pedido.abreviatura}-{pedido.acta_num}-{fechaActual}-FACTURA.pdf";
+
+        var rutaArchivo = await Utiles.CargarArchivoPdfAsync(
+            archivoSeleccionado,
+            carpetaDestino,
+            nombreArchivo,
+            JSRuntime
+        );
+
+        if (rutaArchivo != null)
+        {
+            // Aquí puedes manejar la ruta del archivo cargado si es necesario
+        }
     }
 
     private async Task ConfirmarEntrega()

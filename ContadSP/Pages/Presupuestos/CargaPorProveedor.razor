@@ -1,0 +1,457 @@
+﻿@* @page "/presupuesto/{id}/{prov}" *@
+@using ContadSP.Controllers
+@using ContadSP.Repositorios
+@using ContadSP.Models
+@using ContadSP.Services
+@using Radzen
+@using Radzen.Blazor
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.Forms
+
+@inject IRepositorio<Pedido> repositorioPedido
+@inject IRepositorio<Provision> repositorioProvision
+@inject IRepositorio<Proveedor> repositorioProveedor
+@inject IRepositorio<DetalleProvision> repositorioProvisionDetalle
+@inject IRepositorio<PresupuestoPedido> repositorioPresupuestoPedido
+@inject IRepositorio<PedidoProveedor> repositorioPedidoProveedor
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+@inject IWebHostEnvironment Environment
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12 border rounded">
+            <div class="conteiner-fluid">
+                <div>
+                    <h3 class="text-center">Detalle del pedido</h3>
+                </div>
+
+                @* ----DATOS DE LA PROVISION/PEDIDO--- *@
+                <div class="row">
+                    <div class="col">
+                        <label><strong>Tipo de pedido:</strong></label>
+                        @* <label>@tipoPedido.tipo - @(procesoPedido.Pedido != null ? procesoPedido.Proceso.proceso : "Pedido es null")</label> *@
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label><strong>ID:</strong></label>
+                        <label>@pedido.id</label>
+                    </div>
+                    <div class="col">
+                        <label><strong>Fecha de pedido:</strong></label>
+                        <label>@pedido.fecha_pedido</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label><strong>N° acta:</strong></label>
+                        <label>@pedido.abreviatura-@pedido.acta_num-@pedido.anio</label>
+                    </div>
+                    <div class="col">
+                        <label><strong>Proceso:</strong></label>
+                        @* <label>@procesoPedido.proceso_completo</label> *@
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label><strong>Destino:</strong></label>
+                        <label>@(provision?.Destino?.destino ?? "No disponible")</label>
+                    </div>
+                    <div class="col">
+                        <label><strong>Usuario solicitante:</strong></label>
+                        <label>@(provision?.Usuario?.nombre_usuario ?? "No disponible")</label>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <h3 class="text-center">Detalle del proveedor</h3>
+                </div>
+                <div style="overflow: auto;">
+                    <div class="row">
+                        <div class="col">
+                            <label><strong>Proveedor:</strong></label>
+                            <label>@proveedor.nombre</label>
+                        </div>
+                        <div class="col">
+                            <label><strong>Comercio:</strong></label>
+                            <label>@proveedor.nombre_comercial</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label><strong>Dirección:</strong></label>
+                            <label>@proveedor.direccion</label>
+                        </div>
+                        <div class="col">
+                            <label><strong>Teléfono:</strong></label>
+                            <label>@proveedor.telefono</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label><strong>Email:</strong></label>
+                            <label>@proveedor.email</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 border rounded">
+            <div class="conteiner-fluid">
+
+
+
+                @if (pedidoProveedor.carga)
+                {
+                    <table class="table table-striped table-responsive table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Artículo</th>
+                                <th>Cantidad</th>
+                                <th>Unidad</th>
+                                <th>Precio unitario</th>
+                                <th>Subtotal</th>
+                                <th>Subtotal letra</th>
+                                <th>Especificación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var p in presupuestosPedido)
+                            {
+                                <tr>
+                                    <td>@p.DetalleProvision.Articulo.descripcion</td>
+                                    <td>@p.cantidad</td>
+                                    <td>@p.DetalleProvision.UnidadMedida.unidad</td>
+                                    <td>@p.precio_unitario</td>
+                                    <td>@p.subtotal</td>
+                                    <td>@p.subtotal_letra</td>
+                                    <td>@p.especificacion</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+
+                    <div>
+                        <h3 class="text-center">Articulos del pedido</h3>
+                    </div>
+
+                    <table class="table table-striped table-responsive table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Artículo</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
+                                <th>Subtotal letra</th>
+                                <th>Especificación</th>
+                                <th>Unidad de medida</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var p in provisionPrincipal)
+                            {
+                                @if(p.cantidad_aprobada > 0)
+                                {
+                                    <tr>
+                                        <td>@p.Articulo.descripcion</td>
+                                        <td>@p.cantidad_aprobada</td>
+                                        <td>@p.subtotal_aprobado</td>
+                                        <td>@p.subtotal_aprobado_letra</td>
+                                        <td>@p.especificacion</td>
+                                        <td>@p.UnidadMedida.unidad</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+
+
+                    <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                        <table class="table table-striped table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Artículo</th>
+                                    <th>Cantidad</th>
+                                    <th>Unidad</th>
+                                    <th>Precio unitario</th>
+                                    <th>Subtotal</th>
+                                    <th>Subtotal letra</th>
+                                    <th>Especificación</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var detalle in provisionDetalle)
+                                {
+                                    var index = provisionDetalle.IndexOf(detalle);
+                                    if (index < presupuestosPedido.Count)
+                                    {
+                                        <tr>
+                                            <td>@detalle.Articulo.descripcion</td>
+                                            <td>
+                                                <input type="number" @bind-value="presupuestosPedido[index].cantidad" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(detalle, presupuestosPedido[index])" />
+                                            </td>
+                                            <td>@detalle.UnidadMedida.unidad</td>
+                                            <td>
+                                                <input type="number" @bind-value="presupuestosPedido[index].precio_unitario" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(detalle, presupuestosPedido[index])" />
+                                            </td>
+                                            <td>@presupuestosPedido[index].subtotal</td>
+                                            <td>@presupuestosPedido[index].subtotal_letra</td>
+                                            <td><input style="width: 100%;" type="text" @bind-value="presupuestosPedido[index].especificacion" /></td>
+                                            <td>
+                                                @* @if (provisionDetalleDict[detalle])
+                                    { *@
+                                                <button type="button" class="btn btn-success" @onclick="() => AgregarInstancia(detalle)"><i class="oi oi-plus"></i></button>
+                                                @* } *@
+                                                @* else
+                                    {
+                                    <button type="button" class="btn btn-danger" @onclick="() => EliminarInstancia(detalle)"><i class="oi oi-trash"></i></button>
+                                    } *@
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        <tr>
+                                            <td colspan="8">Error: índice fuera de rango</td>
+                                        </tr>
+                                    }
+                                }
+                                @foreach (var instancia in provisionInstancias)
+                                {
+                                    var index = provisionInstancias.IndexOf(instancia);
+
+
+                                    <tr>
+                                        <td>@instancia.Articulo.descripcion</td>
+                                        <td>
+                                            <input type="number" @bind-value="presupuestoInstancias[index].cantidad" step="0.01" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(instancia, presupuestoInstancias[index])" />
+                                        </td>
+                                        <td>@instancia.UnidadMedida.unidad</td>
+                                        <td>
+                                            <input type="number" @bind-value="presupuestoInstancias[index].precio_unitario" step="0.01" @bind-value:event="oninput" @onchange="(e) => CalcularSubtotal(instancia, presupuestoInstancias[index])" />
+                                        </td>
+                                        <td>@presupuestoInstancias[index].subtotal</td>
+                                        <td>@presupuestoInstancias[index].subtotal_letra</td>
+                                        <td><input style="width: 100%;" type="text" @bind-value="presupuestoInstancias[index].especificacion" /></td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger" @onclick="() => EliminarInstancia(instancia)"><i class="oi oi-trash"></i></button>
+                                        </td>
+                                    </tr>
+
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="btn-opciones" style="display:flex">
+                        <InputFile OnChange="OnInputFileChange" accept=".pdf" />
+                        <button class="btn btn-success" @onclick="ProcesarPresupuesto">Procesar Presupuesto</button>
+                    </div>
+                }
+                <br />
+                <br />
+            </div>
+        </div>
+
+
+        <div>
+            <h3 class="text-center">Seleccione el producto a cotizar</h3>
+        </div>
+
+        <div class="form-group">
+            <label for="productos">Seleccione un producto:</label>
+            <select id="productos" class="form-select" @bind="selectedProductoId">
+                <option value="">Seleccione un producto</option>
+                @foreach (var producto in presupuestosPedido)
+                {
+                    <option value="@producto.id">@producto.DetalleProvision.Articulo.descripcion</option>
+                }
+            </select>
+        </div>
+
+
+    </div>
+</div>
+
+@code {
+    [Parameter, Required]
+    public string id { get; set; } = string.Empty;
+    [Parameter, Required]
+    public string prov { get; set; } = string.Empty;
+
+    private Dictionary<DetalleProvision, bool> provisionDetalleDict = new Dictionary<DetalleProvision, bool>();
+    private List<DetalleProvision> provisionDetalle = new List<DetalleProvision>();
+    private List<DetalleProvision> provisionPrincipal = new List<DetalleProvision>();
+
+    private List<PresupuestoPedido> presupuestosPedido = new List<PresupuestoPedido>();
+
+    private List<DetalleProvision> provisionInstancias = new List<DetalleProvision>();
+    private List<PresupuestoPedido> presupuestoInstancias = new List<PresupuestoPedido>();
+
+    private PedidoProveedor pedidoProveedor = new PedidoProveedor();
+    private Proveedor proveedor = new Proveedor();
+    private Pedido pedido = new Pedido();
+    private Provision provision = new Provision();
+    private IBrowserFile? archivoSeleccionado;
+    private int instanciaIdCounter = 1;
+
+    private int selectedProductoId;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await CargarDatos();
+    }
+
+    private async Task CargarDatos()
+    {
+        pedido = await repositorioPedido.ObtenerPorId(int.Parse(id));
+        var provId = pedido.provision_id;
+        proveedor = await repositorioProveedor.ObtenerPorId(int.Parse(prov));
+        provision = await repositorioProvision.ObtenerPorId(provId);
+        provisionDetalle = (await repositorioProvisionDetalle.ObtenerProvisionesId(provision.id)).ToList();
+        provisionPrincipal = provisionDetalle;
+        pedidoProveedor = (await repositorioPedidoProveedor.ObtenerPedidoProveedorPorPedidoYProveedor(pedido.id, proveedor.id));
+
+        provisionDetalleDict.Clear();
+        presupuestosPedido.Clear();
+
+        if (pedidoProveedor.carga)
+        {
+            presupuestosPedido = (await repositorioPresupuestoPedido.ObtenerPresupuestoPedidoPorIdPedidoProveedor(pedidoProveedor.id)).ToList();
+        }
+        else
+        {
+            foreach (var detalle in provisionDetalle)
+            {
+                provisionDetalleDict.Add(detalle, true);
+                presupuestosPedido.Add(new PresupuestoPedido
+                    {
+                        cantidad = detalle.cantidad,
+                        detalle_provision_id = detalle.id,
+                        pedido_proveedor_id = pedidoProveedor.id,
+                        proveedor_id = int.Parse(prov)
+                    });
+            }
+        }
+    }
+
+    private string UpdateCantidadLetra(double subtotal)
+    {
+        return ConversorNumeroLetra.NumeroALetras((decimal)subtotal);
+    }
+
+    private async Task OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        archivoSeleccionado = e.File;
+
+        var fechaActual = DateTime.Now.ToString("dd-MM-yyyy");
+        var carpetaDestino = Path.Combine("wwwroot", "documentacion", "PROV - ", prov, "Presupuesto", fechaActual);
+        var nombreArchivo = $"{pedido.abreviatura}-{pedido.acta_num}-{fechaActual}-{pedidoProveedor.Proveedor.nombre_comercial}.pdf";
+
+        var rutaArchivo = await Utiles.CargarArchivoPdfAsync(
+            archivoSeleccionado,
+            carpetaDestino,
+            nombreArchivo,
+            JSRuntime
+        );
+
+        if (rutaArchivo != null)
+        {
+            // Aquí puedes manejar la ruta del archivo cargado si es necesario
+        }
+    }
+
+    private void CalcularSubtotal(DetalleProvision detalle, PresupuestoPedido presupuesto)
+    {
+        presupuesto.subtotal = presupuesto.cantidad * presupuesto.precio_unitario;
+        presupuesto.subtotal_letra = UpdateCantidadLetra(presupuesto.subtotal);
+    }
+
+    private void AgregarInstancia(DetalleProvision dp)
+    {
+        var nuevaInstancia = new DetalleProvision
+            {
+                id = instanciaIdCounter++,
+                Articulo = dp.Articulo,
+                cantidad = dp.cantidad,
+                UnidadMedida = dp.UnidadMedida,
+            };
+
+        provisionInstancias.Add(nuevaInstancia);
+        presupuestoInstancias.Add(new PresupuestoPedido
+            {
+                cantidad = dp.cantidad,
+                detalle_provision_id = nuevaInstancia.id,
+                pedido_proveedor_id = pedidoProveedor.id,
+                proveedor_id = int.Parse(prov)
+            });
+        provisionDetalleDict[nuevaInstancia] = false;
+
+        StateHasChanged();
+    }
+
+    private void EliminarInstancia(DetalleProvision dp)
+    {
+        var instancia = provisionInstancias.FirstOrDefault(i => i.id == dp.id);
+        if (instancia != null)
+        {
+            provisionInstancias.Remove(instancia);
+            var presupuesto = presupuestoInstancias.FirstOrDefault(p => p.detalle_provision_id == dp.id);
+            if (presupuesto != null)
+            {
+                presupuestoInstancias.Remove(presupuesto);
+            }
+            provisionDetalleDict.Remove(instancia);
+            StateHasChanged();
+        }
+    }
+
+    private async Task ProcesarPresupuesto()
+    {
+        try
+        {
+            if (presupuestosPedido.Any(pp => pp.precio_unitario < 0))
+            {
+                await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "Todos los campos de precio unitario deben ser mayores que cero", "error");
+                return;
+            }
+
+            foreach (var pp in presupuestosPedido)
+            {
+                pp.subtotal = pp.precio_unitario * pp.cantidad;
+                pp.subtotal_letra = UpdateCantidadLetra(pp.subtotal);
+                pp.pedido_proveedor_id = pedidoProveedor.id;
+                pp.pedido_id = pedido.id;
+
+                await repositorioPresupuestoPedido.Agregar(pp);
+            }
+
+            foreach (var i in presupuestoInstancias)
+            {
+                i.subtotal = i.precio_unitario * i.cantidad;
+                i.subtotal_letra = UpdateCantidadLetra(i.subtotal);
+                i.pedido_proveedor_id = pedidoProveedor.id;
+                i.pedido_id = pedido.id;
+
+                await repositorioPresupuestoPedido.Agregar(i);
+            }
+
+            await repositorioPresupuestoPedido.CambiarCarga(int.Parse(prov), int.Parse(id));
+
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El presupuesto ha sido procesado correctamente", "success");
+
+            var url = $"/altaPresupuesto/{id}";
+            NavigationManager.NavigateTo(url);
+        }
+        catch (Exception ex)
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "No se pudo cargar el presupuesto", "error");
+        }
+    }
+}

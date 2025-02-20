@@ -54,6 +54,7 @@ builder.Services.AddScoped<IRepositorio<Destino>, Repositorio<Destino>>();
 builder.Services.AddScoped<IRepositorio<DetalleProvision>, Repositorio<DetalleProvision>>();
 builder.Services.AddScoped<IRepositorio<Estado>, Repositorio<Estado>>();
 builder.Services.AddScoped<IRepositorio<EstadoArticulo>, Repositorio<EstadoArticulo>>();
+builder.Services.AddScoped<IRepositorio<Pago>, Repositorio<Pago>>();
 builder.Services.AddScoped<IRepositorio<Pedido>, Repositorio<Pedido>>();
 builder.Services.AddScoped<IRepositorio<PedidoProveedor>, Repositorio<PedidoProveedor>>();
 builder.Services.AddScoped<IRepositorio<PresupuestoPedido>, Repositorio<PresupuestoPedido>>();

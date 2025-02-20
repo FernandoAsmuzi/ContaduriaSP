@@ -3,6 +3,7 @@
 @using ContadSP.Repositorios
 @using ContadSP.Models
 @using System.Text.Json
+@using ContadSP.Services
 @using Radzen
 @using Radzen.Blazor
 
@@ -172,7 +173,16 @@
                 </div>
 
                 <div class="btn-opciones pb-3">
-                    <button class="btn btn-success" @onclick="()=>ConfirmarCompra()">Confirmar compra</button>
+                    <div class="btn-opciones pb-3">
+                        <label for="remito" class="form-label"><strong>Remito:</strong></label>
+                        <input type="text" id="remito" class="form-control" @bind="remito" />
+                        <InputFile OnChange="OnInputFileChange" accept=".pdf" />
+
+                    </div>
+                    <div class="btn-opciones pb-3">
+                        <button class="btn btn-success" @onclick="()=>ConfirmarCompra()">Confirmar compra</button>
+                    </div>
+                    
                 </div>
 
             </div>
@@ -208,7 +218,9 @@
     private string? destino;
     private string? usuario;
     private string? tipo;
+    private string remito = string.Empty;
 
+    private IBrowserFile? archivoSeleccionado;
 
     protected override async Task OnInitializedAsync()
     {
@@ -252,6 +264,27 @@
         estado = estados.FirstOrDefault(e => e.id == prov.estado_id);
     }
 
+    private async Task OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        archivoSeleccionado = e.File;
+
+        var fechaActual = DateTime.Now.ToString("dd-MM-yyyy");
+        var carpetaDestino = Path.Combine("wwwroot", "documentacion", "provisiones", prov.id.ToString(), "compra", fechaActual);
+        var nombreArchivo = $"{pedido.abreviatura}-{pedido.acta_num}-{fechaActual}-REMITO.pdf";
+
+        var rutaArchivo = await Utiles.CargarArchivoPdfAsync(
+            archivoSeleccionado,
+            carpetaDestino,
+            nombreArchivo,
+            JSRuntime
+        );
+
+        if (rutaArchivo != null)
+        {
+            // Aquí puedes manejar la ruta del archivo cargado si es necesario
+        }
+    }
+
     private async Task ConfirmarCompra()
     {
         var confirmed = await JSRuntime.InvokeAsync<bool>("showSweetAlertConfirm", "Confirmar Compra", "¿Estás seguro de que deseas confirmar la compra? Una vez realizada esta acción no se podrá modificar", "warning");
@@ -259,7 +292,7 @@
         {
             var compra = new Compra();
             compra.pedido_id = pedido.id;
-            compra.remito = "";
+            compra.remito = remito;
             await repositorioCompra.Agregar(compra);
             await repositorioPedidoProveedor.CambiarEstadoProvision(prov, 8);
             await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La compra se cargó correctamente", "success");
