@@ -1,11 +1,13 @@
-﻿@page "/compra/{id:int}"
+﻿@page "/pedido_en_proceso/{id}"
 
+@using ContadSP.Controllers
 @using ContadSP.Repositorios
 @using ContadSP.Models
 @using System.Text.Json
-@using ContadSP.Services
+@using DinkToPdf
 @using Radzen
 @using Radzen.Blazor
+@using ContadSP.Services
 
 @inject IRepositorio<DetalleProvision> repositorioDetalleProvision
 @inject IRepositorio<Provision> repositorioProvision
@@ -14,27 +16,33 @@
 @inject IRepositorio<Estado> repositorioEstado
 @inject IRepositorio<Pedido> repositorioPedido
 @inject IRepositorio<PedidoProveedor> repositorioPedidoProveedor
-@inject IRepositorio<Proceso> repositorioProceso;
+@inject IRepositorio<Proceso> repositorioProceso
 @inject IRepositorio<ProcesoPedido> repositorioProcesoPedido
-@inject IRepositorio<Compra> repositorioCompra
+@inject IRepositorio<PresupuestoPedido> repositorioPresupuestoPedido
 @inject IJSRuntime JSRuntime
-@inject NavigationManager NavigationManager
 
+@inject DialogService DialogService
+@inject NavigationManager NavigationManager
+@inject PdfService PdfService
+
+
+@*  ----CONTENEDORES---- *@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-12 border rounded">
             <div class="conteiner-fluid">
-                
+                @*  ----CONTENEDORES---- *@
+
                 @* ----ENCABEZADO--- *@
-                <div>
-                    <h3 class="text-center">Detalle del pedido</h3>
+                <div class="pt-3">
+                    <h3 class="text-center">Detalle de la provisión</h3>
                 </div>
                 @* ----ENCABEZADO--- *@
 
                 @* ----DATOS DE LA PROVISION/PEDIDO--- *@
                 <div class="row">
                     <div class="col">
-                        <label><strong>Provisión ID:</strong></label>
+                        <label><strong>ID Provisión:</strong></label>
                         <label>@prov.id</label>
                     </div>
                     <div class="col">
@@ -64,42 +72,51 @@
                         <label>@tipo</label>
                     </div>
                 </div>
-                <div class="row pb-3">
+                <div class="row">
                     <div class="col">
                         <label><strong>Estado: </strong></label>
                         <label class="@GetEstadoCssClass(prov.estado_id)"><strong>@estado.estado</strong></label>
                     </div>
                 </div>
+                
+                    <div class="pt-3">
+                        <h3 class="text-center">Detalle del pedido</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label><strong>ID Pedido:</strong></label>
+                            <label>@pedido.id</label>
+                        </div>
+                        <div class="col">
+                            <label><strong>Fecha pedido:</strong></label>
+                            <label>@pedido.fecha_pedido</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label><strong>N° acta:</strong></label>
+                            <label>@pedido.abreviatura-@pedido.acta_num-@pedido.anio</label>
+                        </div>
+                    </div>
 
-                <div class="row">
-                    <div class="col">
-                        <label><strong>Pedido ID:</strong></label>
-                        <label>@pedido.id</label>
-                    </div>
-                    <div class="col">
-                        <label><strong>N° Actuación:</strong></label>
-                        <label>@pedido.abreviatura - @pedido.acta_num - @pedido.anio </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label><strong>Fecha pedido:</strong></label>
-                        <label>@pedido.fecha_pedido</label>
-                    </div>
-                </div>
 
-                <div>
-                    <h3 class="text-center">Artículos de la provisión</h3>
-                </div>
-                <div style="overflow: auto;" class="pb-3">
+                @* ----DATOS DE LA PROVISION/PEDIDO---*@
+                <br>
+               
+
+                @* ----ARTICULOS DE LA PROVISION/PEDIDO---- *@
+                <div style="overflow: auto;" class="pt-3">
                     <table class="table table-striped table-responsive table-hover">
                         <thead class="thead-dark">
                             <tr>
                                 <th>Artículo</th>
-                                <th>Cantidad</th>
+                                <th>Precio unitario</th>
                                 <th>Unidad</th>
-                                <th>Subtotal aprox.</th>
-                                <th>Subtotal letra</th>
+                                
+                                    <th>Cantidad</th>
+                                    <th>Subtotal aprox</th>
+                                    <th>Subtotal letra</th>
+
                                 <th>Especificación</th>
                             </tr>
                         </thead>
@@ -108,74 +125,82 @@
                             {
                                 <tr>
                                     <td>@p.Articulo.descripcion</td>
-                                    <td>@p.cantidad</td>
+                                    <td>@p.Articulo.monto_aprox</td>
                                     <td>@p.UnidadMedida.unidad</td>
-                                    <td>@p.subtotal_aprox</td>
-                                    <td>@p.subtotal_letra</td>
+
+                                   
+                                        <td>@p.cantidad_aprobada</td>
+                                        <td>@p.subtotal_aprobado</td>
+                                        <td>@p.subtotal_aprobado_letra</td>
+            
                                     <td>@p.especificacion</td>
                                 </tr>
                             }
                         </tbody>
                     </table>
-                    <div class="row text-end">
-                        <div class="col">
-                            <label><strong>Total Aproximado:</strong></label>
-                            <label>@prov.total_aprox</label>
-                        </div>
+                    <div class="row">
+                        
+                        
+                            <div class="col-md-6">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-end"><strong>Total:</strong></td>
+                                            <td class="text-end">@prov.total_aprox</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-end"><strong>Total letra:</strong></td>
+                                            <td class="text-end">@prov.total_letra</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
                     </div>
-                    <div class="row text-end">
-                        <div class="col">
-                            <label><strong>Total aproximado letra:</strong></label>
-                            <label>@prov.total_letra</label>
-                        </div>
-                    </div>
+
+
                 </div>
+                @* ----ARTICULOS DE LA PROVISION/PEDIDO---- *@
 
-                <div class="pt-3">
-                    <h3 class="text-center">Artículos seleccionados</h3>
-                </div>
-                <div style="overflow: auto;">
-
-                    <table class="table table-striped table-responsive table-hover">
-
-                        <tbody>
-                            
-                                
+                <br>
+                
+             
+                    <div style="overflow: auto;">
+                        <h4>Proveedores Seleccionados</h4>
+                        <table class="table table-striped table-responsive table-hover">
+                            <thead class="thead-dark">
                                 <tr>
-                                    <th>Articulo</th>
-                                    <th>Cantidad</th>
-                                    <th>Proveedor</th>
-                                    <th>Precio unitario</th>
-                                    <th>Precio total</th>
-                                    <th>Subtotal letra</th>
-                                    <th>Especificación</th>
-                                    <th>Justificación</th>
+                                    <th>Nombre</th>
+                                    <th>Comercio</th>
+                                    <th>Dirección</th>
+                                    <th>Teléfono</th>
+                                    <th>Email</th>
                                 </tr>
-
-
-
-                                @foreach (var pp in presupuestoPedidos)
+                            </thead>
+                            <tbody>
+                                @foreach (var d in pedidoProveedorList)
                                 {
                                     <tr>
-                                        <td>@pp.DetalleProvision.Articulo.descripcion</td>
-                                        <td>@pp.cantidad</td>
-                                        <td>@pp.Proveedor.nombre_comercial</td>
-                                        <td>@pp.precio_unitario</td>
-                                        <td>@pp.subtotal</td>
-                                        <td>@pp.subtotal_letra</td>
-                                        <td>@pp.especificacion</td>
-                                        <td>@pp.justificacion</td>
+                                        <td>@d.Proveedor.nombre</td>
+                                        <td>@d.Proveedor.nombre_comercial</td>
+                                        <td>@d.Proveedor.direccion</td>
+                                        <td>@d.Proveedor.telefono</td>
+                                        <td>@d.Proveedor.email</td>
                                     </tr>
                                 }
-                            
-                        </tbody>
-                    </table>
-                </div>
-                
-                    <div class="btn-opciones pb-3">
-                        <button class="btn btn-success" @onclick="()=>ConfirmarCompra()">Confirmar compra</button>
+                            </tbody>
+                        </table>
                     </div>
-
+                    <div class="btn-opciones">
+                        <div class="boton-ver">
+                            <button type="button" class="btn btn-success" @onclick="() => CargarPresupuesto(pedido)">Cargar presupuestos</button>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+             
+                
+              
             </div>
         </div>
     </div>
@@ -183,10 +208,10 @@
 
 @code {
     [Parameter]
-    public int Id { get; set; }
+    public string id { get; set; }
 
     private List<DetalleProvision> provisionDetalle = new List<DetalleProvision>();
-
+    private List<Estado> estados = new List<Estado>();
     private List<Proveedor> proveedores = new List<Proveedor>();
     private List<Proceso> procesos = new List<Proceso>();
     private List<PedidoProveedor> pedidoProveedorList = new List<PedidoProveedor>();
@@ -194,7 +219,7 @@
     private Dictionary<Proveedor, bool> proveedoresSeleccionados = new Dictionary<Proveedor, bool>();
 
     //diccionario articulos para el select
-    private Dictionary<int, int?> productosSeleccionados = new Dictionary<int, int?>();
+    private Dictionary<int, bool> productosSeleccionados = new Dictionary<int, bool>();
 
     private Provision prov = new Provision();
     private Estado? estado = new Estado();
@@ -204,31 +229,30 @@
     private ProvisionExp? ultimaProvExp = new ProvisionExp();
     private Pedido ultimoPedido = new Pedido();
 
-    private List<Estado> estados = new List<Estado>();
-
     private string? destino;
     private string? usuario;
     private string? tipo;
- 
-    
+    private int anio = 0;
+    private double aprobado = 0;
+    private string aprobadoLetra = "";
 
     protected override async Task OnInitializedAsync()
     {
-        prov = await repositorioProvision.ObtenerProvisionPorId(Id);
+        prov = await repositorioProvision.ObtenerProvisionPorId(int.Parse(id));
 
-
+        
         pedido = await repositorioPedido.ObteberPedidoPorProvisionId(prov.id);
-        presupuestoPedidos = (await repositorioPedidoProveedor.ObtenerPresupuestoPedidoPorPedidoId(pedido.id)).Where(pp => pp.seleccion == true).ToList(); ;
-
+        pedidoProveedorList = (await repositorioPedidoProveedor.ObtenerPedidoProveedorPorPedidoId(pedido.id)).ToList();
+        
+        
         procesos = (await repositorioProceso.ObtenerTodo()).ToList();
-
-        provisionDetalle = (await repositorioDetalleProvision.ObtenerProvisionesId(Id)).ToList();
-
         destino = prov.Destino.destino;
         usuario = prov.Usuario.nombre_usuario;
         tipo = prov.TipoPedido.tipo;
+        provisionDetalle = (await repositorioDetalleProvision.ObtenerProvisionesId(int.Parse(id))).ToList();
         await CargarEstado();
     }
+
 
     private string GetEstadoCssClass(int estadoId)
     {
@@ -241,7 +265,8 @@
             { 3, "text-danger" },
             { 6, "text-danger" },
             { 7, "text-warning" },
-            { 8, "text-success" }
+            { 8, "text-success" },
+            { 9, "text-success" }
                 };
 
         return estadoCssMap.TryGetValue(estadoId, out var cssClass) ? cssClass : "";
@@ -254,19 +279,8 @@
         estado = estados.FirstOrDefault(e => e.id == prov.estado_id);
     }
 
-    private async Task ConfirmarCompra()
+    private void CargarPresupuesto(Pedido p)
     {
-        var confirmed = await JSRuntime.InvokeAsync<bool>("showSweetAlertConfirm", "Confirmar Compra", "¿Estás seguro de que deseas confirmar la compra? Una vez realizada esta acción no se podrá modificar", "warning");
-        if (confirmed)
-        {
-            var compra = new Compra();
-            compra.pedido_id = pedido.id;
-            await repositorioCompra.Agregar(compra);
-            await repositorioPedidoProveedor.CambiarEstadoProvision(prov, 8);
-            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "La compra se cargó correctamente", "success");
-            NavigationManager.NavigateTo("/");
-        }
+        NavigationManager.NavigateTo($"/altaPresupuesto/{p.id}");
     }
-
-
 }

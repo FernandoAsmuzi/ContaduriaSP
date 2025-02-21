@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace ContadSP.Models
 {
     public class Proceso
     {
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
@@ -17,5 +18,6 @@ namespace ContadSP.Models
         [ForeignKey("tipo_pedido_id")]
         public int tipo_pedido_id { get; set; }
         public TipoPedido TipoPedido { get; set; }
+
     }
 }

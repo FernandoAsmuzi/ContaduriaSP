@@ -186,6 +186,11 @@ public class Repositorio<T> : IRepositorio<T> where T : class
         return pp;
     }
 
+    public async Task<bool> ControlarProveedorRepetido(string cuit)
+    {
+        return await _context.Proveedor.AnyAsync(p => p.cuit == cuit);
+    }
+
     // ---------------------------------------------------------
     // METODOS PARA PROCESO PEDIDO
     public async Task<ProcesoPedido> ObtenerUltimoProcesoNumero(int id)

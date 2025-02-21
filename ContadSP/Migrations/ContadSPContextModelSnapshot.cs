@@ -183,6 +183,59 @@ namespace ContadSP.Migrations
                     b.ToTable("EstadoArticulo");
                 });
 
+            modelBuilder.Entity("ContadSP.Models.Pago", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("compra_id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("factura")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateOnly>("fecha_pago")
+                        .HasColumnType("date");
+
+                    b.Property<string>("numero_transferencia")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("otros")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("remito")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("retencion_ganancias")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("retencion_ib")
+                        .HasColumnType("longtext");
+
+                    b.Property<double>("subtotal")
+                        .HasColumnType("double");
+
+                    b.Property<string>("subtotal_letra")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<double>("total")
+                        .HasColumnType("double");
+
+                    b.Property<string>("total_letra")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("compra_id");
+
+                    b.ToTable("Pago");
+                });
+
             modelBuilder.Entity("ContadSP.Models.Pedido", b =>
                 {
                     b.Property<int>("id")
@@ -584,6 +637,17 @@ namespace ContadSP.Migrations
                     b.Navigation("UnidadMedida");
                 });
 
+            modelBuilder.Entity("ContadSP.Models.Pago", b =>
+                {
+                    b.HasOne("ContadSP.Models.Compra", "Compra")
+                        .WithMany("Pago")
+                        .HasForeignKey("compra_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Compra");
+                });
+
             modelBuilder.Entity("ContadSP.Models.Pedido", b =>
                 {
                     b.HasOne("ContadSP.Models.Provision", "Provision")
@@ -744,6 +808,11 @@ namespace ContadSP.Migrations
             modelBuilder.Entity("ContadSP.Models.Categoria", b =>
                 {
                     b.Navigation("Articulo");
+                });
+
+            modelBuilder.Entity("ContadSP.Models.Compra", b =>
+                {
+                    b.Navigation("Pago");
                 });
 
             modelBuilder.Entity("ContadSP.Models.Destino", b =>

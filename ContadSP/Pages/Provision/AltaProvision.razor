@@ -152,6 +152,7 @@
 
                         <br />
                         <div class="btn-opciones">
+                            <InputFile OnChange="@(e => OnInputFileChange(e, 0))" accept=".pdf" />
                             <button type="submit" class="btn btn-primary">Generar Provisión</button>
                             <button type="button" class="btn btn-danger" style="margin-left: 5px;" @onclick="() => LimpiarProvision()">Cancelar</button>
                         </div>
@@ -453,11 +454,20 @@
 
                     if (archivosProvisionales.TryGetValue(detalle.articulo_id, out var archivo))
                     {
-                        var fechaActual = DateTime.Now.ToString("dd-MM-yyyy");
-                        var carpetaDestino = Path.Combine("wwwroot", "documentacion", "provisiones",  provision.id.ToString(), "articulos" );
-                        var nombreArchivo = $"{detalle.articulo_id}.pdf";
 
-                        await Utiles.CargarArchivoPdfAsync(archivo, carpetaDestino, nombreArchivo, JSRuntime);
+                        if(detalle.articulo_id == 0)
+                        {
+                            var carpetaDestino = Path.Combine("wwwroot", "documentacion", "provisiones", provision.id.ToString());
+                            var nombreArchivo = $"Detalle-Provision.pdf";
+                            await Utiles.CargarArchivoPdfAsync(archivo, carpetaDestino, nombreArchivo, JSRuntime);
+                        }
+                        else
+                        {
+                            var carpetaDestino = Path.Combine("wwwroot", "documentacion", "provisiones", provision.id.ToString(), "articulos");
+                            var nombreArchivo = $"{detalle.articulo_id}.pdf";
+                            await Utiles.CargarArchivoPdfAsync(archivo, carpetaDestino, nombreArchivo, JSRuntime);
+                        }
+                        
                     }
                     
                 }

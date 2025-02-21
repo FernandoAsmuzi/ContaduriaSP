@@ -126,7 +126,7 @@
 
                             </div>
                         </div>
-                        <br/>
+                        <br />
 
                         @if (prov.estado_id == 1)
                         {
@@ -161,7 +161,7 @@
                                 }
                                 else
                                 {
-                                    <th>Cantidad</th> 
+                                    <th>Cantidad</th>
                                     <th>Subtotal aprox</th>
                                     <th>Subtotal letra</th>
                                 }
@@ -186,7 +186,7 @@
                                         <td>@p.subtotal_letra</td>
 
                                         <td>
-                                            <input type="number" class="form-control" @bind="p.cantidad_aprobada" @oninput="e => CalcularSubtotal(p, p.Articulo.monto_aprox, e)"/>
+                                            <input type="number" class="form-control" @bind="p.cantidad_aprobada" @oninput="e => CalcularSubtotal(p, p.Articulo.monto_aprox, e)" />
                                         </td>
                                         <td>@p.subtotal_aprobado</td>
                                         <td>@p.subtotal_aprobado_letra</td>
@@ -254,10 +254,10 @@
                             </div>
                         }
 
-                        
+
                     </div>
-                    
-                    
+
+
                 </div>
                 @* ----ARTICULOS DE LA PROVISION/PEDIDO---- *@
 
@@ -340,11 +340,11 @@
                             </tbody>
                         </table>
                     </div>
-                        <div class="btn-opciones">
-                            <div class="boton-ver">
-                                <button type="button" class="btn btn-success" @onclick="() => CargarPresupuesto(pedido)">Cargar presupuestos</button>
-                            </div>
+                    <div class="btn-opciones">
+                        <div class="boton-ver">
+                            <button type="button" class="btn btn-success" @onclick="() => CargarPresupuesto(pedido)">Cargar presupuestos</button>
                         </div>
+                    </div>
                     <br />
                     <br />
                 }
@@ -352,27 +352,27 @@
                 {
                     <div style="overflow: auto;">
                         <h4>Artículos presupuestados</h4>
-                    
+
                         <table class="table table-striped table-responsive table-hover">
-                            
+
                             <tbody>
                                 @foreach (var grupo in presupuestoPedidos.Where(pp => pp.Proveedor != null).GroupBy(pp => pp.detalle_provision_id))
                                 {
-                                    
-                                        <tr>
-                                            <th>Articulo</th>
-                                            <th>Proveedor</th>
-                                            <th>Cantidad</th>
-                                            <th>Precio unitario</th>
-                                            <th>Precio total</th>
-                                            <th>Subtotal letra</th>
-                                            <th>Especificación</th>
-                                            <th>Seleccionar</th>
-                                            <th>Justificar selección</th>
-                                        </tr>
-                                    
-                                    
-                                           
+
+                                    <tr>
+                                        <th>Articulo</th>
+                                        <th>Proveedor</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio unitario</th>
+                                        <th>Precio total</th>
+                                        <th>Subtotal letra</th>
+                                        <th>Especificación</th>
+                                        <th>Seleccionar</th>
+                                        <th>Justificar selección</th>
+                                    </tr>
+
+
+
                                     @foreach (var pp in grupo)
                                     {
                                         <tr>
@@ -386,11 +386,11 @@
                                             <td class="align-content-center text-center">
                                                 <input type="checkbox" class="presupuesto-checkbox" @onchange="e => OnProductoSeleccionado(e, pp.id)" checked="@IsProductoSeleccionado(pp.id)" />
                                             </td>
-                                            
+
                                             <td class="align-content-center">
-                                                <input type="text" class="form-control" @bind="pp.justificacion"/>
+                                                <input type="text" class="form-control" @bind="pp.justificacion" />
                                             </td>
-                                            
+
                                         </tr>
                                     }
                                 }
@@ -400,7 +400,7 @@
                             <button class="btn btn-success" @onclick="() => ConfirmarPresupuesto()">Confirmar presupuesto</button>
                         </div>
                     </div>
-                    
+
                 }
                 @*  ----CONTENEDORES---- *@
             </div>
@@ -444,7 +444,7 @@
         prov = await repositorioProvision.ObtenerProvisionPorId(int.Parse(id));
 
         if (prov.estado_id == 4)
-        {   
+        {
             pedido = await repositorioPedido.ObteberPedidoPorProvisionId(prov.id);
             pedidoProveedorList = (await repositorioPedidoProveedor.ObtenerPedidoProveedorPorPedidoId(pedido.id)).ToList();
         }
@@ -505,7 +505,7 @@
     private string GetEstadoCssClass(int estadoId)
     {
         var estadoCssMap = new Dictionary<int, string>
-                {
+                    {
             { 1, "text-warning" },
             { 4, "text-warning" },
             { 2, "text-success" },
@@ -515,7 +515,7 @@
             { 7, "text-warning" },
             { 8, "text-success" },
             { 9, "text-success" }
-                };
+                    };
 
         return estadoCssMap.TryGetValue(estadoId, out var cssClass) ? cssClass : "";
     }
@@ -765,7 +765,7 @@
             totalProvisionLetra = UpdateCantidadLetra(new ChangeEventArgs { Value = totalProvision });
             prov.total_aprox = totalProvision;
             prov.total_letra = totalProvisionLetra;
-            await repositorioProvision.Actualizar(prov); 
+            await repositorioProvision.Actualizar(prov);
         }
 
         exp.provision_id = prov.id;

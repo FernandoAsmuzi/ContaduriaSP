@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ContadSP.Migrations
 {
     /// <inheritdoc />
-    public partial class nueva : Migration
+    public partial class prod : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -461,6 +461,45 @@ namespace ContadSP.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Pago",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    fecha_pago = table.Column<DateOnly>(type: "date", nullable: false),
+                    factura = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    remito = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    retencion_ib = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    retencion_ganancias = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    subtotal = table.Column<double>(type: "double", nullable: false),
+                    subtotal_letra = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    total = table.Column<double>(type: "double", nullable: false),
+                    total_letra = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    otros = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    numero_transferencia = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    compra_id = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pago", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Pago_Compra_compra_id",
+                        column: x => x.compra_id,
+                        principalTable: "Compra",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "PresupuestoPedidos",
                 columns: table => new
                 {
@@ -542,6 +581,11 @@ namespace ContadSP.Migrations
                 name: "IX_DetalleProvision_unidad_id",
                 table: "DetalleProvision",
                 column: "unidad_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Pago_compra_id",
+                table: "Pago",
+                column: "compra_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Pedido_provision_id",
@@ -628,7 +672,7 @@ namespace ContadSP.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Compra");
+                name: "Pago");
 
             migrationBuilder.DropTable(
                 name: "PresupuestoPedidos");
@@ -638,6 +682,9 @@ namespace ContadSP.Migrations
 
             migrationBuilder.DropTable(
                 name: "ProvisionExp");
+
+            migrationBuilder.DropTable(
+                name: "Compra");
 
             migrationBuilder.DropTable(
                 name: "DetalleProvision");

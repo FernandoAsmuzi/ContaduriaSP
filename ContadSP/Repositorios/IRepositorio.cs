@@ -50,6 +50,8 @@ namespace ContadSP.Repositorios
         Task<EstadoArticulo> ObtenerEstadoArticuloPorId(int id);
         Task<Compra> ObtenerCompraPorIdPedido(int id);
 
+        Task<bool> ControlarProveedorRepetido(string cuit);
+
     }
 }
 

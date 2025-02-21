@@ -29,13 +29,13 @@
                         </div>
                         <div class="form-group">
                             <label for="nombre">CUIT:</label>
-                            <InputText id="cuit" class="form-control" @bind-Value="proveedor.cuit" maxlength="60" />
+                            <InputText id="cuit" class="form-control" @bind-Value="proveedor.cuit" maxlength="60" required/>
                         </div>
                         <div class="form-group">
                             <label for="nombre">Ingresos brutos:</label>
                             <InputText id="ingresos_brutos" class="form-control" @bind-Value="proveedor.ingresos_brutos" maxlength="60" />
                         </div>
-                                                                       
+
                         <div class="form-group">
                             <label for="direccion">Dirección:</label>
                             <InputText id="direccion" class="form-control" @bind-Value="proveedor.direccion" maxlength="60" required />
@@ -48,7 +48,7 @@
 
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <InputText id="email" class="form-control" @bind-Value="proveedor.email" maxlength="60" required />
+                            <InputText id="email" class="form-control" @bind-Value="proveedor.email" type="email" maxlength="60" required />
                         </div>
 
                         <div class="form-group">
@@ -88,10 +88,18 @@
     {
         try
         {
-            // Aquí es donde se guarda el proveedor en la base de datos
-            await repositorioProveedor.Agregar(proveedor);
-            proveedor = new Proveedor();
-            await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El proveedor se guardó correctamente", "success");
+            if(await repositorioProveedor.ControlarProveedorRepetido(proveedor.cuit))
+            {
+                await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Error!", "El cuit ya existe", "error");
+            }
+            else
+            {
+                // Aquí es donde se guarda el proveedor en la base de datos
+                await repositorioProveedor.Agregar(proveedor);
+                proveedor = new Proveedor();
+                await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El proveedor se guardó correctamente", "success");
+            }
+            
         }
         catch (Exception ex)
         {

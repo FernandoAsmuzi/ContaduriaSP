@@ -5279,53 +5279,8 @@
       ]
     },
     {
-      "Route": "documentacion/4/Presupuesto/20-02-2025/ACT-4-20-02-2025-A LA CIMA SA.ner3yirsxm.pdf",
-      "AssetFile": "documentacion/4/Presupuesto/20-02-2025/ACT-4-20-02-2025-A LA CIMA SA.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "103416"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"gbgHf9mRszSW7HDA1KlhI2+TR/4rHMy/g9gMhz8sTh0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 20 Feb 2025 13:42:11 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ner3yirsxm"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-gbgHf9mRszSW7HDA1KlhI2+TR/4rHMy/g9gMhz8sTh0="
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/4/Presupuesto/20-02-2025/ACT-4-20-02-2025-A LA CIMA SA.pdf"
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/4/Presupuesto/20-02-2025/ACT-4-20-02-2025-A LA CIMA SA.pdf",
-      "AssetFile": "documentacion/4/Presupuesto/20-02-2025/ACT-4-20-02-2025-A LA CIMA SA.pdf",
+      "Route": "documentacion/pedidos/21-02-2025/Pedido_1.pdf",
+      "AssetFile": "documentacion/pedidos/21-02-2025/Pedido_1.pdf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5338,7 +5293,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "103416"
+          "Value": "992858"
         },
         {
           "Name": "Content-Type",
@@ -5346,23 +5301,23 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gbgHf9mRszSW7HDA1KlhI2+TR/4rHMy/g9gMhz8sTh0=\""
+          "Value": "\"ln5SBtk9sbRXhb9N9K7OURFAvdrwHA0+VBCAVP5BYrE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 20 Feb 2025 13:42:11 GMT"
+          "Value": "Fri, 21 Feb 2025 15:31:01 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-gbgHf9mRszSW7HDA1KlhI2+TR/4rHMy/g9gMhz8sTh0="
+          "Value": "sha256-ln5SBtk9sbRXhb9N9K7OURFAvdrwHA0+VBCAVP5BYrE="
         }
       ]
     },
     {
-      "Route": "documentacion/provisiones/14/Remito/20-02-2025/ACT-2-20-02-2025-REMITO.ixbmrplt5z.pdf",
-      "AssetFile": "documentacion/provisiones/14/Remito/20-02-2025/ACT-2-20-02-2025-REMITO.pdf",
+      "Route": "documentacion/pedidos/21-02-2025/Pedido_1.umuqpq0453.pdf",
+      "AssetFile": "documentacion/pedidos/21-02-2025/Pedido_1.pdf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5375,7 +5330,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "992786"
+          "Value": "992858"
         },
         {
           "Name": "Content-Type",
@@ -5383,31 +5338,76 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds=\""
+          "Value": "\"ln5SBtk9sbRXhb9N9K7OURFAvdrwHA0+VBCAVP5BYrE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 20 Feb 2025 13:56:46 GMT"
+          "Value": "Fri, 21 Feb 2025 15:31:01 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ixbmrplt5z"
+          "Value": "umuqpq0453"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds="
+          "Value": "sha256-ln5SBtk9sbRXhb9N9K7OURFAvdrwHA0+VBCAVP5BYrE="
         },
         {
           "Name": "label",
-          "Value": "documentacion/provisiones/14/Remito/20-02-2025/ACT-2-20-02-2025-REMITO.pdf"
+          "Value": "documentacion/pedidos/21-02-2025/Pedido_1.pdf"
         }
       ]
     },
     {
-      "Route": "documentacion/provisiones/14/Remito/20-02-2025/ACT-2-20-02-2025-REMITO.pdf",
-      "AssetFile": "documentacion/provisiones/14/Remito/20-02-2025/ACT-2-20-02-2025-REMITO.pdf",
+      "Route": "documentacion/provisiones/1/articulos/62.gvpwrdm79q.pdf",
+      "AssetFile": "documentacion/provisiones/1/articulos/62.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "993036"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/LmlcHermeNIAFTwxWpTWnzMX2kJMyjy9KTFgQAMCYE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Feb 2025 14:54:54 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gvpwrdm79q"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/LmlcHermeNIAFTwxWpTWnzMX2kJMyjy9KTFgQAMCYE="
+        },
+        {
+          "Name": "label",
+          "Value": "documentacion/provisiones/1/articulos/62.pdf"
+        }
+      ]
+    },
+    {
+      "Route": "documentacion/provisiones/1/articulos/62.pdf",
+      "AssetFile": "documentacion/provisiones/1/articulos/62.pdf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5420,7 +5420,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "992786"
+          "Value": "993036"
         },
         {
           "Name": "Content-Type",
@@ -5428,23 +5428,23 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds=\""
+          "Value": "\"/LmlcHermeNIAFTwxWpTWnzMX2kJMyjy9KTFgQAMCYE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 20 Feb 2025 13:56:46 GMT"
+          "Value": "Fri, 21 Feb 2025 14:54:54 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-GovHuLz2SHaMSWpWvm1RzF8yC7hX0OYXsFJCISCkhds="
+          "Value": "sha256-/LmlcHermeNIAFTwxWpTWnzMX2kJMyjy9KTFgQAMCYE="
         }
       ]
     },
     {
-      "Route": "documentacion/provisiones/20/articulos/System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf",
-      "AssetFile": "documentacion/provisiones/20/articulos/System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf",
+      "Route": "documentacion/provisiones/1/articulos/65.pdf",
+      "AssetFile": "documentacion/provisiones/1/articulos/65.pdf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5469,7 +5469,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 19 Feb 2025 12:52:15 GMT"
+          "Value": "Fri, 21 Feb 2025 14:54:55 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5480,8 +5480,8 @@
       ]
     },
     {
-      "Route": "documentacion/provisiones/20/articulos/System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].vgkloy5s8q.pdf",
-      "AssetFile": "documentacion/provisiones/20/articulos/System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf",
+      "Route": "documentacion/provisiones/1/articulos/65.vgkloy5s8q.pdf",
+      "AssetFile": "documentacion/provisiones/1/articulos/65.pdf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5506,7 +5506,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 19 Feb 2025 12:52:15 GMT"
+          "Value": "Fri, 21 Feb 2025 14:54:55 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5520,13 +5520,13 @@
         },
         {
           "Name": "label",
-          "Value": "documentacion/provisiones/20/articulos/System.Collections.Generic.Dictionary`2[System.Int32,Microsoft.AspNetCore.Components.Forms.IBrowserFile].pdf"
+          "Value": "documentacion/provisiones/1/articulos/65.pdf"
         }
       ]
     },
     {
-      "Route": "documentacion/provisiones/21/articulos/1.pdf",
-      "AssetFile": "documentacion/provisiones/21/articulos/1.pdf",
+      "Route": "documentacion/provisiones/1/articulos/66.pdf",
+      "AssetFile": "documentacion/provisiones/1/articulos/66.pdf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5551,7 +5551,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 19 Feb 2025 13:08:49 GMT"
+          "Value": "Fri, 21 Feb 2025 14:54:55 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5562,8 +5562,8 @@
       ]
     },
     {
-      "Route": "documentacion/provisiones/21/articulos/1.ucwvharww2.pdf",
-      "AssetFile": "documentacion/provisiones/21/articulos/1.pdf",
+      "Route": "documentacion/provisiones/1/articulos/66.ucwvharww2.pdf",
+      "AssetFile": "documentacion/provisiones/1/articulos/66.pdf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5588,7 +5588,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 19 Feb 2025 13:08:49 GMT"
+          "Value": "Fri, 21 Feb 2025 14:54:55 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5602,499 +5602,7 @@
         },
         {
           "Name": "label",
-          "Value": "documentacion/provisiones/21/articulos/1.pdf"
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/provisiones/21/articulos/61.0poxk8o9hq.pdf",
-      "AssetFile": "documentacion/provisiones/21/articulos/61.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "102978"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"RG+wOShsu7NtIV+l93HDQL58g5l9Oo6wBNCIhfs06I0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Feb 2025 13:08:49 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "0poxk8o9hq"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-RG+wOShsu7NtIV+l93HDQL58g5l9Oo6wBNCIhfs06I0="
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/provisiones/21/articulos/61.pdf"
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/provisiones/21/articulos/61.pdf",
-      "AssetFile": "documentacion/provisiones/21/articulos/61.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "102978"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"RG+wOShsu7NtIV+l93HDQL58g5l9Oo6wBNCIhfs06I0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Feb 2025 13:08:49 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-RG+wOShsu7NtIV+l93HDQL58g5l9Oo6wBNCIhfs06I0="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/provisiones/21/articulos/74.g6d6dunc83.pdf",
-      "AssetFile": "documentacion/provisiones/21/articulos/74.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "20795"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"OF16k6kb54x+2vJ5+uLC3vt08awMrNrcNRTySdAhzIk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Feb 2025 13:08:49 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "g6d6dunc83"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-OF16k6kb54x+2vJ5+uLC3vt08awMrNrcNRTySdAhzIk="
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/provisiones/21/articulos/74.pdf"
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/provisiones/21/articulos/74.pdf",
-      "AssetFile": "documentacion/provisiones/21/articulos/74.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "20795"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"OF16k6kb54x+2vJ5+uLC3vt08awMrNrcNRTySdAhzIk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Feb 2025 13:08:49 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-OF16k6kb54x+2vJ5+uLC3vt08awMrNrcNRTySdAhzIk="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/provisiones/22/articulos/10.pdf",
-      "AssetFile": "documentacion/provisiones/22/articulos/10.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992689"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"eaTTFPG7nLokyvnl7NexAZSqr6IPZLOZh5Z+atNBbYs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 20 Feb 2025 14:36:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-eaTTFPG7nLokyvnl7NexAZSqr6IPZLOZh5Z+atNBbYs="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/provisiones/22/articulos/10.tjjm0a77wv.pdf",
-      "AssetFile": "documentacion/provisiones/22/articulos/10.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992689"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"eaTTFPG7nLokyvnl7NexAZSqr6IPZLOZh5Z+atNBbYs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 20 Feb 2025 14:36:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "tjjm0a77wv"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-eaTTFPG7nLokyvnl7NexAZSqr6IPZLOZh5Z+atNBbYs="
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/provisiones/22/articulos/10.pdf"
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/provisiones/22/articulos/106.pdf",
-      "AssetFile": "documentacion/provisiones/22/articulos/106.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "102974"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"34rKAF0roGkAoxtFVSk/hQqaDweExNxHa+74H99eBGk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 20 Feb 2025 14:36:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-34rKAF0roGkAoxtFVSk/hQqaDweExNxHa+74H99eBGk="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/provisiones/22/articulos/106.vgkloy5s8q.pdf",
-      "AssetFile": "documentacion/provisiones/22/articulos/106.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "102974"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"34rKAF0roGkAoxtFVSk/hQqaDweExNxHa+74H99eBGk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 20 Feb 2025 14:36:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "vgkloy5s8q"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-34rKAF0roGkAoxtFVSk/hQqaDweExNxHa+74H99eBGk="
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/provisiones/22/articulos/106.pdf"
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/provisiones/22/articulos/28.pdf",
-      "AssetFile": "documentacion/provisiones/22/articulos/28.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "102977"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"N9rpjgBKf1SnVhcmThqikGp7OlFjCzO6ie98aF2SeLs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 20 Feb 2025 14:36:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-N9rpjgBKf1SnVhcmThqikGp7OlFjCzO6ie98aF2SeLs="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/provisiones/22/articulos/28.tzsoh75g3d.pdf",
-      "AssetFile": "documentacion/provisiones/22/articulos/28.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "102977"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"N9rpjgBKf1SnVhcmThqikGp7OlFjCzO6ie98aF2SeLs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 20 Feb 2025 14:36:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "tzsoh75g3d"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-N9rpjgBKf1SnVhcmThqikGp7OlFjCzO6ie98aF2SeLs="
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/provisiones/22/articulos/28.pdf"
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/provisiones/22/articulos/66.pdf",
-      "AssetFile": "documentacion/provisiones/22/articulos/66.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992674"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"jn4LMWnhnRYGlnt1No5Vx2dMjXVZrI39TrR29PYZfDY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 20 Feb 2025 14:36:06 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-jn4LMWnhnRYGlnt1No5Vx2dMjXVZrI39TrR29PYZfDY="
-        }
-      ]
-    },
-    {
-      "Route": "documentacion/provisiones/22/articulos/66.ucwvharww2.pdf",
-      "AssetFile": "documentacion/provisiones/22/articulos/66.pdf",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "992674"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/pdf"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"jn4LMWnhnRYGlnt1No5Vx2dMjXVZrI39TrR29PYZfDY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 20 Feb 2025 14:36:06 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ucwvharww2"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-jn4LMWnhnRYGlnt1No5Vx2dMjXVZrI39TrR29PYZfDY="
-        },
-        {
-          "Name": "label",
-          "Value": "documentacion/provisiones/22/articulos/66.pdf"
+          "Value": "documentacion/provisiones/1/articulos/66.pdf"
         }
       ]
     },

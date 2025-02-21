@@ -15,6 +15,7 @@ namespace ContadSP.Models
         public int id { get; set; }
         public DateOnly fecha_pago { get; set; }
         public string? factura { get; set; }
+        public string? remito { get; set; }
         public string? retencion_ib { get; set; }
         public string? retencion_ganancias { get; set; }
         public double subtotal { get; set; }

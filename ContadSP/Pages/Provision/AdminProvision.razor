@@ -110,7 +110,19 @@
 
     private void VerDetalles(Provision prov)
     {
-        if(prov.estado_id == 7)
+        if (prov.estado_id == 1)
+        {
+            NavigationManager.NavigateTo($"/provision_pendiente/{prov.id}");
+        }
+        else if (prov.estado_id == 2)
+        {
+            NavigationManager.NavigateTo($"/provision_aprobada/{prov.id}");
+        }
+        else if (prov.estado_id == 4)
+        {
+            NavigationManager.NavigateTo($"/pedido_en_proceso/{prov.id}");
+        }
+        else if(prov.estado_id == 7)
         {
             NavigationManager.NavigateTo($"/compra/{prov.id}");
         }

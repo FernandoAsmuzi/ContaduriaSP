@@ -1,0 +1,447 @@
+﻿@page "/provision_aprobada/{id}"
+
+@using ContadSP.Controllers
+@using ContadSP.Repositorios
+@using ContadSP.Models
+@using System.Text.Json
+@using DinkToPdf
+@using Radzen
+@using Radzen.Blazor
+@using ContadSP.Services
+
+@inject IRepositorio<DetalleProvision> repositorioDetalleProvision
+@inject IRepositorio<Provision> repositorioProvision
+@inject IRepositorio<Proveedor> repositorioProveedor
+@inject IRepositorio<ProvisionExp> repositorioProvisionExp
+@inject IRepositorio<Estado> repositorioEstado
+@inject IRepositorio<Pedido> repositorioPedido
+@inject IRepositorio<PedidoProveedor> repositorioPedidoProveedor
+@inject IRepositorio<Proceso> repositorioProceso;
+@inject IRepositorio<ProcesoPedido> repositorioProcesoPedido
+@inject IRepositorio<PresupuestoPedido> repositorioPresupuestoPedido
+@inject IJSRuntime JSRuntime
+
+@inject DialogService DialogService
+@inject NavigationManager NavigationManager
+@inject PdfService PdfService
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12 border rounded">
+            <div class="conteiner-fluid">
+                @*  ----CONTENEDORES---- *@
+
+                @* ----ENCABEZADO--- *@
+                <div class="pt-3">
+                    <h3 class="text-center">Detalle de la provisión</h3>
+                </div>
+                @* ----ENCABEZADO--- *@
+
+                @* ----DATOS DE LA PROVISION/PEDIDO--- *@
+                <div class="row">
+                    <div class="col">
+                        <label><strong>ID Provisión:</strong></label>
+                        <label>@prov.id</label>
+                    </div>
+                    <div class="col">
+                        <label><strong>Fecha provisión:</strong></label>
+                        <label>@prov.fecha_provision</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label><strong>Descripcion:</strong></label>
+                        <label>@prov.descripcion</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label><strong>Destino:</strong></label>
+                        <label>@destino</label>
+                    </div>
+                    <div class="col">
+                        <label><strong>Usuario solicitante:</strong></label>
+                        <label>@usuario</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label><strong>Tipo pedido:</strong></label>
+                        <label>@tipo</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label><strong>Estado: </strong></label>
+                        <label class="@GetEstadoCssClass(prov.estado_id)"><strong>@estado.estado</strong></label>
+                    </div>
+                </div>
+
+
+                @* ----DATOS DE LA PROVISION/PEDIDO---*@
+                <br>
+
+                @* ----ARTICULOS DE LA PROVISION/PEDIDO---- *@
+                <div style="overflow: auto;" class="pt-3">
+                    <table class="table table-striped table-responsive table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Artículo</th>
+                                <th>Precio unitario</th>
+                                <th>Unidad</th>
+
+
+                                <th>Cantidad</th>
+                                <th>Subtotal aprox</th>
+                                <th>Subtotal letra</th>
+
+
+
+
+                                <th>Especificación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var p in provisionDetalle)
+                            {
+                                <tr>
+                                    <td>@p.Articulo.descripcion</td>
+                                    <td>@p.Articulo.monto_aprox</td>
+                                    <td>@p.UnidadMedida.unidad</td>
+
+
+                                    <td>@p.cantidad_aprobada</td>
+                                    <td>@p.subtotal_aprobado</td>
+                                    <td>@p.subtotal_aprobado_letra</td>
+
+
+
+                                    <td>@p.especificacion</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="row">
+
+
+                        <div class="col-md-6">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-end"><strong>Total:</strong></td>
+                                        <td class="text-end">@prov.total_aprox</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-end"><strong>Total letra:</strong></td>
+                                        <td class="text-end">@prov.total_letra</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+                @* ----ARTICULOS DE LA PROVISION/PEDIDO---- *@
+
+                <br>
+
+
+                <div style="overflow: auto;">
+                    <h4>Proveedores Seleccionados</h4>
+                    <table class="table table-striped table-responsive table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Comercio</th>
+                                <th>Dirección</th>
+                                <th>Teléfono</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var d in proveedoresSeleccionados)
+                            {
+                                if (d.Value)
+                                {
+                                    <tr>
+                                        <td>@d.Key.nombre</td>
+                                        <td>@d.Key.nombre_comercial</td>
+                                        <td>@d.Key.direccion</td>
+                                        <td>@d.Key.telefono</td>
+                                        <td>@d.Key.email</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="btn-opciones pb-3">
+                    <div class="boton-busqueda">
+                        <button type="button" class="btn btn-primary" @onclick="SeleccionarProveedores">Seleccionar proveedores</button>
+                    </div>
+                    <div class="boton-ver">
+                        <button type="button" class="btn btn-success" @onclick="() => GenerarPedido(prov)">Generar invitación</button>
+                    </div>
+                </div>
+
+                @*  ----CONTENEDORES---- *@
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public string id { get; set; }
+
+    private List<DetalleProvision> provisionDetalle = new List<DetalleProvision>();
+    private List<Estado> estados = new List<Estado>();
+    private List<Proveedor> proveedores = new List<Proveedor>();
+    private List<Proceso> procesos = new List<Proceso>();
+    private List<PedidoProveedor> pedidoProveedorList = new List<PedidoProveedor>();
+    private List<PresupuestoPedido> presupuestoPedidos = new List<PresupuestoPedido>();
+    private Dictionary<Proveedor, bool> proveedoresSeleccionados = new Dictionary<Proveedor, bool>();
+
+    //diccionario articulos para el select
+    private Dictionary<int, bool> productosSeleccionados = new Dictionary<int, bool>();
+
+    private Provision prov = new Provision();
+    private Estado? estado = new Estado();
+    private Pedido pedido = new Pedido();
+    private PedidoProveedor pedidoProveedor = new PedidoProveedor();
+    private ProvisionExp exp = new ProvisionExp();
+    private ProvisionExp? ultimaProvExp = new ProvisionExp();
+    private Pedido ultimoPedido = new Pedido();
+
+    private string? destino;
+    private string? usuario;
+    private string? tipo;
+    private int anio = 0;
+    private double aprobado = 0;
+    private string aprobadoLetra = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        prov = await repositorioProvision.ObtenerProvisionPorId(int.Parse(id));
+
+        procesos = (await repositorioProceso.ObtenerTodo()).ToList();
+        destino = prov.Destino.destino;
+        usuario = prov.Usuario.nombre_usuario;
+        tipo = prov.TipoPedido.tipo;
+        provisionDetalle = (await repositorioDetalleProvision.ObtenerProvisionesId(int.Parse(id))).ToList();
+        await CargarEstado();
+    }
+
+    private string GetEstadoCssClass(int estadoId)
+    {
+        var estadoCssMap = new Dictionary<int, string>
+                        {
+            { 1, "text-warning" },
+            { 4, "text-warning" },
+            { 2, "text-success" },
+            { 5, "text-success" },
+            { 3, "text-danger" },
+            { 6, "text-danger" },
+            { 7, "text-warning" },
+            { 8, "text-success" },
+            { 9, "text-success" }
+                        };
+
+        return estadoCssMap.TryGetValue(estadoId, out var cssClass) ? cssClass : "";
+    }
+
+    private async Task CargarEstado()
+    {
+        estado = new Estado();
+        estados = (await repositorioEstado.ObtenerTodo()).ToList();
+        estado = estados.FirstOrDefault(e => e.id == prov.estado_id);
+    }
+
+    private async Task SeleccionarProveedores()
+    {
+        proveedores = (await repositorioProveedor.ObtenerTodo()).ToList();
+
+        foreach (var proveedor in proveedores)
+        {
+            if (!proveedoresSeleccionados.ContainsKey(proveedor))
+            {
+                proveedoresSeleccionados[proveedor] = false;
+            }
+        }
+
+        var result = await DialogService.OpenAsync("Lista de proveedores", ds =>
+    @<RadzenStack Gap="1.5rem">
+        <div class="conteiner-fluid">
+            <div style="overflow: auto;">
+                <table class="table table-striped table-responsive table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Nombre comercial</th>
+                            <th>Dirección</th>
+                            <th>Teléfono</th>
+                            <th>Email</th>
+                            <th>Agregar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var p in proveedores)
+                        {
+                            <tr>
+                                <td>@p.nombre</td>
+                                <td>@p.nombre_comercial</td>
+                                <td>@p.direccion</td>
+                                <td>@p.telefono</td>
+                                <td>@p.email</td>
+                                <td><RadzenCheckBox @bind-Value=@proveedoresSeleccionados[p] @onchange="e => OnProveedorSeleccionado(e, p)" /></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <button type="button" class="btn btn-primary" @onclick="() => DialogService.Close()">
+                Aceptar
+            </button>
+        </div>
+    </RadzenStack>
+    ,
+    new DialogOptions() { Width = "auto", Height = "auto" });
+    }
+
+
+
+    private void OnProveedorSeleccionado(ChangeEventArgs e, Proveedor proveedor)
+    {
+        proveedoresSeleccionados[proveedor] = (bool)e.Value;
+    }
+
+    private Proceso ObtenerProceso(int tipoId, double total)
+    {
+        var resul = new Proceso();
+        foreach (var tipo in procesos) //--RECORRE LA LISTA DE TIPO MONTOS PARA CALCULAR EL CORRECTO--
+        {
+            if (tipo.tipo_pedido_id == tipoId)
+            {
+                if (tipo.monto_maximo == 0)
+                {
+                    if (total > tipo.monto_maximo)
+                    {
+                        resul = tipo;
+                    }
+                }
+                else
+                {
+                    if (total <= tipo.monto_maximo && total > tipo.monto_minimo)
+                    {
+                        resul = tipo;
+                    }
+                }
+            }
+        }
+        return resul;
+    }
+
+    private async Task CargarProceso(Pedido p, Proceso pro)
+    {
+        ProcesoPedido procesoPedido = new ProcesoPedido();
+        var ultimoProcesoPedido = await repositorioProcesoPedido.ObtenerUltimoProcesoNumero(pro.id);
+
+        if (ultimoProcesoPedido is null || CambiarAnio(ultimoProcesoPedido.anio))
+        {
+            procesoPedido.num_proceso = 1;
+            procesoPedido.proceso_completo = $"{pro.sigla}1-{DateTime.Now.Year}";
+        }
+        else
+        {
+            procesoPedido.num_proceso = ultimoProcesoPedido.num_proceso + 1;
+            procesoPedido.proceso_completo = $"{pro.sigla}{ultimoProcesoPedido.num_proceso + 1}-{DateTime.Now.Year}";
+        }
+
+        procesoPedido.anio = DateTime.Now.Year;
+        procesoPedido.proceso_id = pro.id;
+        procesoPedido.pedido_id = p.id;
+        await repositorioProcesoPedido.Agregar(procesoPedido);
+    }
+
+    private async Task GenerarPedido(Provision prov)
+    {
+        if (!proveedoresSeleccionados.Any(p => p.Value))
+        {
+            await JSRuntime.InvokeVoidAsync("showSweetAlert", "Advertencia", "Debe seleccionar al menos un proveedor.", "warning");
+            return;
+        }
+
+        ultimoPedido = await repositorioPedido.ObtenerUltimoPedido();
+        anio = DateTime.Now.Year;
+
+        if (ultimoPedido is null || CambiarAnio(ultimoPedido.anio))
+        {
+            pedido.acta_num = 1;
+        }
+        else
+        {
+            pedido.acta_num = ultimoPedido.acta_num + 1;
+        }
+
+        pedido.anio = anio;
+        pedido.provision_id = prov.id;
+        await repositorioPedido.Agregar(pedido);
+        await repositorioProvision.CambiarEstadoProvision(prov, 4);
+
+        ultimoPedido = await repositorioPedido.ObtenerUltimoPedido();
+        foreach (var p in proveedoresSeleccionados.Where(p => p.Value))
+        {
+            pedidoProveedor = new PedidoProveedor
+                {
+                    proveedor_id = p.Key.id,
+                    pedido_id = ultimoPedido.id
+                };
+            await repositorioPedidoProveedor.Agregar(pedidoProveedor);
+        }
+
+        var proceso = ObtenerProceso(prov.tipo_pedido_id, prov.total_aprox);
+        if (proceso.id != 7 && proceso.id != 8)
+        {
+            await CargarProceso(ultimoPedido, proceso);
+        }
+
+        var pdfBytes = PdfService.GenerarPdf(ultimoPedido, prov, provisionDetalle);
+
+        var folderPath = Path.Combine("wwwroot", "documentacion", "pedidos", DateTime.Now.ToString("dd-MM-yyyy"));
+        if (!Directory.Exists(folderPath))
+        {
+            Directory.CreateDirectory(folderPath);
+        }
+
+        var filePath = Path.Combine(folderPath, $"Pedido_{ultimoPedido.id}.pdf");
+        await File.WriteAllBytesAsync(filePath, pdfBytes);
+
+        await DescargarPdf(pdfBytes);
+
+        await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "El pedido se generó correctamente", "success");
+        NavigationManager.NavigateTo("/");
+    }
+
+    private async Task DescargarPdf(byte[] pdfBytes)
+    {
+        var base64 = Convert.ToBase64String(pdfBytes);
+        var fileName = $"Pedido_{ultimoPedido.id}.pdf";
+        var jsCode = $"var link = document.createElement('a'); link.href = 'data:application/pdf;base64,{base64}'; link.download = '{fileName}'; link.click();";
+        await JSRuntime.InvokeVoidAsync("eval", jsCode);
+        await JSRuntime.InvokeVoidAsync("showSweetAlert", "¡Éxito!", "se descargo el pdf", "success");
+    }
+
+    private bool CambiarAnio(int ultima)
+    {
+        anio = DateTime.Now.Year;
+        return anio != ultima;
+    }
+
+}

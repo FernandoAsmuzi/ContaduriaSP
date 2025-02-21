@@ -128,6 +128,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVkaWRvXERldGFsbGVQZWRpZG8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/fasmuzi/Desktop/ContaduriaSP/ContadSP/Pages/Pedido/Proceso.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVkaWRvXFByb2Nlc28ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/fasmuzi/Desktop/ContaduriaSP/ContadSP/Pages/Presupuestos/AltaPresupuesto.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJlc3VwdWVzdG9zXEFsdGFQcmVzdXB1ZXN0by5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -146,6 +150,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/fasmuzi/Desktop/ContaduriaSP/ContadSP/Pages/Provision/AltaProvision.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvdmlzaW9uXEFsdGFQcm92aXNpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fasmuzi/Desktop/ContaduriaSP/ContadSP/Pages/Provision/Aprobada.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvdmlzaW9uXEFwcm9iYWRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fasmuzi/Desktop/ContaduriaSP/ContadSP/Pages/Provision/Pendiente.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvdmlzaW9uXFBlbmRpZW50ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/fasmuzi/Desktop/ContaduriaSP/ContadSP/Shared/LoginLayout.razor]
